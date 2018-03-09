@@ -1,0 +1,87 @@
+<!--内容: preach.html
+    姓名：易欢
+    日期：2015/5/23
+-->
+<html>
+<head>
+    <title>宣讲会日程</title>
+    <meta charset="utf-8"/>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/company-preach.css">
+</head>
+
+<body>
+<{include file="../common/header.html"}>
+<{include file="../company/common/header.html"}>
+<div class="page clearfix">
+    <ul class="list-head">
+        <li>举办时间</li>
+        <li class="preach-name">宣讲名称</li>
+        <li class="preach-type">宣讲类型</li>
+        <li class="preach-location">举办地点</li>
+    </ul>
+    <div id="J_template">
+    </div>
+    <div id="J_pagination"></div>
+</div>
+<{include file="../common/footer.html"}>
+<script type="text/template" id="tpl">
+    {@each data as d}
+    <ul class="list-body" id="&{d.id}">
+        <li class="date-box">
+            <div class="date-box-left">
+                <span class="month">&{d.month}月</span>
+                <span class="day">&{d.date}</span>
+            </div>
+            <div class="date-box-right">
+                <span class="week">&{d.week}</span>
+                <span class="time">&{d.time}</span>
+            </div>
+        </li>
+        <li class="preach-name"><a href="<{$website}>careerTalk/careerTalk/detail/id/&{d.id}" target="_blank" class="preach-links">&{d.company}</a></li>
+        <li class="preach-type">&{d.preachType}</li>
+        <li class="preach-location">&{d.location}</li>
+        <li>
+            {@if d.isOverdue == 1}
+            <em>已过期</em>
+            {@/if}
+            {@if d.isOverdue == 0}
+            {@if d.isEnroll == 0}
+            <a href="javascript:;" class="want-enroll">我要报名</a>
+            <a href="javascript:;" class="cancel-enroll none">取消报名</a>
+            {@/if}
+            {@if d.isEnroll == 1}
+            <a href="javascript:;" class="want-enroll none">我要报名</a>
+            <a href="javascript:;" class="cancel-enroll">取消报名</a>
+            {@/if}
+            {@/if}
+        </li>
+    </ul>
+    {@/each}
+</script>
+<script type="text/javascript">
+    KISSY.use('page/company/companyPreach' , function(S){
+        var urls = PW.Env.url.company.companyPreach;
+        // var preachlist = 'preachlist';
+        // var url = urls.getPreachlist+'?'+preachlist;
+        var url = urls.getPreachList+'/id/'+<{$id}>;
+        S.ready(function(){
+            PW.page.company.companyPreach({
+                renderTo:'#J_pagination' ,//分页显示指向
+                juicerRender:'#tpl' ,//模板渲染指向
+                dataRender:'#J_template',
+                pageSize:5,//每页显示的记录数
+                url:url,//必选，指向ajax的url
+                configUrl:function(url,page,me,prevdata){
+                     //return url + '/' + page1 ;
+                    return url;
+                },
+                type:'get'
+            })
+        });
+    })
+</script>
+</body>
+</html>

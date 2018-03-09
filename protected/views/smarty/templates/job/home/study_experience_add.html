@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>求职通</title>
+	    <meta charset="utf-8" />
+		<{include file="../../common/link.html"}>
+		<{include file="../../common/script.html"}>
+		<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/mine.css">
+	</head>
+	<body>
+		<{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="mine">
+			<!-- 新增教育经历模块 start-->
+			<div class="module">
+				<h3 class="module-title">
+					<span>新增教育经历</span>
+					<a href="<{$website}>job/job/index">返回我的档案</a>
+				</h3>
+				<form method="post" action="<{$website}>job/job/studyExperienceAdd/user_id/<{$user_id}>" class="clearfix info-form">
+					<div class="info-item long">
+						<span class="label">学校名称&nbsp;:</span>
+						<input type="text" class="control-area-long"  data-valid-tip="请填写学校名称|此项为必填项" data-valid-rule="notNull" maxlength="50" name="StudyExperience[school_name]"/>
+					</div>
+					<div class="info-item long">
+						<span class="label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;院&nbsp;:</span>
+						<input type="text" class="control-area-long"  data-valid-tip="请填写学院名称|此项为必填项" data-valid-rule="notNull" maxlength="50" name="StudyExperience[deparment]"/>
+					</div>
+					<div class="info-item long">
+						<span class="label">专业名称&nbsp;:</span>
+						<input type="text" class="control-area-long" data-valid-tip="请填写专业名称|此项为必填项" data-valid-rule="notNull" maxlength="50" name="StudyExperience[major_name]" />
+					</div>
+					<div class="info-item long">
+						<span class="label">专业类别&nbsp;:</span>
+						<select class="control-area-short J_Major" autocomplete="off" data-valid-tip=" "  data-valid-rule="scale(0,1000,0)" name="">						 
+							<option value="0">请选择</option>
+							<{foreach from=$studyParentType item=type}>
+							<option value="<{$type.id}>"><{$type.name}></option>
+						    <{/foreach}>
+						</select>
+						<select class="control-area-nomal J_Sub" autocomplete="off" data-valid-tip=" |请选择专业类别，此项为必选项" data-valid-rule="scale(0,1000,0)" name="study_specialty_id">
+							<option value="0">请选择</option>
+							<option value="1">政治相关类</option>
+						</select>
+					</div>
+					<div class="info-item long">
+						<span class="label">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历&nbsp;:</span>
+						<select class="control-area-normal" autocomplete="off" data-valid-tip=" |请选择学历，此项为必选项" data-valid-rule="scale(0,1000,0)" name="position_degree_id">
+							<option value="0">请选择</option>
+							<{foreach from=$Degree item=degree}>
+							<option value="<{$degree.id}>"><{$degree.name}></option>							 
+							<{/foreach}>
+						</select>
+					</div>
+					<div class="info-item long">
+						<span class="label">就读时间&nbsp;:</span>
+						<!--<input type="text" class="control-area-short" id="start-year" data-valid-tip=" " data-valid-rule="notNull|isNumber" maxlength="50" name="StudyExperience[start_time][year]"/>-->
+                        <select class="control-area-short" id="start-year" name="StudyExperience[start_time][year]" data-valid-rule="scale(1900,2100,0)">
+							<option value="0">请选择</option>				
+							<{foreach from=$year item=allYear}>
+							    <option value="<{$allYear}>"><{$allYear}></option>		
+							<{/foreach}>		 
+						</select>
+						<label for="start-year">年</label>
+						<!--<input type="text" class="control-area-short" id="start-month" data-valid-tip=" " data-valid-rule="notNull|isNumber"maxlength="50" name="StudyExperience[start_time][month]"/>-->
+						<select  class="control-area-short" id="start-month"  name="StudyExperience[start_time][month]" data-valid-rule="scale(0,13,0)">
+						     <option value="0">请选择</option>				
+							<{foreach from=$month item=allMonth}>
+							    <option value="<{$allMonth}>"><{$allMonth}></option>		
+							<{/foreach}>		 
+						</select>
+						<label for="start-month">月&nbsp;至</label>
+						<!--<input type="text" class="control-area-short" id="end-year" data-valid-tip=" " data-valid-rule="notNull|isNumber" maxlength="50"  name="StudyExperience[end_time][year]"/>-->
+
+						<select class="control-area-short" id="end-year" name="StudyExperience[end_time][year]" data-valid-rule="scale(1900,2100,0)">
+							<option value="0">请选择</option>				
+							<{foreach from=$year item=allYear}>
+							    <option value="<{$allYear}>"><{$allYear}></option>		
+							<{/foreach}>		 
+						</select>
+						<label for="end-year">年</label>
+						<!--<input type="text" class="control-area-short" id="end-month" data-valid-tip=" " data-valid-rule="notNull|isNumber"  maxlength="50" name="StudyExperience[end_time][month]"/>-->
+						<select  class="control-area-short" id="end-month"  name="StudyExperience[end_time][month]" data-valid-rule="scale(0,13,0)">
+						     <option value="0">请选择</option>				
+							<{foreach from=$month item=allMonth}>
+							    <option value="<{$allMonth}>"><{$allMonth}></option>		
+							<{/foreach}>		 
+						</select>
+						<label for="end-month">月</label>
+					</div>
+					<div class="info-item long">
+						<span class="detail-description label">专业描述&nbsp;:</span>
+						<textarea placeholder="添加学习经历，专业课程，所获奖励等信息(6-400字)" maxlength="400" minlength="6"  name="StudyExperience[study_describe]"></textarea>
+					</div>
+					<div class="info-item long">
+						<span class="label"></span>
+						<input type="checkbox" id="choice" name="sign" value="1">
+						<label for="choice">将本经历作为我在联盟网的身份</label>
+					</div>
+					<div class="info-item center">
+						<button type="submit" class="save">保存</button>
+						<button type="reset" class="cancel">重置</button> 
+					</div>
+				</form>
+			</div>
+			<!-- 新增教育经历模块 end-->
+		</div>
+		<{include file="../../common/footer.html"}>
+		<script type="text/javascript">
+			KISSY.use('page/job_apply/education',function(S){
+				S.ready(function(){
+					PW.page.job_apply.education();
+				})
+			})
+		</script>
+	</body>
+</html>

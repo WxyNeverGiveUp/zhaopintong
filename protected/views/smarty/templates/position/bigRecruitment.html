@@ -1,0 +1,174 @@
+<!-- 赵凯康 招聘信息-教育类页面 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>招聘信息</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/recruitment-information/recruitment-related.css">
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="search-field">
+    <!-- 该div用于设置居中，目的在于使“当前位置与left-nav下的h1的border-left对齐” -->
+    <div>
+        <span>当前位置：</span>
+        <a href="<{$site}>">首页></a>
+        <a href="<{$website}>position/position/list/kind/<{$kind}>">招聘信息</a>
+        <div class="search-box">
+            <!-- 当用户点击下拉列表时需用js来修改label的值，已使页面显示值与用户所选值一致-->
+            <label>招聘信息</label>
+            <input type="text" class="J_input">
+            <a href="javascript:;"  class="J_search">搜&nbsp;索</a>
+        </div>
+    </div>
+</div>
+<div class="content clearfix">
+    <div class="left-nav">
+        <ul class="J_position_type">
+            <h1>职位类别</h1>
+            <{if $kind eq "1"}>
+            <li positionTypeId="0"><a href="javascript:;">全部</a></li>
+            <li positionTypeId="1"><a href="javascript:;">学前教师</a></li>
+            <li positionTypeId="2"><a href="javascript:;">小学教师</a></li>
+            <li positionTypeId="3"><a href="javascript:;">初中教师</a></li>
+            <li positionTypeId="4"><a href="javascript:;">高中教师</a></li>
+            <li positionTypeId="5"><a href="javascript:;">大学教师</a></li>
+            <li positionTypeId="6"><a href="javascript:;">培训辅导</a></li>
+            <li positionTypeId="7"><a href="javascript:;">其他</a></li>
+            <{else}>
+            <!-- 当链接被点击时，显示样式的类为after-click -->
+            <li positionTypeId="0"><a href="javascript:;">全部</a></li>
+            <{foreach name=infolist from=$positionTypeList item=positionType}>
+            <{if $smarty.foreach.infolist.iteration <6}>
+            <li positionTypeId="<{$positionType.id}>"><a href="javascript:;"><{$positionType.name}></a></li>
+            <{/if}>
+            <{/foreach}>
+            <li positionTypeId="PTmore"><a href="javascript:;">更多...</a></li>
+            <{/if}>
+
+        </ul>
+        <ul class="J_property">
+            <h1>单位性质</h1>
+            <li propertyId="0"><a href="javascript:;">全部</a></li>
+            <{foreach name=infolist from=$propertyList item=property}>
+            <{if $smarty.foreach.infolist.iteration <9}>
+            <li propertyId="<{$property.id}>"><a href="javascript:;"><{$property.name}></a></li>
+            <{/if}>
+            <{/foreach}>
+            <li propertyId="Pmore"><a href="javascript:;">更多...</a></li>
+        </ul>
+        <ul class="J_major">
+            <h1>所需专业</h1>
+            <li majorId="0"><a href="javascript:;">全部</a></li>
+            <{foreach name=infolist from=$positionSpecialtyList item=positionSpecialty}>
+            <{if $smarty.foreach.infolist.iteration <3}>
+            <li majorId="<{$positionSpecialty.id}>"><a href="javascript:;"><{$positionSpecialty.name}></a></li>
+            <{/if}>
+            <{/foreach}>
+            <li majorId="Mmore"><a href="javascript:;">更多...</a></li>
+            <!-- 点击‘其他’，会出现一个弹出层,弹出层还木有写。。。。 -->
+        </ul>
+    </div>
+    <div class="job-list">
+        <div class="select-section">
+            <select class="J_degree">
+                <option degreeId="0">学历</option>
+                <{foreach from=$degreeList item=degree}>
+                <option value="<{$degree.id}>"><{$degree.name}></option>
+                <{/foreach}>
+            </select>
+            <select class="J_message_source">
+                <option value="0">消息来源</option>
+                <option value="1">东北师大</option>
+                <option value="2">六所部属</option>
+                <option value="3">互联网</option>
+            </select>
+            <select class="J_location">
+                <option value="0" selected="selected">工作地点</option>
+                <option value="Lmore">点击选择工作地点</option>
+            </select>
+            <{if $isBig neq null}>
+            <input type="checkbox" checked="true" class="recruit-meeting J_recruit_meeting"><label class="recruit-meeting-name">供需洽谈会</label>
+            <{else}>
+            <input type="checkbox" class="recruit-meeting J_recruit_meeting"><label class="recruit-meeting-name">供需洽谈会</label>
+            <{/if}>
+            <a href="javascript:;" class="recruit-time current-sort-way">时间</a>
+            <a href="javascript:;" class="green-arrow">热度</a>
+            <!-- 当点击此a标签时，箭头方向要换 -->
+        </div>
+        <ul id="J_template">
+        </ul>
+        <div id="J_pagination"></div>
+    </div>
+</div>
+<div class="pop-layer">
+</div>
+<div class="show-layer">
+    <h1>请选择<em class="J_select_what"></em></h1>
+    <h2>已选择：<em class="J_selected_what"></em></h2>
+    <div class="clearfix various-kind">
+        <ul class="total"></ul>
+        <ul class="branch"></ul>
+    </div>
+    <div class="clearfix button-style">
+        <button class="cancel">取消</button>
+        <button class="okay">确定</button>
+    </div>
+</div>
+
+<{include file="../common/footer.html"}>
+<script id="tpl" type="text/template">
+    {@each data as d}
+    <li>
+        <div class="job-info" id=&{d.id}>
+            <p class="job-name">职位名称：<a href="<{$website}>position/position/detail/id/&{d.id}" target="_blank">&{d.posName}</a>&nbsp;&nbsp;&nbsp;[&{d.enteringTime}]</p>
+            <p class="company-name">单位名称：<a href="<{$website}>company/company/detail/id/&{d.companyId}" target="_blank">&{d.comName}</a></p>
+            <p class="other-info"><span>&{d.publish}</span><span>城市：&{d.city}</span><span>学历：&{d.degree}</span><span>专业：&{d.major}</span></p>
+            <p class="bright-spot"><span>&{d.specialA}</span><span>&{d.specialB}</span></p>
+            <a href="<{$website}>position/position/detail/id/&{d.id}" target="_blank" class="check">查看</a>
+            {@if d.collection == 1}
+            <a href="javaScript:;" class="uncollection">
+                取消收藏
+            </a>
+            <a href="javaScript:;" class="collection none">
+                收藏
+            </a>
+            {@else if d.collection == 0}
+            <a href="javaScript:;" class="uncollection none">
+                取消收藏
+            </a>
+            <a href="javaScript:;" class="collection">
+                收藏
+            </a>
+            {@else}
+            {@/if}
+        </div>
+    </li>
+    {@/each}
+</script>
+<script type="text/javascript">
+    KISSY.use('page/recruitment/education',function(S){
+        var urls = PW.Env.url.recruitment.education;
+        var joblist = 'joblist';
+        var url = urls.getJoblist+'/kind/'+<{$kind}>+'/page';
+        S.ready(function(){
+            PW.page.recruitment.education({
+                renderTo: '#J_pagination',//分页显示指向
+                juicerRender: '#tpl',//模版渲染指向
+                dataRender: '#J_template',
+                pageSize: 10,//每页显示的记录数
+                url:url,//必选，必须指定ajax的url
+                extraParam:{'searchWord':'<{$searchWord}>','isJoinBigRecruitment':'1'},
+                configUrl:function(url,page,me,prevdata){
+                    return url + '/' + page;
+                    // return url;
+                },
+                type:'get'
+            });
+        });
+    });
+</script>
+</body>
+</html>

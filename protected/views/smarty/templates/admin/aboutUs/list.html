@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>关于我们</title>
+    <meta charset="utf-8">
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="title">
+                    <div class="title1">关于我们</div>
+                </div>
+                <table>
+                        <{foreach from=$list item=it}>
+                        <tr>
+                            <td><{$it.title}></td>
+                            <td>
+                                <a class="btn" href="<{$website}>admin/aboutUs/aboutUs/toEdit/id/<{$it.id}>">修改</a>
+                                <a class="btn" href="<{$website}>admin/aboutUs/aboutUs/detail/id/<{$it.id}>">详情</a>
+                            </td>
+                        </tr>
+                        <{/foreach}>
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

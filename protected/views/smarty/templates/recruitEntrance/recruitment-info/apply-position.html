@@ -1,0 +1,171 @@
+<!--吴晓阳 申请招聘职位 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>申请招聘职位</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css"
+          href="<{$staticWebsite}>recruitment_resources/css/page/recruitment-info/apply-position.css">
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <{include file="../common/simditor.html"}>
+    <{include file="../common/calendar.html"}>
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="content">
+    <div class="sidebar">
+        <h2><i class="fa fa-list list-img"></i>招聘信息</h2>
+        <ul class="tab_menu">
+            <li class="active"><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/index">招聘发布管理</a></li>
+            <li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/other">单位其他招聘信息</a></li>
+            <li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/queryAll">最近投递</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <form class="" method="post" action="<{$website}>recruitEntrance/recruitmentInfo/recruitment/add"
+              name="apply-position">
+            <div class="info-list">
+                <label class="laber-attr">是否属于教师</label>
+                <label class="laber-attr"><input type="radio" name="isTeacher" checked="checked" value="1">是</label>
+                <label><input type="radio" name="isTeacher" value="0">否</label>
+            </div>
+            <div class="info-list">
+                <label class="laber-attr">是否参加大招会</label>
+                <label class="laber-attr"><input type="radio" name="isJoinBigRecruitment" checked="checked" value="2">是</label>
+                <label><input type="radio" name="isJoinBigRecruitment" value="1">否</label>
+            </div>
+            <div class="info-list">
+                <label class="laber-attr">是否参加招聘周</label>
+                <label class="laber-attr"><input type="radio" name="isJoinRecruitmentWeek" checked="checked" value="2">是</label>
+                <label><input type="radio" name="isJoinRecruitmentWeek" value="1">否</label>
+            </div>
+            <div class="info-list">
+                <label class="laber-attr">职位名称</label>
+                <input type="text" name="positionName" class="position-name require-text" placeholder="必填（20字以内）">
+                <p class="tip none">请输入20字以内的职位名称</p>
+            </div>
+            <div class="info-list">
+                <label class="laber-attr">所在城市</label>
+                <span>
+				        省份：
+				        <select class="province require-option" name="provinceId">
+				            <option value="-1" selected="selected">请选择</option>
+							<{foreach from=$provinceList item=p}>
+                            <option value="<{$p.id}>"><{$p.name}></option>
+                            <{/foreach}>
+				        </select>
+				        城市：
+				        <select class="city require-option" name="cityId">
+				            <option value="-1" selected="selected">请选择</option>
+				        </select>
+				    </span>
+            </div>
+            <div class="info-list teacher-position">
+                <label class="laber-attr">职位类别</label>
+                <select class="info-select require-option" name="">
+                    <option selected="selected" value="-1">请选择</option>
+                    <{foreach from=$positionType1 item=p1}>
+                    <option value="<{$p1.id}>"><{$p1.name}></option>
+                    <{/foreach}>
+                </select>
+            </div>
+            <div class="info-list not-t-position none">
+                <label class="laber-attr">职位类别</label>
+                <select class="info-select" name="">
+                    <option selected="selected" value="-1">请选择</option>
+                    <{foreach from=$positionType2 item=p2}>
+                    <option value="<{$p2.id}>"><{$p2.name}></option>
+                    <{/foreach}>
+                </select>
+            </div>
+            <div class="info-list">
+                <label class="laber-attr">学历要求</label>
+                <span>
+				        <select class="info-select require-option" name="degreeId">
+				            <option selected="selected" value="-1">请选择</option>
+				            <{foreach from=$degreeList item=degree}>
+                            <option value="<{$degree.id}>"><{$degree.name}></option>
+						<{/foreach}>
+				        </select>
+				    </span>
+            </div>
+            <div class="info-list">
+                <label class="laber-attr">招聘人数</label>
+                <input type="text" name="recruitmentNum" class="require-text people-num" placeholder="必填"> 人
+                <p class="tip none">请输入数字或者中文</p>
+            </div>
+            <div class="info-list day-box">
+                <label class="laber-attr">截止日期</label>
+                <p class="select-date-box">
+                    <input type="text" name="deadTime" placeholder="请选择日期"
+                           class="J_selectDate select-date require-text"/>
+                </p>
+            </div>
+            <div class="info-list clearfix">
+                <label class="laber-attr">需求专业</label>
+                <label><input type="checkbox" name="unlimited-professional" class="nlimited-professional">不限专业</label>
+
+                <div class="demand-specialty clearfix">
+                    <ul class="major-list">
+                        <li class="major-active">请选择</li>
+                        <{foreach from =$majorSpecialtyList item = majorSpecialty}>
+                        <li majorCode="<{$majorSpecialty.id}>"><{$majorSpecialty.name}></li>
+                        <{/foreach}>
+                    </ul>
+                    <div class="major-detail">
+                        请您选择:
+                    </div>
+                </div>
+                <p class="margin-left-150 select-result">
+                    您已选择：
+                </p>
+                <input type="text" class="major none" name="specialtyIds"/>
+            </div>
+            <div class="info-list">
+                <label class="laber-attr">亮点</label>
+                <input type="text" name="bright" class="high-lights" placeholder="多个关键词用“，”分隔">
+            </div>
+            <div class="info-list">
+                <label class="laber-attr">岗位职责</label>
+                <textarea id="responsibility-editor" name="positionDuty"></textarea>
+            </div>
+            <div class="info-list">
+                <label class="laber-attr padding">岗位需求</label>
+                <textarea id="requirement-editor" name="positionNeed"></textarea>
+            </div>
+            <div class="info-list">
+                <label class="laber-attr padding">其他描述</label>
+                <textarea id="other-info" name="descrption"></textarea>
+            </div>
+            <button class="submit-btn">确认申请</button>
+        </form>
+    </div>
+</div>
+<{include file="../common/footer.html"}>
+
+<!-- ueditor -->
+<script type="text/javascript" src="<{$ueditorWebsite}>ueditor1_3_6-utf8-php/ueditor.config.js"></script>
+<script type="text/javascript" src="<{$ueditorWebsite}>ueditor1_3_6-utf8-php/ueditor.all.js"></script>
+<script type="text/javascript" src="<{$ueditorWebsite}>ueditor1_3_6-utf8-php/lang/zh-cn/zh-cn.js"></script>
+<link rel="stylesheet" type="text/css" href="<{$ueditorWebsite}>ueditor1_3_6-utf8-php/themes/default/css/ueditor.css"/>
+
+<script type="text/javascript">
+    var editor = UE.getEditor('responsibility-editor', {
+        fileRealPath: "?path=../../uploadFile/recruitEntrance/position-duty/"
+        //更多其他参数，请参考editor_config.js中的配置项
+    });
+    var editor = UE.getEditor('requirement-editor', {
+            fileRealPath: "?path=../../uploadFile/recruitEntrance/position-need/"
+            //更多其他参数，请参考editor_config.js中的配置项
+        }),
+        editor = UE.getEditor('other-info', {
+            fileRealPath: "?path=../../uploadFile/recruitEntrance/position-describe/"
+            //更多其他参数，请参考editor_config.js中的配置项
+        });
+</script>
+
+<script type="text/javascript"
+        src="<{$staticWebsite}>recruitment_resources/js/page/recruitment-info/apply-position.js"></script>
+</body>
+</html>

@@ -1,0 +1,486 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: post.css
+@Description: 宣讲会日历版css定义
+@Version: 1.0.0(2015-07-01)YYYY-MM-DD
+@author: zhaokaikang
+2015-07-01:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+.content {
+	width: 912px;
+	margin: 38px auto;
+}
+
+.calendar {
+	float: left;
+	width: 314px;
+	height: 300px;
+}
+
+.preach-info {
+	float: right;
+	width: 610px;
+	border: 1px solid #a9a8a8;
+	padding: 30px;
+}
+
+.preach-info h1 {
+	float: left;
+	height: 21px;
+	line-height: 21px;
+	font-size: 18px;
+	border-left: 7px solid #f17725;
+	color: #969696;
+	text-indent: 8px;
+}
+
+.list {
+	float: right;
+	width: 20px;
+	height: 30px;
+	background: url("../../../img/preach/blue-grey.png") no-repeat 0 0;
+	margin-right: 10px;
+}
+
+.square {
+	float: right;
+	width: 20px;
+	height: 30px;
+	background: url("../../../img/preach/blue-grey.png") no-repeat 0 -44px;
+	margin-right: -14px;
+}
+
+.time {
+	float: left;
+	width: 90px;
+	height: 50px;
+	margin-top: 28px;
+}
+
+.time p:first-child {
+	font-size: 24px;
+	font-weight: bolder;
+	text-align: center;
+}
+
+.time p:last-child {
+	font-size: 14px;
+	text-align: center;
+}
+
+.preach-info ul {
+	margin-top: 28px;
+}
+
+.preach-type-yellow {
+	float: left;
+	width: 56px;
+	height: 56px;
+	margin-top: 28px;
+	margin-left: 10px;
+	line-height: 56px;
+	background: url("../../../img/preach/yellow-circle.gif") no-repeat 0 0;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	font-weight: bolder;
+}
+
+.preach-type-green {
+	float: left;
+	width: 56px;
+	height: 56px;
+	margin-top: 28px;
+	margin-left: 10px;
+	line-height: 56px;
+	background: url("../../../img/preach/green-circle.gif") no-repeat 0 0;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	font-weight: bolder;
+}
+
+.preach-type-blue {
+	float: left;
+	width: 56px;
+	height: 56px;
+	margin-top: 28px;
+	margin-left: 10px;
+	line-height: 56px;
+	background: url("../../../img/preach/blue-circle.png") no-repeat 0 0;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	font-weight: bolder;
+}
+
+.detail-info {
+	float: right;
+	width: 376px;
+	height: 116px;
+	background: url("../../../img/preach/border.gif") no-repeat 0 0;
+	padding-left: 56px;
+	padding-top:18px; 
+}
+
+.detail-info a {
+	display: inline-block;
+	margin-bottom: 20px;
+	font-size:18px;
+	color: #438bce;
+	cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 371px;
+}
+
+.detail-info p {
+	font-size:12px;
+	color: #888888; 
+}
+
+ .grey-border {
+	position: absolute;
+	left: 127px;
+	top: 0;
+	width: 3px;
+	height: 100%;
+	border-left: 3px solid #a0a0a0;
+	z-index: -2000;
+}
+
+.ul-wrapper {
+	position: relative;
+}
+
+.ul-wrapper p {
+    text-align: left;
+}
+
+.ul-wrapper .no-preach-tip {
+    text-align: center;
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+
+
+/*日历*/
+.ks-clearfix::after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+.ks-clearfix {
+}
+.hidden {
+    display: none;
+}
+.ks-cal-call {
+    background: white none repeat scroll 0 0;
+    border: 2px solid #438bce;
+    font-family: Tahoma;
+    font-size: 12px;
+    height: auto;
+}
+.ks-cal-call.multi-1 {
+    width: 189px !important;
+}
+.ks-cal-call.multi-2 {
+    width: 209px !important;
+}
+.ks-cal-call.multi-3 {
+    width: 568px !important;
+}
+.ks-cal-call {
+}
+.ks-cal-call .ks-cal-box {
+    height: 188px;
+    position: relative;
+    width: 209px;
+}
+.ks-cal-call .ks-cal-hd {
+    background: #438bce;
+    height: 24px;
+    position: relative;
+    width: 209px;
+}
+.ks-cal-call .ks-cal-hd a {
+}
+.ks-cal-call .ks-cal-hd a.ks-prev {
+    background:  url("../../../img/preach/next-prev.gif") no-repeat scroll 0 4px;
+    color: white;
+    float: left;
+    font-size: 10px;
+    height: 14px;
+    left: 3px;
+    overflow: hidden;
+    position: absolute;
+    text-decoration: none;
+    text-indent: -100em;
+    top: 3px;
+    width: 10px;
+}
+.ks-cal-call .ks-cal-hd a.ks-next {
+    background:  url("../../../img/preach/next-prev.gif") no-repeat scroll 0 -15px;
+    color: white;
+    font-size: 10px;
+    height: 14px;
+    overflow: hidden;
+    position: absolute;
+    right: 3px;
+    text-decoration: none;
+    text-indent: -100em;
+    top: 3px;
+    width: 10px;
+}
+.ks-cal-call .ks-cal-hd a.ks-title, .ks-cal-call .ks-cal-hd a.ks-title:link, .ks-cal-call .ks-cal-hd a.ks-title:visited {
+    color: white;
+    display: block;
+    height: 17px;
+    line-height: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    top: 3px;
+    width: 77px;
+}
+.ks-cal-call .ks-cal-hd a.ks-title:hover {
+    background: url("../../../img/preach/next-prev.gif") repeat-x scroll 0 -75px;
+    border: 1px solid #8cc6ff;
+    color: #f0ff00;
+    top: 2px;
+}
+.ks-cal-call .ks-cal-bd {
+	margin: 0 13px;
+    width: 193px;
+}
+.ks-cal-call .ks-cal-bd .ks-whd {
+    background-color: #fff;
+    height: 19px;
+    margin-top: 4px;
+    overflow: hidden;
+    width: auto;
+}
+.ks-cal-call .ks-cal-bd .ks-whd span {
+    float: left;
+    line-height: 19px;
+    text-align: center;
+    width: 25.857px;
+}
+.ks-cal-call .ks-cal-bd .ks-whd span, x:-moz-any-link {
+    width: 25px;
+}
+.ks-cal-call .ks-cal-bd .ks-whd span, x:-moz-any-link, x:default {
+    width: 25.857px;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd {
+    background-color: white;
+    height: auto;
+    margin-top: 4px;
+    width: 181px;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a, .ks-cal-call .ks-cal-bd .ks-dbd a:link, .ks-cal-call .ks-cal-bd .ks-dbd a:visited {
+    color: #004499;
+    float: left;
+    line-height: 22px;
+    text-align: center;
+    text-decoration: none;
+    width: 25.857px;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a:hover {
+    background-color: #ebf4fc;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a, x:-moz-any-link {
+    width: 25px;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a:link, x:-moz-any-link {
+    width: 25px;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a:visited, x:-moz-any-link {
+    width: 25px;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a, .ks-cal-call .ks-cal-bd .ks-dbd a:link, .ks-cal-call .ks-cal-bd .ks-dbd a:visited, x:-moz-any-link, x:default {
+    width: 25.857px;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a.ks-null, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-null:link, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-null:visited {
+    background: white none repeat scroll 0 0;
+    color: white;
+    cursor: default;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a.ks-today, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-today:link, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-today:visited {
+    color: #ff6600;
+    font-weight: bold;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a.ks-selected, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-selected:link, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-selected:visited {
+    background-color: #cce7ff;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a.ks-disabled, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-disabled:link, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-disabled:visited {
+    background-color: white;
+    color: #8c8c8c;
+    cursor: default;
+}
+.ks-cal-call .ks-cal-bd .ks-dbd a.ks-range, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-range:link, .ks-cal-call .ks-cal-bd .ks-dbd a.ks-range:visited {
+    background-color: #cce7ff;
+}
+.ks-cal-call .ks-cal-ft {
+    text-align: center;
+    width: 181px;
+}
+.ks-cal-call .ks-cal-ft .ks-cal-time {
+    background-color: #e5e5e5;
+    display: inline-block;
+    padding: 3px 18px 3px 5px;
+    position: relative;
+    width: 95px;
+}
+.ks-cal-time .cta {
+    height: 20px;
+    line-height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 13px;
+}
+@media not all, not all {
+head ~ body .ks-cal-call .ks-cal-ft .ks-cal-time {
+    display: block;
+    float: left;
+    margin-left: 13px;
+    padding: 2px 5px 2px 0;
+    width: 110px;
+}
+head ~ body .ks-cal-call .ks-cal-ft .ct-ok {
+    margin-left: 0;
+}
+head ~ body .ks-cal-time .cta {
+}
+}
+.ks-cal-time button {
+    background: url("http://img05.taobaocdn.com/tps/i5/T1McxAXXRHXXXXXXXX-29-10.gif") no-repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    height: 10px;
+    overflow: hidden;
+    width: 13px;
+}
+.ks-cal-time button.u {
+    background-position: 0 0;
+}
+.ks-cal-time button.d {
+    background-position: -16px 0;
+}
+.ks-cal-time span {
+    cursor: pointer;
+}
+.ks-cal-time span.on {
+    background-color: #333;
+    color: white;
+    padding: 0 1px;
+}
+.ks-cal-timelist {
+    background-color: #f2f2f2;
+    border: 1px solid #9bc0e0;
+    height: auto;
+    position: absolute;
+    width: auto;
+    z-index: 100;
+}
+.ks-cal-timelist ul {
+    border-left: 1px solid #9bc0e0;
+    float: left;
+    list-style: outside none none;
+    margin: 5px 0;
+    padding: 0;
+    width: 50px;
+}
+.ks-cal-timelist ul.first {
+    border: 0 none !important;
+}
+.ks-cal-timelist ul li {
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+.ks-cal-timelist ul li a, .ks-cal-timelist ul li a:link, .ks-cal-timelist ul li a:visited {
+    color: black;
+    line-height: 18px;
+    text-decoration: none;
+}
+.ks-cal-timelist ul li a:hover {
+    background-color: #cce7f2;
+    color: #004499;
+}
+.ks-setime {
+    background: #f2f2f2 none repeat scroll 0 0;
+    border: 1px solid #9bc0e0;
+    height: auto;
+    left: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 28px;
+    vertical-align: middle;
+    width: 180px;
+}
+.ks-setime p {
+    height: 30px;
+    margin: 0;
+    padding: 0;
+}
+.ks-setime select, .ks-setime input {
+    width: 80px;
+}
+.ks-selectime {
+    background: #f2f2f2 none repeat scroll 0 0;
+    border: 1px solid #9bc0e0;
+    bottom: 28px;
+    height: auto;
+    left: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 180px;
+}
+.ks-selectime a, .ks-selectime a:link, .ks-selectime a:visited {
+    color: #004499;
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+    text-decoration: none;
+}
+.ks-selectime a:hover {
+    text-decoration: underline;
+}
+.ks-selectime a.x {
+    bottom: 2px;
+    font-family: "comic Sans MS";
+    font-weight: bold;
+    position: absolute;
+    right: 3px;
+}
+.ks-selectime select, .ks-selectime input {
+    width: 80px;
+}
+.ks-select-calendar {
+    background: url("http://img03.taobaocdn.com/tps/i3/T1cJ4PXfXGXXXXXXXX-16-13.gif") no-repeat scroll 106px 4px;
+    border: 1px solid #ccc;
+    height: 20px;
+    width: 126px;
+}
+.lot-calendar {
+    left: 222px;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}

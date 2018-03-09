@@ -1,0 +1,146 @@
+/*吴晓阳*/
+.content{
+	width: 80%;
+	margin: 0 auto;
+}
+.content:after{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.main{
+	float: right;
+	display: inline-block;
+	width: 80%;
+	min-width: 800px;
+	border: 1px solid #a1a1a1;
+}
+/*--------header部分样式--------------------------------*/
+.header{
+	border-top: 9px solid #781c2d;
+	border-bottom: 2px solid #781c2d;
+	background: url("../../../resources/img/common/header-bg.jpg") repeat-x;
+	background-size: 100% 100%;
+}
+.enter{
+	position: relative;
+	height: 32px;
+	color: #dcdcdc;
+}
+.enter ul{
+	position: absolute;
+	right: 200px;
+	height: 28px;
+	line-height: 28px;
+	background: #791C2E;
+}
+.enter ul li{
+	position: relative;
+	float: left; 
+	padding: 0 26px 0 2px;
+}
+.enter ul li a{
+	color: #dcdcdc;
+	text-decoration: none;
+}
+.enter ul li span {
+	position: absolute;
+    right: 4px;
+    top: 9px;
+    height: 11px;
+    width: 13px;
+	background: #781c2d url("../../img/common/enter.jpg") no-repeat scroll -64px -9px;
+}
+.enter div{
+	position: relative;
+	float: right; 
+	background: #fff;
+	height: 28px
+}
+.enter input{
+	height: 28px;
+	border: none;
+	width: 177px;
+}
+.enter .show-options{
+	position: absolute;
+	right: 165px;
+	height: 28px;
+	width: 24px;
+	margin-right: 10px;
+	background: url("../../img/common/enter.jpg") -6px 1px no-repeat;
+	cursor: pointer;
+}
+.enter .search{
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 27px;
+	width: 27px;
+	background: url("../../img/common/enter.jpg") -37px 0 no-repeat;
+	cursor: pointer;
+}
+.header .logo{
+	background: url("../../img/common/logo.gif") no-repeat;
+	height: 64px;
+	margin: 8px 0 14px;
+}
+
+.logo a {
+	float: right;
+	width: 113px;
+	height: 35px;
+	margin-right: 36px;
+    margin-top: 20px;
+	line-height: 35px;
+	background: url("../../img/common/login-bg.png") repeat-x 0 0;
+	text-align: center;
+	font-size:18px;
+	color:#715e48; 
+	border-radius:5px;
+	box-shadow: 5px 5px 2px #c2c2c2; 
+}
+.nav{
+	height: 38px;
+/* 	margin-bottom: 2px; */
+	/*border-top: 1px solid #e0ecf5;*/
+}
+.nav ul{
+	float: right;
+}
+.nav ul li{
+	float: left;
+	padding-top:4px;
+	font-size: 16px;
+	color: #dcdcdc;
+	height: 36px;
+	/*line-height: 36px;*/
+}
+.nav ul li a{
+	color: #dcdcdc;
+	display: inline-block;
+	padding: 6px 10px;
+	background: url("../../img/common/between.gif") right center no-repeat;
+}
+.nav ul li a.noborder{
+	background: none;
+}
+.nav ul li a:hover{ 
+	text-decoration: none; 
+	color: #781c2d;
+	background: #fff;
+}
+
+.nav ul li:hover{ 
+	text-decoration: none; 
+	color: #781c2d;
+	background: #fff;
+}
+
+.text-left{
+	text-align: left;
+	padding-left: 40px;
+}

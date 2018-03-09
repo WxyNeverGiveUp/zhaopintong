@@ -1,0 +1,125 @@
+/*------------------------------------------------------------------------------------------
+@Filename:               application_letter.css
+@Description:            求职信模块（2个页面）
+@Version:                1.0.0(2015-07-17)
+@author:                 daiqiaoling
+@email					 1649500603@qq.com
+==STRUCTURE:=========================================
+/*------------添加求职信样式------- ------------*/
+.module{
+	width: 1190px;
+	margin: 30px auto;
+	border: 1px solid #c6c6c6;
+}
+.submodule{
+	margin: 90px auto 150px;
+	width: 620px;
+	text-align: center;
+}
+.submodule h1{
+	font-size: 30px;
+	margin-bottom: 40px;
+	font-weight: normal;
+}
+.submodule p{
+	color: #6D6D6D;
+	margin-bottom: 100px;
+	font-size: 18px;
+}
+.add_application{
+	background: #FEDC60;
+	border: 1px solid #D0AC60;
+	padding: 5px 10px;
+	color: #000;
+}
+.add_application:hover{
+	text-decoration: none;
+}
+/*------------添加第二个求职信样式------- ------------*/
+.submodule.another_application{
+	margin-top: 30px;
+	text-align: left;
+}
+.module h3{
+	font-size: 20px;
+	height: 28px;
+	line-height: 28px;
+	padding-left: 9px;
+	border-left:6px solid #E76E03; 
+}
+
+.module h2 {
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+.module ul{
+	margin-top: 65px;	
+}
+.module li{
+	border-bottom: 1px solid #c6c6c6;
+	padding: 0 12px 10px 0;
+	margin-bottom: 20px;
+}
+.module em{
+	float: right;
+	color: #E76E03;
+	margin-left: 25px;
+}
+.module form{
+	margin-top: 40px;
+}
+.module form input{
+	padding: 3px 0 3px 5px;
+	font-size: 14px;
+	width: 200px;
+	height: 30px;
+}
+.module textarea{
+	max-width: 580px;
+	width: 580px;
+	height: 114px;
+	padding: 10px 20px;
+	border: 1px solid #E76E03;
+	margin-top: 20px;
+}
+.letter-title label{
+	margin-left: 10px;
+}
+.operation{
+	text-align: right;
+	margin-top: 20px;
+}
+.module button{
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 20px;
+    margin-left: 12px;
+}
+.save{
+	background: #e87522 none repeat scroll 0 0;
+    border: 1px solid #e87522;
+    color: #fff;
+}
+.cancel{
+	background: #fff none repeat scroll 0 0;
+    border: 1px solid #adadad;
+}
+
+.return-letter-index {
+	font-size: 12px;
+	color: #82a5bb;
+  	float: right;
+}
+
+.J_edit a{
+	font-size: 12px;
+	color: #82a5bb;
+}
+
+.J_del a{
+	font-size: 12px;
+	color: #82a5bb;
+}

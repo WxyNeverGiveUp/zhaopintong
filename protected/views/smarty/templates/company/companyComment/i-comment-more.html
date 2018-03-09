@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8";>
+
+    <title>我要点评</title>
+    <{include file="../../common/link.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/i-comment.css">
+</head>
+
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../common/header.html"}>
+<div class="content">
+    <div class="content-box">
+        <h1 class="share-comment">
+            分享一条单位评价，为学弟学妹的职业规划提供帮助 </h1>
+        <h2 class="promise">
+            </h2>
+        <form class="share-form" action="<{$website}>company/companyComment/addMore" method="post">
+            <input type="hidden" name="commentId" value="<{$commentId}>">
+            <div class="work-experience" >
+                <div class="status">
+                    <span>技能成长：</span>
+                    <select name="skill_grow">
+                        <option value="1" selected="selected">少的可怜</option>
+                        <option value="2">有一点</option>
+                        <option value="3">一般</option>
+                        <option value="4">帮助大</option>
+                        <option value="5">很快</option>
+                    </select>
+                </div>
+                <div class="status">
+                    <span>工作氛围：</span>
+                    <select name="work_condition">
+                        <option value="1" selected="selected">不好</option>
+                        <option value="2">沉闷</option>
+                        <option value="3">过得去</option>
+                        <option value="4">好</option>
+                        <option value="5">很好</option>
+                    </select>
+                </div>
+                <div class="status">
+                    <span>工作压力：</span>
+                    <select name="work_pressure">
+                        <option value="1" selected="selected">轻松</option>
+                        <option value="2">不大</option>
+                        <option value="3">一般</option>
+                        <option value="4">较高</option>
+                        <option value="5">很高</option>
+                    </select>
+                </div>
+                <div class="status">
+                    <span>公司前景：</span>
+                    <select name="company_future">
+                        <option value="1" selected="selected">不妙</option>
+                        <option value="2">凑合过</option>
+                        <option value="3">一般般</option>
+                        <option value="4">良好</option>
+                        <option value="5">非常好</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 非员工的显示模块
+            <div class="add-experience" >
+                <div class="school-name2">
+                    <span>学校名称：  </span>
+                    <em>东北师范大学</em>
+                </div>
+                <div class="guanxi">
+                    <span>和该校关系：</span>
+                    <select>
+                        <option value="" selected="selected">合作伙伴</option>
+                        <option value="">学生</option>
+                        <option value="">员工好友</option>
+                        <option value="">关注者</option>
+                    </select>
+                </div>
+            </div>
+            //-->
+           <textarea name="content"></textarea>
+            <div class="tijiao" >
+                <input  type="submit" value="提   交">
+            </div>
+        </form>
+    </div>
+</div>
+<{include file="../../common/footer.html"}>
+</body>

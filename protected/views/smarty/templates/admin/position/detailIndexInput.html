@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>前台录入职位详情</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="continer">
+    <{include file="../common/sidebar.html"}>
+    <div class="content">
+        <{include file="../common/crumbs.html"}>
+        <div class="block">
+            <div class = "block-header">
+                <h3><{$position.name}></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="control-area control-area-short">
+                    <label>工作地点:</label>
+                    <span><{$city}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>所需专业:</label>
+                    <span><{$positionSpecialty}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>所需学历:</label>
+                    <span><{$degree}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>职位类别:</label>
+                    <span><{$type}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>联系人姓名:</label>
+                    <span><{$contact.name}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>移动电话:</label>
+                    <span><{$contact.cellphone}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>职务:</label>
+                    <span><{$contact.post}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>固定电话:</label>
+                    <span><{$contact.telephone}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>电子邮箱:</label>
+                    <span><{$contact.email}></span>
+                </div>
+            </div>
+            <{if $position.is_ok eq 1}>
+            已通过审核
+            <{else}>
+            <center><a href="<{$website}>admin/position/position/toEditFront/id/<{$position.id}>" class="btn">修改</a>
+            <a href="<{$website}>admin/position/position/check/id/<{$position.id}>" class="btn">审核通过</a></center>
+            <{/if}></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

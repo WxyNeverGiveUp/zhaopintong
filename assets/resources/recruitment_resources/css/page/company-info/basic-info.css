@@ -1,0 +1,144 @@
+/*==================================================
+* @Description: 公司信息-基本资料
+* @Version: 1.0.0
+* @Author: wuxiaoyang(15290491277@163.com)
+* @Date: 2017.7.21
+* ==NOTES:==========================================
+* v1.0.0(2017.7.21):
+初始生成
+* ==================================================*/
+body, button, input{
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+.page{
+	width: 100%;
+}
+.info-list{
+    margin: 20px 0;
+    font-size: 14px;
+}
+.info-list label{
+    display: inline-block;
+    width: 14%;
+    margin: 0 5%;
+    text-align: center;
+}
+.img-preview div{
+    width: 75%;
+    margin: 0 auto;
+}
+.img-preview video{
+    margin: 20px auto;
+    width: 50%;
+}
+.info-list input[type="text"],
+.info-list input[type="password"]{
+    width: 50%;
+    height: 20px;
+    padding: 5px 0.75%;
+    border: 1px solid #ccc;
+}
+.laber-attr{
+	margin-right: 80px;
+	width: 94px;
+	text-align: center;
+}
+.laber-align{
+	vertical-align: top;
+}
+.no-border{
+	border: none;
+}
+.has-border{
+	border: 1px solid #c5c5c5;
+	line-height: 36px;
+}
+.info-list button{
+	padding: 8px 36px;
+}
+.clear{
+	margin-left: -7px;
+}
+.submit-btn{
+	display: block;
+    margin: 20px auto;
+    padding: 9px 66px;
+    border:none;
+    border-radius: 7px;
+    background: #2baf2b;
+    color: #fff;
+    cursor: pointer;
+}
+.license-btn{
+	margin-top: -6px;
+}
+.none{
+	display: none;
+}
+/*图片上传*/
+.img-box{
+    position: relative;
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid #317ef3;
+    text-align: center;
+}
+.img-box img{
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+    border: 1px solid #000;
+}
+.img-box span{
+    display: block;
+    text-align: center;
+    font-size: 14px;
+}
+.operate{
+    width: 100%;
+    min-height: 70px;
+}
+.file-pick{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    background: none repeat scroll 0 0 #00B7EE;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    height: 30px;
+    width: 30%;
+    min-width:120px;
+    margin: 0 auto 0px;
+    overflow: hidden;
+    transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -webkit-transition: background 0.2s;
+    -o-transition: background 0.2s;
+}
+#video-choose{
+    background: none repeat scroll 0 0 #00B7EE;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    height: 30px;
+    width: 30%;
+    overflow: hidden;
+}
+/*图片上传 end*/
+.tip{
+    margin-top: 15px;
+    text-align: center; 
+    color: #E72F2F;
+}
+.none{
+    display: none;
+}

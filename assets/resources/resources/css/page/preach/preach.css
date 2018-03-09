@@ -1,0 +1,407 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: preach.css
+@Description: 宣讲会css定义
+@Version: 1.0.0(2015-06-08)YYYY-MM-DD
+@author: zhaokaikang
+2015-06-14:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+.search-field {
+	height: 88px;
+	background-color: #f8f7f7;
+	line-height: 88px;
+	font-size: 14px;
+	color: #8d8c8c
+}
+
+.search-field div:first-child {
+	width: 1034px;
+	margin: 0 auto;
+}
+
+.search-field a {
+	text-decoration: none;
+	color: #8d8c8c;
+}
+
+.search-box {
+	position: relative;
+	width: 558px;
+	height: 46px;
+	border-radius: 2px;
+	border:2px solid #781c2d;
+	margin-top: -60px;
+	margin-left: 400px;
+}
+
+.search-box label {
+	float: left;
+	width: 110px;
+	height: 46px;
+	line-height: 46px;
+	border-right: 2px solid #781c2d;
+	background-color: #fff;
+	font-size: 18px;
+	color: #3f3f3f;
+	text-align: center;
+}
+
+
+.search-box input {
+	float: left;
+	height: 44px;
+	line-height: 44px;
+	/*font-size: 20px;*/
+	width: 346px;
+	border:0px;
+}
+
+.search-box a {
+	float: right;
+	height: 46px;
+	width: 99px;
+	line-height: 46px;
+	background-color: #781c2d;
+	color: #fff;
+	text-align: center;
+	font-size: 26px;
+}
+
+.content {
+	width: 1034px;
+	margin: 25px auto;
+}
+
+.left-list {
+	float: left;
+	width: 238px;
+}
+
+.left-list .remote-interview {
+	background: url("../../../img/index/preach-iconlist.png") no-repeat -12px -6px;
+}
+
+.left-list .preach-on-demand {
+	background: url("../../../img/index/preach-iconlist.png") no-repeat -12px -103px;
+}
+
+.left-list .firm-school {
+	background: url("../../../img/index/preach-iconlist.png") no-repeat -13px -184px;
+}
+
+.left-list ul {
+	margin-bottom: 30px;
+}
+
+.left-list ul h1 {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 35px;
+	color: #3f3f3f;
+	font-size: 18px;
+	border-bottom: 3px solid #84121d;
+}
+
+.left-list ul li a{
+	display: inline-block;
+	height: 34px;
+	line-height: 34px;
+	font-size: 14px;
+	color: #666666;
+	text-decoration: none;
+	text-indent: 20px;
+}
+
+.left-list ul:first-child li a{
+	width: 150px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+.left-list ul li span {
+	float: right;
+	height: 34px;
+	line-height: 34px;
+	padding-right: 6px;
+	font-size: 14px;
+	color: #9d9b9b;
+}
+
+.left-list ul li a img {
+	width: 218px;
+	height: 54px;
+	margin-top: 20px;
+}
+
+.preach{
+	float: right;
+	width: 720px;
+	padding:0 21px 21px 21px;
+	border: 1px solid #c6c6c6;
+}
+
+.preach select {
+	margin-right: 15px;
+	margin-top: 15px;
+}
+
+.inline-wrap{
+	float: right;
+}
+
+.follow-company {
+	display: inline-block;
+}
+
+.preach input[type="checkbox"] {
+	float: left;
+	margin-right: 8px;
+}
+
+.preach label {
+	float: left;
+	font-size: 12px;
+	color: #808080;
+}
+
+.blue-list {
+	display: inline-block;
+	margin-top: 6px;
+	width: 20px;
+	height: 30px;
+	background: url("../../../img/index/preach-iconlist.png") no-repeat -10px -248px;
+	margin-left: 12px;
+}
+
+.grey-square {
+	display: inline-block;
+	margin-top: 6px;
+	width: 20px;
+	height: 30px;
+	background: url("../../../img/index/preach-iconlist.png") no-repeat -12px -299px;
+	margin-left: 10px;
+}
+
+table {
+	width: 720px;
+}
+
+thead td{
+	height: 60px;
+	border-bottom:1px solid #959595; 
+	text-align: center;
+	font-size: 16px;
+	color: #040404;
+}
+
+td {
+	height: 96px;
+	text-align: center;
+	color: #666666;
+	font-size: 14px;
+}
+
+td a {
+	font-size: 14px;
+	color: #666666;
+}
+
+tbody tr {
+	border-bottom:1px dashed #dedede; 
+}
+
+tbody tr:hover {
+	background-color: #f4f4f4
+}
+
+
+.date {
+	float: left;
+	width: 45px;
+	margin-left: 18px;
+	font-size: 18px;
+}
+
+.date i {
+	float: left;
+	font-size: 28px;
+}
+
+.week {
+	float: left;
+	font-size: 18px;
+	width: 62px;
+}
+
+.what-time {
+	display: inline-block;
+	margin-top: 9px;
+}
+
+.location {
+	width: 130px;
+}
+
+.time {
+	width: 140px;
+}
+
+.enroll {
+	width: 119px;
+}
+
+.preach-company {
+	width: 175px;
+}
+
+.preach-type {
+	width: 156px;
+}
+
+tbody tr:hover .preach-company a{
+	color: #e3701b;
+} 
+
+.want-enroll {
+	float: right;
+	height: 35px;
+	line-height: 35px;
+	width: 85px;
+	margin-right: 15px;
+	border: 1px solid #babbbb;
+	border-radius:4px; 
+	color: #248dc1;
+}
+
+.cancel-enroll {
+	float: right;
+	height: 35px;
+	line-height: 35px;
+	width: 85px;
+	margin-right: 15px;
+	border: 1px solid #babbbb;
+	border-radius:4px; 
+	color: #248dc1;
+}
+
+tbody tr:hover .want-enroll , tbody tr:hover .want-enroll{
+	background-color: #248dc1;
+	color: #fff;
+	border: 0;
+}
+
+.overdue {
+	color: #9d9c9c;
+	font-size: 16px;
+	background: #fff;
+	border: 0;
+}
+
+.none {
+	display: none;
+}
+
+/*-----------弹出层样式----------------*/
+.pop-layer {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 300%;
+	background-color: #fff;
+	opacity: 0.85;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+	border: 1px solid #000;
+}
+
+.show-layer {
+	display: none;
+	position: absolute;
+	left: 38%;
+	top: 15%;
+	background-color: #fff;
+	border: 1px solid #555b65;
+	color: #000;
+	border-radius: 5px;
+    box-shadow: 0 0 0 16px #e0e0e0;
+    z-index: 2000;
+}
+
+.show-layer h1 {
+	height: 30px;
+	background-color: #555b65;
+	color: #fff;
+	font-size:16px;
+	line-height: 30px;
+	font-weight: normal; 
+	text-indent: 15px;
+}
+
+.show-layer h2 {
+	height: 30px;
+	line-height: 30px;
+	background-color: #fff;
+	color: #000;
+	font-size:16px; 
+	font-weight: normal;
+	text-indent: 15px; 
+}
+
+.various-kind {
+	padding: 0 15px;
+}
+
+.show-layer ul {
+	float: left;
+	width: 340px;
+	height:500px;
+	overflow-y:scroll; 
+	border: 1px solid #d9d9d9;
+}
+
+.show-layer ul li {
+	height: 40px;
+	line-height: 40px;
+	color: 18px;
+	border-bottom: 1px solid #d9d9d9;
+	cursor: pointer;
+}
+
+.show-layer ul li:hover{
+	background-color: #0FA9BB;
+}
+
+.show-layer .okay {
+	float: right;
+	width: 78px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 5px;
+	border: 1px solid #af8e4e;
+	background: url("../../../img/job_apply/submit-bg.gif") repeat 0 0;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.show-layer .cancel{
+	float: right;
+	width: 78px;
+	height: 30px;
+	line-height: 30px;
+	margin-top: 5px;
+	margin-right: 10px;
+	border: 1px solid #bababa;
+	background: url("../../../img/job_apply/cancel-bg.gif") repeat 0 0;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.show-layer .button-style{
+	background-color: #F6F6F6;
+	height: 40px;
+	line-height: 40px;
+}

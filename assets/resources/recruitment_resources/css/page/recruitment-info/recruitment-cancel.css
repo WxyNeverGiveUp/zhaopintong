@@ -1,0 +1,279 @@
+/*==================================================
+* @Description: 招聘信息
+* @Version: 1.0.0
+* @Author: anrui(2434078703)
+* @Date: 2017.7.20
+* ==NOTES:==========================================
+* v1.0.0(2017.7.20):
+初始生成
+* ==================================================*/
+*{
+	font-size: 18px;
+	font-family:"Microsoft YaHei";
+}
+/*总体布局开始*/
+.page {
+    width: 100%;
+}
+.content {
+    margin: 0 auto;
+    width: 80%;
+}
+/*侧栏开始*/
+.sidebar{
+	width:193px;
+	min-width:193px;
+	padding:30px 14px;
+	display:inline-block;
+	float:left;
+}
+.sidebar li{
+	display:inline-block;
+	width:193px;
+	height:48px;
+	line-height:48px;
+	text-align:center;
+	font-size:18px;
+}
+.sidebar h2{
+	width:193px;
+	height:48px;
+	line-height:48px;
+	text-align:center;
+	font-size:18px;
+	font-weight:normal;
+	color:#434242;
+}
+.list-img{
+	margin-left:-40px;
+	margin-right:20px;
+}
+.selected{
+	background-color:#2b83de;
+	color:#ffffff;
+}
+.hide{
+	display:none;
+}
+/*侧栏结束*/	
+/*总体布局结束*/
+/*招聘信息页面css*/
+
+div.recruitment-cancle {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 50px 25px;
+    vertical-align: top;
+    width:100%;
+}
+div.other-recruitment{
+	box-sizing: border-box;
+    display: inline-block;
+    padding: 50px 25px;
+    vertical-align: top;
+    width:100%;
+}
+div.main input{
+	height:38px;
+	line-height:38px;
+	font-size:18px;
+	border:1px solid #a0a0a0;
+	border-radius:5px;
+	margin-left:33px;
+	padding-left:10px;
+}
+.main form.search-form{
+	display: inline-block;
+	position: relative;
+}
+.main i.search-btn{
+	position:absolute;
+	top:10px;
+	color:#a1a1a1;
+	right:14px;
+	cursor: pointer;
+}
+div.recruitment-cancle a.apply-recruitment{
+	display:inline-block;
+	width:193px;
+	height:38px;
+	line-height:38px;
+	font-size:18px;
+	color:#fff;
+	background-color:#2baf2b;
+	text-align:center;
+	border:1px solid #a0a0a0;
+	border-radius:5px;
+	float:right;
+	text-decoration:none;
+}
+.main table{
+	width:95%;
+	margin:0 auto;
+	margin-top:52px;
+	border:1px solid #a1a1a1;
+	font-size:18px;
+}
+div.search{
+	position:relative;
+	width:200px;
+}
+table tr td{
+	width:127px;
+	height:46px;
+	line-height:46px;
+	text-align:center;
+	border-bottom:1px solid #a1a1a1;
+}
+table tr td.operation{
+	width:245px;
+	color:#2279a7;
+}
+table tr td.operation a{
+	display: inline-block;
+	margin: 0 5px;
+	min-width: 60px;
+    border: 4px solid #6fb3e0;
+    font-size: 14px;
+    font-weight: normal;  
+    line-height: 1.42857;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #6fb3e0 !important;
+    white-space: nowrap;
+    cursor: pointer;
+    *zoom: 1;
+	*display:inline;
+	*width: 60px;
+}
+table tr td.operation a:hover{
+ 	background-color: #4f99c6 !important;
+}
+thead tr{
+	background-color:#add9f0;
+}
+div#paging{
+	width:100%;
+	text-align:center;
+	margin-top:30px;
+}
+/*取消发布申请弹窗开始*/
+div.shade{
+	display:none;
+	width:100%;
+	height:500%;
+	background-color:#000000;
+	opacity:0.5;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+div.popup{
+	display:none;
+	position:absolute;
+	top:23%;
+	left:25%;
+	width:765px;
+	margin:0 auto;
+}
+div.popup p.popup-title{
+	height:66px;
+	background-color:#73b668;
+	font-size:20px;
+	color:#fff;
+	line-height:66px;
+	text-align:center;
+}
+div.popup form{
+	background-color:#fff;
+	padding:34px 94px;
+}
+div.popup form lable{
+	font-size:17px;
+	margin-right:48px;
+}
+div.popup form p input{
+	width:430px;
+	height:38px;
+	border:1px solid #a1a1a1;
+	padding-left:14px;
+}
+div.popup form p.cancle-reason{
+	margin-top:46px;
+}
+div.popup form input.button{
+	width:126px;
+	height:33px;
+	font-size:17px;
+	border:1px solid #a1a1a1;
+	border-radius:5px;
+	margin-top:58px;
+}
+div.popup form input.cancle-button{
+	background-color:#fff;
+	margin-left:123px;
+}
+div.popup form input.submit-button{
+	background-color:#199c19;
+	color:#fff;
+	margin-left:71px;
+}
+div.popup form p .red{
+	border:1px solid red;
+}
+/*取消发布弹窗结束*/
+/*删除弹窗开始*/
+div.popup-delete{
+	display:none;
+	position:absolute;
+	top:30%;
+	left:35%;
+	width:500px;
+	padding:30px;
+	margin:0 auto;
+	background-color:#fff;
+	border-radius: 5px;
+}
+a.confirm{
+	display:inline-block;
+	width:100px;
+	height:50px;
+	line-height:50px;
+	background-color:#73b668;
+	text-align:center;
+	color:#fff;
+	margin-left:120px;
+	margin-top:50px;
+	font-size:20px;
+	border-radius:10px;
+}
+a.cancel{
+	display:inline-block;
+	width:100px;
+	height:50px;
+	line-height:50px;
+	background-color:#73b668;
+	text-align:center;
+	color:#fff;
+	margin-left:50px;
+	margin-top:50px;
+	font-size:20px;
+	border-radius:10px;
+}
+p.popup-title{
+	height:66px;
+	background-color:#73b668;
+	font-size:20px;
+	color:#fff;
+	line-height:66px;
+	text-align:center;
+}
+/*删除弹窗结束*/
+.data{
+	margin-top: 10px;
+	text-align: center;
+}
+.data-none {
+	display: none;
+}

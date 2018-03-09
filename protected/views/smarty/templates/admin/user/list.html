@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>所有管理员</title>
+    <meta charset="utf-8">
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+
+    <script type="text/javascript">
+        KISSY.use('page/company/company-info',function(S){
+            S.ready(function(){
+                PW.page.companyInfo({
+                    renderTo: '#J_pagination',//分页显示指向
+                    juicerRender: '#tpl',//模版渲染指向
+                    dataRender: '#J_template',
+                    pageSize: 10,//每页显示的记录数
+                    dataCount: '<{$recordCount}>',//总记录数
+                    url:'<{$website}>admin/user/user/json',//必选，必须指定ajax的url
+                    sendData: function(me,b){}, //回调函数 me指向当前的分页对象，b指向分页获取的json数据
+                    configUrl:function(url,page,me,prevdata){
+                        //url:配置的url,page1:当前的页面,me:指向当前分页,prevdata:上一次的分页数据
+                        var url = url+'/page1/'+page;
+                        return url;
+                    },
+                    initCompleted:function(me){
+                        S.log('初始化完成！');
+                    },
+                    type:'get'
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="title">
+                    <div class="title1">管理员列表</div>
+                </div>
+                <table>
+                    <script id="tpl" type="text/template">
+                        {@each list as it}
+                        <tr>
+                            <td>&{it.name}</td>
+                        </tr>
+                        {@/each}
+                    </script>
+                    <thead>
+                    <tr>
+                        <th>用户名</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+                <div id="J_pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

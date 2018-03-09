@@ -1,0 +1,15 @@
+{
+    "appid":"dsjyw_app",
+    "iOS":{
+    	"version":"1.0",
+    	"title":"检测到新版本,是否下载更新包",
+    	"note":"检测到新版本,是否下载更新包",
+    	"url":"itms-apps://itunes.apple.com/cn/app/hello-h5+/id682211190?l=zh&mt=8"
+    },
+    "Android":{
+
+    	"title":"检测到新版本,是否下载更新包",
+    	"note":"检测到新版本,是否下载更新包",
+    	"url":"http://www.dsjyw.net/assets/mobile/dsjyw_app.apk"
+    }
+}

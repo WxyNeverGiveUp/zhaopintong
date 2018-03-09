@@ -1,0 +1,43 @@
+<!-- 赵凯康 宣讲会日历版 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宣讲会直播</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <{include file="../common/script.html"}>
+    <{include file="../common/link.html"}>
+    <style type="text/css">
+        .preach-live {
+            width: 1000px;
+            height: 560px;
+            margin: 40px auto;
+        }
+
+        .preach-live h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .preach-live {
+            z-index: -2;
+        }
+    </style>
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="preach-live">
+    <h1>宣讲会直播</h1>
+     <OBJECT width="960" height="540" id="StrobeMediaPlayback" name="StrobeMediaPlayback" type="application/x-shockwave-flash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+        <param name="movie" value="<{$staticWebsite}>js/StrobeMediaPlayback.swf" />
+        <param name="quality" value="high" />
+        <param name="bgcolor" value="#000000" />
+        <param name="wmode" value="opaque" />
+        <param name="allowfullscreen" value="true" />
+        <param name="flashvars" value="&src=rtmp://202.198.133.203/live/session0&autoHideControlBar=true&streamType=live&autoPlay=false" />
+         <EMBED  wmode="opaque"  src="<{$staticWebsite}>js/StrobeMediaPlayback.swf" width="960" height="540" id="StrobeMediaPlayback" quality="high" bgcolor="#000000" name="StrobeMediaPlayback" allowfullscreen="true" pluginspage="http://www.adobe.com/go/getflashplayer" flashvars="&src=rtmp://202.198.133.203/live/session0&autoHideControlBar=true&streamType=live&autoPlay=false" type="application/x-shockwave-flash" />
+    </OBJECT>
+</div>
+<{include file="../common/footer.html"}>
+</body>
+</html>

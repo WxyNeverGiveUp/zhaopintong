@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>宣讲会详情</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/detail.css">
+</head>
+<body>
+<{include file="../common/header.html"}>
+<{include file="../company/common/header.html"}>
+	<div class="page clearfix content">
+		<div class="fleft big">
+			<div class="block mar">
+				<div class="block-header">
+					宣讲会
+					<div class="bshare-custom">
+					 	<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><a class="bshareDiv" onclick="javascript:return false;"></a>
+					 	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+					<a href="javascript:;" title="扫描二维码" class="show-QRCode"></a>
+					<img src="<{$website}>qrCode.png" class="qrCode-Img none">
+				</div>
+				<div class="block-content">
+                    <div class="con-header J_enter" enter-id=<{$careerTalk.id}>>
+                       <{$careerTalk.name}>
+					</div>
+					<div class="con-con clearfix">
+						<div class="cal">
+							<div class="cal-top">
+								<span><{$careerTalk.time|date_format:"%Y"}></span>年<span><{$careerTalk.time|date_format:"%m"}></span>月
+							</div>
+							<span class="cal-day"><{$careerTalk.time|date_format:"%d"}></span>
+						</div>
+						<div class="det">
+							<label>时 间 ：</label>
+							<span><{$careerTalk.time}></span>
+						</div>
+						<div class="det">
+							<label>地 点 ：</label>
+							<span><{$careerTalk.place}></span>
+						</div>
+                        <div class="det">
+                            <label>类 型  ：</label>
+                            <span>
+                                <{if $careerTalk.type eq '1'}>
+                            视频宣讲会
+                                <{elseif $careerTalk.type eq '2'}>
+                            实地宣讲会
+                                <{elseif $careerTalk.type eq '3'}>
+                            外地宣讲会
+                                <{elseif $careerTalk.type eq '4'}>
+                            外地宣讲会
+                                <{elseif $careerTalk.type eq '5'}>
+                            外地宣讲会
+                                <{elseif $careerTalk.type eq '6'}>
+                            外地宣讲会
+                                <{elseif $careerTalk.type eq '7'}>
+                            外地宣讲会
+                                <{elseif $careerTalk.type eq '8'}>
+                            外地宣讲会
+                                <{else}>
+                            无
+                                <{/if}>
+                            </span>
+                        </div>
+						<div class="det">
+							<label>描 述 ：</label>
+							<span><{$careerTalk.description}></span>
+						</div>
+						<div class="det enroll-div">
+                            <{if $isOverdue eq 0}>
+                            <{if $concernedCT eq '1'}>
+                            <a href="javascript:;" class="entor" style="display:none;">抢先报名</a>
+                            <a href="javascript:;" class="unentor">取消报名</a>
+                            <{else}>
+                            <a href="javascript:;" class="entor">抢先报名</a>
+                            <a href="javascript:;" class="unentor" style="display:none;">取消报名</a>
+                            <{/if}>
+                            <{/if}>
+                            <{if $careerTalk.type neq '1'}>
+                            <{else}>
+                            <a href="javascript:;" class="live-entrance  J_live_entrance" liveId="<{$careerTalk.id}>">直播入口</a>
+                            <{/if}>
+                            
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block mar">
+				<div class="distr">
+					<div class="distr-head">最多专业分布</div>
+					<!-- 响哥，把你的总数写在hidden的value里就可以了 -->
+					<input type="hidden" id="J_large" value="<{$number}>">
+					<div class="distr-con">
+						<label><{$professionalTypeList[0]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$professionalTypeNumber[0]}></i>
+					</div>
+					<div class="distr-con">
+						<label><{$professionalTypeList[1]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$professionalTypeNumber[1]}></i>
+					</div>
+					<div class="distr-con">
+						<label><{$professionalTypeList[2]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$professionalTypeNumber[2]}></i>
+					</div>
+					<div class="distr-con">
+						<label><{$professionalTypeList[3]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$professionalTypeNumber[3]}></i>
+					</div>
+					<div class="distr-con">
+						<label><{$professionalTypeList[4]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$professionalTypeNumber[4]}></i>
+					</div>
+				</div>
+				<div class="distr fright">
+					<div class="distr-head">最多学历分布</div>
+					<div class="distr-con">
+						<label><{$degreeList[0]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$degreeNumber[0]}></i>
+					</div>
+					<div class="distr-con">
+						<label><{$degreeList[1]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$degreeNumber[1]}></i>
+					</div>
+					<div class="distr-con">
+						<label><{$degreeList[2]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$degreeNumber[2]}></i>
+					</div>
+					<div class="distr-con">
+						<label><{$degreeList[3]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$degreeNumber[3]}></i>
+					</div>
+					<div class="distr-con">
+						<label><{$degreeList[4]}></label>
+						<span><em class="num">&nbsp;</em></span>
+						<i class="shu"><{$degreeNumber[4]}></i>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="bar-right">
+            <input type="hidden" value="<{$careerTalk.type-1}>" id="J_hide">
+            <a href="javascript:;" class="J_video">
+                <img src="<{$staticWebsite}>resources/img/company/video.png" class="live">
+            </a>
+			<img src="<{$staticWebsite}>resources/img/company/video.png" class="live J_img">
+            <{if $flag eq '1'}>
+            <a href="<{$website}>company/company/preachVideoByCompany/id/<{$careerTalk.company_id}>">
+                <img src="<{$staticWebsite}>resources/img/company/video2.jpg">
+            </a>
+            <{else}>
+            <a href="javascript:;">
+                <img src="<{$staticWebsite}>resources/img/company/video2.jpg" class="live J_preach_demand">
+            </a>
+            <{/if}>
+			<div class="doc">
+				<div class="head">
+					推荐宣讲会
+				</div>
+				<div class="clearfix">
+					<{foreach from=$recommendPreachs item=preach name=infolist}>
+	                <{if $smarty.foreach.infolist.iteration <4}>
+		                <div class="docli">
+		                    <div class="cal">
+		                        <div class="mon"><{$preach.time|date_format:"%m"}>月</div>
+		                        <div class="day"><{$preach.time|date_format:"%d"}></div>
+		                    </div>
+		                    <a href="<{$website}>careerTalk/careerTalk/detail/id/<{$preach.id}>" target="_blank" class="tit" title="<{$preach.name}>"><nobr><{$preach.name}></nobr></a>
+		                    <!-- <div class="atr"><{$preach.name}></div> -->
+		                </div>
+	                <{/if}>
+	                <{/foreach}>
+				</div>
+			</div>
+		</div>
+	</div>
+<{include file="../common/footer.html"}>
+	<script type="text/javascript">
+		KISSY.use('page/company/rate' , function(S){
+			S.ready(function(){
+				PW.page.company();
+			});
+		})
+	</script>
+
+</body>
+
+</html>

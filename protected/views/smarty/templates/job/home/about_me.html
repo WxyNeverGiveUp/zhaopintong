@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>求职通</title>
+	    <meta charset="utf-8" />
+	   <{include file="../../common/link.html"}>
+	   <{include file="../../common/script.html"}>
+	   <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/mine.css">
+	</head>
+	<body>
+		 <{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="mine">
+			<!-- 编辑关于我模块 start-->
+			<div class="module">
+				<h3 class="module-title">
+					<span>编辑关于我</span>
+					<a href="<{$website}>job/job/index">返回我的档案</a>
+				</h3>
+				<form method="post" action="<{$website}>job/job/aboutMeEdit/user_id/<{$AboutMe.user_id}>" class="clearfix info-form">
+					<div class="intro">一段简要的自我描述，可以让别人快速了解自己。</div>
+					<div class="content clearfix">
+						<h3>关于我：</h3>
+						<textarea placeholder="添加关于自己职业经历、能力经验等描述信息(10-500字)" maxlength="500" name="AboutMe[about_me]"><{$AboutMe.about_me}></textarea>
+						<a href="javascript:;" class="reference">看看别人怎么写<i></i></a>
+						<div class="examples none">
+							<div class="example">
+								<h3>示例一：</h3>
+								<p>从事财务工作6年，其中2年管理经验，4年的外资全盘账务处理经验。擅长精确核算收入、成本利润。对进出口医疗卫浴、IT、旅游等行业的税务政策及工作都非常熟悉。</p>
+							</div>
+							<div class="example">
+								<h3>示例二：</h3>
+								<p>多年来供职于大中型企业的市场策划部门，积累了丰富工作经验。对市场动态把握，整体市场策划与实施都有深入地研究。自修市场营销与管理本科课程，喜欢接受新的挑战并努力完成。</p>
+							</div>
+							<div class="example">
+								<h3>示例三：</h3>
+								<p>从事互联网产品设计及运营8年，丰富的产品生命周期管理、产品架构设计、商业推广经验，独立带领中大型团队进行项目协作。熟悉社区、电子商务、支付生活消费类等产品。</p>
+							</div>
+						</div>
+						<div class="info-item center">
+							<button type="submit" class="save">保存</button>
+							<button type="reset" class="cancel">重置</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- 编辑关于我模块 end-->
+		</div>
+		 <{include file="../../common/footer.html"}>
+		<script type="text/javascript">
+			KISSY.use('page/job_apply/about',function(S){
+				S.ready(function(){
+					PW.page.job_apply.about();
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>公告类型详情</title>
+    <meta charset="utf-8">
+    <{include file = "admin/common/link.html"}>
+    <{include file = "admin/common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+
+    <script type="text/javascript" src="<{$ueditorWebsite}>/resources/js/site-config.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/resources/puiresources/js/base/lib/kissy/seed.js"></script>
+    <script type="text/javascript">
+        KISSY.use('mod/pagination,mod/moment', function(S) {
+            S.ready(function(){
+                PW.pagination({
+                    renderTo: '#J_pagination',//分页显示指向
+                    juicerRender: 'tpl',//模版渲染指向
+                    dataRender: '#J_template',
+                    pageSize: 10,//每页显示的记录数
+                    dataCount: '<?{ echo $recourdCount }?>',//总记录数
+                    //themePackageURL: PW.libUrl+'js/base/plugins/pagination/theme/theme.json',
+                    //themeName: 'a',//主题名称,有default,a,b,c,d,e这几种，默认是default
+                    url:'<{$website}>admin/announcement/announcement/typeJson',//必选，必须指定ajax的url
+                    type: 'get',//可选，默认情况下是get
+                    extraParam: {},//获取分页数据列表的额外条件
+                    sendData: function(me,b){}, //回调函数 me指向当前的分页对象，b指向分页获取的json数据
+                    configUrl:function(url,page,me,prevdata){
+                        //url:配置的url,page1:当前的页面,me:指向当前分页,prevdata:上一次的分页数据
+                        var url = url+'/page/'+page;
+                        return url;
+                    },
+                    //初始化完成之后的回调函数
+                    initCompleted:function(me){
+                        S.log('初始化完成！');
+                    },
+                    //发送ajax之前
+                    beforeSendAJAX:function(me){
+                        S.log('发送ajax之前！');
+                    },
+                    //ajax发送失败后的回调函数
+                    errorFun:function(me){
+                        S.log('ajax发送失败！');
+                    },
+                    beforeDataLoad:function(me,data){
+                        var lt = data.list;
+                        S.each(lt,function(item){
+                            item.time = parseInt(item.time);
+                            item.time = PW.moment(item.time).format('YYYY-MM-DD');
+                            S.log(item.time);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="title">
+                    <div class="title1">公告类型详情</div>
+                </div>
+                <table>
+                    <script id="tpl" type="text/template">
+                        {@each list as it}
+                        <tr>
+                            <td>&{it.name}</td>
+                            <td>
+                                <a class="btn"  href="<{$website}>admin/announcement/announcement/toEditType/id/&{it.id}">修改</a>
+                                <a class="btn"  href="<{$website}>admin/announcement/announcement/toDeleteType/id/&{it.id}">删除</a>
+                            </td>
+                        </tr>
+                        {@/each}
+                    </script>
+                    <thead>
+                        <tr>
+                            <th>公告类型名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

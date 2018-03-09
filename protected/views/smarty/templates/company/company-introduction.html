@@ -1,0 +1,150 @@
+<!doctype html>
+<!-- 单位首页 胡珺 -->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单位首页</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/company-introduction.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=83d75e8bdb5cb90dc07f205cbe03655a"></script>
+
+</head>
+<body>
+<{include file="../common/header.html"}>
+<{include file="../company/common/header.html"}>
+	<div class="page clearfix">
+        <div class="left-info">
+             <{if $company.is_famous neq "0" and $company.video_url neq null}>
+        <!-- 视频插件部分starting -->
+                <script src='http://static.polyv.net/file/polyvplayer_v2.0.min.js'></script>
+                <div id='plv_<{$company.video_url}>' class="intro-video"></div>
+                <script>
+                    var player = polyvObject('#plv_<{$company.video_url}>').videoPlayer({
+                        'width':'687px',
+                        'height':'505px',
+                        'vid' : '<{$company.video_url}>'
+                    });
+                </script>
+        <!-- 视频插件部分ending -->
+            <{/if}>
+            <div class="company-intro common-module-style">
+                <div class="common-title-style company-intro-title">
+                    <h1>单位介绍</h1>
+                </div>
+                <p><{$company.introduction}></p>
+                <ul class="clearfix">
+                    <{if $company.companypic neq ""}>
+                    <{foreach from=$company.companypic item=pic}>
+                    <li><img src="<{$tempWebsite}>/<{$pic}>"></li>
+                    <{/foreach}>
+                    <{/if}>
+                </ul>
+            </div>
+        </div>
+       
+       <div class="right-info">
+
+            <div class="company-card common-module-style">
+                <div class="common-title-style">
+                    <h1>单位名片</h1>
+                </div> 
+                <div class="company-card-info">
+                    <ul>
+                        <li>所属行业：<{$company.companytrade}></li>
+                        <li>单位性质：<{$company.companyproperty}></li>
+                        <li>所属地区：<{$company.city}></li>
+                        <li>官方网址：<{$company.website}></li>
+                        <li>地址：<{$company.full_address}></li>
+                        <em class="longitude none" ></em><em class="latitude none" ></em>
+                    </ul>
+                    <!-- <div style="width:730px;margin:auto;"> -->
+                    <div>
+                        <input id="text_" type="hidden" value="<{$company.full_address}>" style="margin-right:100px;"/>
+                        <input id="result_" type="hidden" />
+                        <div class="map-content" id="allmap">
+                        </div>
+                    </div>
+                </div>
+             </div>
+        <!--单位名片部分ending -->
+        <!--单位介绍部分starting -->
+        
+        <!--单位介绍部分ending -->
+            <div class="recruitment-and-elder">
+                <!--招聘动态部分starting -->
+                <div class="recruitment-trends common-module-style">
+                    <div class="common-title-style">
+                        <h1>招聘动态</h1>
+                    </div>
+                    <div class="recruitment-trends-info clearfix">
+                        <div class="recruitment-position">
+                            <a href="<{$website}>company/company/ListPositionByCompany/id/<{$company.id}>" class="recruitment-number"><{$positionNum}></a> 
+                            <p class="job-position">在招职位</p>   
+                        </div>
+                        <div class="preach">
+                            <a class="preach-number" href="<{$website}>company/company/listCT/id/<{$company.id}>"><{$careerTalkNum}></a>
+                            <p class="preach-meeting">宣讲会</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!--招聘动态部分ending -->
+                <!--师兄师姐部分starting -->
+                <div class="elder common-module-style">
+                    <div class="common-title-style">
+                        <h1>师兄师姐</h1>
+                    </div>
+                    <{foreach name=infolist from=$schoolBrothers item=br}>
+                    <{if $smarty.foreach.infolist.iteration <5}>
+                    <div class="elder-info clearfix">
+                        <a href="<{$website}>job/job/viewIndex/user_id/<{$br.user_id}>"><img class="people-picture"src="<{$br.head_url}>"></a>
+                        <ul class="elder-info-show">
+                            <li><span><a href="<{$website}>job/job/viewIndex/user_id/<{$br.user_id}>"><{$br.realname}></a></span></li>
+                            <li><{$br.majorName}>&nbsp;&nbsp;<{$br.schoolName}></li>
+                        </ul>
+                    </div>
+                    <{/if}>
+                    <{/foreach}>
+                </div>
+                <!--师兄师姐部分ending -->    
+            </div>
+    </div>
+     
+		<!--单位名片部分starting -->
+		
+	</div>
+<{include file="../common/footer.html"}>
+	<script type="text/javascript">
+        var map = new BMap.Map("allmap");    // 创建Map实例
+        map.centerAndZoom("宁波", 12);
+        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+        var localSearch = new BMap.LocalSearch(map);
+        localSearch.enableAutoViewport(); //允许自动调节窗体大小
+        map.clearOverlays();//清空原来的标注
+        var keyword = '<{$company.full_address}>';
+        localSearch.setSearchCompleteCallback(function (searchResult) {
+            var poi = searchResult.getPoi(0);
+            document.getElementById("result_").value = poi.point.lng + "," + poi.point.lat;
+            map.centerAndZoom(poi.point, 13);
+            var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
+            map.addOverlay(marker);
+            var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
+            var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + content + "</p>");
+            marker.addEventListener("click", function () {
+                this.openInfoWindow(infoWindow);
+            });
+            // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+        });
+        localSearch.search(keyword);
+		KISSY.use('page/company/companyIntro',function(S){
+			S.ready(function(){
+				PW.page.company.companyIntro();
+			})
+		})
+	</script>
+</body>
+
+</html>

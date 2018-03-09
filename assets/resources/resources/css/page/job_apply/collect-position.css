@@ -1,0 +1,134 @@
+ /*---------------------------------------------------------------------------------------------
+@Filename: collect-position.css
+@Description: 收藏职位CSS定义
+@Version: 1.0.0(2015-06-18)YYYY-MM-DD
+@author: hujun
+2015-06-15:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+.page-background{
+    background: #F7F6F6;
+ }
+.page{
+    background: #ffffff;
+    margin: 0px auto;
+    width: 1005px;
+}
+.page-content{
+    width: 750px;
+    margin: 0 auto;
+    padding-top: 10px;
+    border-bottom: 1px solid #c2c2c2;
+}
+/*  “收藏职位”标题 */
+ .page-head h1{
+ 	border-left: 6px solid #e17c22;
+    padding-left: 14px;
+    margin: 30px 0;
+    font-size: 18px;
+ }
+.no-collect-position{
+    background: #f8f8f8;
+    border: 1px solid #c2c2c2;
+    text-align: center;
+    margin: 30px auto;
+    font-size: 12px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+ }
+ .publish-position{
+    margin-top: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+ }
+/*  收藏职位数目 */
+.collect-number{
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+.collect-number span{
+    font-size: 16px;
+    font-weight: normal;
+    color: #E17C22;
+    margin:0px 5px 16px 5px;
+}
+/* 职位信息展示区div布局 */
+.position{
+	border-top: 1px solid #c2c2c2;
+    height: 145px;
+}
+.position-info{
+    float: left;
+}
+/* 职位具体信息部分 */
+.position-detail{
+    margin-bottom: 5px;
+    width: 600px;
+}
+.position-detail span{
+    margin-right:30px; 
+    color: #909090;
+    font-size: 12px;
+}
+.position-info h3{
+    color: #921D2E;
+    margin: 16px 0;
+    font-size: 14px;
+} 
+.company-name{
+    font-family: "微软雅黑";
+    font-size: 12px;
+} 
+/* 标签样式 */
+.label{
+    margin-top:0px; 
+}
+.label span{
+	border: 1px solid #c2c2c2;
+    border-radius: 4px;
+    color: #E17C22;
+    display: inline-block;
+    font-size: 11px;
+    height: 24px;
+    line-height: 22px;
+    margin-right: 20px;
+    padding: 0 8px;
+    text-align: center;
+}
+.collect ,.deliver-resume ,.cancel-collect{
+    margin-left: 2px;
+    float: right;
+	color:#FFFFFF;
+    border: 1px solid;
+    border-radius:7px;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    font-size: 14px;
+    height: 26px;
+    line-height: 23px;
+    text-align: center;
+    width: 72px;
+    background: #e17c22;
+    text-decoration: none; 
+}
+.cancel-collect{
+    margin-top: 40px;
+}
+.collect{
+    margin-top: 56px;
+} 
+.deliver-resume{
+    margin-top:6px; 
+}
+.none{
+    display: none;
+}
+
+.position h3 a {
+    color: #921d2e;
+}
+
+.position .company-name a {
+    color: #000;
+}

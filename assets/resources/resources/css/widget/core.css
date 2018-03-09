@@ -1,0 +1,56 @@
+/*-----------------------------------------------------------------------------
+* @Description: 公共样式 (widget.css)
+* @Version: 	V1.0.0
+* @author: 		shenj(1073805310@qq.com)
+* @date			2014.09.15
+* ==NOTES:=============================================
+* v1.0.0(2014.09.15):
+* 	初始生成 
+* ---------------------------------------------------------------------------*/
+/*dialog样式*/
+.dlg-holder thead tr{
+	background: #438eb9;
+	color: #ffffff;
+}
+.dlg-holder thead th{
+	text-align: left;
+}
+.dlg-title{
+	float: left;
+}
+.dlg-close{
+	float: right;
+	cursor: pointer;
+}
+.dlg-holder tbody > tr:nth-child(2n+1) > td {
+    background-color: #ffffff;
+}
+.dlg-holder .content-holder{
+	background: #ffffff;
+	border-bottom: 0px solid #ffffff;
+}
+.dlg-holder tfoot{
+	border: 1px solid #ddd;
+	border-top: 0px solid #ffffff;
+	background: #ffffff;
+	text-align: center;
+}
+.dlg-holder .dlg-footer{
+	padding: 5px 0;
+}
+.dlg-holder tfoot button{
+	width: 60px;
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: #438eb9 !important;
+	border: 0px solid #438eb9;
+	color: #ffffff;
+}
+.dlg-holder .control-area .radio,
+.dlg-holder .control-area .checkbox{
+	padding-top: 0;
+}
+/*defender样式*/
+.error-field,.ks-select-calendar.error-field{
+	border: 1px solid #d15b47;
+}

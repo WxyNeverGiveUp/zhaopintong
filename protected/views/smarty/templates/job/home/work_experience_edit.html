@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>求职通</title>
+	    <meta charset="utf-8" />
+	  <{include file="../../common/link.html"}>
+		<{include file="../../common/script.html"}>
+	   <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/mine.css">
+	</head>
+	<body>
+		<{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="mine">
+			<!-- 新增工作经历模块 start-->
+			<div class="module">
+				<h3 class="module-title">
+					<span>编辑工作经历</span>
+					<a href="<{$website}>job/job/index">返回我的档案</a>
+				</h3>
+				<form method="post" action="<{$website}>job/job/workExperienceEdit/id/<{$WorkExperience.id}>"class="clearfix info-form">
+					<div class="info-item long">
+						<span class="label">工作类型&nbsp;:</span>
+						<{if $WorkExperience.work_type}>
+						  <input type="radio" name="WorkExperience[work_type]" value="0">
+						  <label>全职</label>
+						  <input type="radio" name="WorkExperience[work_type]" value="1" checked>
+						  <label>实习</label>
+						<{else}>
+						  <input type="radio" name="WorkExperience[work_type]" value="0" checked>
+						  <label>全职</label>
+						  <input type="radio" name="WorkExperience[work_type]" value="1">
+						  <label>实习</label>
+						<{/if}>
+					</div>
+					<div class="info-item long">
+						<span class="label">公司名称&nbsp;:</span>
+						<input type="text" class="control-area-long" value="<{$WorkExperience.company_name}>" data-valid-tip="请填写公司名称|此项为必填项" data-valid-rule="notNull" maxlength="50" name="WorkExperience[company_name]"/>
+					</div>
+					<div class="info-item long">
+						<span class="label">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门&nbsp;:</span>
+						<input type="text" class="control-area-long" value="<{$WorkExperience.department}>" data-valid-tip="请填写部门名称|此项为必填项" data-valid-rule="notNull" maxlength="50" name="WorkExperience[department]" />
+					</div>
+					<div class="info-item long">
+						<span class="label">职位名称&nbsp;:</span>
+						<input type="text" class="control-area-long" value="<{$WorkExperience.position_name}>" data-valid-tip="请填写职位名称|此项为必填项" data-valid-rule="notNull" maxlength="50" name="WorkExperience[position_name]"/>
+					</div>
+					<div class="info-item long">
+						<span class="label">所属行业&nbsp;:</span>
+						<select class="control-area-long" autocomplete="off" data-valid-tip=" |请选择所属行业，此项为必选项" data-valid-rule="scale(0,1000,0)" name="WorkExperience[trade_id]">
+							 <option value="0">请选择</option>
+						   <{foreach from=$Trade item=trade}>	
+						   <{if $trade.id==$tradeId}>
+						    <option value="<{$trade.id}>" selected="selected"><{$trade.name}></option>
+						   <{else}>
+						   <option value="<{$trade.id}>"><{$trade.name}></option>
+						   <{/if}>													
+							<{/foreach}> 
+						</select>
+					</div>
+					<div class="info-item long">
+						<span class="label">职位类别&nbsp;:</span>
+						<select class="control-area-long" autocomplete="off"data-valid-tip=" |请选择职位类别，此项为必选项" data-valid-rule="scale(0,1000,0)" name="WorkExperience[position_type_id]">
+							<option value="0">请选择</option>
+							 <{foreach from=$PositionType item=position}>
+							 <{if $position.id==$positionId}>
+							    <option value="<{$position.id}>" selected="selected"><{$position.name}></option>
+							 <{else}>
+							    <option value="<{$position.id}>"><{$position.name}></option>
+							 <{/if}>								
+							<{/foreach}>
+						</select>
+					</div>
+					<div class="info-item long">
+						<span class="label">在职时间&nbsp;:</span>
+						<!--<input type="text" class="control-area-short" id="start-year" data-valid-tip=" " data-valid-rule="notNull|isNumber" value="<{$Edit_time.start_year}>" maxlength="50" name="WorkExperience[start_time][year]"/>-->
+						<select class="control-area-short" id="start-year" name="WorkExperience[start_time][year]" data-valid-rule="scale(1900,2100,0)">
+							<option value="0">请选择</option>
+							<{foreach from=$year item=allYear}>
+							   <{if $allYear==$Edit_time.start_year}>
+							    <option value="<{$allYear}>" selected="selected"><{$allYear}></option>
+							   <{else}>
+							    <option value="<{$allYear}>"><{$allYear}></option>	
+							   <{/if}>	
+							<{/foreach}>		 
+						</select>
+						<label for="start-year">年</label>
+						<!--<input type="text" class="control-area-short" id="start-month" data-valid-tip=" " data-valid-rule="notNull|isNumber" value="<{$Edit_time.start_month}>" maxlength="50"  name="WorkExperience[start_time][month]"/>-->
+						<select  class="control-area-short" id="start-month"  name="WorkExperience[start_time][month]" data-valid-rule="scale(0,13,0)">
+						     <option value="0">请选择</option>				
+							<{foreach from=$month item=allMonth}>
+							    <{if $allMonth==$Edit_time.start_month}>
+							    <option value="<{$allMonth}>" selected="selected"><{$allMonth}></option>
+							    <{else}>
+							    <option value="<{$allMonth}>"><{$allMonth}></option>
+							    <{/if}>		
+							<{/foreach}>		 
+						</select>
+						<label for="start-month">月&nbsp;至</label>
+						<!--<input type="text" class="control-area-short" id="end-year" data-valid-tip=" " data-valid-rule="notNull|isNumber" value="<{$Edit_time.end_year}>" maxlength="50"  name="WorkExperience[end_time][year]"/>-->
+						<select class="control-area-short" id="end-year" name="WorkExperience[end_time][year]" data-valid-rule="scale(1900,2100,0)">
+							<option value="0">请选择</option>				
+							<{foreach from=$year item=allYear}>
+							   <{if $allYear==$Edit_time.end_year}>
+							    <option value="<{$allYear}>" selected="selected"><{$allYear}></option>
+							   <{else}>
+							    <option value="<{$allYear}>"><{$allYear}></option>	
+							   <{/if}>	
+							<{/foreach}>		 
+						</select>
+						<label for="end-year">年</label>
+						<!--<input type="text" class="control-area-short" id="end-month" data-valid-tip=" " data-valid-rule="notNull|isNumber" value="<{$Edit_time.end_month}>" maxlength="50" name="WorkExperience[end_time][month]"/>-->
+						<select  class="control-area-short" id="end-month"  name="WorkExperience[end_time][month]" data-valid-rule="scale(0,13,0)">
+						     <option value="0">请选择</option>				
+							<{foreach from=$month item=allMonth}>
+							    <{if $allMonth==$Edit_time.end_month}>
+							    <option value="<{$allMonth}>" selected="selected"><{$allMonth}></option>
+							    <{else}>
+							    <option value="<{$allMonth}>"><{$allMonth}></option>
+							    <{/if}>		
+							<{/foreach}>		 
+						</select>
+						<label for="end-month">月</label>
+					</div>
+					<div class="info-item long">
+						<span class="detail-description label">经验描述&nbsp;:</span>
+						<textarea name="WorkExperience[experience_describe]" placeholder="添加工作职责，项目经验，成就业绩等信息(6-400字)"><{$WorkExperience.experience_describe}></textarea>
+					</div>
+					<div class="info-item long">
+						<span class="label"></span>
+						<input type="checkbox" id="choice" name="sign" value="1">
+						<label for="choice">将本经历作为我在联盟网的身份</label>
+					</div>
+					<div class="info-item center">
+						<button type="submit" class="save">保存</button>
+						<button type="reset" class="cancel">重置</button>
+					</div>
+				</form>
+			</div>
+			<!-- 编辑关于我模块 end-->
+		</div>
+		<{include file="../../common/footer.html"}>
+		<script type="text/javascript">
+			KISSY.use('page/job_apply/education',function(S){
+				S.ready(function(){
+					PW.page.job_apply.education();
+				})
+			})
+		</script>
+	</body>
+</html>

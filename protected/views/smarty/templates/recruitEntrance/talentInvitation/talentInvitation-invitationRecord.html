@@ -1,0 +1,63 @@
+<!-- 
+* @Description: 人才邀约 邀约记录
+* @Version: 1.0.0
+* @Author: liqi
+* @Date: 2017.05.13
+* ==NOTES:=============================================
+* v1.0.0(2017.05.13):
+初始生成
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>邀约记录</title>
+	<link href="<{$staticWebsite}>recruitment_resources/css/page/talentInvitation/talentInvitation-invitationRecord.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/js/plugin/layui/css/layui.css">
+	<{include file="../common/link.html" }>
+
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="content">
+	<div class="sidebar">
+		<h2><i class="fa fa-thumbs-up list-img"></i>人才邀约</h2>
+		<ul class="tab_menu">
+			<li><a href="<{$website}>api/nenu/getNenuInfo">师大人才</a></li>
+			<li><a href="<{$website}>recruitEntrance/talentInvitation/discover">发现人才</a></li>
+			<li class="active"><a href="<{$website}>recruitEntrance/talentInvitation/record">邀约记录</a></li>
+		</ul>
+	</div>
+	<div class="main">
+		<div class="invitation-record">
+			<span class="state-text">邀约状态</span>
+			<select class="state">
+				<option value="0">全部</option>
+				<option value="1">待确认</option>
+				<option value="2">已投递</option>
+				<option value="3">已忽略</option>
+			</select>
+
+		</div>
+		<table class="query-table">
+			<tr class="blue">
+				<th>头像</th>
+				<th class="second">基本信息</th>
+				<th>邀约时间</th>
+				<th>操作</th>
+			</tr>
+
+		</table>
+		<p class="tip none">正在查询...</p>
+		<p class="tip2 none">暂无数据！</p>
+		<div id="paging"></div>
+	</div>
+</div>
+
+<input type="hidden" name="recordCount" value="<{$recordCount}>" id="recordCount"/>
+<{include file="../common/footer.html"}>
+<{include file="../common/script.html"}>
+<script src="<{$staticWebsite}>recruitment_resources/js/plugin/layui/layui.js"></script>
+<script src="<{$staticWebsite}>recruitment_resources/js/page/talentInvitation/talentInvitation-invitationRecord.js"></script>
+</body>
+</html>

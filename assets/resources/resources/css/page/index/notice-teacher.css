@@ -1,0 +1,262 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: post.css
+@Description: 公告与教师招考css定义
+@Version: 1.0.0(2015-06-13)YYYY-MM-DD
+@author: zhaokaikang
+2015-06-13:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+.search-field {
+	height: 88px;
+	background-color: #f8f7f7;
+	line-height: 88px;
+	font-size: 14px;
+	color: #8d8c8c
+}
+
+.search-field div:first-child {
+	width: 1034px;
+	margin: 0 auto;
+}
+
+.search-field a {
+	text-decoration: none;
+	color: #8d8c8c;
+}
+
+.search-box {
+	position: relative;
+	width: 580px;
+	height: 46px;
+	border-radius: 2px;
+	border:2px solid #781c2d;
+	margin-top: -60px;
+	margin-left: 400px;
+}
+
+.recruit-search-box {
+	position: relative;
+	width: 740px;
+	height: 46px;
+	border-radius: 2px;
+	border:2px solid #781c2d;
+	margin-top: -60px;
+	margin-left: 268px;
+}
+
+.search-box i {
+	position: absolute;
+	left: 21px;
+	width: 50px;
+	height: 46px;
+	background: url("../../../img/recruitment-information/icon-list.png") no-repeat 30px -17px;
+	border-right: 2px solid #781c2d;
+}
+
+.recruit-search-box label , .search-box label {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 72px;
+	height: 46px;
+	line-height: 46px;
+	background-color: #fff;
+	font-size: 18px;
+	color: #3f3f3f;
+	text-indent: 12px;
+}
+
+
+.search-box select , .recruit-search-box select{
+	float: left;
+	height: 46px;
+	border-left: 0px;
+	border-top: 0px;
+	border-bottom: 0px;
+	line-height: 46px;
+	text-align: center;
+	font-size: 18px;
+	color: #3f3f3f;
+}
+
+.select-width {
+	width: 75px;
+}
+
+.recruit-select-width{
+	width: 130px;
+}
+
+.search-box input , .recruit-search-box input{
+	float: left;
+	height: 44px;
+	width: 380px;
+	border:0px;
+}
+
+.search-box a , .recruit-search-box a{
+	float: right;
+	height: 46px;
+	width: 98px;
+	line-height: 46px;
+	background-color: #781c2d;
+	color: #fff;
+	text-align: center;
+	font-size: 26px;
+}
+
+.content {
+	width: 1034px;
+	margin: 25px auto;
+}
+
+.left-list {
+	float: left;
+	width: 238px;
+}
+
+.left-list .elite-school {
+	background: url("../../../img/index/notice-iconlist.png") no-repeat -12px -108px;
+}
+
+.left-list .elite-firm {
+	background: url("../../../img/index/notice-iconlist.png") no-repeat -12px -7px;
+}
+
+.left-list .subject-website {
+	background: url("../../../img/index/notice-iconlist.png") no-repeat -9px -193px;
+}
+
+.left-list ul {
+	margin-bottom: 30px;
+}
+
+.left-list ul h1 {
+	height: 30px;
+	line-height: 30px;
+	padding-left: 35px;
+	color: #3f3f3f;
+	font-size: 18px;
+	border-bottom: 3px solid #84121d;
+}
+
+.left-list ul li a{
+	display: inline-block;
+	height: 34px;
+	line-height: 34px;
+	font-size: 14px;
+	color: #666666;
+	text-decoration: none;
+	text-indent: 20px;
+}
+
+/*.left-list ul li下 a标签被点击之后的样式*/
+.after-click {
+	background-color: #e3e3e3;
+	color: #781c2d;
+}
+
+.left-list ul li a img {
+	width: 218px;
+	height: 54px;
+	margin-top: 20px;
+}
+
+.newest-notice , .teacher-recruitment{
+	float: right;
+	width: 720px;
+	padding: 21px;
+	border: 1px solid #c6c6c6;
+}
+
+.teacher-recruitment h1 ,.newest-notice h1 {
+	height: 24px;
+	line-height: 24px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	color: #84121d;
+	border-left: 5px solid #84121d;
+	text-indent: 7px; 
+}
+
+.newest-notice li {
+	height: 45px;
+	line-height: 45px;
+	font-size: 14px;
+	color: #8a8a8a;
+	border-bottom: 1px dashed #dfdede;
+}
+
+.newest-notice li a{
+	color: #8a8a8a;
+    display: inline-block;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 430px;
+}
+
+.newest-notice li:hover {
+	background-color: #f0f0f0;
+}
+
+.newest-notice li:hover a {
+	color: #f25f1e;
+}
+
+.newest-notice li span {
+	float: right;
+}
+
+table {
+	width: 720px;
+}
+
+thead td{
+	border-bottom:1px solid #959595; 
+	text-align: center;
+	font-size: 16px;
+	color: #040404;
+}
+
+td {
+	height: 51px;
+	line-height: 51px;
+	text-align: center;
+	color: #666666;
+	font-size: 14px;
+}
+
+td a {
+	font-size: 14px;
+	color: #666666;
+}
+
+tbody tr {
+	border-bottom:1px dashed #dedede; 
+}
+
+tbody tr:hover {
+	background-color: #f4f4f4
+}
+
+tbody tr:hover a {
+	color: #f26c38;
+}
+
+.theme {
+	width: 294px;
+}
+
+.location {
+	width: 145px;
+}
+
+.time {
+	width: 142px;
+}
+
+.looked-number {
+	width: 114px;
+}

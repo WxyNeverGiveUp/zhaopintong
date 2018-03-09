@@ -1,0 +1,116 @@
+body{
+	padding: 0px;
+	width: 1200px;
+	margin:0px auto;
+}
+
+/*添加用户各个输入框的整体样式*/
+.divstyle1{
+	width: 840px;
+	height: 300px;
+	margin-top: 80px;
+	margin-left: 180px;
+    border: 1px solid #E1E1E1;
+}
+
+/*各个输入框的样式*/
+.divstyle2{
+	width: 500px;
+	height: 22px;
+	margin-top: 30px;
+    margin-left: 180px;
+}
+
+.spanstyle1{
+	width:70px;
+	float: left;
+	height: 20px;
+    display: block;
+	color: #757575;
+	font-size: 14px;
+	margin-left: 80px;
+}
+
+.divstyle2 input{
+	width: 200px;
+	margin-left: 50px;
+}
+
+/**号的样式*/
+.spanstyle2{
+	color: red;
+	margin-left: 3px;
+}
+
+/*唯一两个字的样式*/
+.spanstyle3{
+	color:#757575; 
+	font-size: 14px;
+	margin-left: 3px;
+}
+
+/*角色整体布局的样式*/
+.divstyle3{
+	width: 840px;
+	height: 95px;
+	padding: 5px;
+	margin-top: 15px;
+	margin-left: 180px;
+    border: 1px solid #E1E1E1;
+}
+
+/*角色表格的样式*/
+.spanstyle4{
+	color: #757575;
+	display: block; 
+	font-size: 18px;
+	margin-top: 3px;
+	margin-left: 3px;
+}
+
+.divstyle3 div{
+	width: 400px;
+	height: 60px;
+	margin-top: 10px;
+	margin-left: 280px;
+}
+
+table{
+	width: 400px;
+	height: 60px;
+}
+
+.divstyle3 span{
+	color:#757575; 
+	font-size: 14px;
+}
+
+/*复选框的样式*/
+.divstyle3 input{
+	float: left;
+	margin-top: 4px;
+	margin-left: 5px;
+}
+
+/*确认、重置按钮的样式*/
+.divstyle4{
+    width: 840px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 180px;
+}
+
+.ulstyle1{
+   width:550px;
+   height: 35px; 
+   list-style: none;
+   margin-left: 110px;
+}
+
+.ulstyle1 li{
+	width:50px;
+	height:25px; 
+	float: left;
+	display: block;
+	margin-left: 145px;
+}

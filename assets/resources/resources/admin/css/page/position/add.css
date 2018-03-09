@@ -1,0 +1,67 @@
+/*后台管理的新增招聘信息样式-吴晓阳*/
+.demand-specialty{
+	width: 70%;
+	margin: 20px 0 10px 0;
+	border: 1px solid #ccc;
+}
+.major-box{
+	float: left;
+	position: relative;
+}
+.major-box input[type='checkbox']{
+	vertical-align: middle;
+}
+.major-box .laber-attr{
+	position: absolute;
+	top: 9px;
+	left: 0;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 30px;
+	text-align: right;
+	overflow: hidden;
+}
+.major-list{
+	float: left;
+	width: 15%;
+	background-color: #EEEEEE;
+}
+.major-list li{
+	padding: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+.major-list li:hover{
+	background-color: #C5C5C5;
+}
+.major-active{
+	background-color: #C5C5C5;
+}
+.major-detail{
+	float: right;
+	width: 85%;
+}
+.major-detail label{
+	display: inline-block;
+	width: 40%;
+	margin: 10px;
+}
+.major-detail .selectAll-box{
+	display: block;
+}
+.select-result{
+	width: 70%;
+}
+.select-result span{
+	display: inline-block;
+	margin: 0 10px;
+	color: #FA112D;
+}
+.none{
+	display: none;
+}
+.tip{
+    margin-top: 15px;
+    text-align: center; 
+    color: #E72F2F;
+}

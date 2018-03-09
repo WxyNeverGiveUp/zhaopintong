@@ -1,0 +1,411 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: entrance.css
+@Description: 接口样式
+@Version: 1.0.0(2015-07-27)
+初始生成。Xu Yihong
+--------------------------------------------------------------------------------------------*/
+.block{
+	position: relative;
+	margin: 51px auto;
+	width: 1100px;
+    border:1px solid #ccc;
+    border-top: 0; 
+
+}
+.block-header{
+	position: relative;
+    min-height: 22px;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    padding-left: 60px;
+    border-top: 1px solid #ccc;
+    color: #464646; 
+    display: block;
+}
+.block-header h3 {
+	float: left;
+    color: #464646;
+    min-height: 22px;
+    line-height: 22px;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Microsoft YaHei';
+    margin: 0 8px;
+    padding: 0;
+    padding-left: 5px;
+    border-left: 6px solid #ed5e17;
+}
+.block-header a {
+	float: right;
+    color: #82a5bc;
+    min-height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    font-family: 'Microsoft YaHei';
+    margin: 0 8px;
+    padding: 0;
+    padding-right: 20px;
+}
+.block-content{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	min-height: 211px;
+	margin: 0 auto;
+}
+
+.block-import{
+	width: 500px;
+	height: 150px;
+	padding-top: 120px;
+	padding-bottom: 30px;
+	margin: 0 auto;
+}
+
+.control-area{
+	position: relative;
+	float: left;
+}
+.control-area-long{
+	width: 83%;
+	padding: 8px 0 8px 13%;
+}
+.control-area-short,
+.control-area-normal{
+	width: 19%;
+	min-height: 35px;
+	padding: 8px 0 8px 13%;
+	margin-right:20px; 
+}
+.control-area label{
+	position: absolute;
+	top: 9px;
+	left: -20px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 30px;
+	text-align: right;
+	overflow: hidden;  
+}
+.control-area-short label,
+.control-area-normal label{
+	width: 45%;
+}
+.control-area-long label{
+	width: 13%;
+}
+.textTheme{
+	padding: 6px 3px;
+    margin-left: 12px;
+    margin-bottom: 30px;
+	font-family: inherit;
+    border: 1px solid #d5d5d5;
+    color: #858585;
+	background-color: #fff; 
+	height: 18px;
+}
+.control-area input {
+	width: 200px;
+}
+.textTheme-long{
+	padding: 6px 3px;
+    margin-left: 12px;
+    margin-bottom: 20px;
+	font-family: inherit;
+    border: 1px solid #d5d5d5;
+    color: #858585;
+	background-color: #fff; 
+	height: 18px;
+	min-width: 70%;
+}
+.textTheme-high{
+	padding: 6px 3px;
+    margin-left: 12px;
+    margin-bottom: 20px;
+	font-family: inherit;
+    border: 1px solid #d5d5d5;
+    color: #858585;
+	background-color: #fff; 
+	min-width: 70%;
+}
+.red{
+	color: red;
+}
+.control-area span{
+	display: inline-block;
+	padding: 6px 3px;
+    margin-left: 5px;
+    line-height: 1.6;
+    vertical-align: middle;
+    *zoom: 1;
+	*display:inline;
+}
+.textTheme:focus{
+	border-color: #f59942;
+	color: #696969;
+	background-color: #fff;
+	outline:0 none;
+}
+.control-area-short input[type="text"],
+.control-area-normal input[type="text"]{
+	width: 85.7%;
+}
+.control-area-short select,
+.control-area-normal select{
+	width: 91.5%;
+	*margin-top: 6px;
+}
+.control-area-long input[type="text"],.control-area-long textarea{
+	width: 96.5%;
+}
+.control-area-long textarea{
+	height: 50px;
+}
+.control-area input[type="radio"],.control-area input[type="checkbox"]{
+	margin-right: 3px;
+	vertical-align: middle;
+}
+.control-area .radio,.control-area .checkbox{
+	float:left;
+	display: inline-block;
+	*zoom: 1;
+	*display:inline;
+	padding-top: 7px;
+	vertical-align: middle;
+}
+.control-area .radio-short,.control-area .checkbox-short{
+	padding-left: 10%;
+}
+.control-area .radio-normal,.control-area .checkbox-normal{
+	padding-left: 3%;
+}
+.control-area .radio-long,.control-area .checkbox-long{
+	padding-left: 2.5%;
+}
+.address-long{     /*地址select长度*/
+	float: left;
+	width: 19%;
+}
+.control-area .label{ /*地址select后面span样式*/
+	float: left;
+	padding-left: 39px;
+	padding-top: 6px;
+}
+.control-area .label-short{ /*地址短select后面span样式*/
+	float: left;
+	padding-left: 20px;
+	padding-top: 6px;
+}
+.control-area-import{
+	width: 400px;
+}
+
+.btn{
+	display: inline-block;
+	min-width: 70px;
+    border: 4px solid #e67a5f;
+    font-size: 14px;
+    font-weight: normal;  
+    line-height: 1.42857;
+    min-height: 29px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #e67a5f !important;
+    white-space: nowrap;
+    border-radius: 5px;
+    cursor: pointer;
+    *zoom: 1;
+	*display:inline;
+	*width: 60px;
+}
+
+.btn:hover{
+    background-color: #ec9882 !important;
+}
+.btn-margin-right{
+	margin-right: 20px;
+}
+.a-btn{
+	display: inline;
+	text-decoration: none;
+	background: none;
+	border: 2px solid #c1c1c1;
+	color: #000;
+	border-radius: 5px;
+	padding: 2px;
+}
+.btn-right{
+    position: absolute;
+    bottom: 6%;
+    right: 4%;
+}
+.btn-center{
+	width: 300px;
+    height: 40px;
+    margin: 20px auto;
+}
+
+.mod{	
+	color: #82a5bc;
+}
+.del{
+	color: #db3251;
+}
+.right-mar{
+	margin-right: 10px;
+}
+/*__表格公共样式
+-------------------------------------------------------------------*/
+table{
+    width: 90%;
+    margin: 15px auto;
+    color: #707070;
+    background-color: transparent;
+}
+caption{
+	padding-bottom: 10px;
+	font-weight: bold;
+
+}
+caption a{
+	margin: 0px 10px;
+	color: #2679b5;
+}
+th , td{
+	padding: 5px 20px;
+	text-align: center;
+    border:  1px solid #ddd;
+    height: 20px;
+}
+
+td a{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin-top: 5px;
+	padding:1px;
+	background: #6fb3e0;
+	vertical-align:middle; 
+    color: #707070;
+}
+table i{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+table .mod i{	
+	background: url(../../img/common/ioc-white.png) no-repeat -95px -71px;
+}
+table .add i{
+	background: url(../../img/common/ioc-white.png) no-repeat -406px -94px;
+}
+table .check i{
+	background: url(../../img/common/ioc-white.png) no-repeat -95px -118px;
+}
+table .del i{
+	background: url(../../img/common/ioc-white.png) no-repeat -456px 2px;
+}
+table .lcok i{
+	background: url(../../img/common/ioc-white.png) no-repeat -286px -22px;
+}
+table .unlock i{
+	background: url(../../img/common/jiesuo.png) no-repeat;
+}
+table .add-mod{
+	width: 50px;
+	color: #fff;
+}
+table .un-add-mod{
+	width: 50px;
+	cursor: pointer;
+}
+
+.wid{
+	width: 90%;
+}
+.auto{
+	margin: 30px;
+}
+.wid-short{
+	width: 45%;
+}
+.bot{
+	margin-bottom: 30px;
+}
+.del-opr{
+	width: 90%;
+	height: 20px;
+	line-height: 20px;
+	margin: 0 auto;
+}
+.del-opr .select-all{
+	position: relative;
+	float: left;
+	width: 50px;
+	height: 20px;
+}
+.del-opr .select-all input{
+	position: absolute;
+	top: 5px;
+}
+.del-opr .select-all label{
+	position: absolute;
+	left: 20px;
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+}
+.del-opr .del{
+	display: inline-block;
+	height: 20px;
+	margin-top: 0px;
+	margin-left: 15px;
+	padding:1px 1px 1px 18px;
+	line-height: 20px;
+	background: url(../../img/common/ioc.png) no-repeat -455px 5px;
+	color: #000;
+}
+.company-fidle{
+	position: absolute;
+	top: 40px;
+	left: 121px;
+	width: 190px;
+	border: 1px solid #2679b5;
+	background: #ffffff;
+	z-index: 2;
+}
+.company-fidle li{
+	height: 28px;
+	padding-left: 20px;
+	line-height: 28px;
+	cursor: pointer;
+}
+.company-fidle li:hover{
+	background: #6fb3e0;
+	color: #ffffff;
+}
+.none{
+	display: none;
+}
+
+.isLive input{
+	width: 20px;
+}
+
+.isLive label{
+	top: 13px;
+}
+
+.file-input-div {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.file-input-div div{
+	margin-left: 80px;
+}
+
+.btn-center .go-prev-page {
+	display: inline-block;
+	height: 24px;
+}

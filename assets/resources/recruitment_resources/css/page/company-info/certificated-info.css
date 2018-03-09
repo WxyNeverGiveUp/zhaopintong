@@ -1,0 +1,228 @@
+/*==================================================
+* @Description: 公司信息-认证资料
+* @Version: 1.0.0
+* @Author: wuxiaoyang(15290491277@163.com)
+* @Date: 2017.7.21
+* ==NOTES:==========================================
+* v1.0.0(2017.7.21):
+初始生成
+* ==================================================*/
+body, button, input,select{
+	font-size: 18px;
+	font-family: "微软雅黑";
+}
+.content{
+	width: 80%;
+	margin: 0 auto;
+}
+.main-content{
+	display: inline-block;
+	width: 80%;
+	margin-left: 1%;
+	border: 1px solid #a1a1a1;
+	vertical-align: top;
+}
+.form-box{
+	margin-top: 51px;
+}
+.info-list{
+    margin: 20px 0;
+    font-size: 14px;
+}
+.info-list label{
+    display: inline-block;
+    width: 15%;
+    margin: 0 5%;
+    text-align: center;
+}
+.info-list input[type="text"],
+.info-list input[type="password"]{
+    width: 50%;
+    height: 20px;
+    padding: 5px 0.75%;
+    border: 1px solid #ccc;
+}
+.label-attr{
+	margin-right: 80px;
+	width: 94px;
+	text-align: center;
+}
+.label-align{
+	vertical-align: top;
+}
+.no-border{
+	border: none;
+}
+.has-border{
+	border: 1px solid #c5c5c5;
+	line-height: 36px;
+}
+/*img, video{
+	width: 294px;
+	height: 162px;
+}*/
+.info-list button{
+	padding: 8px 36px;
+}
+.clear{
+	margin-left: -7px;
+}
+.submit-btn{
+	display: block;
+	margin: 20px auto;
+	padding: 9px 66px;
+	border:none;
+	border-radius: 7px;
+	background: #2baf2b;
+	color: #fff;
+	cursor: pointer;
+}
+.paragraph{
+	display: inline-block;
+	font-size: 16px;
+	margin-top: -3px;
+}
+.license{
+	margin-top: 36px;
+}
+.license-btn{
+	margin-top: -5px;
+}
+select{
+	width: 409px;
+	border-radius: 6px;
+	border: 1px solid #c5c5c5;
+	padding: 9px 5px;
+}
+.info-list .radio-style{
+	width: 30px;
+}
+.info-list .local-city{
+	width: 187px;
+	margin-right: 28px;
+}
+.company-introduction{
+	width: 80%;
+	margin: 20px auto;
+}
+.info-select{
+    width: 52%;
+    padding: 6.5px 0.75%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+/*图片上传*/
+.img-box{   
+   position: relative;  
+   width: 90%;
+   margin: 20px auto;
+    padding: 0 10px;
+   border: 2px solid #317ef3;
+}   
+.img-box img{
+    display: inline-block;   
+    width: 140px;      
+    height: 106px;  
+}  
+.img-box li{  
+    position: relative; 
+    float: left;    
+    margin-top: 20px;   
+    margin-left: 20px; 
+    width: 140px; 
+    height: 147px;  
+}  
+.img-delete{  
+    position: absolute;
+    top: 10px;   
+    right: 10px;
+}  
+.img-box span{  
+    display: block; 
+    text-align: center;
+    font-size: 14px;
+}
+#img-upload{
+   /*display: none;*/
+} 
+.operate{ 
+    width: 100%; 
+    min-height: 70px; 
+}  
+.file-pick{
+    position: absolute; 
+    left: 20px;  
+    bottom: 20px; 
+    width: 50%; 
+    background: none repeat scroll 0 0 #00B7EE; 
+    border-radius: 3px; 
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);    
+    color: #FFFFFF; 
+    cursor: pointer; 
+    display: inline-block; 
+    font-size: 18px;
+    height: 30px;  
+    width: 30%; 
+    min-width:120px; 
+    margin: 0 auto 0px;
+    overflow: hidden; 
+    transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -webkit-transition: background 0.2s;
+    -o-transition: background 0.2s
+}  
+.upload{
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    background: none repeat scroll 0 0 #00B7EE;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 0 18px;
+    text-align: center;
+    line-height: 34px;
+    transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -webkit-transition: background 0.2s;
+    -o-transition: background 0.2s;
+}
+.img-delete{  
+    position: absolute;
+    top: 130px;
+    right: 53px;
+    color: #E53D3D;
+} 
+.pop{
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2000px;
+    background-color: #000;
+    background:rgba(0,0,0,.5);
+}
+.pop img{
+    position: fixed;
+    top: 200px;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+}
+.close-img{
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    color: #F71C1C;
+    cursor: pointer;
+}
+/*图片上传 end*/
+.tip{
+    margin-top: 15px;
+    text-align: center; 
+    color: #E72F2F;
+}

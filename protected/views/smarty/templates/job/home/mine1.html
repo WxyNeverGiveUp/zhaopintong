@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>求职通</title>
+	    <meta charset="utf-8" />	   
+	   <{include file="../../common/link.html"}>
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/base/reset.css">
+		<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/common/common.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/mine.css">
+	</head>
+	<body>
+	    <{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		 
+		<div class="mine">
+			<!-- 基本信息模块 start-->
+			<div class="module">
+				<h2 class="module-title">基本信息</h2>
+				<div class="sub-module clearfix">
+					<div class="face">
+						<span>
+							<!--<img src="<{$BasicInfo.head_url}>" alt="头像">-->
+							<img src="<{$staticWebsite}>resources/img/job_apply/del/face.jpg" alt="头像">
+							<a class="modify"><i></i>修改头像</a>
+						</span>
+					</div>
+					<div class="essential-info">
+						<h2 class="name"><{$BasicInfo.realname}></h2>
+						<span class="status">现有工作（教育阶段）</span>
+						<ul class="detail">
+							<li><{$ResumeInfo.degree.name}></li>
+							<li>|</li>
+							<li><{$BasicInfo.current_live}></li>
+						</ul>
+						<ul class="ever">
+							<li>曾经工作</li>
+							<li>教育背景</li>
+						</ul>
+					</div>
+					<a href="javascript:;" class="improve"></a>
+				</div>
+				<div class="edit-info">
+					http://www.dajie.com/profile/mine?f=nav
+					<a href="<{$website}>job/job/basicinfoedit/user_id/<{$user_id}>" class="edit"><i></i>编辑基本信息</a>
+				</div>
+			</div>
+			<!-- 基本信息模块 end-->
+			<!-- 档案资料模块 start-->
+			<div class="module">
+				<h2 class="module-title">档案资料</h2>
+				<!-- 关于我模块 start-->
+				<div class="sub-module clearfix">
+					<h3><i class="about-me"></i>关于我</h3>
+					<{if $BasicInfo.about_me}>
+			    	  <p><{$BasicInfo.about_me}></p>
+			    	  <a href="<{$website}>job/job/aboutMeEdit/user_id/<{$user_id}>"class="edit"><i></i>编辑</a>
+			        <{else}>
+			            <a href="javascript:;" class="add"><i></i>添加描述</a>
+						<a href="javascript:;" class="description">简要描述一下个人经历，让访问者快速了解你</a>
+			        <{/if}>
+				</div>
+				<!-- 关于我模块 end-->
+				<!-- 我的专长模块 start-->
+				<div class="sub-module clearfix">
+					<h3><i class="specialty"></i>我的专长</h3>
+					<div class="my-label added-item">
+						<span><b>英语</b></span>
+						<span><b>英语</b></span>
+						<span><b>英语</b></span>
+						<span><b>英语</b></span>
+						<span><b>英语</b></span>
+						<span><b>英语</b></span>
+						<span><b>英语</b></span>
+						<span><b>英语</b></span>
+						<span><b>英语</b></span>
+						<span><b>英语</b></span>
+					</div>
+					<a href="javascript:;" class="edit"><i></i>编辑</a>
+				</div>
+				<!-- 我的专长模块 end-->
+
+				<!-- 工作经历模块 start-->
+				<div class="sub-module clearfix">
+					<h3><i class="work"></i>工作经历</h3>
+
+					<a href="<{$website}>job/job/workExperienceAdd/resume_id/<{$resume_id}>" class="add"><i></i>新增经历</a>
+
+					<{if $WorkExperienceInfo}>
+			        <ul>
+			        <{foreach from=$WorkExperienceInfo item=infos}>
+			               <p class="time">
+			                  <span><{$infos.start_time}></span>
+			                  &nbsp;至&nbsp;
+			                  <span><{$infos.end_time}></span>
+			               </p>
+						   <div class="experience">
+								<h4><{$infos.position_name}></h4>
+								<ul>
+									<li><{$infos.company_name}></li>
+									<li><{$infos.experience_describe}></li>
+								</ul>
+						   </div>
+						   <a href="<{$website}>job/job/workExperienceDel/id/<{$infos.id}>" class="del">删除</a>
+						   <a href="<{$website}>job/job/workExperienceEdit/id/<{$infos.id}>" class="edit"><i></i>编辑</a>
+			        <{/foreach}>
+			        </ul>
+			        <{else}> 
+				      <a href="<{$website}>job/job/workExperienceAdd/resume_id/<{$resume_id}>" class="description">添加工作经历，树立职业形象并获得同行关注</a>
+				         <{if $resume_id}>
+				         <a href="<{$website}>job/job/workExperienceAdd/resume_id/<{$resume_id}>">新增工作经历</a>
+				         <{else}>
+				         <a href="">请先添加一份简历信息</a>
+				         <{/if}>
+
+				    <{/if}>
+				</div>
+				<!-- 工作经历模块 end-->
+
+				<!-- 教育经历模块 start-->
+				<div class="sub-module clearfix">
+					<h3><i class="education"></i>教育经历</h3>
+
+					<a href="<{$website}>job/job/studyExperienceAdd/user_id/<{$user_id}>" class="add"><i></i>新增经历</a>
+
+					<{if $StudyExperienceInfo}>
+			        <ul>
+			        <{foreach from=$StudyExperienceInfo item=infos}>
+		                <p class="time">
+			                <span><{$infos.start_time}></span>
+			                至&nbsp;
+			                <span><{$infos.end_time}></span>
+		                </p>
+						<div class="experience">
+							<h4><{$infos.major_name}></h4>
+							<ul>
+								<li><{$infos.school_name}>·<{$infos.deparment}></li>
+								<li><{$infos.position_degree.name}></li>
+							</ul>
+						</div>
+						<a href="<{$website}>job/job/studyExperienceDel/id/<{$infos.id}>" class="del">删除</a>
+						<a href="<{$website}>job/job/studyExperienceEdit/id/<{$infos.id}>" class="edit"><i></i>编辑</a>
+			        <{/foreach}>
+			        </ul>
+				    <{else}>
+				        <p>你还没有教育经历，请先添加</p>
+				        <a href="<{$website}>job/job/studyExperienceAdd/user_id/<{$user_id}>">
+				        新增教育经历</a>
+				    <{/if}>
+
+				</div>
+				<!-- 工作经历模块 end-->
+			</div>
+			<!-- 档案资料模块 end-->
+
+
+			<!-- 联系方式模块 start-->
+			<div class="module contact">
+				<h2 class="module-title">联系方式</h2>
+				<div class="sub-module clearfix">
+					<img src="<{$staticWebsite}>resources/img/job_apply/del/person.jpg" class="face">
+					 
+					<ul>
+					    <{if $ContactInfo.cellphone}>
+							<li><i class="mobile"></i>手机：<{$ContactInfo.cellphone}> </li>
+						<{else}>
+							<li><i class="mobile"></i>手机：<a href="javascript:;">添加</a></li>
+						<{/if}>
+
+						<{if $ContactInfo.phone}>
+							<li><i class="phone"></i>电话：<{$ContactInfo.phone}></li>
+						<{else}>
+							<li><i class="phone"></i>电话：<a href="javascript:;">添加</a></li>
+						<{/if}>
+
+						<{if $ContactInfo.qq}>
+							<li><i class="qq"></i>&nbsp;QQ：<{$ContactInfo.qq}></li>
+						<{else}>
+							<li><i class="qq"></i>&nbsp;QQ：<a href="javascript:;">添加</a></li>
+						<{/if}>
+
+					</ul>
+					<ul class="another">
+						<li><i class="wechat"></i>微信：<a href="javascript:;">添加</a></li>
+						<li><i class="email"></i>邮箱：<a href="javascript:;"><{$ContactInfo.email}></a></li>
+					</ul>
+					<a href="<{$website}>job/job/contactInfoEdit/id/<{$ContactInfo.id}>" class="edit"><i></i>编辑</a>
+				</div>
+			</div>
+			<!-- 联系方式模块 end-->
+		</div>
+		 
+		 <{include file="../../common/footer.html"}>
+	</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>宣讲会细节</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+</head>
+<body>
+    <{include file="../common/header.html"}>
+    <div class="continer">
+        <{include file="../common/sidebar.html"}>
+        <div class="content">
+            <{include file="../common/crumbs.html"}>
+            <div class="block">
+                <div class="block-header">
+                    <h3>详细信息</h3>
+                </div>
+                <div class="block-content clearfix">
+                    <div class="control-area control-area-short">
+                        <label>宣讲会名称</label>
+                        <span><{$talk.name}></span>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>宣讲会时间</label>
+                        <span><{$talk.date}></span>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>宣讲会地点</label>
+                        <span><{$talk.place}></span></span>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>宣讲会类型</label>
+                        <span>
+                            <{if $talk.type=='1'}>
+                            视频
+                            <{else if $talk.type=='2'}>
+                            实地
+                            <{else if $talk.type=='3'}>
+                            外地
+                            <{/if}>
+                        </span>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>宣讲时间段</label>
+                        <span> <{$talk.period}> </span>
+                                                                                                                        </span>
+                    </div>
+                    
+                    <div class="control-area control-area-long">
+                        <label>宣讲会描述</label>
+                        <span><{$talk.description}></span>
+                    </div>
+
+                    <div class="control-area control-area-long">
+                        <label>视频链接</label>
+                        <span><{$talk.url}></span>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>需求岗位</label>
+                        <span><{$job.name}></span>                                                                                                </span>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>岗位需求总人数</label>
+                        <span><{$job.num}></span>                                                                                               </span>
+                    </div>
+
+                    <div class="control-area control-area-long">
+                        <label>职位需求备注</label>
+                        <span><{$job.comment}></span>                                                                                               </span>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>是否需要面试场地</label>
+                        <{if $talk.is_need_write_place == "yes"}>
+                        <span>是</span>
+                        <{else}>
+                        <span>否</span>
+                        <{/if}>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>是否需要笔试场地</label>
+                        <{if $talk.is_need_face_place == "yes"}>
+                        <span>是</span>
+                        <{else}>
+                        <span>否</span>
+                        <{/if}>
+                    </div>
+
+                    <div class="control-area control-area-long">
+                        <label>场地备注</label>
+                        <span><{$talk.place_comment}></span>                                                                                               </span>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>联系人姓名</label>
+                        <span>
+                            <{$contact.name}>
+                        </span>
+                                                                                                                        </span>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>联系人职务</label>
+                        <span><{$contact.duty}></span>                                                                                                </span>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>联系人手机号码</label>
+                        <span><{$contact.phone}></span>                                                                                               </span>
+                    </div>
+
+                    <{section name=sn loop=$visitors}>
+                    <div class="control-area control-area-short">
+                        <label>来访人姓名</label>
+                        <span><{$visitors[sn].name}></span>                                                                                              </span>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>来访人职务</label>
+                        <span><{$visitors[sn].duty}></span>                                                                                             </span>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>来访人手机号码</label>
+                        <span><{$visitors[sn].phone}></span>                                                                                              </span>
+                    </div>
+                    <{/section}>
+
+                    <div class="control-area control-area-short">
+                        <label>来访人数</label>
+                        <span> <{$talk.visitor_sum}> </span>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>是否需要预定宾馆</label>
+                        <{if $talk.is_need_hotel == "yes"}>
+                        <span>是</span>
+                        <{else}>
+                        <span>否</span>
+                        <{/if}>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="block-header">
+                    <h3>详细信息</h3>
+                </div>
+                <div class="block-content clearfix">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>专业分布</th>
+                            <th>&nbsp;</th>
+                            <th>学历分布</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><{$professionalTypeList[0]}></td>
+                            <td><{$professionalTypeNumber[0]}></td>
+                            <td><{$degreeList[0]}></td>
+                            <td><{$degreeNumber[0]}></td>
+                        </tr>
+                        <tr>
+                            <td><{$professionalTypeList[1]}></td>
+                            <td><{$professionalTypeNumber[1]}></td>
+                            <td><{$degreeList[1]}></td>
+                            <td><{$degreeNumber[1]}></td>
+                        </tr>
+                        <tr>
+                            <td><{$professionalTypeList[2]}></td>
+                            <td><{$professionalTypeNumber[2]}></td>
+                            <td><{$degreeList[2]}></td>
+                            <td><{$degreeNumber[2]}></td>
+                        </tr>
+                        <tr>
+                            <td><{$professionalTypeList[3]}></td>
+                            <td><{$professionalTypeNumber[3]}></td>
+                            <td><{$degreeList[3]}></td>
+                            <td><{$degreeNumber[3]}></td>
+                        </tr>
+                        <tr>
+                            <td><{$professionalTypeList[4]}></td>
+                            <td><{$professionalTypeNumber[4]}></td>
+                            <td><{$degreeList[4]}></td>
+                            <td><{$degreeNumber[4]}></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

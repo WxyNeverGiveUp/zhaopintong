@@ -1,0 +1,123 @@
+<!-- 
+* @Description: 人才邀约 邀约记录
+* @Version: 1.0.0
+* @Author: wuxiaoyang
+* @Date: 2017.08.10
+* ==NOTES:=============================================
+* v1.0.0(2017.08.10):
+初始生成
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>师大人才</title>
+	<link href="<{$staticWebsite}>recruitment_resources/css/page/talentInvitation/talentInvitation-main.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/js/plugin/layui/css/layui.css">
+	<{include file="../common/link.html" }>
+
+</head>
+<body>
+	<{include file="../common/header.html"}>
+	<div class="content">
+		<div class="sidebar">
+			<h2><i class="fa fa-thumbs-up list-img"></i>人才邀约</h2>
+			<ul class="tab_menu">
+				<li class="active"><a href="<{$website}>api/nenu/">师大人才</a></li>
+				<li><a href="<{$website}>recruitEntrance/talentInvitation/discover">发现人才</a></li>
+				<li><a href="<{$website}>recruitEntrance/talentInvitation/record">邀约记录</a></li>
+			</ul>
+		</div>
+		<div class="main">
+			
+			<div class="invitation-record">
+				<form action="" method="post" class="six-option">
+					<span class="state">按条件筛选：</span>
+
+					
+
+					<select class="major1 six">
+						<option value="-1">学历</option>
+						<!--<{foreach name=infolist from=$majorList item=major}>
+						<{if $smarty.foreach.infolist.iteration < 200}>
+						<option value="<{$major.id}>"><a href="javascript:;"><{$major.name}></a></option>
+						<{/if}>
+						<{/foreach}>-->
+							<option value="本科专业" id="1">本科</option>
+							<option value="研究生专业" id="2">研究生</option>
+					</select>
+					<select class="major2 six">
+						<option value="-1">请先选择学历</option>
+						<!--<{foreach name=infolist from=$majorList item=major}>
+						<{if $smarty.foreach.infolist.iteration < 200}>
+						<option value="<{$major.id}>"><a href="javascript:;"><{$major.name}></a></option>
+						<{/if}>
+						<{/foreach}>-->
+					</select>
+					<select class="major3 six">
+						<option value="-1">请先选择专业大类</option>
+						<!--<{foreach from=$degreeList item=degree}>
+						<option value="<{$degree.id}>"><{$degree.name}></option>
+						<{/foreach}>-->
+					</select>
+					
+					
+					<select class="second-line six">
+						<option value="-1">毕业年份</option>
+						<option><{$currentYear+5}></option>
+						<option><{$currentYear+4}></option>
+						<option><{$currentYear+3}></option>
+						<option><{$currentYear+2}></option>
+						<option><{$currentYear+1}></option>
+						<option><{$currentYear}></option>
+						<option><{$currentYear-1}></option>
+						<option><{$currentYear-2}></option>
+						<option><{$currentYear-3}></option>
+						<option><{$currentYear-4}></option>
+						<option><{$currentYear-5}></option>
+						<option><{$currentYear-6}></option>
+						<option><{$currentYear-7}></option>
+						<option><{$currentYear-8}></option>
+						<option><{$currentYear-9}></option>
+					</select>
+					<select class="state-province six">
+						<option value="-1">生源所在省</option>
+						<!--<{foreach  from=$cityList item=city}>
+						<option value="<{$city.id}>"><a href="javascript:;"><{$city.name}></a></option>
+						<{/foreach}>-->
+					</select>
+					<select class="state-sort six">
+						<option value="-1">师范生类别</option>
+						<option value="1">普通师范生</option>
+						<option value="12">免费师范生</option>
+						<option value="2">非师范生</option>
+					</select>
+				</form>
+
+
+			</div>
+			<table class="query-table" >
+				<thead>
+					<tr class="blue">
+						<th class="second">基本信息</th>
+						<th>求职意向</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="query-body">
+					
+				</tbody>
+			</table>
+			<p class="tip none">正在查询...</p>
+			<p class="tip2 none">暂无数据！</p>
+			<div id="paging"></div>
+		</div>
+		
+	</div>
+	<input type="hidden" name="recordCount" value="<{$recordCount}>" id="recordCount"/>
+	<{include file="../common/footer.html"}>
+	<{include file="../common/script.html" }>
+	<script src="<{$staticWebsite}>recruitment_resources/js/plugin/layui/layui.js"></script>
+	<script src="<{$staticWebsite}>recruitment_resources/js/page/talentInvitation/talentInvitation-nenu.js" type="text/javascript"></script>
+</body>
+</html>

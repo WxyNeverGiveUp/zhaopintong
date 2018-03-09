@@ -1,0 +1,105 @@
+<!-- 
+* @Description:最近投递
+* @Version: 1.0.0
+* @Author: liqi
+* @Date: 2017.05.13
+* ==NOTES:=============================================
+* v1.0.0(2017.05.13):
+初始生成
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>最近投递</title>
+		<link href="<{$staticWebsite}>recruitment_resources/css/page/recruitment-info/recruitmentInformation-latestDeliver.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/js/plugin/layui/css/layui.css">
+		<{include file="../common/link.html"}>
+		<{include file="../common/script.html"}>
+	</head>
+	<body>
+	<{include file="../common/header.html"}>
+
+	<!--#include file="/nenu_dsjyw_front/page/common/header.html" -->
+    <div class="content">
+		<div class="sidebar">
+			<h2><i class="fa fa-list list-img"></i>招聘信息</h2>
+        	<ul class="tab_menu">
+				<li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/index">招聘发布管理</a></li>
+				<li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/other">单位其他招聘信息</a></li>
+        		<li class="active"><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/queryAll">最近投递</a></li>
+        	</ul>
+		</div>
+
+		<div class="main">
+			<div class="invitation-record">
+				<span class="search-text">搜索:</span>
+				<form class="search-form" action="<{$website}>recruitEntrance/recruitmentInfo/recruitment/queryByName" method="get">
+					<input type="text" placeholder="输入姓名或职位" name="name" id="jobId"/>
+					<input type="hidden" name="last_update" value="<{$name}>" id="last_update"/>
+					<i class="fa fa-search fa-2x search-btn"></i>
+				</form>
+
+			</div>
+			<input type="hidden" name="recordCount" value="<{$recordCount}>" id="recordCount"/>
+			<table>
+				<thead>
+					<tr class="blue">
+						<th class="first">头像</th>
+						<th class="second">基本信息</th>
+						<th>投递职位</th>
+						<th>投递时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				
+				<tbody id="tbody">
+					<{foreach from=$modelList item=model}>
+					<tr>
+						<td><img src="<{$model.head_url}>"/></td>
+						<td class="text-left">
+							<p class="name"><{$model.realname}><span class="nbsp1"><{$model.year}>届</span></p>
+							<p class="university"><{$model.major_name}><span class="nbsp2"><{$model.school_name}></span></p>
+							<p class="place">生源地<span class="specific"><{$model.account_place}></span><span class="education">学历</span><span class="specific"><{$model.degree}></span></p>
+						</td>
+						<td class="position"><{$model.deliver_position}></td>
+						<td class="date"><{$model.create_time}></td>
+						<td>
+							<p class="button">查看简历</p>
+						</td>
+					</tr>
+					<{/foreach}>
+				</tbody>
+
+			</table>
+			<p class="data-none data">暂无数据！</p>
+			<div id="paging"></div>
+		</div>
+	</div>
+    <!--#include file="/nenu_dsjyw_front/page/common/footer.html" -->
+	<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/plugin/layui/layui.js"></script>
+	<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/recruitment-info/recruitmentInformation-latestDeliver.js"></script>
+	<script>
+        $(function() {
+            // 分页开始
+            layui.use(['layer', 'laypage'], function () {
+                var layer = layui.layer,
+                    laypage = layui.laypage
+                //调用分页
+                laypage({
+                    cont: 'paging',     //分页的div的id
+                    pages:pageLength,//得到总页数
+                    skip: true ,        //可以跳跃
+//                    curr:currentPage,   //当前页
+                    jump: function (obj) {  //当前跳跃的的页数
+                        var curr = obj.curr;
+                        show(curr);
+                        $("input.currentPage").val(curr);// 与分页无关，为了给取消发布传递当前的页码
+                    }
+                });
+            });
+        });
+
+	</script>
+	</body>
+</html>

@@ -1,0 +1,862 @@
+/*------------------------------------------------------------------------------------------
+@Filename:               mine.css
+@Description:            我的主页样式文档
+@Version:                1.0.0(2015-06-15)
+@author:                 daiqiaoling
+==STRUCTURE:=========================================
+/*------------我的主页公共样式-------------------*/
+.mine{
+	width: 1005px;
+	margin: 0 auto;
+}
+.module{
+	position: relative;
+	border: 1px solid #b8b8b8;
+	box-shadow: 2px 2px 3px 1px #e4e4e4;
+	-webkit-box-shadow:2px 2px 3px 1px #e4e4e4; 
+	-moz-box-shadow:2px 2px 3px 1px #e4e4e4; 
+	margin-top: 30px;
+}
+.ico {
+    border-bottom: 7px solid #d95e09;
+    border-right: 10px solid transparent;
+    position: absolute;
+    left: 142px;
+    top: -7px;
+}
+h2.module-title{
+	margin: -7px 0 0 -5px;
+	width: 147px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	color: #fff;
+	font-weight: normal;
+	background: #e87521;
+	font-size: 18px;
+}
+.sub-module{
+	margin: 20px;
+	position: relative;
+}
+/*------------基本信息模块-------------------*/
+.face{
+	margin: 0px 30px 20px 20px;
+	float: left;
+}
+.face span{
+	position: relative;
+	display: inline-block;
+	height: 197px;
+}
+.modify{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	background: #fff;
+	opacity: 0.8;/* 支持opacity的浏览器*/
+	filter:alpha(opacity=80);/* IE */
+	-moz-opacity:0.8; /* 老版Mozilla */
+	display: inline-block;
+	width: 198px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	cursor: pointer;
+	color: #127db3;
+}
+.modify:hover{
+	background: #b8b8b8;
+}
+.modify i{
+	background: url("../../../img/job_apply/mine-icon.png") 0 -32px no-repeat;
+	display: inline-block;
+	width: 19px;
+	height: 14px;
+	margin-right: 15px;
+}
+.essential-info{
+	float: left;
+	width: 74%;
+}
+.name{
+	font-size: 24px;
+	font-weight: normal;
+}
+.status{
+	margin-top: 35px;
+	display: inline-block;
+}
+.sub-module .detail{
+	margin-top: 10px;
+	height: 22px;
+}
+.sub-module .detail li{
+	float: left;
+	color: #8d8d8d;
+	padding-right: 10px;
+}
+.sub-module .ever{
+	margin-top: 25px;
+}
+.sub-module .ever li{
+	color: #aeabab;
+	/*height: 27px;*/
+	line-height: 27px;
+	margin-bottom: 10px;
+}
+.improve{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	display: inline-block;
+	width: 42px;
+	height: 31px;
+	background: url("../../../img/job_apply/mine-icon.png") -120px 0 no-repeat;
+}
+/*.improve:hover{
+	background: url("../../../img/job_apply/mine-icon.png") -162px 0 no-repeat;
+}*/
+.edit-info{
+	color: #8d8d8d;
+	border-top: 1px solid #b8b8b8;
+	height: 43px;
+	line-height: 43px;
+	padding-left: 80px;
+	padding-right: 20px;
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#faf8f8), to(#e4e3e3));/*webkit浏览器*/
+	background:-moz-linear-gradient(top, #faf8f8,#e4e3e3);/*Mozilla浏览器*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#faf8f8,endColorstr=#e4e3e3,grandientType=1);/*IE浏览器*/
+}
+
+.edit-info a{
+	color: #127db3;
+}
+
+.edit{
+	color: #127db3;
+	font-size: 16px;
+	float: right;
+	padding-right: 20px;
+	padding-left: 25px;
+}
+.edit i{
+	background: url("../../../img/job_apply/mine-icon.png") -19px -32px no-repeat;
+	display: inline-block;
+	width: 15px;
+	height: 16px;
+	margin-right: 10px;
+	margin-bottom: -2px;
+}
+.sub-module .light-up {
+	background-position: -162px 0;
+}
+/*------------档案资料模块-------------------*/
+.sub-module h3{
+	font-size: 20px;
+	font-weight: normal;
+	height: 38px;
+	line-height: 38px;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+.sub-module h3 i{
+	display: inline-block;
+	margin-right: 15px;
+	margin-bottom: -8px;
+}
+.about-me{
+	background: url("../../../img/job_apply/mine-icon.png") 0 0 no-repeat;
+	width: 32px;
+	height: 30px;
+}
+.specialty{
+	background: url("../../../img/job_apply/mine-icon.png") -32px 0 no-repeat;
+	width: 27px;
+	height: 30px;
+}
+.work{
+	background: url("../../../img/job_apply/mine-icon.png") -59px 0 no-repeat;
+	width: 24px;
+	height: 29px;
+}
+.education{
+	background: url("../../../img/job_apply/mine-icon.png") -84px 0 no-repeat;
+	width: 35px;
+	height: 29px;
+}
+.sub-module p{
+	margin: 30px 63px;
+	font-size: 16px;
+	color: #8d8d8d;
+}
+.description{
+	border: 1px dotted #707070;
+	padding: 40px 0;
+	display: inline-block;
+	width: 86%;
+	text-align: center;
+	margin: 30px 65px;
+	color: #8d8d8d;
+	background: #f9f9f9;
+}
+.description:hover{
+	background: #ecf3fb;
+}
+.add{
+	border: 1px solid #cccccc;
+	color: #616874;
+	font-size: 18px;
+	padding: 8px 20px;
+	border-radius: 5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	position: absolute;
+	top: -2px;
+	right: 20px;
+}
+.add:hover{
+	text-decoration: none;
+	color: #fff;
+	background: #5b626d;
+	border: 1px solid #444951;
+}
+.add i{
+	background: url("../../../img/job_apply/mine-icon.png") -35px -32px no-repeat;
+	display: inline-block;
+	width: 12px;
+	height: 13px;
+	margin-right: 15px;
+}
+.add:hover i{
+	background: url("../../../img/job_apply/mine-icon.png") -48px -32px no-repeat;
+	display: inline-block;
+	width: 13px;
+	height: 14px;
+}
+.my-label{
+	margin: 20px 65px 0;
+	width: 86%;
+}
+.my-label.added-item span b{
+	/*width: 45px;*/
+}
+.time{
+	float: left;
+}
+.experience{
+	float: left;
+	width: 65%;
+	margin: 30px 0 20px;
+	color: #8d8d8d;
+}
+.experience h4{
+	font-size: 18px;
+}
+.experience ul{
+	padding-top: 15px;
+	padding-bottom: 30px;
+}
+.experience ul li{
+	float: left;
+	padding-right: 20px;
+	font-size: 16px;
+}
+.add-description{
+	display: inline-block;
+	width: 67%;
+	color: #127db3;
+	padding-left: 320px;
+}
+.del{
+	float: right;
+	padding-right: 20px;
+	color: #8d8d8d;
+}
+/*------------联系方式模块-------------------*/
+.contact{
+	background: #f9f9f9;
+}
+.contact ul{
+	float: left;
+	width: 230px;
+	height: 105px;
+	margin-left: 40px;
+}
+.contact .another{
+	width: 500px;
+}
+.contact ul li{
+	height: 35px;
+	line-height: 35px;
+	padding-left: 30px;
+	color: #8d8d8d;
+}
+.contact ul li a{
+	color: #127db3;
+}
+.contact ul li i{
+	display: inline-block;
+	margin-bottom: -5px;
+}
+.mobile{
+	background: url("../../../img/job_apply/mine-icon.png") -62px -32px no-repeat;
+	width: 14px;
+	height: 23px;
+	margin-right: 25px;
+}
+.phone{
+	background: url("../../../img/job_apply/mine-icon.png") -76px -32px no-repeat;
+	width: 21px;
+	height: 21px;
+	margin-right: 18px;
+}
+.qq{
+	background: url("../../../img/job_apply/mine-icon.png") -97px -32px no-repeat;
+	width: 21px;
+	height: 23px;
+	margin-right: 18px;
+}
+.wechat{
+	background: url("../../../img/job_apply/mine-icon.png") -119px -32px no-repeat;
+	width: 19px;
+	height: 23px;
+	margin-right: 20px;
+}
+.email{
+	background: url("../../../img/job_apply/mine-icon.png") -139px -32px no-repeat;
+	width: 24px;
+	height: 20px;
+	margin-right: 15px;
+}
+/*--------------------编辑基本信息模块------------------------------*/
+h3.module-title{
+	color: #666666;
+	font-weight: normal;
+	border-bottom: 1px solid #dcdcdc;
+	margin: 30px 68px 0;
+	padding-bottom: 5px;
+}
+.module-title span{
+	padding-left: 15px;
+	border-left: 6px solid #e87522;
+}
+.module-title a{
+	color: #82a5bb;
+	float: right;
+	font-size: 12px;
+}
+.module form{
+	margin: 20px auto 40px;
+	width: 70%;
+	position: relative;
+}
+.info-item{
+	float: left;
+	padding-left: 100px;
+	color: #7a7a7a;
+	font-size: 14px;
+	width: 370px;
+	margin-top: 20px;
+}
+.info-item.long{
+	width: 612px;
+}
+.info-item .label{
+	display: inline-block;
+	width: 75px;
+	/*text-align: right;*/
+	padding-right: 10px;
+}
+.info-item label{
+	margin-right: 10px;
+}
+.info-item input[type="text"],.info-item select{
+	border: 1px solid #c7c7c7;	
+	height: 30px;
+	line-height: 30px;
+	color: #7a7a7a;
+	font-size: 12px;
+	padding-left: 10px;
+}
+.info-item input[type="checkbox"]{
+	display: inline-block;
+	vertical-align: middle;
+	margin-top: -3px;
+}
+.info-item .control-area-long, .info-item .control-area-short{
+	background: #f9f9f9;
+}
+.info-item input.control-area-long{
+	width: 202px;
+}
+.info-item input.control-area-normal{
+	width: 140px;
+}
+.info-item input.control-area-short{
+	width: 45px;
+}
+.info-item select.control-area-long{
+	width: 215px;
+}
+.info-item select.control-area-normal{
+	width: 120px;
+}
+.info-item select.control-area-short{
+	width: 90px;
+}
+.info-item option{
+	padding: 5px 0 0 10px;
+}
+.info-item .detail-description{
+	float: left;
+}
+.info-item textarea{
+	max-width: 360px;
+	width: 360px;
+	height: 75px;
+	color: #7a7a7a;
+	margin-left: 5px;
+}
+.info-item a{
+	color: #82a5bb;
+	padding-right: 20px;
+}
+.info-item a i{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: url("../../../img/job_apply/edit-icon.png") 0 0 no-repeat; 
+	margin-right: 5px;
+}
+.info-item.center{
+	text-align: center;
+	clear: both;
+}
+.info-item button{
+	margin: 20px;
+	display: inline-block;
+    width: 80px;
+    height: 40px;
+	padding: 5px 20px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	cursor: pointer;
+    text-align: center;
+}
+.info-item .save{
+	background: #e87522;
+	border: 1px solid #e87522;
+	color: #fff;
+}
+.info-item .cancel{
+	background: #fff;
+	border: 1px solid #adadad;
+}
+form .face{
+	position: absolute;
+	top: 20px;
+	right: 40px;
+}
+form .face img{
+	border: 1px solid #bcbcbc;
+}
+form .face span{
+	height: 133px;
+}
+form .face .modify{
+	width: 132px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 12px;
+	margin-bottom: -1px;
+	padding-right: 1px;
+	margin-left: 1px;
+}
+/*-------------------编辑关于我模块---------------------------*/
+form .intro{
+	background: #f3fbfe;
+	color: #666666;
+	text-align: center;
+	border: 1px solid #e5e5e5;
+	padding: 5px 0;
+	margin-top: 25px;
+}
+form .content{
+	color: #666666;
+	width: 85%;
+	margin: 30px auto;
+}
+.content h3{
+	font-weight: normal;
+}
+.content textarea{
+	margin-top: 10px;
+	height: 200px;
+	width: 100%;
+	max-width: 100%;
+}
+.content .reference{
+	color: #82a5bc;
+	display: inline-block;
+	margin-top: 10px;
+	float: left;
+}
+.reference i{
+	display: inline-block;
+	width: 9px;
+	height: 5px;
+	margin-bottom: 3px;
+	margin-left: 3px;
+	background: url("../../../img/job_apply/edit-icon.png") -10px 0 no-repeat;
+}
+.reference i:hover{
+	background: url("../../../img/job_apply/edit-icon.png") -10px -5px no-repeat;
+}
+.content .examples{
+	border: 1px solid #ECECEC;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	padding: 20px;
+	margin-top: 10px;
+	clear: both;
+}
+.content .example{
+	color: #999999;
+	border-bottom: 1px dotted #ECECEC;
+	line-height: 30px;
+	padding-bottom: 10px;
+	font-weight: lighter;
+	font-size: 13px;
+} 
+/*-------------------编辑我的专长模块---------------------------*/
+.added{
+	margin-top: 30px;
+	font-weight: normal;
+}
+.added-item{
+	margin-top: 15px;
+}
+.added-item li{
+	display: inline-block;
+}
+.added-item span , .added-item span b, .added-item span a, .add-item span , .add-item span b, .add-item span a{
+	display: inline-block;
+}
+.added-item span, .add-item span{
+	/*background: url("../../../img/job_apply/edit-icon.png") 0px -39px no-repeat;*/
+	/*width: 69px;*/
+	height: 28px;
+	line-height: 28px;
+	color: #969696;
+	margin-right: 10px;
+	margin-top: 10px;
+	border: 1px solid #ededed;
+	border-radius: 6px;
+}
+.added-item span b, .add-item span b{
+	font-weight: normal;
+	width: 76px;
+	height: 28px;
+	line-height: 28px;
+	overflow: hidden;
+	font-size: 13px;
+	margin-left: 8px;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.added-item span a{
+	background: url("../../../img/job_apply/edit-icon.png") -19px 0px no-repeat;
+	width: 7px;
+	height: 7px;
+	vertical-align: top;
+	margin-top: 11px;
+	margin-right: 14px;
+	cursor: pointer;
+}
+.added-item span a:hover{
+	background: url("../../../img/job_apply/edit-icon.png") -27px 0px no-repeat;
+	width: 13px;
+	height: 13px;
+	vertical-align: top;
+	margin-top: 8px;
+	margin-left: 0px;
+}
+.input-specialty{
+	margin-top: 40px;
+}
+.input-specialty input{
+	float: left;
+	background: #f9f9f9;
+	height: 30px;
+	width: 247px;
+	border: 1px solid #e5e5e5;
+	font-size: 13px;
+	font-weight: lighter;
+	padding-left: 5px;
+}
+.input-specialty button{
+	font: left;
+	padding: 2px 15px;
+	background: #e87521;
+	color: #fff;
+	cursor: pointer;
+	border: 1px solid #e87521;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+.error-tip{
+	display: inline-block;
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+	color: #f00;
+	font-weight: lighter;
+}
+.quickly-add{
+	margin-top: 50px;
+	color: #969696;
+}
+.quickly-add h3{
+	font-weight: normal;
+}
+.add-box{
+	border: 2px solid #f3f3f3;
+	width: 100%;
+	height: 150px;
+	margin-top: 3px;
+	position: relative;
+}
+.box-content{
+	width: 100%;
+	height: 150px;
+	overflow: hidden;
+	position: relative;
+}
+.box-content ul{
+	width: 2100px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.box-content ul li{
+	float: left;
+	width: 640px;
+	padding: 20px 30px;
+}
+.add-item span a{
+	background: url("../../../img/job_apply/edit-icon.png") -40px 0px no-repeat;
+	width: 8px;
+	height: 8px;
+	margin: 0 4px 10px 4px;
+}
+.add-item span a:hover{
+	background: url("../../../img/job_apply/edit-icon.png") 0px -13px no-repeat;
+	width: 8px;
+	width: 16px;
+	height: 28px;
+	margin: 0px;
+}
+.direction{
+	border-left: 1px solid #f1f1f1;
+	padding: 20px 0 20px 10px;
+	margin-top: 40px;
+	position: absolute;
+	right: 36px;
+	top: 0px;
+}
+.direction a{
+	display: inline-block;
+	width: 12px;
+	height: 24px;
+	margin-left: 10px;
+}
+.left{
+	background: url("../../../img/job_apply/edit-icon.png") -17px -13px no-repeat;
+}
+.right{
+	background: url("../../../img/job_apply/edit-icon.png") -56px -13px no-repeat;
+}
+/*-------------------编辑联系方式模块---------------------------*/
+.info-box{
+	float: left;
+}
+.J_errorTip{
+	clear: both;
+	width: 213px;
+	margin-left: 190px;
+	padding-top: 10px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #f00;
+}
+.pw-tip{
+	color: #f00;
+	padding-left: 10px;
+	position: absolute;
+	right: -86px;
+	top: 318px;
+}
+.visible-range{
+	float: left;
+	margin-top: 27px;
+	width: 120px;
+	height: 60px;
+	font-size: 12px;
+	cursor: pointer;
+}
+.visible-range p , .visible-range ul li{
+	height: 21px;
+	line-height: 21px;
+	padding-left: 5px;
+}
+.visible-range p{
+	color: #9fb3c0;	
+}
+.focus{
+	border: 1px solid #dcdcdc;
+	background: #f9f9f9;
+}	
+.none{
+	display: none;
+}
+.visible-range i{
+	display: inline-block;
+	margin-right: 5px;
+	height: 11px;	
+}
+.visible-range p span{
+	display: inline-block;
+	width: 10px;
+	height: 21px;
+	float: right;
+	background: url("../../../img/job_apply/contact-icon.png") 0 0 no-repeat;
+}
+.visible-range ul{
+	border-left:  1px solid #dcdcdc;
+	border-right:  1px solid #dcdcdc;
+	color: #7a7a7a;
+}
+.visible-range ul li{
+	border-bottom: 1px solid #dcdcdc;
+}
+.all{
+	background: url("../../../img/job_apply/contact-icon.png") -26px 0 no-repeat;
+	width: 10px;
+}
+.schoolmate{
+	background: url("../../../img/job_apply/contact-icon.png") -46px 0 no-repeat;
+	width: 12px;
+}
+.self{
+	background: url("../../../img/job_apply/contact-icon.png") -18px 0 no-repeat;
+	width: 8px;
+}
+.dlg-alert div{
+	padding: 20px 69px;
+}
+.dlg-holder{
+	margin-left: 70px;
+	margin-top: -20px;
+}
+.dlg-holder thead th{
+	padding: 5px;
+}
+.dlg-holder div.dlg-footer {
+    padding-bottom: 10px;
+}
+.dlg-footer{
+	text-align: right;
+}
+/*.dlg-holder table tfoot{
+	border: none;
+}*/
+
+.mine .module form .error-field {
+	border: 1px solid #d15b47;
+}
+
+.pop-background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 300%;
+	background-color: #fff;
+	z-index: 200;
+	opacity: 0.5;
+}
+
+.validation-code {
+	position: fixed;
+	left: 45%;
+	top: 40%;
+	height: 165px;
+	width: 300px;
+	border-radius: 10px;
+	box-shadow: 0 0 200px #000;
+	z-index: 201;
+	background-color: #fff;
+}
+
+.submit-code {
+	display: inline-block;
+    width: 78px;
+    height: 30px;
+    border: 1px solid #af8e4e;
+    margin-left: 70px;
+    background: url("../../../img/job_apply/submit-bg.gif") repeat 0 0;
+    text-align: center;
+    color: #000;
+    border-radius: 4px;
+    cursor: pointer;
+  	line-height: 30px;
+}
+
+.cancel-code {
+	display: inline-block;
+    width: 78px;
+    height: 30px;
+    border: 1px solid #bababa;
+    background: url("../../../img/job_apply/cancel-bg.gif") repeat 0 0;
+    text-align: center;
+    color: #000;
+    border-radius: 4px;
+    cursor: pointer;
+    line-height: 30px;
+}
+
+.valid-tip {
+	width: 100%;
+	height:66px;
+	line-height: 66px;
+	text-align: center;
+	color: #781c2d;
+	font-size: 16px;
+}
+
+.validation-code label {
+	display: inline-block;
+	margin-top: 40px;
+	font-size: 14px;
+}
+
+.validation-code input {
+	width: 150px;
+	height: 30px;
+	border: 1px solid #bababa;
+}
+
+.edit-info .unclick-pointer {
+	cursor: default;
+	text-decoration: none;
+	color: #bababa;
+}
+
+.edit-all {
+	padding-left: 83px;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>求职通</title>
+	    <meta charset="utf-8" />
+	  <{include file="../../common/link.html"}>
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/base/reset.css">
+		<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/common/common.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/mine.css">
+	</head>
+	<body>
+		<{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="mine">
+			<!-- 编辑联系方式模块 start-->
+			<div class="module">
+				<h3 class="module-title">
+					<span>编辑联系方式</span>
+					<a href="javascript:;">返回我的档案</a>
+				</h3>
+				<form method="post" action="<{$website}>job/job/contactInfoEdit/id/<{$ContactInfo.id}>" class="clearfix">
+					<div class="info-item">
+						<span>手机&nbsp;:</span>
+						<input type="text" class="control-area-short" placeholder="0086">
+						<input type="text" class="control-area-normal" placeholder="13551889942"name="ContactInfo[cellphone]" value="<{$ContactInfo.cellphone}>">
+					</div>
+					<div class="visible-range">
+						<p class="focus"><i></i>仅自己可见<span></span></p>
+						<ul>
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div>
+					<div class="info-item">
+						<span>电话&nbsp;:</span>
+						<input type="text" class="control-area-short" placeholder="028">
+						<input type="text" class="control-area-normal" placeholder="87121485" name="ContactInfo[phone]" value="<{$ContactInfo.phone}>">
+					</div>
+					<div class="visible-range">
+						<p class="focus"><i></i>仅自己可见<span></span></p>
+						<ul>
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div>
+					<div class="info-item">
+						<span>QQ&nbsp;:</span>
+						<input type="text" class="control-area-long" name="ContactInfo[qq]" value="<{$ContactInfo.qq}>">
+					</div>
+					<div class="visible-range">
+						<p class="focus"><i></i>仅自己可见<span></span></p>
+						<ul>
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div>
+					<div class="info-item">
+						<span>MSN&nbsp;:</span>
+						<input type="text" class="control-area-long">
+					</div>
+					<div class="visible-range">
+						<p class="focus"><i></i>仅自己可见<span></span></p>
+						<ul>
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div>
+					<div class="info-item">
+						<span>邮箱&nbsp;:</span>
+						<input type="text" class="control-area-long" name="ContactInfo[email]" value="<{$ContactInfo.email}>">
+					</div>
+					<div class="visible-range">
+						<p class="focus"><i></i>仅自己可见<span></span></p>
+						<ul>
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div>
+					<div class="info-item center">
+						<button type="submit" class="save">保存</button>
+						<button type="reset" class="cancel">重置</button>
+					</div>
+				</form>
+			</div>
+			<!-- 编辑联系方式模块 end-->
+		</div>
+		<{include file="../../common/footer.html"}>
+	</body>
+</html>

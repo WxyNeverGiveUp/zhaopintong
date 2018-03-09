@@ -1,0 +1,225 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: company-introduction.css
+@Description: 单位首页css定义
+@Version: 1.0.0(2015-07-08)YYYY-MM-DD
+@author: hujun
+2015-05-20:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+/*  common css begin  */
+.page{
+	width: 1194px;
+	margin: 10px auto;
+}
+/* 模块公有样式 */
+.common-module-style{
+    border: solid 1px #e0e0e0;
+}
+/* 标题公有样式 */
+.common-title-style{
+	border-bottom: 1px dashed #cecccc;
+    height: 37px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
+}
+.common-title-style h1{
+	border-bottom: 1px solid #53c5e2;
+    font-size: 22px;
+	line-height: 27px;
+    width: 90px;
+    padding-bottom: 10px;
+}
+/* common css end */
+.video{
+	float: left;
+	width: 807px;
+	margin: auto;
+	height: 565px;
+}
+/* 单位名片开始 */
+.company-card{
+	border-top: #78d2e8 solid 4px; 
+    width: 357px;
+    margin-left:25px;
+    padding-bottom: 43px;  
+}
+.company-card-info{
+	width: 302px;
+	margin: 32px auto 22px;
+	font-size: 16px;
+}
+.company-card-info ul li{
+	line-height: 37px;
+}
+.intro-video{
+    border: 1px solid #e0e0e0;
+    height: 505px;
+    padding: 30px 60px;
+    width: 687px;
+    margin-bottom: 32px;
+}
+/* 单位名片ending */
+/* 单位介绍starting */
+.company-intro{
+	width: 807px;
+	background: #FDFBFC;
+	font-size: 16px;
+}
+.company-intro-title{
+	margin-bottom: 25px;
+}
+.company-intro p{
+	width: 757px;
+	line-height:40px;
+	text-indent:2em;
+	margin:auto; 
+}
+.company-intro ul{
+ 	border-top: 1px dotted #e0e0e0;
+    margin-top: 24px;
+    width: 807px;
+}
+.company-intro ul li{
+ 	float: left;
+    margin: 40px 31px;
+    padding-right: 3px;
+}
+.company-intro ul li img{
+	width: 204px;
+	height: 146px;
+}
+/* 单位介绍ending */
+.recruitment-and-elder{
+ 	width: 357px;
+ 	float: left;
+ 	margin-left:23px; 
+}
+/* 招聘动态和师兄师姐模块共用开始 */
+.recruitment-number{
+	width: 95px;
+	display: block;
+	font-size: 18px;
+    text-align: center;
+    color: #3ba2b7;
+    font-size:35px;
+}
+.job-position{
+	font-size: 16px;
+	text-align: center;
+}
+.preach-number{
+	width: 95px;
+	display: block;
+	font-size: 18px;
+    text-align: center;
+    color: #7099c8;
+    font-size:35px;
+}
+.preach-meeting{
+	font-size: 16px;
+	text-align: center;
+}
+/* 招聘动态和师兄师姐模块共用结束 */
+/* 招聘动态开始 */
+.recruitment-trends{
+	padding-bottom: 40px;  
+	width: 357px; 
+	margin-top: 32px; 
+}
+/* 招聘动态结束 */
+/* 师兄师姐开始 */
+.elder{
+    margin-top:32px;
+    padding-bottom: 40px;
+    width: 357px;  
+}
+.recruitment-position{
+	float: left;
+	position: relative;
+  	height: 95px;
+  	width: 95px;
+    margin-left: 55px;
+    margin-top: 45px;
+    color: #3BA2B7;
+    border: 3px solid;
+    border-radius: 15px;
+    color: #3BA2B7;
+}
+.recruitment-position .font-large{
+	font-size: 40px;
+}
+.preach{
+	float: left;
+	position: relative;
+	height:95px;
+	width: 95px;
+	margin-left: 30px;
+    margin-top: 45px;
+	border: 3px solid;
+    border-radius: 15px;
+    color: #7099C8;
+
+}
+
+.button-green-color{
+	position: absolute;
+	background:url("../../../img/company/recruitment-position.gif") no-repeat 0 0;
+	width: 20px;
+	height: 20px;
+	left: 40px;
+}
+.buttton-blue-color{
+	position: absolute;
+	background:url("../../../img/company/preach-button.gif") no-repeat 0 0;
+	width: 20px;
+	height: 20px;
+	left: 40px;
+}
+.elder-info{
+	width: 283px;
+	height: 58px;
+	margin: 30px auto;
+}
+.people-picture{
+	float: left;
+	width: 58px;
+	height: 58px;
+}
+.elder-info ul{
+	float: left;
+    height: 58px;
+    margin-left: 20px;
+    width: 200px;
+    font-size: 17px;
+}
+.elder-info ul li{
+	height: 37px;	
+}
+.elder-info-show img{
+	margin-left: 28px;
+	margin-bottom: -1px;
+}
+
+.elder-info a {
+	color: #000;
+	font-size: 16px;
+}
+/* 师兄师姐模块结束 */
+
+.none {
+	display: none;
+}
+
+.map-content {
+	width: 274px;
+	height: 222px;
+}
+
+.left-info {
+	float: left;
+}
+
+.right-info {
+	float: right;
+}

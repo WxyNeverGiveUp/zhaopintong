@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求职通关注单位</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/collet-company.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../job_apply/jobapply-header.html"}>
+<div class="page">
+	 	<ul class="company-page" id="companyInfo_template"></ul>
+	    <div id="J_pagination_collet"></div>
+ </div>
+<{include file="../../common/footer.html"}>
+
+<script id="tp-companyInfo" type="text/template">
+    {@each data as d}
+        {@if d.isFirst == 1}
+            <div class="company-page-head">
+	            <span class="title">关注单位</span>
+                {@if d.focusNum != 0} 
+	            <div class="yes-focus">你已关注<span class="focus-num">&{d.focusNum}</span>个单位
+	            </div>
+	            <div class="no-focus none">
+			 		<span class="focus-tip">暂时还没有关注任何公司!</span>
+			 		<span class="sugges-tip">推荐你关注的公司</span>
+		 		</div>
+		 		{@/if}
+                {@if d.focusNum == 0}
+                <div class="yes-focus none">你已关注<span class="focus-num">&{d.focusNum}</span>个单位
+	            </div>
+                <div class="no-focus">
+                    <span class="focus-tip">暂时还没有关注任何公司!</span>
+                    <span class="sugges-tip">推荐你关注的公司</span>
+                </div>
+                {@/if}
+	 		</div>	
+		{@/if}
+	 		
+        	
+	    <li class="company-recommend" id="J_company">
+	    	<ul class="company-content"  id=&{d.companyId}>
+	    		<li class="company-name">
+	    			<a class="company-namer" href="<{$website}>company/company/detail/id/&{d.companyId}" target="_blank">&{d.companyName}</a>
+	    			<div class="company-property">
+	    				<div>
+	    					<span><em>行业：</em>&{d.industry}</span>
+	    					<span><em>性质：</em>&{d.property}</span>
+		    			</div>
+		    			<div>
+		    				<span><em>城市：</em>&{d.city}</span>
+		    				<span><em>亮点：</em>&{d.brightspot}</span>
+		    			</div>
+	    			</div>
+	    		</li>
+	    		<li class="company-focus">
+	    			{@if d.isFocus == 1}
+						<a href="javascript:;" class="isFocus">关注</a>
+						<a href="javascript:;" class="unFocus none"value="0">取消</a>
+					{@/if}
+					{@if d.isFocus == 0}
+						<a href="javascript:;" class="isFocus none">关注</a>
+						<a href="javascript:;" class="unFocus" value="1">取消</a>
+					{@/if}
+	    		</li>
+	    	</ul>
+	    </li>
+	{@/each}
+</script>
+<script type="text/javascript">
+KISSY.use('page/job_apply/colletCompany',function(S){
+	var urls = PW.Env.url.job_apply.collect;
+	var url = urls.getCompanylist+'/page';
+	S.ready(function(){	
+	    PW.page.job_apply.colletCompany({
+	    	renderTo:'#J_pagination_collet' ,//分页显示指向
+			juicerRender:'#tp-companyInfo' ,//模板渲染指向
+			dataRender:'#companyInfo_template',
+			pageSize:8,//每页显示的记录数)
+	        url:url,//必选，指向ajax的url
+	        configUrl:function(url,page,me,prevdata){
+                return url + '/' + page ;
+			},
+            type:'get'
+        })
+	});
+})	
+</script>
+</body>
+</html>

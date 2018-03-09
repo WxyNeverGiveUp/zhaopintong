@@ -1,0 +1,29 @@
+<!-- 赵凯康  求职通header-->
+<div class="jobapply-header">
+	<ul class="clearfix">
+		<li class="<{$color}>"><a href="<{$website}>job/job">我的主页</a></li>
+		<li class="<{$resume}>"><a href="<{$website}>job/resume/index">简历</a></li>
+		<li class="<{$letter}>"><a href="<{$website}>job/job/letterindex">求职信</a></li>
+		<li class="<{$company}>"><a href="<{$website}>job/company">关注单位</a></li>
+		<li class="<{$position}>"><a href="<{$website}>job/position">收藏职位</a></li>
+        <{if  $isLeague eq 1 or $isLeague eq 2}>
+        <{if $isActivated eq 1}>
+        <li class="<{$message}>"><a href="<{$website}>job/study/message">短信定制</a></li>
+        <{else}>
+        <li class="<{$message}> message-order"><a href="javascript:;">短信定制</a></li>
+        <{/if}>
+        <{else}>
+        <li class="<{$message}> message-order"><a href="javascript:;">短信定制</a></li>
+        <{/if}>
+        <{if  $isLeague eq 1 or $isLeague eq 2}>
+        <{if $isActivated eq 1}>
+        <li class="<{$list}>"><a href="<{$website}>job/order/list">职位订阅</a></li>
+        <{else}>
+        <li class="<{$list}> position-order"><a href="javascript:;">职位订阅</a></li>
+        <{/if}>
+        <{else}>
+        <li class="<{$list}> position-order"><a href="javascript:;">职位订阅</a></li>
+        <{/if}>
+		<li class="<{$phone}>"><a href="<{$website}>job/study">报名宣讲会</a></li>
+	</ul>
+</div>

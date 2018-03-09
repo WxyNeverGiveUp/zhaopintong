@@ -1,0 +1,129 @@
+/*------------------------------------------------------------------------------------------
+@Filename:               phone.css
+@Description:            添加手机号与修改手机号页面css
+@Version:                1.0.0(2015-07-31)
+@author:                 zhaokaikang
+==STRUCTURE:=========================================*/
+
+.content {
+	width: 659px;
+	height: 240px;
+	border:1px solid #b8b8b8;
+	box-shadow: 0 0 20px 7px #e1e1e1;
+	margin: 30px auto;
+	padding: 25px 60px;
+}
+
+.content h1 {
+	height: 30px;
+	border-bottom: 2px solid #dcdcdc;
+}
+
+.content h1 span {
+	float: left;
+	height: 24px;
+	line-height: 24px;
+	border-left:6px solid #781c2d;
+	color: #7f7f7f;
+	text-indent: 11px;
+	font-size: 16px; 
+}
+
+.content h1 a {
+	float: right;
+	color: #82a5bc;
+	font-size: 12px;
+	height: 28px;
+	line-height: 35px;
+}
+
+.content .phone-form {
+	width: 305px;
+	margin: 24px auto;
+}
+
+.content .phone-form div input {
+	width: 209px;
+	height: 28px;
+	border:1px solid #c7c7c8;
+}
+
+.submit-phone {
+	display: inline-block;
+	width: 78px;
+	height: 30px;
+	border: 1px solid #af8e4e;
+	background: url("../../../img/job_apply/submit-bg.gif") repeat 0 0;
+	line-height: 30px;
+	text-align: center;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+	margin: 30px 0 0 86px;
+}
+
+.reset-phone {
+	display: inline-block;
+	width: 78px;
+	height: 30px;
+	border: 1px solid #bababa;
+	background: url("../../../img/job_apply/cancel-bg.gif") repeat 0 0;
+	line-height: 30px;
+	text-align: center;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.none {
+	display: none;
+}
+
+.change-form {
+	width: 542px;
+	margin: 60px 127px;
+	position: relative;
+}
+.change-form input[type='text']{
+	border:none;
+	width: 150px;
+	padding-left: 20px;
+	background: url("../../../img/job_apply/black-spot.png") no-repeat 0 3px;
+	right: 69px;
+}
+.change-phone {
+	color: #a7bece;
+	font-size: 12px;
+	margin-right: 11px;
+}
+
+.del-phone {
+	color: #e26a7c;
+	font-size: 12px;
+}
+
+.content .change-form .change-border {
+	border:1px solid #c7c7c8;
+}
+
+.change-form ul {
+	float: left;
+	position: relative;
+	height: 69px;
+	width: 406px;
+	margin-left: 20px;
+}
+
+.change-form ul li span {
+ 	float: right;
+ 	font-size: 14px;
+}
+
+.change-form span {
+	float: left;
+}
+
+.change-form div {
+	height: 24px;
+	top: 24px;
+}

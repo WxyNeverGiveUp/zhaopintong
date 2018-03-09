@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>教师招考详情</title>
+    <{include file = "admin/common/link.html"}>
+    <{include file = "admin/common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/admin/css/page/company.css">
+</head>
+
+</body>
+</html>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <table class="teacher-recruitment">
+                    <tr><td>教师招考名称</td><td><{$announcement.title}></td></tr>
+                    <tr><td>内容</td><td><{$announcement.content}></td></tr>
+                    <tr><td>时间</td><td><{$announcement.add_time}></td></tr>
+                    <tr><td>点击次数</td><td><{$announcement.clicks}></td></tr>
+                    <tr><td>地点</td><td><{$announcement.city->name}></td></tr>
+                    <tr><td><a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch" class="btn" >返回</a></td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

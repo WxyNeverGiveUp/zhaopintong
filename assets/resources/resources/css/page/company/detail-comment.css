@@ -1,0 +1,158 @@
+/*----------------------------------------------------
+@Filename: detail-comment.css
+@Description: 单位具体评价页面
+@Version: 1.0.0(2015-07-09)
+@author: zhaokaikang
+=======================================================
+2015-07-09:
+初始生成。
+
+------------------------------------------------------*/
+.content {
+	width: 982px;
+	margin: 0 auto;
+	padding: 20px 100px;
+	background-color: #FBFBFB;
+	border: 1px solid #ededed;
+}
+
+.content h1 {
+	height: 20px;
+	line-height: 20px;
+	font-size: 16px;
+	font-weight: normal;
+	text-indent: 10px;
+	border-left: 6px solid #e76320;
+}
+
+.content h2 {
+	height: 40px;
+	color: #e76320;
+	font-weight: normal;
+	font-size: 12px;
+	text-indent: 16px;
+	line-height: 40px;
+	border-bottom: 1px solid #dedede;
+}
+
+.content form {
+	margin-left: 16px;
+	margin-top: 40px;
+}
+
+.content h3 {
+	font-size:16px; 
+}
+
+table th {
+	padding: 15px 0;
+}
+
+table td {
+	position: relative;
+	padding: 15px 0; 
+}
+
+.rate{
+	display: inline-block;
+	height: 16px;
+	width: 200px;
+	background: url("../../../../resources/img/company/dp-impress.png") no-repeat 0 bottom;
+}
+
+.rate a {
+	float: left;
+	text-indent: -2000px;
+	width: 20%;
+	cursor: pointer;
+}
+
+.advise {
+	width: 100%;
+	height: 150px;
+}
+
+.sub {
+	display: block;
+	height: 35px;
+	width: 80px;
+	margin-top: 20px;
+	background-color: #fbd329;
+	background-image: linear-gradient(to bottom, #fee989, #ffd41e);
+	border: 1px solid #e7a33b;
+    color: #333;
+}
+
+.rate-level-1 {
+	background-position: 0 -64px;
+}
+
+.rate-level-2 {
+	background-position: 0 -48px;
+}
+
+.rate-level-3 {
+	background-position: 0 -32px;
+}
+
+.rate-level-4 {
+	background-position: 0 -16px;
+}
+
+.rate-level-5 {
+	background-position: 0 0px;
+}
+
+.rate-level-1-hover {
+	background-position: 0 -144px;
+}
+
+.rate-level-2-hover {
+	background-position: 0 -128px;
+}
+
+.rate-level-3-hover {
+	background-position: 0 -112px;
+}
+
+.rate-level-4-hover {
+	background-position: 0 -96px;
+}
+
+.rate-level-5-hover {
+	background-position: 0 -80px;
+}
+
+.content h4 {
+	height: 60px;
+	line-height: 60px;
+	font-size: 16px;
+}
+
+.none {
+	display: none;
+}
+
+.satisfy-degree {
+	position: absolute;
+	width: 90px;
+	left: 210px;
+	top: 12px;
+	color: #fac47e;
+}
+
+.click-satisfy-degree {
+	position: absolute;
+	width: 90px;
+	left: 300px;
+	top: 12px;
+	color: #f4e191;
+}
+
+.rate-tip {
+	position: absolute;
+	width: 90px;
+	left: 400px;
+	top: 12px;
+	color: #e76320;
+}

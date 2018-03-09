@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>修改手机号</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/phone.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../job_apply/jobapply-header.html"}>
+	<div class="content">
+		<h1>
+			<span>修改手机号</span>
+			<a href="<{$website}>job/job">返回求职通首页</a>
+		</h1>
+		<form class="change-form" action="<{$website}>job/study/update" method="post">
+			<span>已添加号码：</span>
+			<ul>
+				<li id="1">
+					<input type="text" readonly="readonly" value="<{$cellphone}>" data-valid-rule="isMobile" class="phone-number" name="cellphone">
+					<a href="javascript:;" class="change-phone">修改</a>
+					<a href="javascript:;" class="del-phone">删除</a>
+				</li>
+			</ul>
+			<div class="none">
+				<input type="submit" value="确定" class="submit-phone">
+				<button type="button" class="reset-phone cancel-phone">重置</button>
+			</div>
+		</form>		
+	</div>
+<{include file="../../common/footer.html"}>
+	<script type="text/javascript">
+		KISSY.use('page/job_apply/phone',function(S){
+			S.ready(function(){
+				PW.page.job_apply.phone();
+			})
+		})
+	</script>
+</body>
+</html>

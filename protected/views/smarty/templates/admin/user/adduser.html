@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>添加管理员</title>
+    <{include file = "admin/common/link.html"}>
+    <{include file = "admin/common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/user/system.css"/>
+</head>
+<body>
+<{include file= "admin/common/header.html"}>
+	<div class="container">
+        <{include file="admin/common/sidebar.html"}>
+		<div class="content">
+            <{include file="admin/common/crumbs.html"}>
+			<div class="page-content">
+				<form action="<{$website}>admin/user/user/addUser" method="post">
+				    <div class="block">
+						<div class="block-header">
+							<h3>添加管理员</h3>
+						</div>
+						<div class="block-content">
+							<div class="content-input">
+								<label class="conten-lable">用户名</label>
+								<input type="text" id="J_username" class="inputText" placeholder="以英文开头的6位以上的英文或数字" data-valid-rule="notNull&isCommonUser" name="username">
+							</div>
+							<div class="content-input">
+								<label>密码</label>
+								<input type="password" id="pwd" class="inputText" placeholder="6位以上的英文或数字" data-valid-rule="notNull&isPassword" name="password">
+							</div>
+							<div class="content-input">
+								<label>重复密码</label>
+								<input type="password" class="inputText" data-valid-rule=
+								"notNull&isPassword&require(pwd)&equal(pwd)" name="">
+							</div>
+						</div>				
+					</div>
+
+					<div class="content-input">
+						<button type="submit" class="btn">确定</button>
+						<button type="reset" class="btn">取消</button>
+					</div>
+				</form>					
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		KISSY.use('page/system/add-user',function(S){
+			S.ready(function(){
+				PW.page.addUser();
+			});
+		});
+	</script>
+</body>
+</html>

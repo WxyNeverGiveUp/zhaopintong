@@ -1,0 +1,89 @@
+<!-- 赵凯康 宣讲会日历版 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宣讲会日历版</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <{include file="../common/script.html"}>
+    <{include file="../common/link.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/preach/preach-calendar.css">
+</head>
+<body>
+<{include file="../common/header.html"}>
+<span class="year none"><{$year}></span>
+<span class="month none"><{$month}></span>
+<span class="day none"><{$day}></span>
+<div class="content clearfix">
+    <div class="calendar" id="preach-calendar"></div>
+    <div class="preach-info">
+        <div class="clearfix">
+            <h1>宣讲会信息</h1>
+            <a href="<{$website}>careerTalk/careerTalk/calList" class="square"></a>
+            <a href="<{$website}>careerTalk/careerTalk/list" class="list"></a>
+        </div>
+
+        <div class="ul-wrapper">
+            <ul id="tpl-template">
+            </ul>
+            <div class="grey-border"></div>
+        </div>
+
+
+        <div id="J_pagination"></div>
+    </div>
+</div>
+<{include file="../common/footer.html"}>
+<script type="text/template" id="tpl">
+    {@each data as d}
+    <li class="clearfix" id="preach-detail">
+        <div class="time">
+            <p>&{d.time}</p>
+            <p>&{d.month}月&{d.day}日</p>
+        </div>
+        {@if d.preachTypeId == 1}
+        <div class="preach-type-yellow">
+            &{d.preachType}
+        </div>
+        {@/if}
+        {@if d.preachTypeId == 2}
+        <div class="preach-type-green">
+            &{d.preachType}
+        </div>
+        {@/if}
+        {@if d.preachTypeId == 3 || d.preachTypeId==4 || d.preachTypeId==5 ||d.preachTypeId==6 || d.preachTypeId==7 || d.preachTypeId==8}
+        <div class="preach-type-blue">
+            &{d.preachType}
+        </div>
+        {@/if}
+        <div class="detail-info">
+            <a href="<{$website}>careerTalk/careerTalk/detail/id/&{d.id}" title="&{d.preachInfo}" target="_blank">&{d.preachInfo}</a>
+            <p>举办时间：&{d.month}月&{d.day}日</p>
+            <p>宣讲类型：&{d.preachType}</p>
+            <p>举办地点：&{d.location}</p>
+        </div>
+    </li>
+    {@/each}
+</script>
+<script type="text/javascript">
+    KISSY.use('page/preach/preachCalendar',function(S){
+        var urls = PW.Env.url.preach.preachCalendar;
+        var url = urls.getPreachList+'/date/<{$date}>';
+        S.ready(function(){
+            PW.page.preach.preachCalendar({
+                renderTo:'#J_pagination',
+                juicerRender:'#tpl',
+                dataRender:'#tpl-template',
+                pageSize:5,
+                url:url,
+                configUrl:function(url,page,me,prevdata){
+                    // return url +  '/' + page1 ;
+                    return url;
+                },
+                type:'get'
+            })
+        })
+    })
+</script>
+</body>
+</html>

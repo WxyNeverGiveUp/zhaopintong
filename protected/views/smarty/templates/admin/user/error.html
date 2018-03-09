@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>错误页</title>
+    <{include file = "admin/common/link.html"}>
+    <{include file = "admin/common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+</head>
+
+</body>
+</html>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <table>
+                    <tr><td>错误信息</td><td><{$message}></td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

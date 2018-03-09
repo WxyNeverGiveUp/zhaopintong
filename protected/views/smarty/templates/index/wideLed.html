@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Led显示屏</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/index/led.css">
+	<script src="<{$staticWebsite}>puiresources/lib/thirdparty/jquery.js"></script>
+	<script src="<{$staticWebsite}>puiresources/lib/thirdparty/jquery.simpleWeather-2.3.min.js"></script>
+</head>
+<body onload= "main()">
+	<div class="page">
+		<div class="content clearfix">
+		<ul>
+			<li class="left-wrap">
+				<h1>学生就业指导服务中心</h1>
+				<div class="weather-clock">
+					<div id="weather"></div>
+					<canvas class = "canvas" id="canvasId" width = '110px' height = '110px'></canvas>
+					<canvas id = "clock" width = '180px' height = '40px'>
+				</div>
+				<div class="today-notice">
+                    <h2><{$ledNotice.title}></h2>
+                    <{if $isOneLine eq 1}>
+                    <p><{$ledNotice.content}></p>
+                    <{else}>
+                    <marquee scrollamount="2" direction="up"  height="60px">
+                        <p><{$ledNotice.content}></p>
+                    </marquee>
+                    <{/if}>
+				</div>
+				<ul class="website-detail">
+					<li>
+						<img src="<{$staticWebsite}>resources/img/index/led/qr-code.png">
+					</li>
+					<li>
+						<p>最新 、 最快 、最好的就业服务</p>
+						<p>请登录东北高师就业联盟网</p>
+						<p>http://www.dsjyw.net</p>
+						<p>关注东师就业微信号，招聘信息早知道！</p>
+					</li>
+				</ul>
+			</li>
+			<li class="today-preach">
+				<h2>今日宣讲会</h2>
+				<{if $toDayPreachCount<=5}>
+            	<ul>
+	                    <{foreach name=infolist from=$toDayPreach item=pr}>
+			                    <li class="clearfix">
+									<div><{$pr.time|date_format:'%H:%M'}></div>
+									<div>
+										<a href="javascsript:;"><{$pr.name}></a>
+										<em>举办地点：<{$pr.location}></em>
+									</div>
+								</li>
+	                    <{/foreach}>
+				</ul>
+            	<{else}>
+            	<marquee direction="up" height="400"  scrollamount="2" scrolldelay="100">
+					<ul>
+	                    <{foreach name=infolist from=$toDayPreach item=pr}>
+			                    <li class="clearfix">
+									<div><{$pr.time|date_format:'%H:%M'}></div>
+									<div>
+										<a href="javascsript:;"><{$pr.name}></a>
+										<em>举办地点：<{$pr.location}></em>
+									</div>
+								</li>
+	                    <{/foreach}>
+					</ul>
+				</marquee>
+            	<{/if}>	
+			</li>
+			<li class="latest-preach">
+				<h2>近期宣讲会</h2>
+                <{if $recentPreachCount<=15}>
+                <ul>
+                    <{foreach name=infolist2 from=$recentPreachs item=re key=date}>
+                    <{if $smarty.foreach.infolist2.iteration <8}>
+                    <li class="clearfix">
+                        <div><{$date}></div>
+                        <div>
+                            <{foreach from=$re item=p}>
+                            <p>[<{$p.pType}>]<{$p.name}></p>
+                            <{/foreach}>
+                        </div>
+                    </li>
+                    <{/if}>
+                    <{/foreach}>
+                </ul>
+                <{else}>
+                <marquee direction="up" height="400"  scrollamount="2" scrolldelay="100">
+                    <ul>
+                        <{foreach name=infolist2 from=$recentPreachs item=re key=date}>
+                        <{if $smarty.foreach.infolist2.iteration <8}>
+                        <li class="clearfix">
+                            <div><{$date}></div>
+                            <div>
+                                <{foreach from=$re item=p}>
+                                <p>[<{$p.pType}>]<{$p.name}></p>
+                                <{/foreach}>
+                            </div>
+                        </li>
+                        <{/if}>
+                        <{/foreach}>
+                    </ul>
+                </marquee>
+                <{/if}>
+			</li>
+
+		</ul>
+	</div>
+	</div>
+	<script type="text/javascript">
+		var Canvas = {};
+
+		Canvas.cxt = document.getElementById('canvasId').getContext('2d');
+
+		Canvas.Point = function(x, y)
+		{
+		    this.x = x;
+		    this.y = y;
+		};
+
+		/*擦除canvas上的所有图形*/
+		Canvas.clearCxt = function()
+		{
+		    var me = this;
+		    var canvas = me.cxt.canvas;
+		    me.cxt.clearRect(0,0, canvas.offsetWidth, canvas.offsetHeight);
+		};
+
+		var main = function()
+		{
+		    var clock = new Canvas.Clock();
+		    clock.drawClock();
+		};
+
+		/*时钟*/
+		Canvas.Clock = function()
+		{
+		    var me = Canvas,
+		        c = me.cxt,
+		        radius = 50, /*半径*/
+		        scale = 10, /*刻度长度*/
+		        minangle = (1/30)*Math.PI, /*一分钟的弧度*/
+		        hourangle = (1/6)*Math.PI, /*一小时的弧度*/
+		        hourHandLength = radius/2, /*时针长度*/
+		        minHandLength = radius/3*2, /*分针长度*/
+		        secHandLength = radius/10*9, /*秒针长度*/
+		        center = new me.Point(c.canvas.width/2, c.canvas.height/2); /*圆心*/
+
+		    /*绘制圆心（表盘中心）*/
+		    function drawCenter()
+		    {
+		        c.save();
+
+		        c.translate(center.x, 55); 
+
+		        c.fillStyle = '#094678';
+		        c.lineWidth = 4;
+		        c.beginPath();
+		        c.arc(0, 0, radius/30, 0, 2*Math.PI);
+		        c.closePath();
+		        c.fill();
+
+		        c.restore();
+		    };
+
+		    /*通过坐标变换绘制表盘*/
+		    function drawBackGround()
+		    {
+		        c.save();
+
+		        c.translate(center.x, 55); /*平移变换*/
+		        /*绘制刻度*/
+
+		        for (var i = 1; i <= 60; i++)
+		        {
+		           drawScale();
+		           c.rotate(minangle); /*旋转变换*/
+		        };
+
+		        function drawScale()
+		        {
+		            if(i % 5 == 1)
+		            {
+		                c.beginPath();
+		                c.lineWidth = 1.8;
+		                c.moveTo(radius - 0.9*scale, 0);
+		                c.lineTo(radius,0);
+		                c.closePath();
+		                c.strokeStyle = "#094678";
+		                c.stroke(); 
+		            }
+		            else
+		            {
+		                c.beginPath();
+		                c.lineWidth = 0.5;
+		                c.moveTo(radius - 0.5*scale, 0);
+		                c.lineTo(radius,0);
+		                c.closePath();
+		                c.strokeStyle = "#094678";
+		                c.stroke(); 
+		            }
+		        };
+		        c.restore();
+		    };
+
+		    /*绘制时针(h: 当前时（24小时制）)*/
+		    this.drawHourHand = function(h)
+		    {
+
+		        h = h === 0? 24: h;
+
+		        c.save();
+		        c.translate(center.x, 55); 
+		        c.rotate(3/2*Math.PI);
+		        c.rotate(h*hourangle);
+
+		        c.shadowColor="rgba(0,0,0,0.5)";
+		        c.shadowBlur=4;
+		        c.shadowOffsetY=3;
+		        c.shadowOffsetX=2;
+
+		        c.strokeStyle = "#094678"
+		        c.lineWidth = 2.5;
+		        c.beginPath();
+		        c.moveTo(0, 0);
+		        c.lineTo(hourHandLength, 0);
+		        c.stroke();
+
+		        c.restore();
+		    };
+
+		    /*绘制分针（m: 当前分）*/
+		    this.drawMinHand = function(m)
+		    {
+
+		        m = m === 0? 60: m;
+
+		        c.save();
+		        c.translate(center.x, 55); 
+		        c.rotate(3/2*Math.PI);
+
+		        c.rotate(m*minangle);
+
+		        c.shadowColor="rgba(0,0,0,0.5)";
+		        c.shadowBlur=4;
+		        c.shadowOffsetY=3;
+		        c.shadowOffsetX=2;
+
+		        c.strokeStyle = '#094678';
+		        c.lineWidth = 2.5;
+		        c.beginPath();
+		        c.moveTo(0, 0);
+		        c.lineTo(minHandLength, 0);
+		        c.stroke();
+
+		        c.restore();
+		    };
+
+		    /*绘制秒针（s：当前秒）*/
+		    this.drawSecHand = function(s)
+		    {
+
+		        s = s === 0? 60: s;
+
+		        c.save();
+		        c.translate(center.x, 55); 
+		        c.rotate(3/2*Math.PI);
+
+		        c.rotate(s*minangle);
+
+		        c.strokeStyle = '#346a97';
+		        c.lineWidth = 1.5;
+		        c.beginPath();
+		        c.moveTo(0, 0);
+		        c.lineTo(secHandLength, 0);
+		        c.stroke();
+
+		        c.restore();
+		    };
+
+		    /*依据本机时间绘制时钟*/
+		    this.drawClock = function()
+		    {
+		        var me = this;
+		 
+		        function draw()
+		        {
+		           var date = new Date();
+
+		           Canvas.clearCxt();
+
+		           drawBackGround();
+		           drawCenter();
+		           me.drawHourHand(date.getHours() + date.getMinutes()/60);
+		           me.drawMinHand(date.getMinutes() + date.getSeconds()/60);
+		           me.drawSecHand(date.getSeconds());
+		        }
+		        draw();
+		        setInterval(draw, 1000);
+		    }; 
+		};
+
+		//数字时钟
+		function drawDigital(){
+			var canvas = document.getElementById('clock');
+		    if (canvas.getContext) {
+		        var ctx = canvas.getContext('2d');
+		        ctx.clearRect(0,0, canvas.offsetWidth, canvas.offsetHeight);
+		        //显示数字时钟
+		        var now = new Date();
+
+		        var month=now.getMonth() + 1;
+		        var date=now.getDate();
+		        var hour = now.getHours();
+		        var min = now.getMinutes();
+
+		        month = month >= 10 ? month : "0" + month;
+		        date = date >= 10 ? date : "0" + date;
+		        hour = hour >= 10 ? hour : "0" + hour;
+		        min = min >= 10 ? min : "0" + min;
+
+		        ctx.font="23px Arial ";
+
+		        ctx.fillStyle = "#fff";
+
+		        ctx.fillText(month + "/" + date,0,30);
+
+		        ctx.fillText(hour + ":" + min,100,30);
+		    }
+		}
+		drawDigital();
+		setInterval(drawDigital, 1000);
+
+
+		//定时刷新页面
+		function reloadPage(){
+			window.location.reload(true);
+		}
+
+		setInterval(reloadPage,1800000);
+
+	</script>
+	 <script type="text/javascript">
+		$(document).ready(function() {
+			var 
+				now = new Date(),
+				weekArray = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+		  $.simpleWeather({
+		    zipcode: '',
+		    woeid: '2137321',
+		    location: '',
+		    unit: 'f',
+		    success: function(weather) {
+		      html = '<div><img src="'+weather.image+'"></div>';
+		      // html += '<h2>'+weather.tempAlt+'&deg;'+weather.units.tempAlt+'</h2>';
+		      html += '<ul><li>长春</li>';
+		      html += '<li>'+weekArray[now.getDay()]+'</li>';
+		      html += '<li>'+weather.tempAlt+'&deg;C</li></ul>';
+		      $("#weather").html(html);
+		    },
+		    error: function(error) {
+		      $("#weather").html('<p>'+error+'</p>');
+		    }
+		  });
+		});
+	</script>
+</body>
+</html>

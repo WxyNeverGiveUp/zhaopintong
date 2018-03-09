@@ -1,0 +1,683 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: post.css
+@Description: 招聘信息（教育类与非教育类页面）及单位页面还有毕业生css定义
+@Version: 1.0.0(2015-06-08)YYYY-MM-DD
+@author: zhaokaikang
+2015-06-08:
+初始生成。
+
+=====update========================================================
+$__collection 收藏操作部分样式 ：by xuyihong 2015-06-19
+--------------------------------------------------------------------------------------------*/
+
+.search-field {
+	height: 88px;
+	background-color: #f8f7f7;
+	line-height: 88px;
+	font-size: 14px;
+	color: #8d8c8c
+}
+
+.search-field div:first-child {
+	width: 998px;
+	margin: 0 auto;
+}
+
+.search-field a {
+	text-decoration: none;
+	color: #8d8c8c;
+}
+
+.search-box {
+	position: relative;
+	width: 558px;
+	height: 46px;
+	border-radius: 2px;
+	border:2px solid #781c2d;
+	margin-top: -60px;
+	margin-left: 400px;
+}
+
+
+.search-box label {
+	float: left;
+	width: 110px;
+	height: 46px;
+	line-height: 46px;
+	border-right: 2px solid #781c2d;
+	background-color: #fff;
+	font-size: 18px;
+	color: #3f3f3f;
+	text-align: center;
+}
+
+/*区分招聘信息与单位两个页面.search-box label的宽度不同*/
+
+.company-label {
+	float: left;
+	width: 96px;
+	height: 46px;
+	line-height: 46px;
+	border-right: 2px solid #781c2d;
+	background-color: #fff;
+	font-size: 18px;
+	color: #3f3f3f;
+	text-indent: 12px;
+}
+
+.search-box select{
+	float: left;
+	height: 46px;
+	width: 114px;
+	border-left: 0px;
+	border-top: 0px;
+	border-bottom: 0px;
+	line-height: 46px;
+	text-align: center;
+	font-size: 18px;
+	color: #3f3f3f;
+	opacity: 0;
+}
+
+/*区分招聘信息与单位两个页面.search-box select的宽度不同*/
+.search-box .company-select {
+	width: 75px;
+}
+
+.search-box input {
+	float: left;
+	height: 44px;
+	line-height: 44px;
+	width: 345px;
+	border:0px;
+}
+/*区分招聘信息与单位两个页面.search-box input的宽度不同*/
+.search-box .company-input {
+	width: 360px;
+	height: 45px;
+	line-height: 45px;
+	/*font-size: 20px;*/
+	font-weight: normal;
+}
+
+.search-box a {
+	float: right;
+	height: 46px;
+	width: 99px;
+	line-height: 46px;
+	background-color: #781c2d;
+	color: #fff;
+	text-align: center;
+	font-size: 26px;
+}
+
+.content {
+	width: 1025px;
+	margin: 24px auto;
+}
+
+.left-nav {
+	float: left;
+	width: 178px;
+}
+
+.left-nav h1 {
+	border-left:6px solid #781c2d;
+	border-bottom: 1px solid #781c2d;
+	font-size: 18px;
+	color: #3f3f3f;
+	text-indent: 10px;
+	font-weight: normal;
+}
+
+.left-nav ul {
+	margin-bottom: 66px;
+}
+
+.left-nav li {
+	/*height: 35px;
+	line-height: 35px;*/
+	padding: 7px 0;
+	list-style: none;
+	text-align: center;
+}
+
+.left-nav li a {
+	padding: 0 20px;
+	text-decoration: none;
+	font-size: 14px;
+	color: #525252;
+}
+/*.left-nav li下a标签被点击之后的样式*/
+.left-nav .after-click {
+	background-color: #e3e3e3;
+	color: #781c2d;
+}
+
+.job-list , .graduate-list{
+	float: right;
+	min-width: 782px;
+	padding-bottom: 50px;
+	border: 1px solid #c6c6c6;
+}
+
+.select-section {
+	position: relative;
+}
+
+.select-section select {
+	width: 100px;
+	height: 25px;
+	border: 1px solid #bbbbbb;
+	margin-left: 21px;
+	margin-top: 15px;
+	text-indent: 2px;
+	margin-bottom: 10px;
+}
+
+input.famous-enterpirses {
+	position: absolute;
+	left: 138px;
+	top: 21px;
+}
+
+input.famous-school {
+	position: absolute;
+	left: 201px;
+	top: 21px;
+}
+
+label.famous-enterpirses {
+	position: absolute;
+	left: 162px;
+	top: 20px;
+	font-size: 12px;
+	color: #808080;
+}
+
+label.famous-school {
+	position: absolute;
+	left: 225px;
+	top: 20px;
+	font-size: 12px;
+	color: #808080;
+}
+
+.select-section .recruit-time {
+	display: inline-block;
+	width: 42px;
+	height: 15px;
+	line-height: 15px;
+	border-right:1px solid #979797; 
+	margin-left: 260px;
+	margin-right: 5px;
+	text-align: center;
+	font-size: 12px;
+	color: #979797;
+}
+/*区分两个页面下select-section .time的margin-left的不同*/
+.select-section .time {
+	display: inline-block;
+	width: 42px;
+	height: 15px;
+	line-height: 15px;
+	border-right:1px solid #979797; 
+	margin-left: 512px;
+	margin-right: 5px;
+	text-align: center;
+	font-size: 12px;
+	color: #979797;
+}
+
+.select-section .current-sort-way {
+	color: #781c2d;
+}
+
+.graduate-time {
+	display: inline-block;
+	width: 42px;
+	height: 15px;
+	line-height: 15px;
+	border-right:1px solid #979797; 
+	margin-left: 270px;
+	margin-right: 5px;
+	text-align: center;
+	font-size: 12px;
+	color: #979797;
+}
+/*招聘信息页面的热度的绿箭头*/
+.green-arrow {
+	display: inline-block;
+	width: 45px;
+	height: 15px;
+	line-height: 15px;
+	background: url("../../../img/recruitment-information/icon-list.png") no-repeat 30px -3px;
+	color: #979797;
+	text-decoration: none;
+	font-size: 12px;
+}
+/*单位页面的热度的蓝箭头*/
+.blue-arrow {
+	display: inline-block;
+	width: 45px;
+	height: 15px;
+	line-height: 15px;
+	background: url("../../../img/company/blue-arrow.png") no-repeat 30px 1px;
+	color: #979797;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.graduate-list li ,.job-list li {
+	width: 738px;
+	height: 138px;
+	padding-right: 22px;
+	padding-left: 22px;
+}
+
+.graduate-list li:hover , .job-list li:hover {
+	background-color: #f2f2f2;
+}
+
+.job-info {
+	height: 138px;
+	border-bottom : 1px solid #e8e8e9; 
+}
+
+.job-name {
+	height: 44px;
+	line-height: 44px;
+	font-size: 14px;
+	color: #781c2d;
+}
+
+.company-name {
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	color: #3f3f3f;
+}
+
+.company-name a {
+	color: #000;
+}
+
+.other-info {
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	color: #949494;
+}
+
+.other-info span{
+	margin-right: 45px;
+}
+/*.com为单位页面下之意 .com_company-name指单位页面下的单位名称*/
+.com_company-name {
+	height: 44px;
+	line-height: 44px;
+	font-size: 14px;
+	color: #781c2d;
+}
+.job-name a , .com_company-name a{
+	color: #781c2d;
+}
+
+.com_other-info {
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	color: #3f3f3f;
+}
+
+.com_company-name span , .com_other-info span {
+	margin-right: 35px;
+}
+
+.bright-spot {
+	height: 24px;
+}
+
+.bright-spot span {
+	display: inline-block;
+	height: 24px;
+	margin-right: 20px;
+	margin-top: 6px;
+	padding: 0 5px;
+	border: 1px solid #c2c2c2;
+	border-radius: 4px;
+	line-height: 22px;
+	font-size: 11px;
+	text-align: center;
+	color: #909090;
+}
+
+.check {
+	float: right;
+	width: 60px;
+	height: 25px;
+	margin-top: -78px;
+	margin-right: 30px;
+	line-height: 25px;
+	border-radius:4px;
+	background-color: #e8e8e8; 
+	text-decoration: none;
+	text-align: center;
+	color: #393838;
+	font-size: 14px;
+}
+
+.pageThemeDefault .check{
+	float: none;
+	width: 60px;
+	height: 25px;
+	margin-top: -78px;
+	margin-right: 30px;
+	line-height: 25px;
+	border-radius:0;
+	background-color: #e8e8e8; 
+	text-decoration: none;
+	text-align: center;
+	color: #393838;
+	font-size: 16px;
+}
+
+.collection {
+	float: right;
+	width: 60px;
+	height: 25px;
+	border: 1px solid #e8e8e8;
+	line-height: 25px;
+	border-radius:4px;
+	margin-top: -48px;
+	margin-right: 30px;
+	text-decoration: none;
+	text-align: center;
+	color: #02b28b;
+	font-size: 14px;
+
+}
+
+.follow{
+	float: right;
+	width: 60px;
+	height: 25px;
+	border: 1px solid #e8e8e8;
+	line-height: 25px;
+	border-radius:4px;
+	margin-top: -48px;
+	margin-right: 30px;
+	text-decoration: none;
+	text-align: center;
+	color: #248dc1;
+	font-size: 14px;
+}
+
+.unfollow{
+	float: right;
+	width: 60px;
+	height: 25px;
+	border: 1px solid #e8e8e8;
+	line-height: 25px;
+	border-radius:4px;
+	margin-top: -48px;
+	margin-right: 30px;
+	text-decoration: none;
+	text-align: center;
+	color: #248dc1;
+	font-size: 14px;
+}
+
+.collection:hover {
+	background-color:#02b28b; 
+	color: #fff;
+}
+
+.collectioned{
+	background-color:#02b28b; 
+	color: #fff;
+}
+
+.follow:hover {
+	background-color:#248dc1; 
+	color: #fff;
+}
+
+.follow-number {
+	float: right;
+	margin-top: -18px;
+	margin-right: 38px;
+	font-size: 12px;
+	color: #b7b7b7;
+}
+
+/*毕业生页面特有样式*/
+.yellow-arrow {
+	display: inline-block;
+	width: 45px;
+	height: 15px;
+	line-height: 15px;
+	background: url("../../../img/graduate/yellow-arrow.png") no-repeat 30px -3px;
+	color: #979797;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.select-section p{
+	height: 24px;
+	line-height: 24px;
+	margin-left: 22px;
+	margin-right: 22px;
+	color: #5c5b5b;
+	font-size: 12px;
+	border-bottom: 1px solid #e8e8e9;
+}
+
+.matching-number {
+	color: #fb8302;
+}
+.graduate-info {
+	position: relative;
+	height: 138px;
+	border-bottom : 1px solid #e8e8e9;
+	padding-left: 115px; 
+}
+
+.graduate-info img {
+	position: absolute;
+	top: 25px;
+	left: 8px;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+}
+
+.name {
+	display: inline-block;
+	height: 66px;
+	line-height: 82px;
+	font-size: 16px;
+	color: #4b4b4b;
+	text-decoration: none;
+}
+
+.major-school {
+	font-size: 14px;
+	color: #8a0303;
+}
+
+.major-school span {
+	margin-right: 20px;
+}
+
+.some-info {
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #a8a8a8;
+}
+
+.some-info span {
+	color: #3f3f3f;
+	margin-right: 40px;
+}
+
+.graduate-info .check {
+	margin-top: -58px;
+	border : 1px solid #e8e8e9;
+	background-color: #ffffff;
+	color: #e76e03;
+}
+
+.graduate-info .check:hover {
+	background-color:#e76e03;
+	color: #fff; 
+}
+
+.matching-number-wrapper {
+	margin: 0 22px;
+	border-bottom:1px solid #e8e8e9; 
+}
+/*-----------收藏部分样式----------------*/
+.none{
+	display: none;
+}
+
+.uncollection {
+	float: right;
+	width: 60px;
+	height: 25px;
+	border: 1px solid #e8e8e8;
+	line-height: 25px;
+	border-radius:4px;
+	margin-top: -48px;
+	margin-right: 30px;
+	text-decoration: none;
+	text-align: center;
+	color: #02b28b;
+	font-size: 14px;
+}
+.uncollection:hover {
+	background-color:#02b28b; 
+	color: #fff;
+}
+
+
+/*-----------弹出层样式----------------*/
+.pop-layer {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 600%;
+	background-color: #fff;
+	opacity: 0.85;
+	border: 1px solid #000;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}
+
+.show-layer {
+	display: none;
+	position: fixed;
+	left: 26%;
+	top: 5%;
+	background-color: #fff;
+	border: 1px solid #555b65;
+	color: #000;
+	border-radius: 5px;
+    box-shadow: 0 0 0 16px #e0e0e0;
+    z-index: 2000;
+}
+
+.show-layer h1 {
+	height: 30px;
+	background-color: #555b65;
+	color: #fff;
+	font-size:16px;
+	line-height: 30px;
+	font-weight: normal; 
+	text-indent: 15px;
+}
+
+.show-layer h2 {
+	height: 30px;
+	line-height: 30px;
+	background-color: #fff;
+	color: #000;
+	font-size:16px; 
+	font-weight: normal;
+	text-indent: 15px; 
+}
+
+.various-kind {
+	padding: 0 15px;
+}
+
+.show-layer ul {
+	float: left;
+	width: 340px;
+	height:420px;
+	overflow-y:scroll; 
+	border: 1px solid #d9d9d9;
+}
+
+.show-layer ul li {
+	height: 40px;
+	line-height: 40px;
+	color: 18px;
+	border-bottom: 1px solid #d9d9d9;
+	cursor: pointer;
+}
+
+.show-layer ul li:hover{
+	background-color: #0FA9BB;
+}
+
+.show-layer .okay {
+	float: right;
+	width: 78px;
+	height: 30px;
+	margin-top: 5px;
+	border: 1px solid #af8e4e;
+	background: url("../../../img/job_apply/submit-bg.gif") repeat 0 0;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+	line-height: 30px;
+}
+
+.show-layer .cancel{
+	float: right;
+	width: 78px;
+	height: 30px;
+	margin-top: 5px;
+	margin-right: 10px;
+	border: 1px solid #bababa;
+	background: url("../../../img/job_apply/cancel-bg.gif") repeat 0 0;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+	line-height: 30px;
+}
+
+.show-layer .button-style{
+	background-color: #F6F6F6;
+	height: 40px;
+	line-height: 40px;
+}
+
+.recruit-meeting{
+	margin-left: 30px;
+}
+
+.recruit-meeting-name {
+	background: rgba(0, 0, 0, 0) url("../../../img/recruitment-information/hot.png") no-repeat scroll 77px -2px;
+    display: inline-block;
+    height: 20px;
+    text-align: left;
+    width: 112px;
+    margin-left: 12px;
+    color: #781c2d;
+}
+

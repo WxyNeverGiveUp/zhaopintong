@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>首页图片修改</title>
+    <meta charset="utf-8">
+    <{include file = "admin/common/link.html"}>
+    <{include file = "admin/common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.all.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <link rel="stylesheet" type="text/css" href="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/themes/default/css/ueditor.css" />
+    <style type="text/css">
+        form{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .info-item{
+            width:300px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <form action="<{$website}>admin/indexImg/indexImage/edit/id/<{$image.id}>" method="post"  enctype="multipart/form-data" >
+                    <table>
+                        <tr>
+                            <td>图片名称</td>
+                            <td><input type="text" name="name" value="<{$image.name}>" /></td>
+                        </tr>
+                        <tr>
+                            <td>图片指向的URL</td>
+                            <td><input type="text" name="url" value="<{$image.url}>" /></td>
+                        </tr>
+                        <tr>
+                            <td>顺序号</td>
+                            <td><input type="text" name="number" value="<{$image.number}>" /></td>
+                        </tr>
+                        <tr>
+                            <td>原图</td>
+                            <td><img src="<{$staticWebsite}>../../<{$image.path}>"/></td>
+                        </tr>
+                        <tr>
+                            <td>选择图片</td>
+                            <td>
+                                <input type="file" name="file"/>
+                            </td>
+                        </tr>
+                        <tr><td></td><td><input type="submit" class="btn" value="修改">&nbsp&nbsp
+                            <input type="reset"  class="btn" value="重置">&nbsp&nbsp
+                            <a class="btn" href="<{$website}>admin/indexImg/indexImage/list">
+                                取消
+                            </a></td></tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,591 @@
+/*------------------------------------------------------------------------------------------
+@Filename:               edit-resume.css
+@Description:            简历编辑页面css
+@Version:                1.0.0(2015-07-21)
+@author:                 赵凯康
+-------------------------------------------------------------------------------------------*/
+
+.content {
+	width: 1004px;
+	margin: 40px auto;
+}
+
+.sketchy-title {
+	float: left;
+	width: 230px;
+	border: 1px solid #a9a8a8;
+	box-shadow: 3px 3px 4px #8b8b8b;
+}
+
+.upload-attachment {
+	position: relative;
+	width: 160px;
+	height: 40px;
+	background-color: #dbe4e9;
+	padding: 25px 35px;
+	margin-bottom: 27px;
+}
+
+.upload-attachment input {
+	cursor: pointer; 
+}
+
+.upload-attachment label {
+	display: inline-block;
+	width: 146px;
+	height: 40px;
+	line-height: 40px;
+	text-align: right;
+	font-size: 12px;
+	color: #6c6f71;
+	background:url("../../../img/job_apply/edit-resume-icon.gif") no-repeat 0 0; 
+}
+
+.preview-resume {
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 45px;
+    margin-top: 8px;
+    color: #e87521;
+    text-align: center;
+}
+
+.none {
+	display: none;
+}
+
+.inverted-triangle {
+	position: absolute;
+	left: 100px;
+	top: 90px;
+	height: 27px;
+	width: 27px;
+	background:url("../../../img/job_apply/edit-resume-icon.gif") no-repeat 0 -207px;
+}
+
+.sketchy-title li {
+	height: 35px;
+	line-height: 35px;
+	margin: 10px 27px;
+	font-size: 12px;
+}
+
+.check-hook {
+	display: inline-block;
+	height: 34px;
+	width:20px;
+	background:url("../../../img/job_apply/edit-resume-icon.gif") no-repeat -4px -61px;
+}
+
+.sketchy-title li span {
+	float: left;
+}
+
+.sketchy-title li em {
+	float: right;
+}
+
+.detail-info {
+	position: relative;
+	float: right;
+	width: 741px;
+	padding-bottom: 100px;
+	border: 1px solid #a9a8a8;
+	box-shadow: 3px 3px 4px #8b8b8b;
+}
+
+.detail-info input {
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid  #bababa;
+}
+
+.detail-info select {
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid  #bababa;
+}
+
+.detail-info select textarea {
+	border: 1px solid  #bababa;
+}
+
+.detail-info li {
+	margin: 0 40px;
+}
+
+.basic-info-detail h1 , .contact-info-detail h1 , 
+.education-experience-detail h1 , .certi-detail h1 , 
+.school-posi-detail h1 , .school-award-detail h1,
+.language-detail h1 , .intern-detail h1, .work-detail h1,
+.IT-detail h1 ,.project-detail h1 ,.train-detail h1,
+.apply-detail h1 , .attachment-detail h1{
+	height: 48px;
+	line-height: 48px;
+	font-size: 14px;
+	margin: 10px 0;
+}
+
+.basic-info-detail img {
+	float: right;
+	border: 2px solid #e9e9e9;
+}
+
+.basic-info-detail table {
+	float: left;
+	margin-left: 20px;
+}
+
+.edit-info {
+	float: right;
+	margin-top: 11px;
+	height: 25px;
+	line-height: 25px;
+	width: 46px;
+	color: #333333;
+	text-align: right;
+	background: url("../../../img/job_apply/edit-resume-icon.gif") no-repeat -8px -112px;
+}
+
+.add-info {
+	float: right;
+	margin-top: 11px;
+	height: 25px;
+	line-height: 25px;
+	width: 46px;
+	color: #333333;
+	text-align: right;
+	background: url("../../../img/job_apply/edit-resume-icon.gif") no-repeat -5px -160px;
+}
+
+.basic-info-detail td {
+	height: 28px;
+	line-height: 28px;
+}
+
+.basic-info-detail tr td:first-child {
+	color: #ababab;
+	text-align: right;
+}
+
+.cancel-basic {
+	float: left;
+}
+
+.edit-basic-info table tr:last-child td input {
+	float: right;
+}
+
+.no-info {
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	color: #ababab;
+}
+
+.basic-info-detail .no-basic-info {
+	width: 70%;
+}
+.edited-basic-info {
+	font-size: 12px;
+}
+
+.contact-info-detail {
+	font-size: 12px;
+}
+
+.contact-info-detail span {
+	color: #000000;
+}
+
+.contact-info-detail li {
+	height: 31px;
+	line-height: 31px;
+	margin-top: 10px;
+}
+
+.editing-contact-info ul li:last-child button{
+	float: left;
+	margin-left: 50px;
+}
+
+.editing-contact-info ul li:last-child input{
+	float: left;
+}
+
+.content li {
+	position: relative;
+}
+
+.editing-basic-info td , .editing-basic-info td,
+.added-experience-detail td , .editing-education-experience td , 
+.editing-education-experience-out td,
+.added-school-posi td ,.editing-school-posi td  , .editing-school-posi-out td,
+.added-school-award td ,.editing-school-award td  , .editing-school-award-out td,
+.added-language td ,.editing-language td  , .editing-language-out td,
+.added-intern td ,.editing-intern td  , .editing-intern-out td,
+.added-work td ,.editing-work td  , .editing-work-out td,
+.added-project td ,.editing-project td  , .editing-project-out td,
+.added-train td ,.editing-train td  , .editing-train-out td,
+.added-apply td ,.editing-apply td  , .editing-apply-out td ,.added-attachment td{
+	padding: 6px 14px;
+	font-size: 14px;
+}
+
+.added-experience-detail thead , .added-school-posi thead , 
+.added-school-award thead ,.added-language thead,
+.added-intern thead , .added-work thead , .added-project thead,
+.added-train thead , .added-apply thead , .added-attachment thead{
+	color: #ababab;
+}
+
+.edit-education-experience , .edit-school-posi ,.edit-school-award ,
+.edit-language ,.edit-intern ,.edit-work , .edit-project , .edit-train , .edit-apply{
+	color: #7fb4f5;
+	margin-left: 48px;
+}
+
+.delete-education-experience , .delete-school-posi , .delete-school-award ,
+ .delete-language ,.del-intern , .del-work ,.del-project ,.del-train , .del-apply , .cant-del-work{
+	color: #7fb4f5;
+}
+
+.editing-education-experience td em , .editing-education-experience-out td em , 
+.editing-school-posi td em , .editing-school-posi-out td em,
+.editing-school-award td em , .editing-school-award-out td em,
+.editing-language td em , .editing-language-out td em,
+.editing-intern td em , .editing-intern-out td em,
+.editing-work td em , .editing-work-out td em,
+.editing-project td em , .editing-project-out td em,
+.editing-train td em , .editing-train-out td em,
+.editing-apply td em , .editing-apply-out td em{
+	color: #fb0505;
+}
+
+.editing-education-experience tr td:first-child ,.editing-education-experience-out tr td:first-child ,
+.editing-school-posi tr td:first-child , .editing-school-posi-out tr td:first-child,
+.editing-school-award tr td:first-child , .editing-school-award-out tr td:first-child,
+.editing-language tr td:first-child, .editing-language-out tr td:first-child,
+.editing-intern tr td:first-child, .editing-intern-out tr td:first-child,
+.editing-work tr td:first-child, .editing-work-out tr td:first-child,
+.editing-project tr td:first-child, .editing-project-out tr td:first-child,
+.editing-train tr td:first-child, .editing-train-out tr td:first-child,
+.editing-apply tr td:first-child, .editing-apply-out tr td:first-child{
+	text-align: right;
+}
+
+.editing-basic-info,.editing-contact-info,
+.editing-education-experience , .editing-education-experience-out,
+.editing-school-posi , .editing-school-posi-out,
+.editing-school-award , .editing-school-award-out,
+.editing-language , .editing-language-out,
+.editing-intern , .editing-intern-out,
+.editing-work , .editing-work-out,
+.editing-project , .editing-project-out,
+.editing-train , .editing-train-out,
+.editing-apply , .editing-apply-out,.to-upload{
+	background-color: #ffffff;
+	width: 540px;
+	padding: 20px 84px;
+	box-shadow: 0 0 200px #000;
+	border-radius: 10px;
+	border:1px solid #bababa
+}
+
+.pop-wrap {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #fff;
+	opacity: 0.8;
+	width: 100%;
+	min-width: 1440px;
+	height: 400%;
+	z-index: 10;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}
+
+.z-index {
+	position: fixed;
+	left: 33%;
+	top: 10%;
+	z-index: 200;
+}
+
+.detail-info .editing-work-out , .detail-info .work-insert-tr {
+	top: 0;
+}
+
+.acquired-certi {
+	text-align: center;
+	width: 50%;
+	background-color: #fff;
+	margin: 0 auto;
+}
+
+.acquired-certi em {
+	display: block;
+	border-bottom: 1px solid #bababa;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+.all-certi {
+	display: block;
+	border: 1px solid #a9a8a8;
+	width: 120px;
+	height: 50px;
+	margin: 17px auto;
+}
+
+.other-certi {
+	display: block;
+	border: 1px solid #a9a8a8;
+	width: 260px;
+	height: 50px;
+	margin: 0 auto;
+}
+
+.del-certi {
+	float: right;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	width: 20px;
+	border-radius: 50%;
+	color:#ededed;
+	/*background-color: #781c2d;*/
+	background-color: #000;
+	margin-top: 6px;
+}
+
+/*.selected-certi {
+	background-color: #ededed;
+	padding: 0 2px;
+}*/
+
+.certi-detail {
+	position: relative;
+}
+
+.certi-form  {
+	width: 45%;
+	left: 36%;
+	background-color:#fff; 
+	box-shadow: 0 0 200px #000;
+	border-radius: 10px;
+	border:1px solid #bababa
+}
+
+.del-acquired-certi{
+	background-color: #fff;
+    border-top: 1px solid #bababa;
+    border-right: 1px solid #bababa;
+    border-left: 1px solid #bababa;
+    border-radius: 10px;
+    left: 23%;
+    line-height: 40px;
+    position: fixed;
+    top: 10%;
+    width: 13%;
+    z-index: 206;
+    box-shadow: 0 0 236px #000 inset;
+}
+
+.certi-form div {
+	width: 164px;
+	margin: 15px auto;	
+}
+
+.grade {
+	width: 50px;
+}
+
+.add-exam {
+	color: #717eda;
+}
+
+.subordinate-num {
+	width: 40px;
+}
+
+.to-upload p {
+	height: 30px;
+	line-height: 30px;
+	background-color: #f4fbff;
+	text-align: center;
+	margin: 0 40px;
+	border: 1px solid #3d7382;
+	font-size: 14px;
+}
+
+.attachment-detail .file-upload {
+	margin: 26px 0 0 160px;
+	border: none;
+}
+
+.to-upload div {
+	margin-left: 160px;
+	margin-top: 25px;
+}
+
+.attachment-name {
+	color: #1357a2;
+}
+
+.it-pop {
+	position: absolute;
+	z-index: 2000;
+	left: 33%;
+	top: 250%;
+	box-shadow:0 0 0px 16px #e0e0e0;
+	background-color: #fff;
+	border-radius: 8px;
+	border: 1px solid #555b65;
+}
+
+.it-pop div{
+	border-radius: 4px;
+	padding:0 20px 0 20px;
+}
+.it-pop h1 {
+	text-indent: 18px;
+	background-color: #555b65;
+	height: 33px;
+	line-height: 33px;
+	color: #fff;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.it-pop h1 a {
+	float: right;
+	margin-right:10px; 
+	color: #fff;
+}
+
+.choosed span {
+	display: inline-block;
+	height: 22px;
+	padding: 0 0 0 10px;
+	border-radius: 6px;
+	background-color: #f1f1f1;
+	text-align: center;
+	line-height: 22px;
+	margin-left: 10px;
+}
+
+.choosed span a {
+	float: right;
+	height: 22px;
+	width: 27px;
+	text-align: center;
+	line-height: 22px;
+	color: #9b9b9b;
+	background-color: #e2e2e2;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.it-pop table {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #e6e6e6;
+	margin-top: 10px;
+}
+
+.it-pop table td {
+	text-align: left;
+	color: #1688d9;
+	width: 100px;
+	height: 40px;
+	font-size: 14px;
+	padding-left: 30px;
+}
+
+.sure-cancel {
+	height: 53px;
+	background-color:#f6f6f6;
+	border-top:1px solid #cccccc;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px; 
+}
+
+.sure-cancel a:first-child {
+	margin-left:62%;
+	margin-top: 2%;
+	margin-right: 1%; 
+}
+
+.sure-cancel a {
+	line-height: 30px;
+}
+
+.submit-info {
+	display: inline-block;
+	width: 78px;
+	height: 30px;
+	border: 1px solid #af8e4e;
+	background: url("../../../img/job_apply/submit-bg.gif") repeat 0 0;
+	text-align: center;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.cancel-submit {
+	display: inline-block;
+	width: 78px;
+	height: 30px;
+	border: 1px solid #bababa;
+	background: url("../../../img/job_apply/cancel-bg.gif") repeat 0 0;
+	text-align: center;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.IT-detail table tr td:first-child {
+	color:#ababab;
+	font-size: 12px;
+	width: 100px;
+ }
+
+.IT-detail table tr td:last-child {
+	font-size: 12px;
+ }
+
+.it-pop textarea {
+	width: 95%;
+	height: 52px;
+	margin: 10px 10px 0 10px;
+}
+
+.it-pop h2 {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.del-exam {
+	color: #7fb4f5;
+}
+
+.content .detail-info form .error-field {
+	border: 1px solid #d15b47;
+}
+
+.cpt-dlg-outer {
+	padding-left: 200px;
+}
+
+div[data-overlay-id] {
+	height: 400%;	
+}
+
+.upload-tip{
+	color:red;
+	margin-left: 160px;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- 赵凯康 在招职位详情页面-->
+	<meta charset="utf-8">
+	<title>职位详情</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/job-detail.css">
+	<!-- 百度地图js -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=83d75e8bdb5cb90dc07f205cbe03655a"></script>
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../common/header.html"}>
+		<div class="main clearfix">
+			<div class="job clearfix">
+				<div class="clearfix">
+					<h1 class="job-name" job-id="<{$position.id}>"><{$position.name}></h1>
+					<div class="bshare-custom">
+					 	<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><a class="bshareDiv" onclick="javascript:return false;"></a>
+					 	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+					<a href="javascript:;" title="扫描二维码" class="show-QRCode"></a>
+				</div>
+				<img src="<{$website}>qrCode.png"+ class="qrCode-Img none" id="J_qr">
+				<ul class="number-details clearfix">
+					<li class="update-date"><i></i><{$position.entering_time}>更新</li>
+					<li class="looked-number"><i></i><{$position.views}>人浏览</li>
+					<li class="delivery-resume"><i></i><{$position.resume_num}>人投递简历</li>
+				</ul>
+				<div class="bright-spot">
+					<h1>
+						<span>B</span>
+						职位亮点
+					</h1>
+					<h2>bright spot</h2>
+					<ul>
+                        <{if $position.brightenedlist neq ""}>
+                        <{foreach from=$position.brightenedlist item=brightened}>
+                        <li><em><{$brightened.name}></em></li>
+                        <{/foreach}>
+                        <{else}>
+                        <{/if}>
+					</ul>
+				</div>
+				<div class="requirements">
+					<h1>
+						<span>R</span>
+						职位要求
+					</h1>
+					<h2>requirements</h2>
+					<ul class="job-requirements">
+						<li>职位类别 ：<{$position.positiontype}></li>
+						<li>学历要求 ：<{$position.degree}></li>
+						<li>所需专业 ：<{$position.positionspecialty}></li>
+						<li>招聘人数 ：<{$position.recruitment_num}></li>
+						<li>工作地点 ：<{$position.city}></li>
+						<li>信息来源 ：
+                            <{if $position.position_source eq "1"}>
+                            东北师大
+                            <{elseif $position.position_source eq "2"}>
+                            六所部属
+                            <{elseif $position.position_source eq "3"}>
+                            互联网
+                            <{else}>
+                            无
+                            <{/if}>
+                        </li>
+					</ul>
+				</div>
+				<div class="describe">
+					<h1>
+						<span>D</span>
+						职位描述
+					</h1>
+					<h2>describe</h2>
+					<p><{$position.position_duty}></p>
+					<p><{$position.position_need}></p>
+					<p><{$position.descrption}></p>
+				</div>
+				<div class="job-apply">
+					<{if $user==''}>
+            <a href="javascript:;" class="apply-button J_apply_job">申请职位</a>
+        	<{else}>
+                    <{if  $isLeague eq 1 or $isLeague eq 2}>
+                    <{if $isActivated eq 1}>
+                    <a href="<{$website}>position/position/toSendResume/id/<{$position.id}>" class="apply-button">申请职位</a>
+                    <{else}>
+                    <a href="javascript:;" class="apply-button activate-pop">申请职位</a>
+                    <{/if}>
+                    <{else}>
+                    <a href="javascript:;" class="apply-button activate-pop">申请职位</a>
+                    <{/if}>
+        	<{/if}>
+                    <{if $position.collection eq "1"}>
+                    <a href="javaScript:;" class="uncollection">
+                        取消收藏
+                    </a>
+                    <a href="javaScript:;" class="collection none">
+                        收藏
+                    </a>
+                    <{elseif $position.collection eq "0"}>
+                    <a href="javaScript:;" class="uncollection none">
+                        取消收藏
+                    </a>
+                    <a href="javaScript:;" class="collection">
+                        收藏
+                    </a>
+                    <{/if}>
+				</div>
+			</div>
+			<div class="right-containers">
+				<div class="company-business-card">
+					<div>
+						<h1>单位名片</h1>
+					</div>
+					<ul class="list-content">
+						<li>所属行业 ：<{$company.companytrade.name}></li>
+						<li>单位性质 ：<{$company.companyproperty.name}></li>
+						<li>所属地区 ：<em class="company-location"><{$company.city}></em></li>
+						<li class="official-website">官方网址 ：<a href="<{$company.website}>" target="_blank"><{$company.website}></a></li>
+						<li>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：<{$company.full_address}></li>
+						<em class="longitude none">116.404</em><em class="latitude none">39.915</em>
+						<li>联系方式 ：<span><{$company.phone}></span></li>
+					</ul>
+				</div>
+				<div class="contacts">
+					<h1><i></i>联系人</h1>
+					<ul class="list-content">
+						<li>姓名 ： <{$position.contactName}></li>
+						<li>固话 ： <{$position.contactTelephone}></li>
+						<li>手机 ： <{$position.contactCellphone}></li>
+						<li>电子邮件：<{$position.contactEmail}></li>
+					</ul>
+				</div>
+				<div class="baidu-map">
+					<h1><i></i>地图</h1>
+                    <div style="margin:auto;">
+                        <input id="text_" type="hidden" value="<{$company.full_address}>" style="margin-right:100px;"/>
+                        <input id="result_" type="hidden" />
+                        <div class="map-content" id="allmap">
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+<{include file="../../common/footer.html"}>
+
+
+<script type="text/javascript">
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    map.centerAndZoom("宁波", 12);
+    map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    var localSearch = new BMap.LocalSearch(map);
+    localSearch.enableAutoViewport(); //允许自动调节窗体大小
+    map.clearOverlays();//清空原来的标注
+    var keyword = '<{$company.full_address}>';
+    localSearch.setSearchCompleteCallback(function (searchResult) {
+        var poi = searchResult.getPoi(0);
+        document.getElementById("result_").value = poi.point.lng + "," + poi.point.lat;
+        map.centerAndZoom(poi.point, 13);
+        var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
+        map.addOverlay(marker);
+        var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
+        var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + content + "</p>");
+        marker.addEventListener("click", function () {
+            this.openInfoWindow(infoWindow);
+        });
+        // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    });
+    localSearch.search(keyword);
+    KISSY.use('page/company/jobDetail',function(S){
+        S.ready(function(){
+            PW.page.company.jobDetail();
+        })
+    })
+</script>
+
+<script>var url=document.getElementById("J_qr").src; url = url + "?d="+new Date();document.getElementById("J_qr").src = url;
+</script>
+</body>
+
+</html>

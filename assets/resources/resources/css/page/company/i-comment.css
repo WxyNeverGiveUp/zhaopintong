@@ -1,0 +1,299 @@
+/*----------------------------------------------------
+@Filename: i-comment.css
+@Description: 单位的我要评价页面
+@Version: 1.0.0(2015-05-20)
+@author: yudan
+=======================================================
+2015-05-21:
+初始生成。
+
+---------------------------------------------*/
+*{
+	font-weight: normal;
+}
+.content{
+	width: 1188px;
+	margin: 39px auto;
+	border: 1px solid #ededed;
+	font-family: "Microsoft YaHei";
+	background: #fbfbfb;
+}
+.content-box{
+	margin:84px 81px 0 129px;
+}
+.share-box{
+	
+}
+.share-comment{
+	width: 563px;
+	height: 22px;
+	padding-left: 12px;
+	border-left: 5px solid #18366c;
+	line-height: 22px;
+	color: #313131;
+	font-size: 20px;
+}
+.promise{
+	width: 960px;
+	border-bottom:1px solid #d9d9d9;
+	padding:14px 12px;
+	color: #953647;
+	font-size: 14px;
+}
+.share-form{
+	margin-left: 18px;
+	margin-bottom: 35px;
+}
+.choice{
+	margin-top: 34px;
+	color: #0c0c0c;
+	font-size: 17px;
+	line-height: 17px;
+}
+.worked{
+	display: inline-block;
+	margin-top: 16px;
+	margin-left: 21px;
+	color: #0c0c0c;
+	font-size: 15px;
+	line-height: 15px;
+}
+.not-staff{
+	margin-left: 66px;
+}
+.work-experience{
+	width: 648px;
+	height: 212px;
+	font-size: 14px;
+	background: url("../../../../resources/img/company/bg-blue.png");
+}
+.no-experience{
+	padding-left: 27px;
+	padding-top: 39px;
+	color:#953647;
+	line-height: 14px;
+}
+
+.content-box span{
+	color: #000;
+}
+.school-name{
+	height: 14px;
+	padding-top: 21px;
+	padding-left: 27px;
+	color: #a0a0a0;
+	line-height: 14px;
+}
+.position{
+	width: 432px;
+	height: 29px;
+	padding-top: 28px;
+	padding-left: 27px;
+	line-height: 31px;
+}
+.position input{
+	width: 347px;
+	height: 29px;
+	padding-left: 3px;
+	border: 1px solid #dedede;
+}
+.status{
+	width: 300px;
+	height: 18px;
+	padding-top: 26px;
+	padding-left: 27px;
+	line-height: 18px;
+}
+.status select{
+	margin-left: 28px;
+	border: 1px solid #dedede;
+}
+ option{
+	width: 184px;
+	height: 18px;
+	padding-left: 2px;
+}
+.add-experience{
+	width: 650px;
+	height: 154px;
+	font-size: 14px;
+	background: url("../../../../resources/img/company/not-staff.png") no-repeat;
+}
+.school-name em{
+	margin-left: 12px;
+}
+.guanxi{
+	width: 300px;
+	height: 18px;
+	padding-top: 26px;
+	padding-left: 27px;
+	line-height: 18px;
+}
+.guanxi select{
+	border: 1px solid #dedede;
+	}
+.school-name2{
+	padding-top: 41px;
+	padding-left: 27px;
+	color: #a0a0a0;
+	line-height: 14px;
+}
+.whole-comment{
+	width: 365px;
+	margin-top: 35px;
+	font-size: 17px;
+	line-height: 17px;
+}
+.whole-comment a{
+	color: #ff6600;
+}
+.a-star{
+	width: 155px;
+	height: 33px;
+	margin-top: 10px;
+	background: url("../../../../resources/img/company/a-star.png");
+}
+
+.i-attitude{
+	width: 365px;
+	margin-top: 35px;
+	font-size: 17px;
+	line-height: 17px;
+}
+.attitude{
+	height: 15px;
+	margin-top: 10px;
+	margin-left: 8px;
+	font-size: 15px;
+	line-height: 15px;
+}
+.attitude input{
+	margin-right: 5px;
+}
+.open input{
+	margin-right: 5px;
+}
+.green-zan{
+	width: 10px;
+	height: 3px;
+	padding-left: 19px;
+	background: url("../../../../resources/img/company/comment.png") no-repeat 0 -33px;
+}
+.no-zan{
+	width: 10px;
+	height: 3px;
+	padding-left: 19px;
+	background: url("../../../../resources/img/company/comment.png") no-repeat 0 -50px;
+}
+.jianju{
+	margin-left: 49px;
+}
+.i-open{
+	width: 365px;
+	margin-top: 35px;
+	font-size: 17px;
+	line-height: 17px;
+}
+.i-open span{
+	color: #858585;
+	font-size: 15px;
+}
+.open{
+	width: 339px;
+	height: 15px;
+	margin-top: 10px;
+	margin-left: 8px;
+	font-size: 15px;
+	line-height: 15px;
+}
+.ture-name{
+	margin-left: 37px;
+}
+.tijiao input{
+	width: 93px;
+	height: 27px;
+	margin: 35px 0;
+	border: 1px solid #31bde1;
+	border-radius: 2px;
+	background: #31bde1;
+	color: #000;
+	font-size:15px;
+	font-family: "Microsoft YaHei";
+}
+ 
+.rate {
+	background: url("../../../../resources/img/company/star-level.png") no-repeat 0 -386px;
+	height: 34px;
+	position: relative;
+}
+
+.rate-level-1 {
+	background-position: 0 -152px; 
+}
+
+.rate-level-2 {
+	background-position: 0 -114px; 
+}
+
+.rate-level-3 {
+	background-position: 0 -76px; 
+}
+
+.rate-level-4 {
+	background-position: 0-38px; 
+}
+
+.rate-level-5 {
+	background-position: 0 -1px; 
+}
+.rate-level-1-hover {
+	background-position: 0 -352px; 
+}
+
+.rate-level-2-hover {
+	background-position: 0 -314px; 
+}
+
+.rate-level-3-hover {
+	background-position: 0 -276px; 
+}
+
+.rate-level-4-hover {
+	background-position: 0 -238px; 
+}
+
+.rate-level-5-hover {
+	background-position: 0 -201px; 
+}
+.rate a{
+	float: left;
+	text-indent: -2000px;
+    height: 34px;
+    cursor: pointer;
+    width: 31px;
+}
+
+.none {
+	display: none;
+}
+
+.rate .rate-tip {
+	position: absolute;
+	height: 34px;
+	line-height: 34px;
+    font-size:18px;
+    color: blue; 
+}
+
+.position .position-tip {
+	color: blue;
+}
+
+.rate .satisfy-degree{
+	display: inline-block;
+	height: 34px;
+	margin-left: 20px;
+	line-height: 34px;
+    font-size:18px;
+    color: blue; 
+}

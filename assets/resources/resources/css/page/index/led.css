@@ -1,0 +1,254 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: led.css
+@Description: led显示屏页面
+@Version: 1.0.0(2015-10-29)YYYY-MM-DD
+@author: zhaokaikang
+2015-05-23:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+
+.page {
+	width: 1856px;
+	height: 576px;
+	padding: 20px 0;
+	background: linear-gradient(#2d74aa,#9dccf2);
+}
+.narrow-page {
+	width: 1238px;
+	height: 576px;
+	padding: 20px 0;
+	background: linear-gradient(#2d74aa,#9dccf2); 
+}
+.page .content{
+	width: 1609px;
+	margin: 0 auto;
+}
+.narrow-page .content{
+	width: 1103px;
+	margin: 0 auto;
+}
+.left-wrap {
+	float: left;
+	width: 533px;
+	height: 541px;
+}
+
+.left-wrap h1{
+	line-height: 71px;
+	margin-bottom: 50px;
+	text-indent: 100px;
+	font-size: 27px;
+	color: #004072;
+	height: 71px;
+	background: url("../../../img/index/led/logo.png") no-repeat 0 0;
+}
+
+.weather-clock {
+	width: 519px;
+	height: 175px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-color: #87adcf;
+}
+
+.weather-clock #canvasId {
+	float: right;
+    margin-right: 47px;
+    margin-top: 10px;
+}
+
+.weather-clock #clock {
+	float: right;
+}
+.today-notice{
+	width: 519px;
+	height: 121px;
+	padding-top: 10px;
+	background-color: #92acc2;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+
+.today-notice h2 {
+	text-indent: 42px;
+	margin-bottom: 10px;
+	font-size: 27px;
+	color: #fff;
+	/*text-shadow: 10px 12px  2px #7a99b5;*/
+}
+
+.today-notice p {
+	text-indent: 42px;
+	font-size: 23px;
+	color: #fff;
+}
+
+.today-notice marquee {
+	margin-left: 42px;
+	overflow: hidden;
+}
+
+.today-notice marauee q {
+	text-indent: 0px;
+}
+
+.content .website-detail {
+	margin-top: 21px;
+}
+
+.website-detail li {
+	float: left;
+	margin-right: 18px;
+	font-size: 16px;
+	color: #2c5696;
+	font-weight:bold;	
+}
+
+.website-detail li img {
+	width: 100px;
+	height: 100px;
+}
+
+.website-detail li p {
+	font-weight: bold;
+}
+
+.today-preach ,.latest-preach{
+	float: left;
+	width: 503px;
+	height: 541px;
+	margin-left: 34px;
+}
+
+.today-preach marquee , .latest-preach marquee{
+	width: 503px;
+	margin-top: 68px;
+	overflow: hidden;
+}
+
+.today-preach marquee ul , .latest-preach marquee ul{
+	margin-top: 0;
+}
+
+.today-preach ul , .latest-preach ul{
+	margin-top: 68px;
+}
+
+.today-preach h2 , .latest-preach h2{
+	height: 30px;
+	margin-top: 24px;
+	margin-left: 40px;
+	line-height: 30px;
+	font-size: 30px;
+	color: #004072;
+	text-indent: 22px;
+	font-weight: normal;
+	border-left: 10px solid #f08300;
+}
+
+.today-preach ul li , .latest-preach ul li{
+	position: relative;
+	width: 100%;
+	margin: 20px auto;
+}
+
+.today-preach ul li div:first-child {
+	float: left;
+	width: 96px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 24px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #f3a74b;
+	text-align: center;
+}
+
+.latest-preach ul li div:first-child {
+	float: left;
+	width: 96px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 19px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #f3a74b;
+	text-align: center;
+}
+
+.today-preach ul li div:last-child , .latest-preach ul li div:last-child{
+	float: right;
+	width: 400px;
+}
+
+.today-preach ul li a {
+	display: inline-block;
+	width: 380px;
+	font-size: 20px;
+	color: #214c90;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-weight: bold;
+}
+
+.today-preach ul li em {
+	font-size: 16px;
+	color: #214c90;
+	font-weight: bold;
+}
+
+.latest-preach ul li p {
+	width: 280px;
+	font-size: 18px;
+	color: #214c90;
+	margin-left: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-weight: bold;
+}
+
+#weather {
+	float: left;
+	width: 330px;
+	margin: 0px auto;
+	text-align: center;
+	text-transform: uppercase;
+}
+#weather div {
+	position: relative;
+	width: 258px;
+	height: 118px;
+	overflow: hidden;
+	padding-left: 49px;
+}
+
+#weather img{
+	/*position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.5;*/
+}
+#weather h2 {
+	margin: 0 0 8px;
+	color: #fff;
+	font-size: 78px;
+	font-weight: 300;
+	text-align: center;
+	text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+#weather ul {
+	margin-left: 27px;
+	padding: 0;
+}
+#weather li {
+	float: left;
+	margin-right: 15px;
+	background: #fff;
+	background: rgba(255,255,255,0.90);
+	padding: 10px;
+	border-radius: 5px;
+}
+
+

@@ -1,0 +1,142 @@
+/*----------------------------------------------------
+@Filename: common.css
+@Description: comapny-header css定义
+@Version: 1.0.0(2015-06-23)YYYY-MM-DD
+@author: zhaokaikang
+-----------------------------------------------------*/
+.company-header {
+	position: relative;
+	width: 1440px;
+	height: 212px;
+	padding-top: 2px;
+	margin: 0 auto;
+	background: url("../../../img/common/company-header-bg.jpg") no-repeat;
+}
+
+.company-header img {
+	float: left;
+	width: 126px;
+    height: 126px;
+	margin-left: 128px;
+	margin-top: 80px;
+}
+
+.company-header h1 {
+	float: left;
+	margin-top: 100px;
+	font-size:30px; 
+}
+
+.company-header span {
+	float: left;
+	width: 55px;
+	height: 18px;
+	line-height: 18px;
+	margin-top: 115px;
+	margin-left: 20px;
+	border-left: 3px solid #24e294;
+	border-right: 1px solid #c9c9c9;
+	border-top: 1px solid #c9c9c9;
+	border-bottom: 1px solid #c9c9c9;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+	color: #989898;
+	text-align: center;
+}
+
+.company-header ul {
+	width: 1060px;
+	height: 40px;
+	margin-top: 166px;
+	margin-left: 257px;
+	background-color: #d5e9fd;
+}
+
+.company-header ul li {
+	float: left;
+	height: 40px;
+	width: 115px;
+	line-height: 40px;
+	font-size:16px; 
+	text-align: center;
+	border-right: 1px solid #fff;
+}
+.company-header ul li:last-child {
+	border: none;
+}
+
+.company-header ul li a {
+	color: #000;
+}
+
+.company-header .current {
+	background-color: #1e65be;
+}
+
+.company-header .current a {
+	color: #fff;
+}
+
+.company-header em {
+	position: absolute;
+	right: 248px;
+	bottom: 9px;
+	width: 118px;
+	height: 28px;
+	line-height: 28px;
+	border-bottom-left-radius:2px;
+	border-top-left-radius:2px; 
+	background-color: #fff;
+	border: 3px solid #ededed;
+	color: #767676;
+	font-size:12px;
+	text-align: center; 
+}
+.company-header .follow {
+	position: absolute;
+	right: 132px;
+	bottom: 12px;
+	width: 118px;
+	height: 28px;
+	border-bottom-right-radius:2px;
+	border-top-right-radius:2px;  
+	line-height: 28px;
+	background-color: #1e65be;
+	color: #fff;
+	font-size:14px;
+	text-align: center; 
+}
+
+.company-header .unfollow {
+	display: none;
+	position: absolute;
+	right: 132px;
+	bottom: 12px;
+	width: 118px;
+	height: 28px;
+	border-bottom-right-radius:2px;
+	border-top-right-radius:2px;  
+	line-height: 28px;
+	background-color: #1e65be;
+	color: #fff;
+	font-size:14px;
+	text-align: center;
+}
+
+.company-header .follow i , .company-header .unfollow i{
+	position: absolute;
+	left: 15px;
+	top: 6px;
+	width: 20px;
+	height: 20px;
+	background: url("../../../img/common/star.jpg") no-repeat 0 0;
+}
+
+.company-header .no-click {
+	background-color:#dcdcdc;
+}
+
+.company-header .no-click a{
+	text-decoration: none;
+	cursor: text;
+}

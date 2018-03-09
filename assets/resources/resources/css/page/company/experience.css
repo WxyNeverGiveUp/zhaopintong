@@ -1,0 +1,187 @@
+﻿/*----------------------------------------------------
+@Filename: experience.css
+@Description: css定义
+@Version: 1.0.0(2015-05-28)YYYY-MM-DD
+@author: hufei
+==STRUCTURE:========================================= 
+$__content
+==NOTES:=============================================
+2015-05-28:
+初始生成。
+-----------------------------------------------------*/
+/*--------content部分样式--------------------------------*/
+.content{
+	border:1px double #f4f4f4;
+	width:1123px;
+	padding-left:33px;
+	padding-right: 33px;
+	margin: 36px auto;
+	background-color:#fbfbfb;
+}
+.content-header{
+	border-bottom: 1px solid #d9d9d9;
+	height:58px;
+	padding-top: 8px;
+}
+.subject{
+	border-left:5px solid #18366c;
+	width: 92px;
+	height: 22px;
+	font-size:20px;
+	float: left;	
+	text-align: center;
+	line-height: 21px;
+	margin-top: 19px;
+}
+.restrain{
+	border: 1px solid #abadb3;
+	margin-left: 15px;
+    margin-top: 18px;
+}
+.sort{
+	float: left;
+	margin-left:18px;
+	margin-top: 18px;
+}
+.gather{
+	float: right;
+	margin-right:7px;
+	font-size:11px;
+	padding-top:19px;
+}
+.share-experience{
+	float: right;
+	margin-top:11px;
+	padding: 7px;
+	background-color:#31bde1;
+	font-size:12px;
+	border-radius: 4px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#fbfbfc;
+}
+.share-man-info{
+	margin-top: 35px;
+	height:220px;
+	padding-left:35px;
+	padding-top:32px; 
+	border:1px solid  #e6ebed;
+	background-color:#f2f7f7;
+	font-size: 12px;
+}
+.share-portrait{
+	margin-left:16px;
+	width: 53px;
+	height: 134px;
+	float: left
+}
+.share-portrait img {
+	width: 35px;
+	height: 35px;
+}
+.share-man{
+	line-height: 12px;
+	width:937px;
+	height:33px;
+	margin-left: 62px;
+}
+.interval{
+	margin-left: 20px;
+}
+.background{
+	width: 15px;
+	height: 17px;
+	background-image: url("../../../img/company/experience-background.jpg");
+	background-repeat: no-repeat;
+}
+.permission-location{
+	background-position:-57px 0px;
+}
+.praise-location-color{
+	background-position:-13px 2px;
+}
+.comment-location{
+	background-position:1px 2px;
+}
+.permission-location-color{
+	background-position: -44px 1px;
+}
+.praise-location{
+	background-position: -28px 2px;
+}
+.permission{
+	float: right;
+}
+.share-content{
+	width: 867px;
+	margin-left: 63px;
+	margin-top:35px;
+	line-height: 22px;
+}
+.experience{
+	width: 100px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.share-foot{
+	border-top:1px solid #d9d9d9;
+	width: 1016px;
+	height: 39px;
+	margin-top: 17px;
+	padding-top: 20px;
+	position: relative;
+}
+.praise{
+	position: absolute;
+	margin-left: 37px;
+	color:#b2d1ec;
+	text-decoration:none;
+}
+
+.unpraise{
+	position: absolute;
+	margin-left: 37px;
+	color:#b2d1ec;
+	text-decoration:none;
+}
+
+.praise-image{
+	position: absolute;
+	margin-left:17px;
+}
+.comment{
+	margin-left: 101px;
+	color:#b2d1ec;
+	text-decoration:none;
+}
+.comment-image{
+	position: absolute;
+	margin-left: 83px;
+	
+}
+.look-all{
+	padding-top:22px;
+	color:#b2d1ec;
+	text-decoration:none; 
+}
+
+.retract-all {
+	padding-top:22px;
+	color:#b2d1ec;
+	text-decoration:none; 
+}
+.praise-number{
+	position: absolute;
+	margin-left: 47px
+}
+.gray{
+	color:#bec0bb;
+}
+.red{
+	color:#e68558;
+}
+
+.none {
+	display: none;
+}

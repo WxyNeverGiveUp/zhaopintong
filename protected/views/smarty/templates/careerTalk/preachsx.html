@@ -1,0 +1,160 @@
+<!-- 赵凯康 宣讲会 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>宣讲会</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/preach/preach.css">
+</head>
+<body>
+    <{include file="../common/header.html"}>
+	<div class="search-field">
+		<!-- 该div用于设置居中，目的在于使“当前位置与left-nav下的h1的border-left对齐” -->
+		<div>
+			<span>当前位置：</span>
+			<a href="<{$site}>">首页></a>
+			<a href="<{$website}>careerTalk/careerTalk/list">宣讲会</a>
+			<div class="search-box">
+			<!-- 当用户点击下拉列表时需用js来修改label的值，已使页面显示值与用户所选值一致-->
+				<label>宣讲会</label>
+				<input type="text" class="preach-input">
+				<a href="javascript:;" class="J_search">搜&nbsp;索</a>
+			</div>
+		</div>
+	</div>
+	<div class="content clearfix">
+		<div class="left-list">
+            <ul>
+                <h1 class="firm-school">名校名企</h1>
+                <{foreach from=$famous item=company}>
+                <li><a href="<{$website}>company/company/detail/id/<{$company.id}>" target="_blank" title="<{$company.name}>"><{$company.name}></a></li>
+                <{/foreach}>
+            </ul>
+            <ul>
+                <h1 class="preach-on-demand">宣讲点播</h1>
+                <{foreach name=infolist from=$peachs item=pr}>
+                <{if $smarty.foreach.infolist.iteration <9}>
+                <li><a href="<{$website}>company/company/preachVideoByCompany/id/<{$pr.cid}>" target="_blank" title="<{$pr.name}>"><{$pr.name}></a></li>
+                <{/if}>
+                <{/foreach}>
+            </ul>
+			<ul>
+				<h1 class="remote-interview">远程面试</h1>
+                <{foreach from=$remoteInterviews item=remote}>
+                <li><a href="<{$website}>company/remoteInterview/detail/id/<{$remote.id}>" target="_blank"><{$remote.theme}></a><span><{$remote.day}></span></li>
+                <{/foreach}>
+			</ul>
+		</div>
+		<div class="preach">
+			<select class="J_time">
+				<option value="0">全部时间</option>
+				<option value="1">今天</option>
+				<option value="2">七天内</option>
+				<option value="3">七天后</option>
+			</select>
+			<select class="J_industry">
+				<option value="0" selected="selected">全部行业</option>
+				<option value="other">其他</option>
+			</select>
+			<select class="J_preach_type">
+				<option value="0">全部类型</option>
+				<option value="1">视频</option>
+				<option value="2">实地</option>
+				<option value="3">外地</option>
+			</select>
+			<div class="inline-wrap">
+                <{if $user==''}>
+                <{else}>
+                <span class="follow-company clearfix">
+					<input type="checkbox" class="J_follow">
+					<label>我关注的单位</label>
+				</span>
+                <{/if}>
+				<a href="<{$website}>careerTalk/careerTalk/list" class="blue-list"></a>
+				<a href="<{$website}>careerTalk/careerTalk/calList" class="grey-square"></a>
+			</div>
+			<table class="preach-table">
+				<thead>
+					<tr>
+						<td class="time">举办时间</td>
+						<td class="preach-company">宣讲名称</td>
+						<td class="preach-type">宣讲类型</td>
+						<td class="location">宣讲地点</td>
+						<td class="enroll"></td>
+					</tr>
+				</thead>
+				<tbody id="tpl-template">
+				</tbody>
+			</table>
+			<div id="J_pagination"></div>
+			<div class="pop-layer">
+			</div>
+			<div class="show-layer">
+				<h1>请选择<em class="J_select_what"></em></h1>
+				<h2>已选择：<em class="J_selected_what"></em></h2>
+				<div class="clearfix various-kind">
+					<ul class="total"></ul>
+					<ul class="branch"></ul>
+				</div>
+				<div class="clearfix button-style">
+					<button class="cancel">取消</button>
+					<button class="okay">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    <{include file="../common/footer.html"}>
+	<script type="text/template" id="tpl">
+		{@each data as d}
+			<tr id=&{d.id}>
+                <td class="time clearfix">
+                    <span class="date">&{d.month}月<i>&{d.date}</i></span>
+                    <span class="week">&{d.week}<span class="what-time">&{d.time}</span></span>
+                </td>
+				<td class="preach-company"><a href="<{$website}>careerTalk/careerTalk/detail/id/&{d.id}" target="_blank">&{d.company}</a></td>
+				<td class="preach-type">&{d.preachType}</td>
+				<td class="location">&{d.location}</td>
+				<td class="enroll">
+					{@if d.isOverdue == 1}
+					<span class="overdue">已过期</span>
+					{@/if}
+					{@if d.isOverdue == 0}
+						{@if d.isEnroll == 0}
+                    <a href="javascript:;" class="want-enroll">我要报名</a>
+                    <a href="javascript:;" class="cancel-enroll none">取消报名</a>
+						{@/if}
+						{@if d.isEnroll == 1}
+                    <a href="javascript:;" class="want-enroll none">我要报名</a>
+                    <a href="javascript:;" class="cancel-enroll">取消报名</a>
+						{@/if}
+					{@/if}
+				</td>
+			</tr>
+		{@/each}
+	</script>
+    <script type="text/javascript">
+        KISSY.use('page/preach/preach',function(S){
+            var urls = PW.Env.url.preach.preach;
+            var url = urls.getPreachList+'/page';
+            S.ready(function(){
+                PW.page.preach.preach({
+                    renderTo:'#J_pagination',
+                    juicerRender:'#tpl',
+                    dataRender:'#tpl-template',
+                    pageSize:10,
+                    url:url,
+                    extraParam:{'searchWord':'<{$searchWord}>','preachTypeId':'8'},
+                    configUrl:function(url,page,me,prevdata){
+                        return url +  '/' + page ;
+                        //return url;
+                    },
+                    type:'get'
+                })
+            })
+        })
+
+    </script>
+</body>
+</html>

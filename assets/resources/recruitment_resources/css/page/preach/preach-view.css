@@ -1,0 +1,470 @@
+/*==================================================
+* @Description: 申请宣讲会
+* @Version: 1.0.0
+* @Author: lijin(2030539391@qq.com)
+* @Date: 2017.7.20
+* ==NOTES:==========================================
+* v1.0.0(2017.7.20):
+初始生成
+* ==================================================*/
+/*页面*/
+@font-face {
+    font-family: "icon-upload";
+    src: url("../../../font-awesome/fonts/imooc.eot");   /*IE9 兼容模式*/
+    src: url("../../../font-awesome/fonts/imooc.eot?#iefix") format("embedded-opentype"),
+        url("../../../font-awesome/fonts/imooc.svg") format("svg"),
+        url("../../../font-awesome/fonts/imooc.woff") format("woff"),
+        url("../../../font-awesome/fonts/imooc.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+.content  {
+    font-size: 18px;
+}
+.apply-preach {
+    box-sizing: border-box;
+    /*width: 835px;*/
+    padding: 4% 2% 5% 5%;
+    /*vertical-align: top;*/
+}
+li a:hover {
+    text-decoration: none;
+}
+.apply-preach p {
+    line-height: 40px;
+}
+.apply-preach label {
+    display: inline-block;
+    width: 100px;
+    padding-right: 105px;
+    text-align: center;
+}
+input[type='text'],input[type='number'] {
+    width: 220px;
+    height: 30px;
+    padding-left: 8px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #767676;
+}
+select {
+    width: 230px;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 16px;
+    color: #767676;
+}
+
+#show_statu {
+    margin-left: 210px;
+    margin-top: -40px;
+}
+.suggest {
+    font-size: 14px;
+    color: #a0a0a0;
+}
+.preach-time {
+    display: inline-block;
+    width: 615px;
+    height: 70px;
+    vertical-align: text-top;
+}
+.preach-time label {
+    width: 126px;
+    font-size: 14px;
+    text-align: left;
+    padding: 5px 0 5px 5px;
+}
+.day-box {
+    padding-bottom: 10px;
+}
+.time-box {
+    height: 80px;
+}
+.add-major {
+    padding-right: 30px;
+    text-align: right;
+}
+.add-major a {
+    display: inline-block;
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #ccc;
+    background-color: #1A84ED;
+    border-radius: 6px;
+    /*-moz-border-radius: 6px;*/ /* Firefox */
+    /*-webkit-border-radius: 6px;*//* Safari 和 Chrome */
+    /*-o-border-radius: 6px;*/ /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+    /*behavior: url(ie-css3.htc);*/ /* 通知IE浏览器调用脚本作用于'box'类 */
+}
+.add-major a:hover {
+    text-decoration: none;
+}
+
+.basic-info {
+    color: #1A84ED;
+    padding-left: 10px;
+}
+
+
+
+textarea {
+    vertical-align: text-top;
+    resize: none; /*不可改变框的宽高*/
+}
+.color-#666 {
+    height: 70px;
+    text-indent: 24px;
+    line-height: 25px !important;;
+    color: #db1c2a;
+}
+.upload-box {
+    padding: 12px 0 45px 210px;
+}
+.upload-box input {
+    margin: 12px 0 45px 210px;
+}
+.descrip {
+    width: 90%;
+}
+.description {
+    width: 90%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.tip-tip {
+    float: right;
+    
+    padding-top:15px;
+    padding-bottom:15px;
+    width: 70%;
+    height: 40px;
+    border: 1px solid #666;  
+}
+.written-place span,.audition-place span {
+    display: inline-block;
+    width: 210px;
+}
+.written-place label,.audition-place label {
+    width: 37px;
+}
+.written-place-info {
+
+    width: 80%;
+    padding: 10px 20px;
+    border: 1px solid #bbb;
+}
+.written-place-info div {
+    line-height: 1.5;
+}
+.add-info {
+    float: right;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    background-color: #1a84ed;
+}
+.add-info:hover {
+    text-decoration: none;
+    background-color: #156abd;
+}
+.add-info:visited {
+    color: #fff;
+}
+
+.remark {
+    display: inline-block;
+    padding-top: 30px;
+}
+.written-box,.audition-box {
+    display: none;
+}
+.button {
+    display: inline-block;
+    height: 30px;
+    padding: 0 2%;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    background-color: #1a84ed;
+    border-radius: 10px; 
+    /*-moz-border-radius: 10px;*/ /* Firefox */
+    /*-webkit-border-radius: 10px;*//* Safari 和 Chrome */
+    /*-o-border-radius: 10px;*/ /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+    /*behavior: url(ie-css3.htc);*/ /* 通知IE浏览器调用脚本作用于'box'类 */
+}
+.button:hover {
+    text-decoration: none;
+    background-color: #156abd;
+}
+.hotel {
+    line-height: 70px !important;
+}
+.hotel .reserve {
+    width: 147px;
+    padding-right: 58px;
+}
+.hotel label {
+    width: 37px;
+}
+.set-height {
+    height: 70px;
+}
+.submit-box {
+    text-align: center;
+}
+.submit-box input[type='submit'] {
+    margin-left: 90px;
+}
+.add-major-title {
+    height: 40px;
+    padding: 0 10px;
+    line-height: 40px;
+    color: #fff;
+    background-color: #1a84ed;
+}
+.add-major-info {
+    height: 186px;
+    line-height: 60px !important;
+    background-color: #fff;
+    padding-left: 20px;
+}
+.add-major-info label {
+    display: inline-block;
+    width: 100px;
+    padding-right: 0;
+    text-align: center;
+}
+.add-major-submit {
+    line-height: 60px;
+    text-align: center;
+    background-color: #fff;
+}
+.add-major-submit a {
+    margin-right: 30px;
+}
+.cover {
+    display: none;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter:alpha(opacity=50); /* IE */  
+    -moz-opacity:0.5; /* 老版Mozilla */  
+    -khtml-opacity:0.5; /* 老版Safari */  
+    opacity: 0.5; /* 支持opacity的浏览器*/   
+}
+.contacts-box {
+    display: none;
+    position: fixed;
+    top: 214px;
+    left: 530px;
+    width: 620px;
+    z-index: 1;
+}
+.add-major-title i {
+    float: right;
+    cursor: pointer;
+    font-family: 'icon-upload';
+    font-weight: normal;
+    font-style: normal;
+}
+.contacts-box div {
+    width: 560px;
+    padding: 50px 30px;
+    background-color: #fff;
+}
+.contacts-box table {
+    /*margin-top: 30px;*/
+    width: 560px;
+    text-align: center;
+    border: 1px solid #a1a1a1; 
+}
+.contacts-selected {
+    color: #1A84ED;
+    cursor: pointer;
+}
+.contacts-box table thead {
+    background-color: #ADD9F0;
+}
+.contacts-box table tr {
+    height: 40px;
+}
+.contacts-box input {
+    background: url(../../../img/preach/preach-search.jpg) no-repeat right center;
+    border-radius: 5px;
+}
+.visits-box,.add-major-box {
+    display: none;
+    position: fixed;
+    top: 240px;
+    left: 689px;
+    width: 430px;
+    z-index: 1;
+}
+.visits-info {
+    display: none;
+    width: 500px;
+    margin-left: 210px;
+    text-align: center;
+    border: 1px solid #a1a1a1; 
+}
+.visits-info thead {
+    color: #fff;
+    background-color: #156ABD;
+}
+.visits-delete {
+    color: #1A84ED;
+    cursor: pointer;
+}
+.written-place-info i {
+    float: right;
+    cursor: pointer;
+    font-family: 'icon-upload';
+    font-weight: normal;
+    font-style: normal;
+    color: #333;
+}
+
+.description {
+    border: 1px solid #666;
+}
+/*图片上传*/
+.img-box{   
+   position: relative;  
+   width: 90%;
+   
+   padding: 10px 0;
+   border: 2px solid #317ef3;
+}   
+.img-box img{
+    display: inline-block;   
+    width: 140px;      
+    height: 106px;  
+}  
+ 
+
+
+.operate{ 
+    width: 100%; 
+    min-height: 70px; 
+}  
+.file-pick{
+    position: absolute; 
+    left: 20px;  
+    bottom: 20px; 
+    width: 50%; 
+    background: none repeat scroll 0 0 #00B7EE; 
+    border-radius: 3px; 
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);    
+    color: #FFFFFF; 
+    cursor: pointer; 
+    display: inline-block; 
+    font-size: 18px;
+    height: 30px;  
+    width: 30%; 
+    min-width:120px; 
+    margin: 0 auto 0px;
+    overflow: hidden; 
+    transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -webkit-transition: background 0.2s;
+    -o-transition: background 0.2s
+}  
+.upload{
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    background: none repeat scroll 0 0 #00B7EE;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 0 18px;
+    text-align: center;
+    line-height: 34px;
+    transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -webkit-transition: background 0.2s;
+    -o-transition: background 0.2s;
+}
+.pop{
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2000px;
+    background-color: #000;
+    background:rgba(0,0,0,.5);
+}
+.pop img{
+    position: fixed;
+    top: 200px;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+}
+.close-img{
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    color: #F71C1C;
+    cursor: pointer;
+}
+/*图片上传 end*/
+.preach-info {
+    width: 85%;
+    margin: 0 auto;
+    border: 1px solid #666;
+    margin-bottom: 30px;
+}
+.preach-info td {
+    border: 1px solid #666;
+    line-height:2;
+}
+.job-info {
+    width: 85%;
+    margin: 0 auto;
+    border: 1px solid #666;
+    margin-bottom: 30px;
+}
+.job-info td {
+    border: 1px solid #666;
+    line-height:2;
+}
+.place-place {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 30px;
+    border: 1px solid #666;
+    margin-bottom: 30px;
+}
+.come-visit {
+    margin-top: 30px;
+    margin: 0 auto;
+    width: 85%;
+    border: 1px solid #666;
+}
+.come-visit td {
+    border: 1px solid #666;
+    line-height:2;
+
+}
+.preach-description {
+    border: 1px solid #666;
+    width: 85%;
+    margin: 0 auto;
+}

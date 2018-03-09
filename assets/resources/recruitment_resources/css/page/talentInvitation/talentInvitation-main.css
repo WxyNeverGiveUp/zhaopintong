@@ -1,0 +1,206 @@
+p {
+	margin: 0;
+	padding: 0;
+}
+
+.graduate-student {
+	margin: 0 auto;
+	margin-top: 50px;
+	height: 60px;
+	width: 876px;
+	color: #0b0b0b;
+	font-size: 18px;
+	position: relative;
+}
+
+.graduate-student label {
+	display: block;
+	float: left;
+	border: 1px solid #a0a0a0;
+	width: 100px;
+	height: 52px;
+	line-height: 50px;
+	text-align: center;
+	
+}
+.search-name {
+	position: relative;
+	text-indent: 20px;
+	width: 400px;
+	height: 50px;
+}
+.search-btn {
+	position: absolute;
+	left: 450px;
+	top: 8px;
+	cursor: pointer;
+}
+.invitation-record {
+	margin:0 auto;
+	margin-top: 50px;
+	height: 200px;
+	width: 876px;
+} 
+.state {
+	height: 34px;
+	line-height: 34px;
+	color: #0b0b0b;
+	font-size: 18px;
+	margin: 20px;
+}
+.main{
+	padding-bottom: 100px;
+}
+.main select {
+    margin-left: 50px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #a0a0a0;
+    background-color:#fcfafa ;
+    width: 180px;
+    height: 34px;
+    line-height: 34px;
+    text-indent: 10px;
+    padding: 5px;
+    color: #656565;
+    font-size: 16px;
+}
+.second-line {
+	margin-left: 203px !important;
+}
+table {
+	margin:0 auto;
+	/*width: 878px;*/
+	width: 95%;
+	border-collapse: collapse;	
+}
+table th {
+	font-weight: normal;
+	font-size: 18px;
+	color: #0b0b0b;
+	width: 215px;
+}
+table td {
+	text-align: center;
+	width: 215px;
+}
+table th.second {
+	width: 270px;
+}
+table tr {
+	border: 1px solid #a1a1a1;
+	height: 140px;
+	background-color: #f5f9fb;
+	width: 878px;
+}
+table .blue {
+	width: 878px;
+	height: 47px;
+	background-color: #add9f0;
+	border: 1px solid #a1a1a1;
+}
+img {
+	margin-top: 5px;
+	margin-left: 30px;
+}
+.name {
+	color: #0b0b0b;
+	font-size: 16px;
+}
+.university {
+	/*color: #e71423;*/
+	font-size: 16px;
+}
+.place {
+	font-size: 16px;
+	color: #6d6869;
+}
+.specific {
+	color: #0b0b0b;
+	font-size: 16px;
+	text-indent: 20px;
+}
+.date {
+	font-size: 16px;
+	color: #0b0b0b;
+}
+table td p {
+	line-height: 2;
+}
+span {
+	display: inline-block;
+}
+.nbsp1 {
+	text-indent: 85px;
+}
+.nbsp2 {
+	text-indent: 20px;
+}
+.education {
+	font-size: 16px;
+	color: #6d6869;
+	text-indent: 40px;
+}
+.button {
+	border: 1px solid #a0a0a0;
+	width: 139px;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 10px;
+	margin: 15px 0 20px 35px;
+	text-align: center;
+	color: #0b0b0b;
+	font-size: 16px;
+	background: transparent;
+	cursor: pointer;
+	
+}
+.button a {
+	color: #0b0b0b;
+	font-size: 16px;
+	text-decoration: none;
+	display: block;
+}
+a{
+	color: #000;
+}
+.query-button {
+	position: absolute;
+	width: 80px;
+	height: 40px;
+	font-size: 15px;
+	cursor: pointer;
+	margin-left: 200px;
+	margin-top: 30px;
+}
+.state-school {
+	width: 180px;
+	height: 34px;
+	line-height: 34px;
+	font-size: 15px;
+	margin-left: 50px;
+}
+.tip,
+.tip2{
+	text-align: center;
+	font-size: 16px;
+}
+.none{
+	display: none;
+}
+#paging {
+	width: 900px;
+	margin: 30px auto;
+	text-align: center;
+}
+.query-tr img {
+	width: 100px;
+	height: 100px;
+	display: block;
+	margin: 0 auto;
+}
+.inviteId {
+	display: none;
+}
+
+

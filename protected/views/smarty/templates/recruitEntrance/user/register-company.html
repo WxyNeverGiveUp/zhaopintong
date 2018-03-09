@@ -1,0 +1,227 @@
+<!-- ==================================================
+* @Description: 已入驻-用人单位注册
+* @Version: 1.0.0
+* @Author: wuxiaoyang(15290491277@163.com)
+* @Date: 2017.5.20
+* ==NOTES:=============================================
+* v1.0.0(2017.5.20):
+初始生成
+* ==================================================-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>已入驻-用人单位注册</title>
+    <{include file="../common/script.html"}>
+    <{include file="../common/link.html"}>
+    <{include file="../common/simditor.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/css/page/user/register-company.css">
+</head>
+<body>
+<div class="page">
+    <div class="content">
+        <h1>已入驻单位账号注册</h1>
+        <div class="main-content">
+             <div class="info-list">
+                <label>注册单位</label>
+                <input class="company-name" type="text" disabled="disabled">
+                <p class="tip none">
+                    此单位暂未入住，请您到
+                    <a href="<{$website}>recruitEntrance/RecruitEntrance/CreateCompany">未入驻单位账号注册处</a> 注册账号
+                </p>
+            </div>
+            <div class="info-list">
+                <label>18位统一社会信用代码或公司名称</label>
+                <span class="search-box">
+                    <input type="text" name="barCode" class="search-input" id="search-input" placeholder="请输入证件号码或公司名称查询" autocomplete="off">
+                    <a href="javascript:;">
+                        <i class="fa fa-search search-btn"></i>
+                    </a>
+                </span>
+                <p class="tip none">请输入18位 的同意社会信用代码</p>
+            </div>
+            <form enctype="multipart/form-data" action="<{$website}>recruitEntrance/RecruitEntrance/SaveCompany" method="post">
+                <input type="hidden" name="companyId" value="<{$companyId}>">
+                <div class="linkman-info info">
+                    <h2>联系人基本信息</h2>
+                    <div class="info-list">
+                        <label>姓名</label>
+                        <span>
+                            <input type="text" name="contactName" placeholder="必填" class="require-text name">
+                        </span>
+                        <p class="tip none">必须填写真实姓名</p>
+                    </div>
+                    <div class="info-list">
+                        <label>性别</label>
+                        <span>
+                            <input type="radio" name="sex" value="男" checked="checked">
+                            <span class="type-val">男</span>
+                            <input type="radio" name="sex" value="女">
+                            <span class="type-val">女</span>
+                        </span>
+                    </div>
+                    <div class="info-list">
+                        <label>手机号码</label>
+                        <span>
+                            <input type="text" name="phone" placeholder="必填" class="require-text phone" id="scms_gettel">
+                            <span class="hint">*同时可用于账号登陆</span>
+                        </span>
+                        <p class="tip none">请输入正确的手机号</p>
+                        <p class="tip none">手机号已经存在,请更换手机号</p>
+                    </div>
+                    <div class="info-list">
+                        <label>登陆密码</label>
+                        <span>
+                            <input type="password" name="password" placeholder="必填" class="require-text psw">
+                        </span>
+                        <p class="tip none">请输入6-16位密码</p>
+                    </div>
+                    <div class="info-list">
+                        <label>确认密码</label>
+                        <span>
+                            <input type="password" name="" placeholder="必填" class="require-text psw2">
+                        </span>
+                        <p class="tip none">请确认是否与登录密码一致</p>
+                    </div>
+                    <div class="info-list">
+                        <label>邮箱</label>
+                        <span>
+                            <input type="text" name="email" placeholder="必填" class="require-text email">
+                        </span>
+                        <p class="tip none">请输入正确的邮箱</p>
+                    </div>
+                    <div class="info-list">
+                        <label>图形验证码</label>
+                        <span class="code-box">
+                            <input type="text" id="img-code-input" name="" placeholder="必填" class="require-text">
+                            <img src="<{$website}>util/Captcha/Getcode" id="img-code" class="img-code">
+                        </span>
+                        <p class="tip none"></p>
+                    </div>
+                    <div class="info-list">
+                        <label>短信验证码</label>
+                        <span class="code-box">
+                            <input name="code" id="right_yzcode" type="hidden" value=""/>
+                            <input type="text" name="code" id="scms_yzcode" placeholder="必填" class="require-text">
+                            <input name="Submitbfs" type="button" value="获取验证码" id="Submitbfs" class="msg-code" />
+                            <div id="show_statu"></div>
+                        </span>
+                    </div>
+                    <div class="info-list">
+                        <label class="alumni-title">是否是校友</label>
+                        <span>
+                            否
+                            <input type="checkbox" id="checkbox_c1" name="is_schoolfellow" class="chk alumni-switch" />
+                            <label for="checkbox_c1"></label>
+                            是
+                        </span>
+                    </div>
+                    <div class="alumni none">
+                        <div class="info-list">
+                            <label>最高学历</label>
+                            <span>
+                                <select class="info-select" name="highestEducation">
+                                     <option selected="selected">请选择</option>
+                                     <option value="本科">本科</option>
+                                     <option value="硕士">硕士</option>
+                                     <option value="博士">博士</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="info-list">
+                            <label>毕业年份</label>
+                            <span>
+                                <select class="info-select" id="graduationYear" name="graduationYear" >
+                                    <!--<option selected="selected" value="-1" name="graduationYear">请选择</option>-->
+                                    <!--<option value="2017">2017</option>-->
+                                    <!--<option value="1990">1990</option>-->
+                                </select>
+                            </span>
+                        </div>
+                        <div class="info-list">
+                            <label>学院</label>
+                            <input type="text" name="apartment" placeholder="必填" class="requ">
+                        </div>
+                        <div class="info-list">
+                            <label>专业</label>
+                            <input type="text" name="major" placeholder="必填">
+                        </div>
+                        <div class="info-list">
+                            <label>学号</label>
+                            <input type="text" name="studentId" placeholder="非必填">
+                        </div>
+                        <div class="info-list">
+                            <label>通信地址</label>
+                            <span>
+                                <input type="text" name="mailingAddress" placeholder="必填" class="address">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="identification">
+                    <h2>认证资料</h2>
+                    <!-- ajax提交照片 -->
+                    <div class="indentification-div">
+                        <span class="identification-title">企业认证资料</span>
+                        <p class="identification-detail">
+                            1.每张最大支持2.5M
+                        </p>
+                        <p class="identification-detail">
+                            2.营业执照，须填：三证合一，请在此上传，如果是老证，请上传组织机构代码证
+                        </p>
+                        <p class="identification-detail">
+                            3.请务必上传带彩色公章的企业资料（扫描彩色件或原件）图片
+                        </p>
+                        <div class="img-box">
+                            <ul class="clearfix" id="upload-box">
+                                    
+                            </ul>
+                            <div class="operate">
+                                <input type="file" class="file-pick" id="img-choose" name="zhizhaoUrl[]" value="请选择文件..." data-num="0">
+                                <a href="javascript:;" class="upload">继续选择</a>
+                            </div>
+                        </div>
+                        <p class="tip none">没有上传照片,请上传</p>
+                    </div>
+                    <div class="indentification-div">
+                        <span class="identification-title">企业介绍</span>
+                        <textarea id="editor" name="introduction"></textarea>
+                    </div>
+
+                </div>
+                <input type="submit" name="sub" value="立即注册" class="sub-btn">
+            </form>
+        </div>
+    </div>
+    <{include file="../common/footer.html"}>
+    <div class="pop none">
+        <i class="fa fa-close fa-3x close-img"></i>
+        <img src="" title="图片" alt="图片">
+    </div>
+</div>
+<!-- ueditor -->
+<script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.config.js"></script>
+<script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.all.js"></script>
+<script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/lang/zh-cn/zh-cn.js"></script>
+<link rel="stylesheet" type="text/css" href="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/themes/default/css/ueditor.css" />
+<script type="text/javascript">
+        var editor = UE.getEditor('editor');
+</script>
+<script language="javascript" type="text/javascript">
+    window.onload=function(){
+        //设置毕业年份的选择
+        var myDate= new Date();
+        var endYear=myDate.getFullYear()-50;//起始年份
+        var startYear=myDate.getFullYear();//结束年份
+        var obj=document.getElementById('graduationYear')
+        for (var i=startYear;i>=endYear;i--)
+        {
+            obj.options.add(new Option(i,i));
+        }
+        obj.options[obj.options.length-51].selected=1;
+    }
+</script>
+<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/user/register-company.js"></script>
+</body>
+</html>

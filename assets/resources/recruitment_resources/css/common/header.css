@@ -1,0 +1,86 @@
+/*---------------------------------------------------------------------------------------------
+@Description: 招聘通-头部-公共 CSS定义
+@Version: 1.0.0(2017-05)
+@author: shihui
+* ==NOTES:=============================================
+* v1.0.0(2017.05):
+初始生成
+--------------------------------------------------------------------------------------------*/
+/********************* 招聘通-头部-公共 Start ****************************/
+.header {
+	width:80%;
+	margin:0 auto 30px;
+}
+.total-header{
+	width:100%;
+	margin-bottom:0px;
+}   
+.header-low-order {
+	width:100%;
+	height:220px;
+	padding-top:50px;
+	box-sizing: border-box;
+	background: url(../../img/common/nav-background.png) no-repeat;
+	background-size: 100% 100%;
+}
+.nav-low-order {
+	width:90%;
+	height:170px;
+	margin:0 auto;
+	padding-left: 12%;
+	box-sizing: border-box;
+	background: url(../../img/common/nav-logo.png) no-repeat rgba(255,255,255,0.85);
+	background-size: 13.5% 100%;
+}
+.nav-title {
+	position: relative;
+	line-height:125px;
+	width:100%;
+}
+.nav-title span {
+	display: inline-block;
+}
+.nav-title-name {
+	width:81%;
+	padding-left:10px;
+	font-size:28px;
+}
+.nav-title-star {
+	position: absolute;
+	top:60px;
+	width:15%;
+	line-height:30px;
+	font-size:17px;
+	text-align: center;
+	color:#ffffff;
+	background:#2b83de; 
+}
+.nav {
+	height:37px;
+	line-height:37px;
+    text-align: center;
+}
+div.recruitment-header .nav li {
+    display: inline-block;
+    /*float: left;*/
+    padding: 0 22px;
+    text-align: center;
+	background: rgb(255, 255, 255) none repeat scroll 0 0;
+    /*border: 1px solid #9a9a9a;*/
+    color: #2d282a;
+}
+.nav .border-none {
+	border-right: none;
+}
+.nav li:hover {
+	background:#2b83de;
+	color:#ffffff; 
+}
+.nav li a {
+	color:inherit;
+	font-size:17px;
+}
+.nav li a:hover {
+	color:inherit;
+}
+/********************* 招聘通-头部-公共 End ****************************/

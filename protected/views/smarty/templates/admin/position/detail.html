@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>职位详情</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="continer">
+    <{include file="../common/sidebar.html"}>
+    <div class="content">
+        <{include file="../common/crumbs.html"}>
+        <div class="block">
+            <div class = "block-header">
+                <h3>职位名称：<{$position.name}></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="control-area control-area-short">
+                    <label>是否属于教师：</label>
+                    <{if $position.is_teacher ==1}>
+                    <span>是</span>
+                    <{/if}>
+                    <{if $position.is_teacher ==0}>
+                    <span>否</span>
+                    <{/if}>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>职位类别：</label>
+                    <span><{$positionType}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>所属城市：</label>
+                    <span><{$place}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>学历要求：</label>
+                    <span><{$degree}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>招聘人数：</label>
+                    <span><{$position.recruitment_num}></span>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>需求专业：</label>
+                    <{foreach from=$specialtyList item=specialty}>
+                    <{if $specialty=="0"}>
+                    <span>不限专业</span>
+                    <{else}>
+                    <span><{$specialty}></span>
+                    <{/if}>
+                    <{/foreach}>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>岗位职责：</label>
+                    <span><{$position.position_duty}></span>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>岗位需求：</label>
+                    <span><{$position.position_need}></span>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>其他描述：</label>
+                    <span><{$position.descrption}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>职位来源：</label>
+                        <span>
+                            <{if $position.position_source == '1'}>
+                            东北师大
+                        <{elseif $position.position_source =='2'}>
+                            6所部属
+                        <{else}>
+                            互联网
+                        <{/if}>
+                            </span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>截止日期：</label>
+                    <span><{$position.dead_time}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>是否参加大招会：</label>
+                    <{if $position.is_join_big_recruitment ==1}>
+                    <span>否</span>
+                    <{/if}>
+                    <{if $position.is_join_big_recruitment ==2}>
+                    <span>是</span>
+                    <{/if}>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>是否参加招聘周：</label>
+                    <{if $position.is_join_recruitment_week ==1}>
+                    <span>否</span>>
+                    <{/if}>
+                    <{if $position.is_join_recruitment_week ==2}>
+                    <span>是</span>
+                    <{/if}>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>职位亮点：</label>
+                    <span><{foreach from=$brightsList item=brights}>
+                            <{$brights}>&nbsp;
+                            <{/foreach}>
+                    </span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>公司名称：</label>
+                    <span><{$companyName}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>联系人姓名：</label>
+                    <span><{$position.company_user_name}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>移动电话：</label>
+                    <span><{$phone}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>职务：</label>
+                    <span>信息发布联系人</span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>固定电话：</label>
+                    <span><{$telephone}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>电子邮箱：</label>
+                    <span><{$email}></span>
+                </div>
+                <table border="1" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>当前审核状态</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr>
+                        <{if $position.is_ok==-1}>
+                        <td>未审核</td>
+                        <{elseif $position.is_ok==0}>
+                        <td>审核未通过</td>
+                        <{elseif $position.is_ok==1}>
+                        <td>审核通过</td>
+                        <{/if}>
+                        <td>
+                            <a href="<{$website}>admin/position/recruitment/check?isOk=1&positionId=<{$position.id}>&sCompanyName=<{$sCompanyName}>
+                            &sCityId=<{$sCityId}>&sPositionName=<{$sPositionName}>&sCompanyReleaseTime=<{$sCompanyReleaseTime}>&sCompanyUserName=<{$sCompanyUserName}>
+                            &isJoinBigRecruitment=<{$isJoinBigRecruitment}>&isJoinRecruitmentWeek=<{$isJoinRecruitmentWeek}>&isElite=<{$isElite}>" class="btn">审核通过</a>
+                            <form action="<{$website}>admin/position/recruitment/check" method="get" style="margin-top: 10px;">
+                                <select class="textTheme" name="checkReason">
+                                    <option value="1">信息不完整</option>
+                                    <option value="2">信息有误</option>
+                                </select>
+                                <input type="hidden" name="isOk" value="0">
+                                <input type="hidden" name="positionId" value="<{$position.id}>">
+                                <input type="hidden" name="sCompanyName" value="<{$sCompanyName}>"/>
+                                <input type="hidden" name="sCityId" value="<{$sCityId}>"/>
+                                <input type="hidden" name="sPositionName" value="<{$sPositionName}>"/>
+                                <input type="hidden" name="sCompanyReleaseTime" value="<{$sCompanyReleaseTime}>"/>
+                                <input type="hidden" name="sCompanyUserName" value="<{$sCompanyUserName}>"/>
+                                <input type="hidden" name="isJoinBigRecruitment" value="<{$isJoinBigRecruitment}>"/>
+                                <input type="hidden" name="isJoinRecruitmentWeek" value="<{$isJoinRecruitmentWeek}>"/>
+                                <input type="hidden" name="isElite" value="<{$isElite}>"/>
+                                <input type="submit" name="" value="审核不通过" class="btn">
+                            </form>
+                        </tr>
+                </table>
+                <div style="text-align: center;">
+                    <a href="<{$website}>admin/position/recruitment/list?
+        sCompanyName=<{$sCompanyName}>&sCityId=<{$sCityId}>&sPositionName=<{$sPositionName}>&sCompanyReleaseTime=<{$sCompanyReleaseTime}>
+        &sCompanyUserName=<{$sCompanyUserName}>&isJoinBigRecruitment=<{$isJoinBigRecruitment}>&isJoinRecruitmentWeek=<{$isJoinRecruitmentWeek}>&isElite=<{$isElite}>"
+                     class="btn">返回列表</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- Start 高春晓 分享经验-->
+<head>
+    <title>经验分享</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/share.css">
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../common/header.html"}>
+<div class="content">
+    <h1 class="share">
+        分享一条面试经验，为学弟学妹的职业选择提供经验
+    </h1>
+    <!--<div class="tips">
+        所有面试经验默认以匿名形式发表，不会透露您的真实姓名
+    </div>-->
+    <div class="information">
+        <form class="J_form" action="<{$website}>company/interviewExperience/add/id/<{$company.id}>" method="post">
+            <ul>
+                <li>
+ 							<span class="subject">
+ 								面试单位：
+ 							</span>
+ 							<span class="unit">	
+ 								<{$company.name}>
+ 							</span>
+                </li>
+                <li>
+ 							<span class="subject">
+ 								面试职位：
+ 							</span>
+ 							<span class="occupation">
+ 								<input type="text" data-valid-rule="notNull" name="interviewPosition"/>
+ 							</span>
+                </li>
+                <li>
+ 							<span class="subject">
+ 								面试城市：
+ 							</span>
+ 							<span class="city">
+ 								<input type="text" data-valid-rule="isChinese" name="city"/>
+ 							</span>
+                </li>
+                <li>
+							<span class="subject">
+								面试时间：
+							</span>
+                    <select name="years" class="years" data-valid-rule="scale(1900,2100,0)">
+                        <option value="--">--</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                    </select>年
+                    <select name="months" class="months" data-valid-rule="scale(0,1000,0)">
+                        <option value="--">--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>月
+                    <select name="days" class="days" data-valid-rule="scale(0,1000,0)">
+                    </select>日
+                </li>
+                <li>
+							<span class="subject">
+							共面试几轮：
+							</span>
+                    <select name="rounds" class="rounds" data-valid-rule="scale(0,1000,0)">
+                        <option value="--">--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>轮
+                </li>
+                <li class="description">
+							<span class="subject">
+							面试过程描述：
+							</span>
+                    <textarea name="description" placeholder="请填写面试描述，至少填写10字以上"></textarea>
+						<span class="inputnum">
+							您还可以输入5000字
+						</span>
+                </li>
+                <li>
+							<span class="subject">是否通过面试获得工作？
+							</span>
+                </li>
+                <li class="chose-job">
+                    <input type="radio" name="isGetjob" checked="checked" class="no-job" value="0"/>
+                    <span class="no-Job"> </span> 未获得工作
+
+                    <input type="radio" name="isGetjob" class="refuse-job" value="1">
+                    <span class="refuse-Job"></span>获得未接受
+
+                    <input type="radio" name="isGetjob" class="get-job" value="2">
+                    <span class="get-Job"></span>获得并接受
+                </li>
+                <li>
+                    <input type="submit" value="发布面试经验" class="sub"/>
+                </li>
+                <!--<li class="comment">
+                    <input type="checkbox" name="isPublic" value="1" />以公开身份评论<span>（所有评论默认以匿名形式发表，不会透露您的真实姓名）</span>
+                </li>-->
+            </ul>
+        </form>
+    </div>
+</div>
+<{include file="../../common/footer.html"}>
+<script type="text/javascript">
+    KISSY.use('page/company/share',function(S){
+        S.ready(function(){
+            PW.page.company.share();
+        })
+    })
+</script>
+</body>
+</html>
+<!-- End 高春晓 分享经验-->

@@ -1,0 +1,216 @@
+<!-- ==================================================
+* @Description: 公司信息-认证资料
+* @Version: 1.0.0
+* @Author: wuxiaoyang(15290491277@163.com)
+* @Date: 2017.7.20
+* ==NOTES:=============================================
+* v1.0.0(2017.7.20):
+初始生成
+* ==================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>认证资料</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="<{$staticWebsite}>recruitment_resources/css/page/company-info/certificated-info.css">
+	<{include file="../common/link.html"}>
+	<{include file="../common/script.html"}>
+	<{include file="../../common/link.html"}>
+	<{include file="../../common/script.html"}>
+	<{include file="../common/simditor.html"}>
+</head>
+<body>
+	<div class="page">
+		<{include file="../common/header.html"}>
+		<div class="content">
+			<div class="sidebar">
+				<h2><i class="fa fa-user list-img"></i>公司信息</h2>
+				<ul class="tab_menu">
+					<li><a href="<{$website}>recruitEntrance/company/tCompany/getCompanyBaseManager">基本资料</a></li>
+					<li class="active"><a href="<{$website}>recruitEntrance/company/tCompany/getCompanyAuthenticationData">认证资料</a></li>
+					<li><a href="<{$website}>recruitEntrance/company/companyLoginUser/listAllUser">单位成员</a></li>
+				</ul>
+			</div>
+			<div class="main">
+				<form class="form-box" action="<{$website}>recruitEntrance/company/tCompany/updateCompanyAuthenticationData" method="post" enctype="multipart/form-data">
+					<div class="info-list">
+						<label>认证状态</label>
+						<{if $status==0}>
+						<input type="text" value="未认证" disabled="disabled">
+						<{else if $status==1}>
+						<input type="text" value="认证通过" disabled="disabled">
+						<{else if $status==2}>
+						<input type="text" value="认证未通过" disabled="disabled">
+						<{else if $status==3}>
+						<input type="text" value="等待重新认证" disabled="disabled">
+						<{else}>
+						<input type="text" value="已认证" disabled="disabled">
+						<{/if}>
+					</div>
+					<div class="info-list">
+						<label>单位名称</label>
+						<input type="text" class="require-text company-name" name="name" value="<{$name}>">
+                        <p class="tip none">请输入单位名称</p>
+					</div>
+					<div class="info-list">
+						<label>所在城市</label>
+						<select class="local-city province require-option" name="provinceId">
+							<option value="0">请选择</option>
+							<{foreach from=$provinceList item=province}>
+							<{if $provinceId == $province.id}>
+							<option value="<{$province.id}>" selected = "selected"><{$province.name}></option>
+							<{else}>
+							<option value="<{$province.id}>" ><{$province.name}></option>
+							<{/if}>
+							<{/foreach}>
+						</select>
+						<select class="local-city city" name="cityId">
+							<option value="0">请选择</option>
+							<{foreach from=$cityList item=city}>
+							<{if $cityId == $city.id}>
+							<option value="<{$city.id}>" selected="selected"><{$city.name}></option>
+							<{else}>
+							<option value="<{$city.id}>"><{$city.name}></option>
+							<{/if}>
+							<{/foreach}>
+						</select>
+					</div>
+					<div class="info-list">
+						<label>单位地址</label>
+						<input type="text" class="require-text company-address" name="full_address" value="<{$address}>" >
+					</div>
+					<div class="info-list">
+						<label>固定电话</label>
+						<input type="text" class="require-text telephone" name="phone" value="<{$phone}>" >
+                        <p class="tip none">请填写正确的电话号码,例:0312-3614072</p>
+					</div>
+					<div class="info-list">
+						<label>招聘邮箱</label>
+						<input type="text" class="require-text work-email" name="email" value="<{$email}>">
+                        <p class="tip none">请填写正确的邮箱地址</p>
+					</div>
+					<div class="info-list">
+						<label>邮政编码</label>
+						<input type="text" class="require-text postcode" name="postal_code" value="<{$postalCode}>" >
+                        <p class="tip none">请填写正确的邮政编码,例:100000</p>
+					</div>
+					<div class="info-list">
+						<label>单位类型</label>
+						<{if $typeId==1}>
+						<input type="radio" name="unit-type " class="radio-style" value="1" checked="checked">教育行业
+						<input type="radio" name="unit-type "  class="radio-style" value="0" >非教育行业
+						<{else}>
+						<input type="radio" name="unit-type" class="radio-style" value="1" >教育行业
+						<input type="radio" name="unit-type"  class="radio-style" value="0" checked="checked">非教育行业
+						<{/if}>
+					</div>
+					<div class="info-list">
+						<label>单位性质</label>
+						<select name="property_id" class="info-select require-option">
+							<option value="-1">请选择</option>
+							<{foreach from=$companyPropertyList item=property}>
+							<{if $propertyId eq $property.id}>
+							<option value="<{$property.id}>" selected="selected"><{$property.name}></option>
+							<{else}>
+							<option value="<{$property.id}>"><{$property.name}></option>
+							<{/if}>
+							<{/foreach}>
+						</select>
+					</div>
+					<div class="info-list">
+						<label>经济类型</label>
+						<select name="economic_type_id" class="info-select require-option">
+							<option value="-1">请选择</option>
+							<{foreach from=$companyEconomicTypeList item=type}>
+							<{if $economicType eq $type.id}>
+							<option value="<{$type.id}>" selected="selected"><{$type.economic_type}></option>
+							<{else}>
+							<option value="<{$type.id}>"><{$type.economic_type}></option>
+							<{/if}>
+							<{/foreach}>
+						</select>
+					</div>
+					<div class="info-list">
+						<label>所属行业</label>
+						<select name="trade_id" class="info-select require-option">
+							<option value="-1">请选择</option>
+							<{foreach from=$companyTradeList item=trade}>
+							<{if $tradeId eq $trade.id}>
+							<option value="<{$trade.id}>" selected="selected"><{$trade.name}></option>
+							<{else}>
+							<option value="<{$trade.id}>"><{$trade.name}></option>
+							<{/if}>
+							<{/foreach}>
+						</select>
+					</div>
+					<div class="info-list">
+						<label>单位规模</label>
+						<select name="unit_size" class="info-select require-option">
+							<option value="-1">请选择</option>
+							<{foreach from=$companySizeList item=size}>
+							<{if $unitSize eq $size.id}>
+							<option value="<{$size.id}>" selected="selected"><{$size.size}></option>
+							<{else}>
+							<option value="<{$size.id}>"><{$size.size}></option>
+							<{/if}>
+							<{/foreach}>
+						</select>
+					</div>
+					<div class="info-list">
+						<label>18位统一社会信用代码或组织机构代码</label>
+						<input type="text" class="require-text" name="barCode" value="<{$barCode}>" >
+					</div>
+					<div class="info-list">
+						<label class="label-attr label-align">企业认证资料</label>
+						<div class="paragraph">
+							<p>1、每张最大支持2M</p>
+							<p>2、营业执照证，必填：三证合一，请在此上传，如果是老证，请上传组织机构代码证</p>
+							<p>3、请务必上传带彩色公章的企业资料（扫描彩色件或原件）图片</p>
+							<div class="img-box">
+                                <ul class="clearfix" id="upload-box">
+                                    <!--<{foreach from=$companyZhiZhaoList item=zhizhao}>-->
+									<!--<li class="uncommitted">-->
+										<!--<img class="select-img" src="../../../assets/uploadFile/recruitEntrance/<{$zhizhao.url}>">-->
+										<!--<span>认证资料</span>-->
+										<!--<a href="javascript:;" class="img-delete">删除</a>-->
+									<!--</li>-->
+									<!--<{/foreach}>-->
+                                </ul>
+                                <div class="operate">
+                                    <input type="file" class="file-pick" id="img-choose" name="zhizhaoUrl[]" value="请选择文件...">
+                                    <a href="javascript:;" class="upload">继续选择</a>
+                                </div>
+                            </div>
+							<p class="tip none">没有上传照片,请上传</p>
+						</div>
+					</div>
+					<div class="info-list">
+						<label>企业介绍</label>
+						<div class="company-introduction">
+							<textarea id="editor" name="introduction"><{$introduction}></textarea>
+
+						</div>
+					</div>
+					<input type="submit" class="submit-btn" value="重新认证">
+				</form>
+			</div>
+		</div>
+		<{include file="../common/footer.html"}>
+		<div class="pop none">
+            <i class="fa fa-close fa-3x close-img"></i>
+            <img src="" title="图片" alt="图片">
+        </div>
+	</div>
+
+	<!-- ueditor -->
+	<script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.config.js"></script>
+	<script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.all.js"></script>
+	<script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/lang/zh-cn/zh-cn.js"></script>
+	<link rel="stylesheet" type="text/css" href="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/themes/default/css/ueditor.css" />
+
+	<script type="text/javascript">
+        var editor = UE.getEditor('editor');
+	</script>
+	<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/company-info/certificated-info.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>图片详情</title>
+    <meta charset="utf-8">
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="title">
+                    <div class="title1">教师招考删除</div>
+                </div>
+                <table>
+                    <tr>
+                        <td>图片名称</td>
+                        <td><{$image.name}></td>
+                    </tr>
+                    <tr>
+                        <td>指向URL</td>
+                        <td><{$image.url}></td>
+                    </tr>
+                    <tr>
+                        <td>顺序号</td>
+                        <td><{$image.number}></td>
+                    </tr>
+                    <tr>
+                        <td>图片在服务器路径</td>
+                        <td><{$image.path}></td>
+                    </tr>
+                    <tr>
+                        <td>图片</td>
+                        <td><img src="<{$staticWebsite}>../../<{$image.path}>"/></td>
+                    </tr>
+                    <tr>
+                        <td>返回</td>
+                        <td>
+                            <a href="<{$website}>admin/indexImg/indexImage/list" class="btn">返回</a>
+                        </td>
+                    </tr>
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

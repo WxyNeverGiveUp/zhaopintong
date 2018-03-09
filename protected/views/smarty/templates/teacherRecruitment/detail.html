@@ -1,0 +1,57 @@
+<!-- 胡珺 教师招聘详细页 -->
+<head>
+	<title>教师招考详细页</title>
+    <meta charset="utf-8" />
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/detail/teacher-examination.css">
+    <!--<script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.parse.min.js"></script>
+    <script>
+        setTimeout(function(){uParse('div',
+                {
+                    'highlightJsUrl':'<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/third-party/SyntaxHighlighter/shCore.js',
+                    'highlightCssUrl':'<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/third-party/SyntaxHighlighter/shCoreDefault.css'})
+        },300);
+    </script>-->
+</head>
+<body>
+	<div class="page-background">
+		<div class="page">
+			<!-- 当前浏览位置starting -->
+			<div class="page-head clearfix">
+				<h1><a href="<{$website}>teacherRecruitment/teacherRecruitment/toSearch">教师招考</a>><a href="#">详细页</a></h1>
+			</div>
+			<!-- 当前浏览位置ending -->
+			<!-- 内容标题starting -->
+			<h1 class="content-title">
+                <{$teacherRecruitment.title}>
+			</h1>
+			<!-- 内容标题ending -->
+			<!-- 发布时间、浏览次数等信息starting -->
+			<div class="relative-info">
+				<span class="update-time">发布时间：<{$teacherRecruitment.add_time}></span>
+				<span class="follow-time">阅览次数：<{$teacherRecruitment.clicks}></span>
+				<div class="bshare-custom">
+					<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><a class="bshareDiv" onclick="javascript:return false;"></a>
+					 <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+				<a href="javascript:;" title="扫描二维码" class="show-QRCode"></a>
+				<img src="<{$website}>qrCode.png" class="qrCode-Img none">
+			</div>
+			<!-- 发布时间、浏览次数等信息ending -->
+			<!-- 主要内容starting -->
+			<div class="content-background">
+				<div class="detail-content">
+                <{$teacherRecruitment.content}>
+				</div>
+			</div>
+			<!-- 主要内容ending -->
+		</div>	
+	</div>
+	<script type="text/javascript">
+		KISSY.use('page/company/jobDetail',function(S){
+			S.ready(function(){
+				PW.page.company.jobDetail();
+			});
+		})
+	</script>
+</body>

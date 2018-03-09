@@ -1,0 +1,750 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: recruitment-week.css
+@Description: 招聘周css定义
+@Version: 1.0.0(2015-05-23)YYYY-MM-DD
+@author: zhaokaikang
+2015-05-23:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+.login {
+	background-image: url("../../../../resources/img/index/login-search-background.png");
+	background-repeat: repeat-x;
+}
+
+.login a {
+	display: inline-block;
+	height: 52px;
+	line-height: 52px;
+	margin-right: 20px;
+	font-size: 18px;
+	color: #8b8b8b;
+}
+
+.login a:first-child {
+	margin-left: 192px;
+	color: #7c1d2e;
+}
+
+.search {
+	float: right;
+	position: relative;
+	height: 23px;
+	width: 234px;
+	margin-top: 13px;
+	margin-right: 64px;
+	border-radius:6px; 
+	border: 1px solid #dbdbdb;
+	box-shadow: 2px 2px #d5d5d5 inset;
+	background-color: white;
+}
+
+.search span {
+	display: inline-block;
+	position: absolute;
+    top: 3px;
+    left: 10px;
+	width: 22px;
+	height: 18px;
+	background: url("../../../../resources/img/index/search-logo.png") no-repeat -2px 0px;
+}
+   
+.search button {
+	height: 22px;
+	width: 55px;
+	background: url("../../../../resources/img/index/search-button-background.png") no-repeat 0 0;
+	border: 0 solid #fff;
+	color: white;
+}
+
+.header input[name="search-box"] {
+	display: inline-block;
+	height: 15px;
+	width: 135px;
+    margin-left: 4px;
+    padding-left: 35px;
+	border: 0 solid #fff;
+	font-size: 14px;
+	color: #c2c2c2;
+}
+
+.logo {
+	height: 60px;
+	margin-left: 192px;
+	margin-top: 15px;
+	background: url("../../../../resources/img/index/logo.png") no-repeat 0 0;
+}
+
+.main-nav {
+	height: 54px;
+	background-color: #7c1d2e;
+}
+
+.main-nav li {
+	float: left;
+	width: 68px;
+	height: 54px;
+	line-height: 54px;
+	font-size:18px;
+	text-align: center; 
+}
+
+.main-nav li a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.main-nav li:first-child {
+	margin-left: 860px;
+}
+
+.main-nav li:last-child {
+	width: 170px;
+	text-align: left;
+}
+
+.main {
+	margin: 30px auto;
+	width: 1205px;
+}
+
+/* left-container 放置页面左部 日历 学生智能化 免费师范生。。。等模块的div */
+.left-container{
+	float: left;
+	width: 248px;
+}
+
+.calendar {
+	width: 248px;
+	height: 301px;
+	margin-bottom: 28px;
+	border: 1px solid #eee;
+	background: url("../../../../resources/img/index/calendar.png") no-repeat 0 0;
+}
+
+.student-intelligence-service {
+	width: 248px;
+	height:233px;
+	border: 1px solid #ddd9d9;
+}
+
+.student-intelligence-service h1 {
+	width: 248px;
+	height: 46px;
+	line-height: 46px;
+	background-color:#7c1d2e;
+	font-size:14px; 
+	color: #fff;
+	text-align: center; 
+	font-weight: bold;
+}
+
+.student-intelligence-service ul {
+	width: 246px;
+	height: 136px;
+	text-align: right;
+}
+
+.student-intelligence-service ul li {
+	width: 223px;
+	height: 34px;
+	line-height: 34px;
+	padding-right: 15px;
+	padding-left: 10px;
+	text-align: left;
+}
+
+.student-intelligence-service ul li:last-child {
+	position: relative;
+	text-align: left;
+}
+/*学生智能化服务平台中的类型左下拉列表*/
+.type {
+	width: 81px;
+	height: 21px;
+	margin-right: 23px;
+	border: 1px solid #e1dfdf;
+	border-radius: 2px;
+}
+/*学生智能化服务平台中的类型右下拉列表*/
+.student {
+	width: 68px;
+	height: 21px;
+	border: 1px solid #e1dfdf;
+	border-radius: 2px;
+}
+/*学生相关信息如学号 密码等input标签*/
+.student-info input {
+	height: 21px;
+	border: 1px solid #e1dfdf;
+	border-radius: 2px;
+}
+
+.student-info input[name="identify-code"]{
+	width: 108px;
+	height: 21px;
+	margin-left: -6px;
+	border: 1px solid #e1dfdf;
+	border-radius: 2px;
+}
+
+.student-info img {
+	position: absolute;
+	top: 6px;
+	right: 16px;
+	width: 57px;
+	height: 21px;
+	border: 1px solid #e1dfdf;
+}
+
+.student-intelligence-service a {
+	text-decoration: underline;
+	color: #000;
+	font-size: 12px;
+}
+
+.student-intelligence-service a:nth-child(3) {
+	display: inline-block;
+	width: 42px;
+	height: 21px;
+	margin: 12px 16px 0 58px;
+	line-height: 21px;
+	background-color: #dd9d22;
+	text-align: center;
+	text-decoration: none;
+}
+
+.student-intelligence-service a:nth-child(4) {
+	display: inline-block;
+	width: 42px;
+	height: 21px;
+	margin: 12px 16px 0 0;
+	line-height: 21px;
+	border: 1px solid #dd9d22;
+	text-align: center;
+	text-decoration: none;
+}
+
+.province-policy {
+	width: 248px;
+	height: 242px;
+	margin-top: 16px;
+}
+
+.province-policy h1 {
+	height: 26px;
+	line-height: 26px;
+	border-top: 2px solid #dc9b1d;
+	border-bottom: 2px solid #dc9b1d;
+	font-size: 16px;
+	text-align: center;
+}
+
+.province-policy table {
+	width: 248px;
+	height: 208px;
+}
+
+.province-policy table td {
+	width: 55px;
+	text-align: center;
+}
+
+.cooperate-arrondi {
+	width: 248px;
+	height: 254px;
+	margin-top:8px; 
+}
+
+.cooperate-arrondi h1 , .video-introduction h1 , .elite-recommend h1{ 
+	height: 30px;
+	margin-top:20px; 
+	margin-bottom: 14px;
+	border-bottom: 1px solid #e3af4a;
+	background: url("../../../../resources/img/index/yellow-dot.png") no-repeat 1px 12px;
+	line-height: 30px;
+	font-size: 18px;
+	text-indent: 18px;
+}
+
+.cooperate-arrondi ul li {
+	width: 248px;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 15px;
+	background-color: #851220;
+	font-size: 16px;
+	text-indent: 32px;
+}
+
+.cooperate-arrondi ul li a{
+	width: 174px;
+	display: inline-block;
+	background: url("../../../../resources/img/index/white-triangle.png") no-repeat 163px 11px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	text-indent: 0px;
+}
+
+.right-container {
+	float: right;
+	width: 938px;
+	margin-left: 15px;
+}
+
+.notice{
+	height: 676px;
+	width: 938px;
+	border-top: 1px solid #dd9d22;
+}
+
+.notice .newest{
+	width: 938px;
+	height: 288px;
+	border-bottom: 1px solid #dd9d22;
+}
+
+.notice .recruitment-info {
+	width: 938px;
+	height: 330px;
+}
+
+/*公告，招聘等相关信息的a标签*/
+.info-links {
+	display: inline-block;
+	width: 72px;
+	height:40px;
+	line-height: 40px;
+	margin-right: 16px;
+	text-align: center;
+	font-size: 14px;
+	text-decoration: none;
+	color: #3f3f3f;
+}
+
+.current {
+	display: inline-block;
+	width: 105px;
+	height:40px;
+	line-height: 40px;
+	margin-right: 16px;
+	text-align: center;
+	border-top: 3px solid #dd9d22;
+	color: #a50917;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.more {
+	float: right;
+	width: 72px;
+	height:40px;
+	line-height: 40px;
+	color: #dc9b1d;
+	text-align: right;
+}
+
+
+.newest li , .recruitment-info li {
+	float: left;
+	width: 435px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.newest li:nth-child(odd) , .recruitment-info li:nth-child(odd){
+	border-right: 1px solid #eaeaea;
+	padding-right: 34px;
+	margin-right: 33px;
+}
+
+.newest li a , .recruitment-info li a {
+	display: inline-block;
+	color: #000;
+	width: 250px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+
+.newest li span , .recruitment-info li span {
+	float: right;
+}
+
+.specific-search {
+	height: 103px;
+	width: 938px;
+	margin-top: 24px;
+}
+
+.search-mode {
+	float: left;
+	height: 103px;
+	width: 91px;
+	background: url("../../../../resources/img/index/search-mode.png") no-repeat 0 0;
+}
+
+.search-mode p {
+	height: 51px;
+	line-height: 51px;
+	font-size: 12px;
+	text-align: center;
+	font-weight: bolder;
+	color: #fff;
+}
+
+.search-box {
+	position: relative;
+	float: left;
+	width: 765px;
+	height: 103px;
+	background-color: #dd9d22;
+}
+
+.search-box select:nth-child(1) {
+	height: 22px;
+	width: 172px;
+	margin-top: 16px;
+	color: #9b9999;
+}
+
+.search-box select:nth-child(4) {
+	height: 22px;
+	width: 172px;
+	margin-top: 27px;
+	color: #9b9999;
+}
+
+.search-box input:nth-child(2) {
+	height: 22px;
+	width: 496px;
+	margin: 0 13px 0 32px;
+}
+
+.search-box input:nth-child(5) {
+	height: 22px;
+	width: 496px;
+	margin: 0 13px 0 32px;
+}
+
+.search-box span {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	line-height: 13px;
+	text-align: center;
+	color: #0567ca;
+	background-color: #fff;
+}
+
+.advanced-search {
+	float: left;
+	width: 82px;
+	height: 103px;
+	background: url("../../../../resources/img/index/advanced-search.gif") no-repeat 0 0;
+}
+
+.advanced-search a {
+	display: inline-block;
+	width: 90px;
+	height: 51px;
+	line-height: 51px;
+	text-align:left;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bolder;
+}
+
+.video-introduction {
+	margin-top: 40px;
+}
+
+.introduction-live {
+	float: left;
+	width: 447px;
+	height: 225px;
+	margin-top:15px;
+	border-right: 1px solid #eaeaea;
+}
+
+.introduction-live h2 {
+	margin-bottom: 24px;
+	font-size: 14px;
+	color: #82141f;
+}
+
+.video-introduction ul {
+	float: right;
+	width: 470px;
+	height: 200px;
+}
+
+.video-introduction span {
+	display: inline-block;
+	height: 40px;
+	margin-left: 21px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #82141f;
+}
+
+.video-introduction ul li {
+	width: 470px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.video-introduction ul li a {
+	color: #3f3f3f;
+}
+
+.video-introduction ul li span {
+	float: right;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	color: #3f3f3f;
+}
+
+.company-service {
+	height: 45px;
+	width: 1214px;
+	margin-top: 16px;
+	background-color: #dd9d22;
+}
+
+.company-service li {
+	float: left;
+	height: 45px;
+	line-height: 45px;
+	width: 173px;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	font-weight: bolder;
+	position: relative;
+}
+
+.company-service li a {
+	display: inline-block;
+	height: 45px;
+	line-height: 45px;
+	font-size: 16px;
+	color: #fff;
+	font-weight: bolder;
+}
+
+.company-service li span {
+	display: inline-block;
+	width: 35px;
+	height: 45px;
+}
+
+.company-service li:first-child span{
+	position: absolute;
+	left: 30px;
+	bottom: 5px;
+	background: url("../../../../resources/img/index/company-service.png") no-repeat 0 0;
+}
+
+.info-release {
+	position: absolute;
+	left: 10px;
+	bottom: 0px;
+	background: url("../../../../resources/img/index/company-service.png") no-repeat -99px 1px;
+}
+
+.people-search {
+	position: absolute;
+	left: 10px;
+	bottom: 0px;
+	background: url("../../../../resources/img/index/company-service.png") no-repeat -145px 1px;
+}
+
+.remote-preach {
+	position: absolute;
+	left: 15px;
+	bottom: 0px;
+	background: url("../../../../resources/img/index/company-service.png") no-repeat -301px 1px;
+}
+
+.remote-audition {
+	position: absolute;
+	left: 15px;
+	bottom: 0px;
+	background: url("../../../../resources/img/index/company-service.png") no-repeat -259px 1px;
+}
+
+.recruitment-plan {
+	position: absolute;
+	left: 6px;
+	bottom: 0px;
+	background: url("../../../../resources/img/index/company-service.png") no-repeat -201px 1px;
+}
+
+.elite-extend {
+	position: absolute;
+	left: 7px;
+	bottom: 0px;
+	background: url("../../../../resources/img/index/company-service.png") no-repeat -49px 1px;
+}
+
+/*名校推荐*/
+.elite-recommend {
+	width: 1215px;
+}
+
+.elite-recommend a {
+	display: inline-block;
+	margin-top: 5px;
+	width: 197px;
+	height: 63px;
+	border: 1px solid #000;
+}
+
+.elite-recommend a img{
+	display: inline-block;
+	width: 197px;
+	height: 63px;
+}
+
+.cooperate-medias {
+	margin-top:36px; 
+}
+
+.cooperate-medias-header {
+	width: 1214px;
+	border-bottom: 1px solid #ae616a;
+}
+
+.cooperate-medias-header h1{
+	background-color: #851220;
+	height: 25px;
+	line-height: 25px;
+	width: 116px;
+	color: #fff;
+	font-weight: bolder;
+	text-align: center;
+	position: relative;
+}
+
+.cooperate-medias h1 span{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url("../../../../resources/img/index/cooperate-media.png") no-repeat 0 0;
+	position: absolute;
+	left: 8px;
+	top: 5px;
+}
+
+.cooperate-medias ul {
+	height: 30px;
+	width: 1214px;
+}
+
+.cooperate-medias li {
+	float: left;
+	width: 109px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.cooperate-medias li a {
+	color: #3f3f3f;
+	font-size:12px;
+	text-decoration: none; 
+}
+
+.cooperate-medias ul li:first-child{
+	margin-left:10px; 
+	color: #851220;
+}
+
+.friendly-links {
+	height: 35px;
+	width: 1214px;
+	margin-top: 30px;
+	border-top: 1px solid #e3e0e0;
+	border-bottom:  1px solid #e3e0e0;
+}
+
+.friendly-links li {
+	float: left;
+}
+
+.friendly-links li span {
+	position: absolute;
+	left: 10px;
+	top: 12px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url("../../../../resources/img/index/friendly-links.png") no-repeat 0 0; 
+}
+
+.friendly-links li:first-child {
+	height: 35px;
+	line-height: 35px;
+	text-indent: 35px;
+	position: relative;
+}
+
+.friendly-links li a {
+	display: inline-block;
+	height: 35px;
+	line-height: 35px;
+	padding-left: 30px;
+    padding-right: 30px;
+	color: #3f3f3f;
+	text-align: center;
+}
+
+.footer {
+	margin-top: 50px;
+}
+
+.footer ul:first-child {
+	margin-left: 420px;
+	margin-bottom: 15px;
+}
+
+.footer ul:first-child li {
+	float: left;
+	height: 12px;
+	margin-right: 5px;
+	padding-right: 5px;
+	line-height: 12px;
+	border-right: 1px solid #5f5d5d;
+	font-size: 12px;
+	color: #5f5d5d;
+}
+
+.footer ul:first-child li:last-child {
+	border: none;
+}
+
+.footer ul:not(:first-child) {
+	height: 45px;
+	line-height: 45px;
+	background-color:#d2d2d2; 
+}
+
+.footer ul:not(:first-child) li {
+	float: left;
+	height: 45px;
+	margin-right: 20px;
+	line-height: 45px;
+	font-size:12px; 
+}
+
+.footer ul:not(:first-child) li:first-child {
+	margin-left: 325px;
+}
+
+.footer ul:not(:first-child) li span {
+	font-weight: bold;
+}

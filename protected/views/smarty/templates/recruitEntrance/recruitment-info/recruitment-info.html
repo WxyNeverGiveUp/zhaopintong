@@ -1,0 +1,151 @@
+<!-- ==================================================
+* @Description: 招聘信息
+* @Version: 1.0.0
+* @Author: anrui(2434078703@qq.com)
+* @Date: 2017.7.20
+* ==NOTES:=============================================
+* v1.0.0(2017.7.20):
+初始生成
+* ==================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>东北高师就业联盟网</title>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/css/page/recruitment-info/recruitment-cancel.css">
+	<{include file="../common/link.html"}>
+	<{include file="../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/js/plugin/layui/css/layui.css">
+</head>
+<body>
+<div class="page">
+<{include file="../common/header.html"}>
+	<div class="content">
+		<div class="sidebar">
+			<h2><i class="fa fa-list list-img"></i>招聘信息</h2>
+			<ul class="tab_menu">
+				<li class="active"><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/index">招聘发布管理</a></li>
+				<li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/other">单位其他招聘信息</a></li>
+				<li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/queryAll">最近投递</a></li>
+			</ul>
+		</div>
+			<div class="main clear">
+				<!-- 列表页面开始 -->
+				<div class="recruitment-cancle">
+					<form class="search-form" method="post" action="<{$website}>recruitEntrance/recruitmentInfo/recruitment/search">
+						<input type="text" placeholder="职位名称" name="keyword" id="job-name" value="<{$keyword}>"/>
+						<input type="hidden" name="companyUserName" value="<{$companyUserName}>" id="companyUserName"/>
+						<i class="fa fa-search fa-lg search-btn"></i>
+					</form>
+					<input type="hidden" name="recordCount" value="<{$recordCount}>" id="recordCount"/>
+					<a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/toAdd" class="apply-recruitment">申请招聘职位</a>
+					<table>
+						<thead>
+						<tr>
+							<td>职位名称</td>
+							<td>职位类别</td>
+							<td>学历要求</td>
+							<td>招聘人数</td>
+							<td>发布状态</td>
+							<td>审核状态</td>
+							<td>操作</td>
+						</tr>
+						</thead>
+						<tbody id="tbody">
+						<{foreach from=$recruitInforList item=recruitInfor}>
+						<tr>
+							<td><{$recruitInfor.name}></td>
+							<td><{$recruitInfor.positionType}></td>
+							<td><{$recruitInfor.degree}></td>
+							<td><{$recruitInfor.recruitment_num}></td>
+							<{if $recruitInfor.is_publish ==1}>
+							<td>已发布</td>
+							<{/if}>
+							<{if $recruitInfor.is_publish ==0}>
+							<td>未发布</td>
+							<{/if}>
+							<{if $recruitInfor.is_ok ==-1}>
+							<td>未审核</td>
+							<{/if}>
+							<{if $recruitInfor.is_ok ==0}>
+							<td>未通过</td>
+							<{/if}>
+							<{if $recruitInfor.is_ok ==1}>
+							<td>通过</td>
+							<{/if}>
+
+							<td class="operation">
+								<a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/detail?id=<{$recruitInfor.id}>&currentPage=1&keyword=<{$keyword}>" class="look-detail">查看</a>
+								<a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/toEdit?id=<{$recruitInfor.id}>&currentPage=1&keyword=<{$keyword}>">修改</a>
+								<a href='javascript:;' class='publish' data-positionId=<{$recruitInfor.id}>>发布</a>
+								<a href="javascript:;"  class="cancle-publish" value="<{$recruitInfor.is_publish}>">取消发布</a>
+								<a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/del?id=<{$recruitInfor.id}>&currentPage=1&keyword=<{$keyword}>" class="delete">删除</a>
+
+							</td>
+						</tr>
+						<{/foreach}>
+						</tbody>
+					</table>
+					<p class="data-none data">暂无数据！</p>
+					<div id="paging"></div>
+				</div>
+				<!-- 列表页面结束 -->
+			</div>
+		</div>
+	</div>
+	<{include file="../common/footer.html"}>
+    <!-- 弹窗部分开始 -->
+    <div class="shade"></div>
+    <div class="popup">
+		<p class="popup-title">取消发布申请</p>
+		<form action="<{$website}>recruitEntrance/recruitmentInfo/publish/cancel" method="post">
+			<p>
+				<lable>职位名称</lable>
+				<input type="text" name="positionName" id="positionName"  value="<{$recruitInfor.name}>" />
+				<input type="hidden" name="keyword" value="<{$keyword}>"/>
+				<input type="hidden" name="currentPage" value="" class="currentPage"/>
+				<input type="hidden" name="positionId" value="" class="positionId"/>
+			</p>
+			<p class="cancle-reason">
+				<lable>取消原因</lable>
+				<input name="cancelReason" id="cancleReason" placeholder="必填" value="" type="text"  />
+			</p>
+			<input type="button" name="cancle" id="cancle" value="取消" class="cancle-button button" />
+			<input type="submit" name="submit" id="submit" value="确定申请" class="submit-button button"/>
+ 		</form>
+    </div>
+	<div class="popup-delete">
+		<p class="popup-title">确定要删除这条招聘信息吗？</p>
+		<a href="javascript:;" class="confirm">确定</a>
+		<a href="javascript:;" class="cancel">取消</a>
+	</div>
+    <!-- 弹窗部分结束 -->
+</div>
+<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/plugin/layui/layui.js"></script>
+<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/recruitment-info/recruitment-info.js"></script>
+<script>
+    $(function() {
+        // 分页开始
+        layui.use(['layer', 'laypage'], function () {
+            var layer = layui.layer,
+                laypage = layui.laypage
+            //调用分页
+            laypage({
+                cont: 'paging',     //分页的div的id
+                pages:pageLength,//得到总页数
+                skip: true ,        //可以跳跃
+				curr:currentPage,   //当前页
+                jump: function (obj) {  //当前跳跃的的页数
+					var curr = obj.curr;
+                    show(curr);
+                    $("input.currentPage").val(curr);// 与分页无关，为了给取消发布传递当前的页码
+                }
+            });
+        });
+	});
+
+</script>
+
+</body>
+</html>

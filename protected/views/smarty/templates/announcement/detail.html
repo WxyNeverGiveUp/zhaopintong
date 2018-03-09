@@ -1,0 +1,56 @@
+<!-- 胡珺 教师招聘详细页 -->
+<!doctype html>
+<html>
+	<head>
+		<title>公告详细页</title>
+	    <meta charset="utf-8" />
+	    <{include file = "../common/link.html"}>
+	    <{include file = "../common/script.html"}>
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/detail/teacher-examination.css">
+	</head>
+	<body>
+		<div class="page-background">
+			<div class="page">
+				<!-- 当前浏览位置starting -->
+				<div class="page-head clearfix">
+					<h1><a href="<{$website}>announcement/announcement/toSearch">公告</a>><a href="#">详细页</a></h1>
+				</div>
+				<!-- 当前浏览位置ending -->
+				<!-- 内容标题starting -->
+				<h1 class="content-title">
+	                <{$announcement.title}>
+				</h1>
+				<!-- 内容标题ending -->
+				<!-- 发布时间、浏览次数等信息starting -->
+				<div class="relative-info">
+					<span class="update-time">发布时间：<{$announcement.add_time}></span>
+					<span class="follow-time">阅览次数：<{$announcement.clicks}></span>
+					<a href="javascript:;" title="扫描二维码" class="show-QRCode"></a>
+			<img src="<{$website}>qrCode.png"+ class="qrCode-Img none" id="J_qr">
+
+					<div class="bshare-custom">
+					 	<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><a class="bshareDiv" onclick="javascript:return false;"></a>
+					 	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+				</div>
+				<!-- 发布时间、浏览次数等信息ending -->
+				<!-- 主要内容starting -->
+				<div class="content-background">
+					<div class="detail-content">
+	                    <{$announcement.content}>
+					</div>
+				</div>
+				<!-- 主要内容ending -->
+			</div>	
+		</div>
+		<script type="text/javascript">
+			KISSY.use('page/company/jobDetail',function(S){
+				S.ready(function(){
+					PW.page.company.jobDetail();
+				});
+			})
+		</script>
+<script>var url=document.getElementById("J_qr").src; url = url + "?d="+new Date();document.getElementById("J_qr").src = url;
+</script>
+
+	</body>
+</html>

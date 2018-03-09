@@ -1,0 +1,115 @@
+/*************************公共样式********************************/
+#J_img{
+	position: relative;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	overflow: hidden;
+}
+.img-holder{
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.img-wrapper{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.imgList{
+	position: absolute;
+	display: block;
+}
+.index-holder{
+	position: absolute;
+	z-index: 100;
+}
+.index-holder a{
+	display: block;
+	float: left;
+	margin: 0 2px;
+    padding: 2px 10px;
+	background: #4EA1DC;
+    border: 1px solid #CCCCCC;
+    color: #FF6600;
+    text-decoration: none;
+}
+.index-holder-a a.active,.index-holder-b a.active{
+	background-color: #F9F9F9;
+    border: 1px solid #CCCCCC;
+    color: #FF6600;
+}
+.title-holder{
+	z-index: 6;
+	position: absolute;
+	width: 100%;
+	background: #000000;
+	opacity: 0.3;
+	filter:alpha(opacity=30);
+}
+.title-holder p{
+	display: none;
+	opacity: 1;
+	color: #ffffff;
+	font-weight: bold;
+	padding: 12px 15px;
+	width: 25em;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.title-holder p#title1{
+	display: block;
+}
+/**********************主题样式***********************/
+.index-holder-a{
+	right: 10px;
+	bottom: 10px;
+}
+.index-holder-b{
+	right: 10px;
+	bottom: 10px;
+	width: 40px;
+	height: auto;
+}
+.index-holder-b a{
+	margin: 2px 0;
+}
+.index-holder-c{
+	top: 75px;
+	width: 100%;
+}
+.index-holder-d{
+	left: 0;
+	top: 95px;
+	width: 100%;
+}
+.index-holder .prev{
+	width: 30px;
+	height: 59px;
+	background: url("../img/prev.png")  no-repeat;
+	opacity: 0.8;
+	cursor: pointer;
+	border: none;
+}
+.index-holder .next{
+	width: 30px;
+	height: 59px;
+	background: url("../img/next.png")  no-repeat;
+	opacity: 0.8;
+	float: right !important;
+	cursor: pointer;
+	border: none;
+}
+.index-holder .prev:hover,.index-holder .next:hover{
+	opacity: 1;
+}
+.title-holder-a{
+	bottom: 0;
+	left: 0;
+}
+.title-holder-b{
+	left: 0;
+	top: 220px;
+}

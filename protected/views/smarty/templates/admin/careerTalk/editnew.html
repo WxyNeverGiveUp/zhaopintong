@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>修改一个宣讲会</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="continer">
+    <{include file="../common/sidebar.html"}>
+    <div class="content">
+        <{include file="../common/crumbs.html"}>
+        <form class="login-from block" action="<{$website}>admin/careerTalk/careerTalk/edit/id/<{$id}>" method="post">
+            <div class = "block-header">
+                <h3>修改宣讲会</h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="control-area control-area-short">
+                    <label>宣讲会名称</label>
+                    <input type="text" name="name" value="<{$name}>"/>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>宣讲会时间</label>
+                    <input type="datetime" name="time" value="<{$time}>">
+                </div>
+                <div class="control-area control-area-short">
+                    <label>宣讲会地点</label>
+                    <input type="text" name="place" value="<{$place}>"/>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>宣讲会类型</label>
+                    <select class="textTheme" name="type">
+                        <{if $type == "1"}>
+                        <option value="0">请选择</option>
+                        <option value="1" selected="selected">视频</option>
+                        <option value="2">实地</option>
+                        <option value="3">外地</option>
+                        <{elseif $type == "2"}>
+                        <option value="0">请选择</option>
+                        <option value="1">视频</option>
+                        <option value="2"  selected="selected">实地</option>
+                        <option value="3">外地</option>
+                        <{elseif $type == "3"}>
+                        <option value="0">请选择</option>
+                        <option value="1">视频</option>
+                        <option value="2">实地</option>
+                        <option value="3"  selected="selected">外地</option>
+                        <{/if}>
+                    </select>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>宣讲会描述</label>
+                    <textarea name="description" style="height: 350px;"><{$description}></textarea>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>宣讲会视频链接</label>
+                    <input type="text" name="url" value="<{$url}>">
+                </div>
+                <div class="btn-right">
+                    <input type="submit" class="btn" value="完成">
+                    <input type="reset" class="btn" value="重置">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

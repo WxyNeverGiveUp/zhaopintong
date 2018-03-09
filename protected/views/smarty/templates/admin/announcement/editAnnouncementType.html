@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>公告类型修改</title>
+    <meta charset="utf-8">
+    <{include file = "admin/common/link.html"}>
+    <{include file = "admin/common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+    <style type="text/css">
+        form{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .info-item{
+            width:300px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <form action="<{$website}>admin/announcement/announcement/editType/id/<{$announcementType.id}>>" method="post" >
+                    <div class="edit">
+                        <div class="info-item">
+                            <label>类型:</label><input type="text" name="name" value="<{$announcementType.name}>"/>
+                        </div>
+                    </div><br>
+                    <input type="submit" class="btn" value="修改">&nbsp&nbsp
+                    <input type="reset" class="btn" value="重置">&nbsp&nbsp
+                    <a class="btn" href="<{$website}>admin/announcement/announcement/listType">
+                        取消
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

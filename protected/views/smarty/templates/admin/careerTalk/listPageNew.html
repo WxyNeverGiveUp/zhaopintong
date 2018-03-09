@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8"/>
+    <title>东北师范大学就业联盟网</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/admin/css/page/company.css">
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="container">
+    <{include file="../common/sidebar.html"}>
+    <div class="content">
+        <{include file="../common/crumbs.html"}>
+        <form class="block J_searchForm" action="<{$website}>admin/careerTalk/careerTalk/search" method="post">
+            <div class="block-header">
+                <h3>宣讲会查询</h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="control-area control-area-short">
+                    <label>输入关键字</label>
+                    <input type="text" name="keyword">
+                </div>
+                <div class="control-area control-area-short">
+                    <label>时间</label>
+                    <select class="textTheme" name = "time">
+                        <option value="0">全部时间</option>
+                        <option value="1">今天</option>
+                        <option value="2">七天内</option>
+                        <option value="3">七天后</option>
+                    </select>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>类型</label>
+                    <select class="textTheme" name = "type">
+                        <option value="0">全部类型</option>
+                        <option value="1">视频</option>
+                        <option value="2">实地</option>
+                        <option value="3">外地</option>
+                    </select>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>行业</label>
+                    <select class="textTheme" name = "industryId">
+                        <option value="0">选择</option>
+                        <{foreach from=$trade item=t}>
+                        <option value="<{$t.id}>"><{$t.name}></option>
+                        <{/foreach}>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-right">
+                <input type="submit" class="btn" value="搜索"/>
+            </div>
+        </form>
+        <div class="block">
+            <div class="block-header">
+                <h3>宣讲会列表</h3>
+            </div>
+            <div class="block-content clearfix">
+                <script id="tpl" type="text/template">
+                    {@each list as it,index}
+                    <tr>
+                        <td>
+                            <a href="<{$website}>admin/careerTalk/careerTalk/detail/id/&{it.id}" target="_blank" style="display: inline;background: none;color:#2679b5;">
+                                &{it.name}
+                            </a>
+                        </td>
+                        <td>&{it.time}</td>
+                        <td>
+                            &{it.place}
+                        </td>
+                        <td>
+                            {@if it.type==1}
+                            视频
+                            {@else if it.type==2}
+                            实地
+                            {@else if it.type==3}
+                            外地
+                            {@/if}
+                        </td>
+                        <!--<td>
+                            &{it.url}
+                        </td>-->
+                        <td>
+                            &{it.last_update}
+                        </td>
+                        <td>
+                            <a href="<{$website}>admin/careerTalk/careerTalk/toEdit/id/&{it.id}" target="_blank" class="mod"><i></i></a>
+                            <a href="<{$website}>admin/careerTalk/careerTalk/del/id/&{it.id}" class="del"><i></i></a>
+                        </td>
+                    </tr>
+                    {@/each}
+                </script>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>宣讲会名称</th><th>宣讲会时间</th>
+                        <th>宣讲会地点</th><th>宣讲会类型</th>
+                        <th>最近更新者</th><th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="J_template"></tbody>
+                </table>
+                <div id="J_pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    KISSY.use('page/company/company-info',function(S){
+        S.ready(function(){
+            PW.page.companyInfo({
+                renderTo: '#J_pagination',//分页显示指向
+                juicerRender: '#tpl',//模版渲染指向
+                dataRender: '#J_template',
+                pageSize: 10,//每页显示的记录数
+                url:'<{$website}>admin/careerTalk/careerTalk/json',//必选，必须指定ajax的url
+                configUrl:function(url,page,me,prevdata){
+                    //url:配置的url,page1:当前的页面,me:指向当前分页,prevdata:上一次的分页数据
+                    var url = url+'/page1/'+page;
+                    return url;
+                },
+                type:'get'
+            });
+        });
+    });
+</script>
+</body>
+</html>

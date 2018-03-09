@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8"/>
+    <title>东北师范大学就业办公平台 -- 单位管理</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/admin/css/page/company.css">
+    <script type="text/javascript" src="<{$staticWebsite}>puiresources/js/base/lib/kissy/seed.js"></script>
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<div class="container">
+    <{include file="../../common/sidebar.html"}>
+    <div class="content">
+        <{include file="../../common/crumbs.html"}>
+        <div class="block">
+            <a href="<{$website}>admin/company/remoteInterview/create/id/<{$companyId}>" class="btn">添加</a>
+            <div class="block-content clearfix">
+                <script id="tpl" type="text/template">
+                    {@each list as it,index}
+                    <tr>
+                        <td>
+                            <a href="<{$website}>admin/company/remoteInterview/detail/id/&{it.id}" style="display: inline;background: none;color:#2679b5;">
+                                &{it.theme}
+                            </a>
+                        </td>
+                        <td>&{it.day}</td>
+                        <td>
+                            &{it.place}
+                        </td>
+                        <td>
+                            &{it.last_update}
+                        </td>
+                        <td>
+                            <a class="mod" href="<{$website}>admin/company/remoteInterview/toEdit/id/&{it.id}" title="编辑"><i></i></a>
+                            <a href="<{$website}>admin/company/remoteInterview/del/id/&{it.id}/comId/<{$companyId}>" class="del"><i></i></a>
+                        </td>
+                    </tr>
+                    {@/each}
+                </script>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>主题&nbsp&nbsp</th><th>日期&nbsp&nbsp</th>
+                        <th>地点&nbsp&nbsp</th><th>最近更新者</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="J_template"></tbody>
+                </table>
+                <div id="J_pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    KISSY.use('mod/pagination,mod/moment', function(S) {
+        S.ready(function(){
+            PW.pagination({
+                renderTo: '#J_pagination',//分页显示指向
+                juicerRender: 'tpl',//模版渲染指向
+                dataRender: '#J_template',
+                pageSize: 10,//每页显示的记录数
+                dataCount: '<{$recordCount}>',//总记录数
+                //themePackageURL: PW.libUrl+'js/base/plugins/pagination/theme/theme.json',
+                //themeName: 'a',//主题名称,有default,a,b,c,d,e这几种，默认是default
+                url:'<{$website}>admin/company/remoteInterview/jsonByCompany',//必选，必须指定ajax的url
+                type:'get',
+                extraParam: {
+                    'companyId':'<{$companyId}>'},
+                sendData: function(me,b){}, //回调函数 me指向当前的分页对象，b指向分页获取的json数据
+                configUrl:function(url,page,me,prevdata){
+                    //url:配置的url,page1:当前的页面,me:指向当前分页,prevdata:上一次的分页数据
+                    var url = url+'/page/'+page;
+                    return url;
+                },
+                //初始化完成之后的回调函数
+                initCompleted:function(me){
+                    S.log('初始化完成！');
+                },
+                //发送ajax之前
+                beforeSendAJAX:function(me){
+                    S.log('发送ajax之前！');
+                },
+                //ajax发送失败后的回调函数
+                errorFun:function(me){
+                    S.log('ajax发送失败！');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

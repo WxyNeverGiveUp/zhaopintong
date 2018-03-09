@@ -1,0 +1,85 @@
+<!--内容: preach.html
+    姓名：易欢
+    日期：2015/5/23
+-->
+<html>
+<head>
+    <title>远程面试</title>
+    <meta charset="utf-8"/>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/remote-interview.css">
+</head>
+
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../../company/common/header.html"}>
+<div class="page clearfix">
+    <ul class="list-head">
+        <li>时间</li>
+        <li class="preach-name">主题</li>
+        <li class="preach-location">地点</li>
+    </ul>
+    <div id="J_template">
+    </div>
+    <div id="J_pagination"></div>
+</div>
+<{include file="../../common/footer.html"}>
+<script type="text/template" id="tpl">
+    {@each data as d}
+    <ul class="list-body" id="&{d.id}">
+        <li class="date-box">
+            <div class="date-box-left">
+                <span class="month">&{d.month}月</span>
+                <span class="day">&{d.date}</span>
+            </div>
+            <div class="date-box-right">
+                <p class="week">&{d.week}</p>
+                <p class="time">&{d.hour}</p>
+            </div>
+        </li>
+        <li class="preach-name"><a href="<{$website}>company/remoteInterview/detail/id/&{d.id}" target="_blank" class="preach-links">&{d.remoteInfo}</a></li>
+        <li class="preach-location">&{d.location}</li>
+        <li>
+            {@if d.isOverdue == 0}
+            {@if d.isEnroll == 1}
+            <a class="schedule-enroll want-enroll none">我要报名</a>
+            <a class="schedule-enroll cancel-enroll">取消报名</a>
+            {@/if}
+            {@if d.isEnroll == 0}
+            <a class="schedule-enroll want-enroll">我要报名</a>
+            <a class="schedule-enroll cancel-enroll none">取消报名</a>
+            {@/if}
+            {@/if}
+            {@if d.isOverdue == 1}
+            <em class="overDue">已过期</em>
+            {@/if}
+        </li>
+    </ul>
+    {@/each}
+</script>
+<script type="text/javascript">
+    KISSY.use('page/company/companyPreach' , function(S){
+        var urls = PW.Env.url.company.remoteInterview;
+        // var preachlist = 'preachlist';
+        // var url = urls.getPreachlist+'?'+preachlist;
+        var url = urls.getRemoteInterviewList+'/page';
+        S.ready(function(){
+            PW.page.company.companyPreach({
+                renderTo:'#J_pagination' ,//分页显示指向
+                juicerRender:'#tpl' ,//模板渲染指向
+                dataRender:'#J_template',
+                pageSize:10,//每页显示的记录数
+                url:url,//必选，指向ajax的url
+                configUrl:function(url,page,me,prevdata){
+                    return url + '/' + page+'/id/'+<{$companyId}> ;
+                    //return url;
+                },
+                type:'get'
+            })
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,2474 @@
+<!-- 赵凯康 简历编辑页面-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简历编辑</title>
+	<{include file="../../common/link.html"}>
+	<{include file="../../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/edit-resume.css">
+</head>
+<body>
+	<{include file="../../common/header.html"}>
+	<{include file="../job_apply/jobapply-header.html"}>
+	<div class="content clearfix">
+		<ul class="sketchy-title">
+			<div class="upload-attachment">
+				<a target="_blank" href="<{$website}>job/resume/myResumeIndex" class="preview-resume">预览简历</a>
+				<i class="inverted-triangle"></i>
+			</div>
+			<li>
+				<span>基本信息</span>
+				<em>未添加</em>
+			</li>
+			<li>
+				<span>联系方式</span>
+				<em>未添加</em>
+			</li>
+			<li class="edu-check">
+				<span>教育经历</span>
+				<em>未添加</em>
+			</li>
+			<li class="certi-check">
+				<span>证书</span>
+				<em>未添加</em>
+			</li>
+			<li class="posi-check">
+				<span>校内职务</span>
+				<em>未添加</em>
+			</li>
+			<li class="award-check">
+				<span>校内奖励</span>
+				<em>未添加</em>
+			</li>
+			<li class="language-check">
+				<span>语言能力</span>
+				<em>未添加</em>
+			</li>
+			<li class="intern-check">
+				<span>实习经历</span>
+				<em>未添加</em>
+			</li>
+			<li class="it-check">
+				<span>IT技能</span>
+				<em>未添加</em>
+			</li>
+			<li class="project-check">
+				<span>项目经验</span>
+				<em>未添加</em>
+			</li>
+			<li class="work-check">
+				<span>工作经历</span>
+				<em>未添加</em>
+			</li>
+			<li class="train-check">
+				<span>培训经历</span>
+				<em>未添加</em>
+			</li>
+			<li class="apply-check">
+				<span>求职经历</span>
+				<em>未添加</em>
+			</li>
+			<li class="attachment-check">
+				<span>附件</span>
+				<em>未添加</em>
+			</li>
+		</ul>
+		<ul class="detail-info">
+			<li class="basic-info-detail clearfix" index="1">
+				<h1>基本信息<a href="javascript:;" class="edit-info J_edit_basic">编辑</a></h1>
+				<table class="edited-basic-info ">
+						<tr>
+						    <{if  $basicInfo.realname}>
+							<td>姓名：</td>
+							<td><{$basicInfo.realname}></td>
+							<{else}>
+							<td>姓名：</td>
+							<td></td>
+							<{/if}>
+						</tr>
+						<tr>
+						  <{if  $basicInfo.current_live}>
+							<td>现居地：</td>
+							<td><{$basicInfo.current_live}></td>
+						  <{else}>
+						   <td>现居地：</td>
+							<td></td>
+						  <{/if}>
+						</tr>
+						<tr>
+						    <{if $basicInfo.account_place}>
+							<td>户口地：</td>
+							<td><{$basicInfo.account_place}></td>
+						    <{else}>
+						    <td>户口地：</td>
+							<td></td>
+							 <{/if}>
+						</tr>
+						<tr>
+						 <{if $basicInfo.birthday}>
+							<td>出生日期：</td>
+							<td><{$basicInfo.birthday}></td>
+                          <{else}>
+                             <td>出生日期：</td>
+                             <td></td>
+                          <{/if}>
+						</tr>
+						<tr>
+						 
+						 <{if $workEx}>
+							<td>工作经验：</td>
+							   <{if $workEx=='在校生'||$workEx=='刚刚工作'}>
+							          <td><{$workEx}></td>
+
+							    <{else}>
+							          <td><{$workEx}>年</td>
+							      <{/if}>
+						  <{else}>
+						   <td>工作经验：</td>
+							<td></td>
+						  <{/if}>
+						</tr>
+				</table>
+				<form class="editing-basic-info none" action="<{$website}>job/resume/basicinfoput" method="post">
+					<table>
+						<tr>
+							<td>姓名：</td>
+                            <{if  $isLeague eq 1 or $isLeague eq 2}>
+                            <{if $isActivated eq 1}>
+                            <td><input type="text" name="BasicInfo[realname]" data-valid-rule="notNull" class="name" readonly="readonly"></td>
+                            <{else}>
+                            <td><input type="text" name="BasicInfo[realname]" data-valid-rule="notNull" class="name"></td>
+                            <{/if}>
+                            <{else}>
+                            <td><input type="text" name="BasicInfo[realname]" data-valid-rule="notNull" class="name"></td>
+                            <{/if}>
+						</tr>
+						<tr>
+							<td>现居地：</td>
+							<td>
+								<select class="live-province">
+									<option value="0">请选择</option>
+									<{foreach  from=$pro item=province}>
+									     <option value="<{$province.id}>"><{$province.name}></option>
+									<{/foreach}>
+								</select>
+								<select class="live-city" name="BasicInfo[current_live]">
+									<option value="0">请选择</option>
+									<{foreach  from=$juzhu item=province}>
+									     <option value="<{$province.name}>"><{$province.name}></option>
+									<{/foreach}>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>户口地：</td>
+							<td>
+								<select class="hukou-province">
+									<option value="0">请选择</option>
+									<{foreach  from=$pro item=province}>
+									     <option value="<{$province.id}>"><{$province.name}></option>
+									<{/foreach}>
+								</select>
+								<select class="hukou-city" name="BasicInfo[account_place]">
+									<option value="0">请选择</option>
+									<{foreach  from=$hukou item=province}>
+									     <option value="<{$province.name}>"><{$province.name}></option>
+									<{/foreach}>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>出生日期：</td>
+							<td>
+								<select class="birth-year" name="BasicInfo[birthday][year]" data-valid-rule="scale(1900,2100,0)">
+										<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+										<{/foreach}>
+								</select>
+								<select class="birth-month" name="BasicInfo[birthday][month]" data-valid-rule="scale(0,13,0)">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+										<option>11</option>
+										<option>12</option>
+								</select>
+								<select class="birth-day" data-valid-rule="scale(0,32,0)" name="BasicInfo[birthday][day]">
+									<{foreach from=$day item=value}>
+									    <option><{$value}></option>
+									<{/foreach}>
+								</select>		
+							</td>
+						</tr>
+						<tr>
+							<td>工作经验：</td>
+							<td>
+								<select name="BasicInfo[work_experience]" data-valid-rule="scale(0,1000,0)" class="work-experience">
+									<option value="0">请选择</option>
+									<option value="1">刚刚工作</option>
+									<option value="2">已工作1年</option>
+									<option value="3">已工作2年</option>
+									<option value="4">已工作3年</option>
+									<option value="5">已工作4年</option>
+									<option value="6">已工作5年</option>
+									<option value="7">已工作6年</option>
+									<option value="8">已工作7年</option>
+									<option value="9">已工作8年以上</option>
+									<option value="10">在校生</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="提交" name="submitBasicInfo" class="submit-info">
+							</td>
+							<td>
+								<button type="button" class="cancel-basic cancel-submit">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<p class="no-info none no-basic-info">当前基本信息为空，请点击编辑，提交基本信息</p>				 
+					<{if $basicInfo.head_url}>
+							<a href="<{$website}>job/modifyUserInfo/index"><img src="<{$basicInfo.head_url}>"  width="160px" height="160px"></a>
+					<{else}>
+							<a href="<{$website}>job/modifyUserInfo/index"><img src="<{$staticWebsite}>resources/img/job_apply/del/face_01.png" alt="头像"></a>
+					<{/if}>							 			  				 
+			</li>
+			<li class="contact-info-detail">
+				<h1>联系方式<a href="javascript:;" class="edit-info J_edit_contact">编辑</a></h1>
+				<ul class="edited-contact-info">
+					<li class="contact-phone">
+					<{if $contact.cellphone}>
+						<span>手机：</span>
+						<em><{$contact.cellphone}></em>
+					<{else}>
+					    <span>手机：</span>
+						<em></em>
+					<{/if}> 
+					</li>
+					<li class="contact-email">
+					<{if $contact.email}>
+						<span>邮箱：</span>
+						<em><{$contact.email}></em>
+					<{else}>
+					    <span>邮箱：</span>
+						<em></em>
+				    <{/if}> 
+					</li>
+				</ul>
+				<p class="no-info none no-contact-info">当前基本信息为空，请点击编辑，提交基本信息</p>
+				<form class="editing-contact-info none" action="<{$website}>job/resume/contract" method="post">
+					<ul>
+						<li>
+							<span>手机：</span>
+						<input type="text" data-valid-rule="isMobile" name="phone" class="contact-phone">
+						</li>
+						<li>
+							<span>邮箱：</span>
+						<input type="text" data-valid-rule="isEmail" name="email" class="contact-email">
+						</li>
+						<li>
+							<input type="submit" value="提交" class="submit-info">
+							<button type="button" class="cancel-contact cancel-submit">取消</button>
+						</li>
+					</ul>
+				</form>
+			</li>
+			<li class="education-experience-detail">
+				<h1>教育经历<a href="javascript:;" class="add-info J_add_education">添加</a></h1>			
+				<{if $StudyExperienceInfo}>
+				<table class="added-experience-detail">
+					<thead>
+						<tr>
+							<td>毕业院校</td>
+							<td>就读时间</td>
+							<td>学历</td>
+							<td>专业</td>
+						</tr>
+					</thead>
+					<tbody>					  
+                      <{foreach from=$StudyExperienceInfo item=infos}>
+                       <{if $infos.sign==1}>
+							<tr id="<{$infos.id}>">
+								<td><{$infos.school_name}></td>
+								<td><{$infos.start_time|mb_substr:0:7:'UTF-8'}>至<{$infos.end_time|mb_substr:0:7:'UTF-8'}></td>
+								<td><{$infos.position_degree.name}></td>
+								<td><{$infos.major_name}></td>
+								<td><a href="javascript:;" class="edit-education-experience">编辑</a></td>
+								<td><!-- <a href="javascript:;">删除</a> --></td>
+							</tr>
+						<{else if  $infos.sign==0}>
+						    <tr id="<{$infos.id}>">
+								<td><{$infos.school_name}></td>
+								<td><{$infos.start_time|mb_substr:0:7:'UTF-8'}>至<{$infos.end_time|mb_substr:0:7:'UTF-8'}></td>
+								<td><{$infos.position_degree.name}></td>
+								<td><{$infos.major_name}></td>
+								<td><a href="javascript:;" class="edit-education-experience">编辑</a></td>
+								<td><a href="javascript:;" class="delete-education-experience">删除</a></td>
+							</tr>
+
+						<{/if}>
+					 <{/foreach}>									
+						<tr class="insert-tr none">
+							<td colspan="8">
+							<form class="editing-education-experience" action="<{$website}>job/resume/editstudyexperience" method="post">
+									<input type="hidden" class="edu-input" name="id">
+									<table>
+										<tr>
+											<td><em>*</em>就读时间：</td>
+											<td>
+												<select class="edu-start-year" name="StudyExperience[start_time][year]"  data-valid-rule="scale(1000,10000,0)">
+													<{foreach from=$time item=var}>
+													<option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="edu-start-month" name="StudyExperience[start_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+												至
+												<select class="edu-end-year" name="StudyExperience[end_time][year]" data-valid-rule="scale(1,10000,0)">
+													<{foreach from=$time item=var}>
+													<option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="edu-end-month" name="StudyExperience[end_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>就读学校：</td>
+											<td>
+												<input type="text" name="StudyExperience[school_name]" data-valid-rule="notNull" class="edu-school">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>专业名称：</td>
+											<td>
+												<input type="text" name="StudyExperience[major_name]"  data-valid-rule="notNull" class="major-name">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>专业分类：</td>
+											<td>
+												<select class="J_Major" data-valid-rule="scale(0,1000,0)" >
+													<option value="0">请选择</option>
+													<{foreach from=$zhuye item=zhu}>
+													   <option value="<{$zhu.id}>"><{$zhu.name}></option>
+													<{/foreach}>
+												 </select>
+												<select class="J_Sub" data-valid-rule="scale(0,1000,0)" name="StudyExperience[study_specialty_id]"></select>
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>学位：</td>
+											<td>
+												<select name="StudyExperience[position_degree_id]" data-valid-rule="scale(0,100,0)" class="degree-in">
+												    <option value="0">请选择</option>
+													<option value="1">本科</option>
+													<option value="2">硕士</option>
+													<option value="3">博士</option>
+													 <option value="4">专科</option>
+													<option value="5">其他</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>GPA：</td>
+											<td>
+												<input type="text" name="StudyExperience[gpa]" class="GPA">
+											</td>
+										</tr>
+										<tr>
+											<td>班内名次：</td>
+											<td>
+												<select  name="StudyExperience[rank]" class="ranking">
+													<option value="0">请选择</option>
+													<option value="1">前5名</option>
+													<option value="2">前10名</option>
+													<option value="3">前20名</option>
+													<option value="5">前30名</option>
+													<option value="6">其他</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>专业描述：</td>
+											<td>
+												<textarea name="StudyExperience[study_describe]" class="major-description"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td>
+											</td>
+											<td>
+												<input type="submit" value="提交" class="submit-info 
+												edu-submit-in">
+												<button type="button" class="cancel-submit edu-cancel">取消</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="no-info no-edu-info none">教育经历可以展示你的专业背景和学习能力，是HR筛选简历时的重要参考依据</p>
+				 <{else}>
+				    <p class="no-info no-edu-info ">教育经历可以展示你的专业背景和学习能力，是HR筛选简历时的重要参考依据</p>
+				  <{/if}>
+				<form class="editing-education-experience-out none" action="<{$website}>job/resume/addstudyexperience" method="post">
+					<table>
+						<tr>
+							<td><em>*</em>就读时间：</td>
+							<td>
+								<select class="edu-start-year"  name="StudyExperience[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+									<{foreach from=$time item=var}>
+										   <option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="edu-start-month"  name="StudyExperience[start_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+								至
+								<select class="edu-end-year" name="StudyExperience[end_time][year]" data-valid-rule="scale(1,10000,0)">
+									 <{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									 <{/foreach}>
+								</select>
+
+								年
+								<select class="edu-end-month" name="StudyExperience[end_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>就读学校：</td>
+							<td>
+								<input type="text" name="StudyExperience[school_name]" data-valid-rule="notNull">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>专业名称：</td>
+							<td>
+								<input type="text" name="StudyExperience[major_name]" data-valid-rule="notNull">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>专业分类：</td>
+							<td>
+								<select class="J_Major" data-valid-rule="scale(0,1000,0)">
+									<option value="0">请选择</option>
+									<{foreach from=$zhuye item=zhu}>
+									   <option value="<{$zhu.id}>"><{$zhu.name}></option>
+									<{/foreach}>
+								</select>
+								<select class="J_Sub" data-valid-rule="scale(0,1000,0)"
+								name="StudyExperience[study_specialty_id]"></select>
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>学位：</td>
+							<td>
+								<select name="StudyExperience[position_degree_id]" data-valid-rule="scale(0,100,0)" class="degree">
+								    <option value="0">请选择</option>
+								    <option value="1">专科</option>
+									<option value="2">本科</option>
+									<option value="3">硕士</option>
+									<option value="4">博士</option>
+									<option value="6">其他</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>GPA：</td>
+							<td>
+								<input type="text" name="StudyExperience[gpa]">
+							</td>
+						</tr>
+						<tr>
+							<td>班内名次：</td>
+							<td>
+								<select name="StudyExperience[rank]">
+								    <option value="0">请选择</option>
+									<option value="1">前5名</option>
+									<option value="2">前10名</option>
+									<option value="3">前20名</option>
+									<option value="5">前30名</option>
+									<option value="6">其他</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>专业描述：</td>
+							<td>
+								<textarea name="StudyExperience[study_describe]" class="major-description"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<input type="submit" value="提交" class="submit-info edu-submit-out">
+								<button type="button" class="cancel-submit edu-cancel">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</li>
+			<li class="certi-detail">
+				<h1>证书<a href="javascript:;" class="add-info J_edit_certi">添加</a></h1>
+                <{if $model}>				
+				<p class="acquired-certi">
+				<{foreach from=$model item=certificate}>
+					<!-- <em>已获得的证书</em> -->
+					<em id="<{$certificate.id}>"><{$certificate.name}><a href="javascript:;" class="del-certi">X</a></em>					 
+				<{/foreach}>
+				</p>
+				<p class="no-info no-certi-info none">添加你获取的证书</p>
+			    <{else}>
+			    <p class="no-info">添加你获取的证书</p>
+			    <{/if}>
+				<form name="certi-form" class="certi-form none" action="<{$website}>job/resume/editcertificate" method="post">
+					<select class="all-certi" name="certificate[]">
+					    <option value="">请选择</option>
+						<option value="大学英语四级">大学英语四级</option>
+						<option value="大学英语六级">大学英语六级</option>
+						<option value="专业英语四级">专业英语四级</option>
+						<option value="专业英语八级">专业英语八级</option>
+						<option value="计算机一级证">计算机一级证</option>
+                        <option value="计算机二级证">计算机二级证</option>
+                        <option value="计算机三级证">计算机三级证</option>
+                        <option value="计算机四级证">计算机四级证</option>
+                        <option value="软件设计师">软件设计师</option>
+                        <option value="网络工程师">网络工程师</option>
+                        <option value="程序员">程序员</option>
+                        <option value="网络管理员">网络管理员</option>
+                        <option value="普通话等级证书">普通话等级证书</option>
+                        <option value="会计从业资格证">会计从业资格证</option>
+                        <option value="助理会计师证">助理会计师证</option>
+                        <option value="注册会计师证">注册会计师证</option>
+                        <option value="驾驶证">驾驶证</option>
+                        <option value="证券从业资格证">证券从业资格证</option>
+                        <option value="期货从业资格证">期货从业资格证</option>
+                        <option value="法律职业资格证">法律职业资格证</option>
+                        <option value="教师资格证">教师资格证</option>
+                        <option value="导游证">导游证</option>
+                        <option value="Adobe认证证书">Adobe认证证书</option>
+                        <option value="微软认证">微软认证</option>
+                        <option value="思科认证">思科认证</option>
+                        <option value="人力资源管理师">人力资源管理师</option>
+                        <option value="护士执业证">护士执业证</option>
+                        <option value="执业助理医师证">执业助理医师证</option>
+                        <option value="中级外语口译证书">中级外语口译证书</option>
+                        <option value="高级外语口译证书">高级外语口译证书</option>
+                        <option value="日语一级证书JLPT-1">日语一级证书JLPT-1</option>
+                        <option value="日语二级证书JLPT-2">日语二级证书JLPT-2</option>
+                        <option value="日语三级证书JLPT-3">日语三级证书JLPT-3</option>
+                        <option value="日语四级证书JLPT-4">日语四级证书JLPT-4</option>
+                        <option value="韩语初级证书">韩语初级证书</option>  
+                        <option value="韩语中级证书">韩语中级证书</option>     
+                        <option value="韩语高级证书">韩语高级证书</option>                     
+					</select>
+					<input type="text" name="certificate[]" placeholder="这里可以填写其他证书" class="other-certi">
+					<div>
+						<input type="submit"  value="提交" class="submit-info">
+						<button type="button" class="cancel-submit certi-cancel">取消</button>
+					</div>
+				</form>
+			</li>
+			<li class="school-posi-detail">
+				<h1>校内职务<a href="javascript:;" class="add-info J_add_posi">添加</a></h1>
+				<{if $school}>				
+				<table class="added-school-posi">
+					<thead>
+						<tr>
+							<td>职务名称</td>
+							<td>任职时间</td>
+							<td>学校</td>
+						</tr>
+					</thead>
+					<tbody>
+					    <{foreach from=$school item=duty}>
+						<tr id="<{$duty.id}>">
+							<td><{$duty.duty_name}></td>
+							<td><{$duty.start_time|mb_substr:0:7:'UTF-8'}>至<{$duty.end_time|mb_substr:0:7:'UTF-8'}></td>
+							<td><{$duty.school}></td>
+							<td><a href="javascript:;" class="edit-school-posi">编辑</a></td>
+							<td><a href="javascript:;" class="delete-school-posi">删除</a></td>
+						</tr>
+						<{/foreach}>						 
+						<tr class="posi-insert-tr none">
+							<td colspan="8">
+								<form class="editing-school-posi" action="<{$website}>job/resume/editschoolduty" method="post">
+								 <input type="hidden" class="posi-input" name="id">
+									<table>
+
+										<tr>
+											<td><em>*</em>职务：</td>
+											<td>
+												<input type="text"  name="duty[duty_name]" data-valid-rule="notNull" class="school-posi">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>任职时间：</td>
+											<td>
+												<select class="posi-start-year" name="duty[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+													<{foreach from=$time item=var}>
+													      <option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="posi-start-month" name="duty[start_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+												至
+												<select class="posi-end-year"  name="duty[end_time][year]" data-valid-rule="scale(1,10000,0)">
+													<{foreach from=$time item=var}>
+													     <option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="posi-end-month" name="duty[end_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>所在学校：</td>
+											<td>
+												<select name="duty[school]" class="school-in">
+													<option value="0">请选择</option>
+													<!-- <{foreach from=$schooldd item=namee}>
+													     <option><{$namee.school_name}></option>
+													<{/foreach}> -->
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>职责和业绩：</td>
+											<td>
+												<textarea name="duty[duty_performance]" class="achievement"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="submit" value="提交" class="submit-info posi-submit-in">
+											</td>
+											<td>
+												<button type="button" class="cancel-submit posi-cancel">取消</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="no-info no-posi-info none">在这里展示你在校期间的管理及组织能力。</p>
+				<{else}>
+				<p class="no-info no-posi-info ">在这里展示你在校期间的管理及组织能力。</p>
+				<{/if}>
+				<form class="editing-school-posi-out none" action="<{$website}>job/resume/dealschoolduty" method="post">
+					<table>
+						<tr>
+							<td><em>*</em>职务：</td>
+							<td>
+								<input type="text" name="duty[duty_name]" data-valid-rule="notNull" class="school-posi">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>任职时间：</td>
+							<td>
+								<select class="posi-start-year" name="duty[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+									<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="posi-start-month" name="duty[start_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+								至
+								<select class="posi-end-year" name="duty[end_time][year]" data-valid-rule="scale(1,10000,0)">
+									<{foreach from=$time item=var}>
+										 <option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="posi-end-month" name="duty[end_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>所在学校：</td>
+							<td>
+								<select name="duty[school]" class="school-out">
+									<option value="0">请选择</option>
+									<!-- <{foreach from=$schooldd item=namee}>
+										 <option><{$namee.school_name}></option>
+									<{/foreach}> -->
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>职责和业绩：</td>
+							<td>
+								<textarea name="duty[duty_performance]" class="achievement"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="提交" class="submit-info posi-submit-out">
+							</td>
+							<td>
+								<button type="button" class="cancel-submit posi-cancel">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</li>
+			<li class="school-award-detail">
+				<h1>校内奖励<a href="javascript:;" class="add-info J_add_award">添加</a></h1>
+				<{if $award}>				
+				<table class="added-school-award">
+					<thead>
+						<tr>
+							<td>奖项名称</td>
+							<td>获奖时间</td>
+							<td>学校</td>
+						</tr>
+					</thead>
+					<tbody>
+					 <{foreach from=$award item=school}>
+						<tr id="<{$school.id}>">
+							<td><{$school.award_name}></td>
+							<td><{$school.award_time|mb_substr:0:7:'UTF-8'}></td>
+							<td><{$school.school}></td>
+							<td><a href="javascript:;" class="edit-school-award">编辑</a></td>
+							<td><a href="javascript:;" class="delete-school-award">删除</a></td>
+						</tr>
+					<{/foreach}>	 
+						<tr class="award-insert-tr none">
+							<td colspan="8">
+								<form class="editing-school-award" action="<{$website}>job/resume/editaward" method="post">
+								<input type="hidden" class="award-input" name="id">
+									<table>
+										<tr>
+											<td><em>*</em>奖项名称：</td>
+											<td>
+												<input type="text" name="award[award_name]" data-valid-rule="notNull" class="school-award">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>获奖时间：</td>
+											<td>
+												<select class="award-year" name="award[award_time][year]" data-valid-rule="scale(1000,10000,0)">
+													<{foreach from=$time item=var}>
+													     <option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="award-month" name="award[award_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>所在学校：</td>
+											<td>
+												<select name="award[school]" class="award-school_in">
+													<!-- <{foreach from=$schooldd item=namee}>
+													     <option><{$namee.school_name}></option>
+													<{/foreach}> -->
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>说明：</td>
+											<td>
+												<textarea name="award[explain]" class="award-description"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="submit" value="提交" class="submit-info award-submit-in">
+											</td>
+											<td>
+												<button type="button" class="cancel-submit award-cancel">取消</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				 <p class="no-info no-award-info none"> 奖学金、校内各项比赛、其他荣誉等都可以成为你简历中的亮点。</p>
+				<{else}>
+				      <p class="no-info"> 奖学金、校内各项比赛、其他荣誉等都可以成为你简历中的亮点。</p>
+				<{/if}>
+				<form class="editing-school-award-out none"  action="<{$website}>job/resume/dealaward" method="post">
+					<table>
+						<tr>
+							<td><em>*</em>奖项名称：</td>
+							<td>
+								<input type="text" name="award[award_name]" data-valid-rule="notNull" class="school-award">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>获奖时间：</td>
+							<td>
+								<select class="award-year"  name="award[award_time][year]" data-valid-rule="scale(1000,10000,0)">
+									<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="award-month" name="award[award_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>所在学校：</td>
+							<td>
+								<select name="award[school]" class="award-school_out">
+									<!-- <{foreach from=$schooldd item=namee}>
+										 <option><{$namee.school_name}></option>
+									<{/foreach}> -->
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>说明：</td>
+							<td>
+								<textarea name="award[explain]" class="description"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="提交" class="submit-info award-submit-out">
+							</td>
+							<td>
+								<button type="button" class="cancel-submit award-cancel">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</li>
+			<li class="language-detail">
+				<h1>语言能力<a href="javascript:;" class="add-info J_add_language">添加</a></h1>
+				<{if $languages}>					
+				<table class="added-language">
+					<thead>
+						<tr>
+							<td>语言</td>
+							<td>听说</td>
+							<td>读写</td>
+							<td>等级考试</td>
+						</tr>
+					</thead>
+					<tbody>
+					  <{foreach from=$languages item=lang}>
+						<tr id="<{$lang.id}>">
+							<td Lid="<{$lang.type_id}>"><{$lang.name}></td>
+							<td><{$lang.les_say}></td>
+							<td><{$lang.rea_wri}></td>
+							<td width="200"><{$lang.grade}></td>
+							<td><a href="javascript:;" class="edit-language">编辑</a></td>
+							<td><a href="javascript:;" class="delete-language">删除</a></td>
+						</tr>
+						<{/foreach}>
+						<tr class="language-insert-tr none">
+							<td colspan="8">
+								<form class="editing-language" action="<{$website}>job/resume/editlanguageability" method="post">
+									<input type="hidden" class="language-input" name="id">
+									<table>
+										<tr>
+											<td><em>*</em>语言：</td>
+											<td>
+												<select class="languages" name="languages[type_id]" data-valid-rule="scale(0,10000,0)">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>听说：</td>
+											<td>
+												<select class="talk-listen" name="languages[les_say]" data-valid-rule="scale(0,10000,0)">
+													<option value="0">请选择</option>
+													<option value="1">一般</option>
+													<option value="2">良好</option>
+													<option value="3">精通</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>读写：</td>
+											<td>
+												<select name="languages[rea_wri]" class="read-write"
+												data-valid-rule="scale(0,10000,0)">
+													<option value="0">请选择</option>
+													<option value="1">一般</option>
+													<option value="2">良好</option>
+													<option value="3">精通</option>
+												</select>
+											</td>
+										</tr>
+										<tr class="exam-tr old-in">
+											<td>等级考试：</td>
+											<td>
+												<select name="grade[]" class="exam" data-valid-rule="scale(0,10000,0)">
+													<option value="0">请选择</option>
+												</select>
+											</td>
+											<td >分数：<input type="text" name="point[]" class="grade" data-valid-rule="isNumber"></td>
+											<td>
+													<a class="del-exam" href="javascript:;">删除</a>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2"><a href="javascript:;" class="add-exam">增加一项等级考试</a></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="submit" value="提交" class="submit-info">
+											</td>
+											<td>
+												<button type="button" class="cancel-submit language-cancel">取消</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="no-info no-language-info none">语言能力已成为职场人士必备的核心素质之一</p>
+                <{else}>
+                       <p class="no-info">语言能力已成为职场人士必备的核心素质之一</p>
+                <{/if}>
+				<form class="editing-language-out none" action="<{$website}>job/resume/deallanguages" method="post">
+					<table>
+						<tr>
+							<td><em>*</em>语言：</td>
+							<td>
+								<select class="languages" name="languages[type_id]" data-valid-rule="scale(0,10000,0)">
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>听说：</td>
+							<td>
+						<select class="talk-listen" name="languages[les_say]" data-valid-rule="scale(0,10000,0)">
+									<option value="0">请选择</option>
+									<option value="1">一般</option>
+									<option value="2">良好</option>
+									<option value="3">精通</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>读写：</td>
+							<td>
+								<select name="languages[rea_wri]" class="read-write"
+								data-valid-rule="scale(0,10000,0)" >
+									<option value="0">请选择</option>
+									<option value="1">一般</option>
+									<option value="2">良好</option>
+									<option value="3">精通</option>
+								</select>
+							</td>
+						</tr>
+						<tr class="exam-tr old">
+							<td>等级考试：</td>
+							<td>
+								<select name="grade[]" class="exam">
+									<option>请选择</option>
+								</select>
+							</td>
+							<td >分数：<input type="text" name="point[]" class="grade" data-valid-rule="isNumber"></td>
+							<td>
+								<a class="del-exam" href="javascript:;">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"><a href="javascript:;" class="add-exam">增加一项等级考试</a></td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="提交" class="submit-info">
+							</td>
+							<td>
+								<button type="button" class="cancel-submit language-cancel">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</li>
+			<li class="intern-detail">
+				<h1>实习经历<a href="javascript:;" class="add-info J_add_intern">添加</a></h1>
+				<{if $train}>				
+				<table class="added-intern">
+					<thead>
+						<tr>
+							<td>工作公司</td>
+							<td>在职时间</td>
+							<td>职位名称</td>
+						</tr>
+					</thead>
+					<tbody>
+					    <{foreach from=$train item=training}>
+						    <{if $training.sign==1}>
+								<tr id="<{$training.id}>">
+									<td><{$training.company_name}></td>
+									<td><{$training.start_time|mb_substr:0:7:'UTF-8'}>至<{$training.end_time|mb_substr:0:7:'UTF-8'}></td>
+									<td><{$training.position_name}></td>
+									<td><a href="javascript:;" class="edit-intern">编辑</a></td>
+									<td><!-- <a href="javascript:;" class="cant-del-intern">删除</a> --></td>
+								</tr>
+							<{else if $training.sign==0}>
+							     <tr id="<{$training.id}>">
+									<td><{$training.company_name}></td>
+									<td><{$training.start_time|mb_substr:0:7:'UTF-8'}>至<{$training.end_time|mb_substr:0:7:'UTF-8'}></td>
+									<td><{$training.position_name}></td>
+									<td><a href="javascript:;" class="edit-intern">编辑</a></td>
+									<td><a href="javascript:;" class="del-intern">删除</a></td>
+								</tr>
+							<{/if}>
+						<{/foreach}>						 
+						<tr class="intern-insert-tr none">
+							<td colspan="8">
+								<form class="editing-intern" action="<{$website}>job/resume/edittrainex" method="post">
+								<input type="hidden" class="intern-input" name="id">
+									<table>
+										<tr>
+											<td><em>*</em>工作公司：</td>
+											<td>
+												<input type="text" name="WorkExperience[company_name]" data-valid-rule="notNull" class="intern-company">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>所在城市：</td>
+											<td>
+												<select class="intern-province" data-valid-rule="scale(0,10000,0)">
+													<option value="0">请选择</option>
+														<{foreach  from=$pro item=province}>
+														     <option value="<{$province.id}>"><{$province.name}></option>
+														<{/foreach}>
+												</select>
+												<select class="intern-city" name="WorkExperience[city_id]" data-valid-rule="scale(0,10000,0)"></select>
+											</td>
+										</tr>
+										<tr>
+											<td>所在部门：</td>
+											<td>
+												<input type="text" class="intern-department" name="WorkExperience[department]">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>职位名称：</td>
+											<td><input type="text" name="WorkExperience[position_name]" class="intern-posi-name" data-valid-rule="notNull"></td>
+										</tr>
+										<tr>
+											<td><em>*</em>所属行业：</td>
+											<td><select name="WorkExperience[trade_id]" class="intern-industry" data-valid-rule="scale(0,10000,0)">
+												<option value="0">请选择</option>
+												 <{foreach from=$trade item=com}>
+				                                     <option value="<{$com.id}>"><{$com.name}></option>
+				                                 <{/foreach}>
+											</select></td>
+										</tr>
+										<tr>
+											<td><em>*</em>职位类别：</td>
+											<td><select name="WorkExperience[position_type_id]" class="intern-posi-type" data-valid-rule="scale(0,10000,0)">
+												<option value="0">请选择</option>
+												 <{foreach from=$type item=com}>
+				                                     <option value="<{$com.id}>"><{$com.name}></option>
+				                                 <{/foreach}>
+											</select></td>
+										</tr>
+										<tr>
+											<td><em>*</em>任职时间：</td>
+											<td>
+												<select class="intern-start-year"  name="WorkExperience[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+													<{foreach from=$time item=var}>
+													     <option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="intern-start-month" name="WorkExperience[start_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+												至
+												<select class="intern-end-year" name="WorkExperience[end_time][year]" data-valid-rule="scale(1,10000,0)">
+													<{foreach from=$time item=var}>
+													     <option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="intern-end-month" name="WorkExperience[end_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+											</td>
+										</tr>
+										<tr>
+											<td>薪水：</td>
+											<td><input type="text" class="intern-salary" name="WorkExperience[salary]" data-valid-rule="isNumber | isNull"></td>
+										</tr>
+										<tr>
+											<td>汇报对象：</td>
+											<td><input type="text" class="intern-report-to" name="WorkExperience[report_object]"></td>
+										</tr>
+										<tr>
+											<td>工作描述：</td>
+											<td><textarea class="intern-description" name="WorkExperience[experience_describe]"></textarea></td>
+										</tr>
+										<tr>
+											<td><em>*</em>是否复制到档案：</td>
+											<td>
+												<input type="radio" name="WorkExperience[is_copy]" value="0" checked="checked">是
+												<input type="radio" name="WorkExperience[is_copy]" value="1">否
+											</td>
+										</tr>
+										
+										<tr>
+											<td>
+												<input type="submit" value="提交" class="submit-info intern-submit-in">
+											</td>
+											<td>
+												<button type="button" class="cancel-submit intern-cancel">取消</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="no-info no-intern-info none">如果你认为自己工作经历不够丰富，可以填写实习经历作为补充。</p>
+				<{else}>
+				    <p class="no-info ">如果你认为自己工作经历不够丰富，可以填写实习经历作为补充。</p>
+				<{/if}>
+				<form class="editing-intern-out none" action="<{$website}>job/resume/workexperienceadd" method="post">
+					<table>
+						<tr>
+							<td><em>*</em>工作公司：</td>
+							<td>
+								<input type="text" name="WorkExperience[company_name]" data-valid-rule="notNull" class="intern-company">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>所在城市：</td>
+							<td>
+								<select class="intern-province" data-valid-rule="scale(0,10000,0)">
+									<option value="0">请选择</option>
+									<{foreach  from=$pro item=province}>
+									     <option value="<{$province.id}>"><{$province.name}></option>
+									<{/foreach}>
+								</select>
+								<select class="intern-city" name="WorkExperience[city_id]" data-valid-rule="scale(0,10000,0)"></select>
+							</td>
+						</tr>
+						<tr>
+							<td>所在部门：</td>
+							<td>
+								<input type="text" name="WorkExperience[department]">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>职位名称：</td>
+							<td><input type="text" class="posi-names" data-valid-rule="notNull" name="WorkExperience[position_name]"></td>
+						</tr>
+						<tr>
+							<td><em>*</em>所属行业：</td>
+							<td><select name="WorkExperience[trade_id]" class="intern-industry" data-valid-rule="scale(0,10000,0)">
+								<option value="0">请选择</option>
+                                 <{foreach from=$trade item=com}>
+                                     <option value="<{$com.id}>"><{$com.name}></option>
+                                 <{/foreach}>
+							</select></td>
+						</tr>
+						<tr>
+							<td><em>*</em>职位类别：</td>
+							<td><select name="WorkExperience[position_type_id]" class="intern-posi-type" data-valid-rule="scale(0,10000,0)">
+								<option value="0">请选择</option>
+                                 <{foreach from=$type item=com}>
+                                     <option value="<{$com.id}>"><{$com.name}></option>
+                                 <{/foreach}>
+							</select></td>
+						</tr>
+						<tr>
+							<td><em>*</em>任职时间：</td>
+							<td>
+								<select class="intern-start-year"  name="WorkExperience[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+									               <{foreach from=$time item=var}>
+													     <option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="intern-start-month" name="WorkExperience[start_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+								月
+								至
+								<select class="intern-end-year" name="WorkExperience[end_time][year]" data-valid-rule="scale(1,10000,0)">
+									<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="intern-end-month" name="WorkExperience[end_time][month]"  data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+							</td>
+						</tr>
+						<tr>
+							<td>薪水：</td>
+							<td><input type="text"  name="WorkExperience[salary]" data-valid-rule="isNumber | isNull"></td>
+						</tr>
+						<tr>
+							<td>汇报对象：</td>
+							<td><input type="text"  name="WorkExperience[report_object]"></td>
+						</tr>
+						<tr>
+							<td>工作描述：</td>
+							<td><textarea name="WorkExperience[experience_describe]"></textarea></td>
+						</tr>
+						<tr>
+							<td><em>*</em>是否复制到档案：</td>
+							<td>
+								<input type="radio" name="WorkExperience[is_copy]" value="0" checked="checked">是
+								<input type="radio" name="WorkExperience[is_copy]" value="1">否
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<input type="submit" value="提交" class="submit-info intern-submit-out">
+							</td>
+							<td>
+								<button type="button" class="cancel-submit intern-cancel">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</li>
+			<li class="IT-detail">
+				<h1>IT技能<a href="javascript:;" class="edit-info J_edit_skill">编辑</a></h1>				
+				<{if $ItSkill||$ItDetail}>
+				<table>
+					<tbody>
+						<tr>
+							<td>精通的技能：</td>
+							<td>
+								<em class="old-skills">
+									 <{foreach from=$ItSkill item=skill name=it}>
+										  <{if $smarty.foreach.it.last and $ItDetail.detail eq null}>
+								    	     	<{$skill.name}>
+								    	   <{else}> 
+								    	         <{$skill.name}>,   
+								    	  <{/if}>     	 
+							    	 <{/foreach}>
+							    	 <{$ItDetail.detail}>
+								</em>							  
+							    <em class="skills"></em>
+								<span class="skill-details"></span>		
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<{else}>
+				   <p class="no-info">添加IT技能</p>
+				<{/if}>
+			</li>
+			<li class="work-detail">
+				<h1>工作经历<a href="javascript:;" class="add-info J_add_work">添加</a></h1>
+				<{if $WorkExperience}>			
+				<table class="added-work">
+					<thead>
+						<tr>
+							<td>工作公司</td>
+							<td>在职时间</td>
+							<td>职位名称</td>
+						</tr>
+					</thead>
+					<tbody>
+					    <{foreach from=$WorkExperience item=work}>
+					    <{if $work.sign==1}>
+						    <tr id="<{$work.id}>">
+								<td><{$work.company_name}></td>
+								<td><{$work.start_time|mb_substr:0:7:'UTF-8'}>至<{$work.end_time|mb_substr:0:7:'UTF-8'}></td>
+								<td><{$work.position_name}></td>
+								<td><a href="javascript:;" class="edit-work">编辑</a></td>
+								<td><!-- <a href="javascript:;"  class="cant-del-work">删除</a> --></td>
+							</tr>
+						<{else if $work.sign==0}>
+					      <tr id="<{$work.id}>">
+								<td><{$work.company_name}></td>
+								<td><{$work.start_time|mb_substr:0:7:'UTF-8'}>至<{$work.end_time|mb_substr:0:7:'UTF-8'}></td>
+								<td><{$work.position_name}></td>
+								<td><a href="javascript:;" class="edit-work">编辑</a></td>
+								<td><a href="javascript:;" class="del-work">删除</a></td>
+							</tr>
+						<{/if}>
+						
+						<{/foreach}>						 
+						<tr class="work-insert-tr none">
+							<td colspan="8">
+								<form class="editing-work" action="<{$website}>job/resume/editworkexperience" method="post">
+								<input type="hidden" class="work-input" name="id">
+									<table>
+										<tr>
+											<td><em>*</em>工作公司：</td>
+											<td colspan="3">
+												<input type="text" name="WorkExperience[company_name]" data-valid-rule="notNull" class="work-company">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>所在城市：</td>
+											<td colspan="3">
+												<select class="work-province" data-valid-rule="scale(0,10000,0)">
+													<option value="0">请选择</option>
+													<{foreach  from=$pro item=province}>
+														     <option value="<{$province.id}>"><{$province.name}></option>
+														<{/foreach}>
+												</select>
+												<select class="work-city" name="WorkExperience[city_id]" data-valid-rule="scale(0,10000,0)"></select>
+											</td>
+										</tr>
+										<tr>
+											<td>所在部门：</td>
+											<td colspan="3">
+												<input type="text" class="work-department" name="WorkExperience[department]">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>职位名称：</td>
+											<td colspan="3"><input type="text" name="WorkExperience[position_name]" class="work-posi-name" data-valid-rule="notNull"></td>
+										</tr>
+										<tr>
+											<td><em>*</em>所属行业：</td>
+											<td colspan="3"><select class="work-industry" name="WorkExperience[trade_id]" data-valid-rule="scale(0,10000,0)">
+												<option value="0">请选择</option>
+				                                 <{foreach from=$trade item=com}>
+				                                     <option value="<{$com.id}>"><{$com.name}></option>
+				                                 <{/foreach}>
+											</select></td>
+										</tr>
+										<tr>
+											<td><em>*</em>职位类别：</td>
+											<td colspan="3"><select class="work-posi-type" name="WorkExperience[position_type_id]" data-valid-rule="scale(0,10000,0)">
+												<option value="0">请选择</option>
+				                                 <{foreach from=$type item=com}>
+				                                     <option value="<{$com.id}>"><{$com.name}></option>
+				                                 <{/foreach}>
+											</select></td>
+										</tr>
+										<tr>
+											<td><em>*</em>职位级别：</td>
+											<td colspan="3">
+											<select class="posi-level" data-valid-rule="scale(0,10000,0)" name="WorkExperience[level]">
+													<option value="0">请选择</option>
+													<option value="1">实习/见习</option>
+													<option value="2">初级</option>
+													<option value="3">资深(非管理岗)</option>
+													<option value="4">经理/主管</option>
+													<option value="5">总监/部门负责人</option>
+													<option value="6">执行官/总裁</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>任职时间：</td>
+											<td colspan="3">
+												<select class="work-start-year"  name="WorkExperience[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+													<{foreach from=$time item=var}>
+															<option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="work-start-month" name="WorkExperience[start_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+												至
+												<select class="work-end-year" name="WorkExperience[end_time][year]" data-valid-rule="scale(1,10000,0)">
+													<{foreach from=$time item=var}>
+															<option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="work-end-month" name="WorkExperience[end_time][month]"  data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+											</td>
+										</tr>
+										<tr>
+											<td>薪水：</td>
+											<td colspan="3"><input type="text" class="work-salary" name="WorkExperience[salary]" data-valid-rule="isNumber | isNull"></td>
+										</tr>
+										<tr>
+											<td>汇报对象：</td>
+											<td><input type="text" class="work-report-to" name="WorkExperience[report_object]"></td>
+											<td class="subordinate-num-td">下属人数：
+											<td><input type="text" class="subordinate-num" name="WorkExperience[subordinates_num]"></td>
+										</tr>
+										<tr>
+											<td>工作描述：</td>
+											<td colspan="3"><textarea class="work-description" name="WorkExperience[experience_describe]"></textarea></td>
+										</tr>
+										<tr>
+											<td class="copy-td"><em>*</em>是否复制到档案：</td>
+											<td colspan="3">
+												<input type="radio" name="WorkExperience[is_copy]" value="0" checked="checked">是
+												<input type="radio" name="WorkExperience[is_copy]" value="1">否
+											</td>
+										</tr>
+										
+										<tr>
+											<td>
+												<input type="submit" value="提交" class="submit-info work-submit-in">
+											</td>
+											<td colspan="3">
+												<button type="button" class="cancel-submit work-cancel">取消</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				 <p class="no-info no-work-info none">请丰富自己的工作经历。</p>
+				<{else}>
+				    <p class="no-info ">请丰富自己的工作经历。</p>
+				<{/if}>
+				<form class="editing-work-out none" action="<{$website}>job/resume/addWorkexperience" method="post">
+					<table>
+						<tr>
+							<td><em>*</em>工作公司：</td>
+							<td colspan="3">
+								<input type="text"  name="WorkExperience[company_name]" data-valid-rule="notNull" class="work-company">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>所在城市：</td>
+							<td colspan="3">
+								<select class="work-province" data-valid-rule="scale(0,10000,0)">
+									<option value="0">请选择</option>
+									<{foreach  from=$pro item=province}>
+									     <option value="<{$province.id}>"><{$province.name}></option>
+									<{/foreach}>
+								</select>
+								<select class="work-city"  name="WorkExperience[city_id]" data-valid-rule="scale(0,10000,0)"></select>
+							</td>
+						</tr>
+						<tr>
+							<td>所在部门：</td>
+							<td colspan="3">
+								<input type="text" class="department" name="WorkExperience[department]">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>职位名称：</td>
+							<td colspan="3"><input type="text" class="posi-name" data-valid-rule="notNull" name="WorkExperience[position_name]"></td>
+						</tr>
+						<tr>
+							<td><em>*</em>所属行业：</td>
+							<td colspan="3"><select class="work-industry" name="WorkExperience[trade_id]" data-valid-rule="scale(0,10000,0)">
+								<option value="0">请选择</option>
+                                 <{foreach from=$trade item=com}>
+                                     <option value="<{$com.id}>"><{$com.name}></option>
+                                 <{/foreach}>
+							</select></td>
+						</tr>
+						<tr>
+							<td><em>*</em>职位类别：</td>
+							<td colspan="3"><select name="WorkExperience[position_type_id]" class="work-posi-type" data-valid-rule="scale(0,10000,0)">
+								<option value="0">请选择</option>
+                                 <{foreach from=$type item=com}>
+                                     <option value="<{$com.id}>"><{$com.name}></option>
+                                 <{/foreach}>
+							</select></td>
+						</tr>
+						<tr>
+							<td><em>*</em>职位级别：</td>
+							<td colspan="3">
+								<select class="posi-level" data-valid-rule="scale(0,10000,0)" name="WorkExperience[level]">
+									<option value="0">请选择</option>								 
+									<option value="1">实习/见习</option>
+									<option value="2">初级</option>
+									<option value="3">资深(非管理岗)</option>
+									<option value="4">经理/主管</option>
+									<option value="5">总监/部门负责人</option>
+									<option value="6">执行官/总裁</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>任职时间：</td>
+							<td colspan="3">
+								<select class="work-start-year" name="WorkExperience[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+									<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="work-start-month"  name="WorkExperience[start_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+								至
+								<select class="work-end-year" name="WorkExperience[end_time][year]" data-valid-rule="scale(1,10000,0)">
+									<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="work-end-month"name="WorkExperience[end_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+							</td>
+						</tr>
+						<tr>
+							<td>薪水：</td>
+							<td colspan="3"><input type="text" class="salary"  name="WorkExperience[salary]"data-valid-rule="isNumber | isNull"></td>
+						</tr>
+						<tr>
+							<td>汇报对象：</td>
+							<td><input type="text" class="report-to"  name="WorkExperience[report_object]"></td>
+							<td class="subordinate-num-td">下属人数：
+							<td><input type="text" class="subordinate-num" name="WorkExperience[subordinates_num]" ></td>
+						</tr>
+						<tr>
+							<td>工作描述：</td>
+							<td colspan="3"><textarea class="description" name="WorkExperience[experience_describe]" ></textarea></td>
+						</tr>
+						<tr>
+							<td class="copy-td"><em>*</em>是否复制到档案：</td>
+							<td colspan="3">
+								<input type="radio" name="WorkExperience[is_copy]" value="0" checked="checked">是
+								<input type="radio" name="WorkExperience[is_copy]" value="1">否
+							</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<input type="submit" value="提交" class="submit-info work-submit-out">
+							</td>
+							<td colspan="3">
+								<button type="button" class="cancel-submit work-cancel">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</li>
+			<li class="project-detail">
+				<h1>项目经验<a href="javascript:;" class="add-info J_add_project">添加</a></h1>
+				<{if $ProjectExperience}>				
+				<table class="added-project">
+					<thead>
+						<tr>
+							<td>项目名称</td>
+							<td>参与时间</td>
+							<td>担任职务</td>
+						</tr>
+					</thead>
+					<tbody>
+					<{foreach from=$ProjectExperience item=project}>
+						<tr id="<{$project.id}>">
+							<td><{$project.project_name}></td>
+							<td><{$project.start_time|mb_substr:0:7:'UTF-8'}>至<{$project.end_time|mb_substr:0:7:'UTF-8'}></td>
+							<td><{$project.project_role}></td>
+							<td><a href="javascript:;" class="edit-project">编辑</a></td>
+							<td><a href="javascript:;" class="del-project">删除</a></td>
+						</tr>
+					<{/foreach}>						 
+						<tr class="project-insert-tr none">
+							<td colspan="8">
+								<form class="editing-project" action="<{$website}>job/resume/editproject" method="post">
+									<input type="hidden" class="project-input" name="id">
+									<table>
+										<tr>
+											<td><em>*</em>项目名称：</td>
+											<td>
+												<input type="text" name="project[project_name]" data-valid-rule="notNull" class="project-name">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>团队规模：</td>
+											<td>
+												<select name="project[team_size]" class="team-size" data-valid-rule="scale(0,1000,0)">
+													<option value="0">请选择</option>
+													<option value="1">5人</option>
+													<option value="2">10人</option>
+													<option value="3">20人</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>项目简介：</td>
+											<td><textarea class="project-sum" name="project[project_profile]"></textarea></td>
+										</tr>
+										<tr>
+											<td><em>*</em>项目角色：</td>
+											<td><input type="text" name="project[project_role]" class="project-role" data-valid-rule="notNull"></td>
+										</tr>
+										<tr>
+											<td><em>*</em>参与时间：</td>
+											<td colspan="3">
+												<select class="project-start-year" name="project[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+													<{foreach from=$time item=var}>
+														<option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="project-start-month" name="project[start_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+												至
+												<select class="project-end-year" name="project[end_time][year]" data-valid-rule="scale(1,10000,0)">
+													<{foreach from=$time item=var}>
+															<option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="project-end-month" name="project[end_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+											</td>
+										</tr>
+										<tr>
+											<td>项目成果：</td>
+											<td><textarea class="project-achievement" name="project[project_results]"></textarea></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="submit" value="提交" class="submit-info project-submit-in">
+											</td>
+											<td>
+												<button type="button" class="cancel-submit project-cancel">取消</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="no-info no-project-info none">项目经验</p>
+				<{else}>
+				     <p class="no-info">项目经验</p>
+				<{/if}>
+				<form class="editing-project-out none" action="<{$website}>job/resume/dealproject" method="post">
+					<table>
+						<tr>
+							<td><em>*</em>项目名称：</td>
+							<td>
+								<input type="text" name="project[project_name]" data-valid-rule="notNull" class="project-name">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>团队规模：</td>
+							<td>
+								<select class="team-size" data-valid-rule="scale(0,1000,0)" name="project[team_size]">
+									<option value="0">请选择</option>
+									<option value="1">5人</option>
+									<option value="2">10人</option>
+									<option value="3">20人</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>项目简介：</td>
+							<td><textarea class="project-sum" name="project[project_profile]"></textarea></td>
+						</tr>
+						<tr>
+							<td><em>*</em>项目角色：</td>
+							<td><input type="text" class="project-role" data-valid-rule="notNull" name="project[project_role]"></td>
+						</tr>
+						<tr>
+							<td><em>*</em>参与时间：</td>
+							<td colspan="3">
+								<select class="project-start-year" name="project[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+									<{foreach from=$time item=var}>
+										<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="project-start-month" name="project[start_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+								至
+								<select class="project-end-year" name="project[end_time][year]" data-valid-rule="scale(1,10000,0)">
+									<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="project-end-month" name="project[end_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+							</td>
+						</tr>
+						<tr>
+							<td>项目成果：</td>
+							<td><textarea class="project-achievement" name="project[project_results]"></textarea></td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="提交" class="submit-info project-submit-out">
+							</td>
+							<td>
+								<button type="button" class="cancel-submit project-cancel">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</li>
+			<li class="train-detail">
+				<h1>培训经历<a href="javascript:;" class="add-info J_add_train">添加</a></h1>
+				<{if $TrainingExperience}>				
+				<table class="added-train">
+					<thead>
+						<tr>
+							<td>培训名称</td>							 
+							<td>培训时间</td>
+						</tr>
+					</thead>
+					<tbody>
+					   <{foreach from=$TrainingExperience item=train}>
+						<tr id="<{$train.id}>">
+							<td><{$train.training_name}></td>							 
+							<td><{$train.start_time|mb_substr:0:7:'UTF-8'}>至<{$train.end_time|mb_substr:0:7:'UTF-8'}></td>
+							<td><a href="javascript:;" class="edit-train">编辑</a></td>
+							<td><a href="javascript:;" class="del-train">删除</a></td>
+						</tr>	
+						<{/foreach}>					 
+						<tr class="train-insert-tr none">
+							<td colspan="8">
+								<form class="editing-train" action="<{$website}>job/resume/edittrainingexperience" method="post">
+								<input type="hidden" class="train-input" name="id">
+									<table>
+										<tr>
+											<td><em>*</em>培训名称：</td>
+											<td>
+												<input type="text" name="train[training_name]"  data-valid-rule="notNull" class="train-name">
+											</td>
+										</tr>
+										<tr>
+											<td>培训机构：</td>
+											<td><input type="text" class="train-agency" name="train[training_organization]"></td>
+										</tr>
+										<tr>
+											<td><em>*</em>参与时间：</td>
+											<td colspan="3">
+												<select class="train-start-year" name="train[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+													<{foreach from=$time item=var}>
+															<option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="train-start-month" name="train[start_time][month]"  data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+												至
+												<select class="train-end-year" name="train[end_time][year]"  data-valid-rule="scale(1,10000,0)">
+													<{foreach from=$time item=var}>
+															<option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="train-end-month" name="train[end_time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+											</td>
+										</tr>
+										<tr>
+											<td>培训内容：</td>
+											<td><textarea class="train-content" name="train[training_content]"></textarea></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="submit" value="提交" class="submit-info train-submit-in">
+											</td>
+											<td>
+												<button type="button" class="cancel-submit train-cancel">取消</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="no-info no-train-info none">培训经历</p>
+				<{else}>
+				       <p class="no-info">培训经历</p>
+				<{/if}>
+				<form class="editing-train-out none" action="<{$website}>job/resume/addtrainingexperience" method="post">
+					<table>
+						<tr>
+							<td><em>*</em>培训名称：</td>
+							<td>
+								<input type="text" name="train[training_name]" data-valid-rule="notNull" class="train-name">
+							</td>
+						</tr>
+						<tr>
+							<td>培训机构：</td>
+							<td><input type="text" class="train-agency" name="train[training_organization]"></td>
+						</tr>
+						<tr>
+							<td><em>*</em>参与时间：</td>
+							<td colspan="3">
+								<select class="train-start-year" name="train[start_time][year]" data-valid-rule="scale(1000,10000,0)">
+									<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="train-start-month" name="train[start_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+								至
+								<select class="train-end-year" name="train[end_time][year]" data-valid-rule="scale(1,10000,0)">
+									<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="train-end-month" name="train[end_time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+							</td>
+						</tr>
+						<tr>
+							<td>培训内容：</td>
+							<td><textarea class="train-content" name="train[training_content]"></textarea></td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="提交" class="submit-info train-submit-out">
+							</td>
+							<td>
+								<button type="button" class="cancel-submit train-cancel">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</li>
+			<li class="apply-detail">
+				<h1>求职经历<a href="javascript:;" class="add-info J_add_apply">添加</a></h1>				
+				<{if $JobExperience}>
+				<table class="added-apply">
+					<thead>
+						<tr>
+							<td>公司名称</td>
+							<td>职位名称</td>
+							<td>类型</td>
+							<td>时间</td>
+						</tr>
+					</thead>
+					<tbody>
+					<{foreach from=$JobExperience item=job}>
+						<tr id="<{$job.id}>">
+							<td><{$job.company_name}></td>
+							<td><{$job.position_name}></td>
+							<td><{$job.type}></td>
+							<td><{$job.time|mb_substr:0:7:'UTF-8'}></td>
+							<td><a href="javascript:;" class="edit-apply">编辑</a></td>
+							<td><a href="javascript:;" class="del-apply">删除</a></td>
+						</tr>	
+					<{/foreach}>					 
+						<tr class="apply-insert-tr none">
+							<td colspan="8">
+								<form class="editing-apply" action="<{$website}>job/resume/editjobexperience" method="post">
+								<input type="hidden" class="apply-input" name="id">
+									<table>
+										<tr>
+											<td><em>*</em>时间：</td>
+											<td colspan="3">
+												<select class="apply-year" name="job[time][year]" data-valid-rule="scale(1000,10000,0)">
+													<{foreach from=$time item=var}>
+															<option value="<{$var}>"><{$var}></option>
+													<{/foreach}>
+												</select>
+												年
+												<select class="apply-month" name="job[time][month]" data-valid-rule="scale(0,1000,0)">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+												</select>
+												月
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>类型：</td>
+											<td class="apply-type">
+											<input type="radio"  name="job[type]" value="0" checked="checked">参加笔试
+											<input type="radio"  name="job[type]" value="1">参加面试
+											<input type="radio"  name="job[type]" value="2">拿到offer
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>公司名称：</td>
+											<td>
+												<input type="text"  name="job[company_name]" data-valid-rule="notNull" class="apply-company-name">
+											</td>
+										</tr>
+										<tr>
+											<td><em>*</em>职位名称：</td>
+											<td>
+												<input type="text" name="job[position_name]" class="apply-posi-name" data-valid-rule="notNull">
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="submit" value="提交" class="submit-info">
+											</td>
+											<td>
+												<button type="button" class="cancel-submit apply-cancel">取消</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				 <p class="no-info no-apply-info none">求职经历</p>
+				<{else}>
+                         <p class="no-info">求职经历</p>
+				<{/if}>
+				<form class="editing-apply-out none" action="<{$website}>job/resume/addjobexperience" method="post">
+					<table>
+						<tr>
+							<td><em>*</em>时间：</td>
+							<td colspan="3">
+								<select class="apply-year" name="job[time][year]" data-valid-rule="scale(1000,10000,0)">
+									<{foreach from=$time item=var}>
+											<option value="<{$var}>"><{$var}></option>
+									<{/foreach}>
+								</select>
+								年
+								<select class="apply-month" name="job[time][month]" data-valid-rule="scale(0,1000,0)">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>8</option>
+									<option>9</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								月
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>类型：</td>
+							<td class="apply-type">
+							<input type="radio" name="job[type]" value="0" checked="checked">参加笔试
+							<input type="radio" name="job[type]" value="1">参加面试
+							<input type="radio" name="job[type]" value="2">拿到offer
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>公司名称：</td>
+							<td>
+								<input type="text" name="job[company_name]" data-valid-rule="notNull" class="apply-company-name">
+							</td>
+						</tr>
+						<tr>
+							<td><em>*</em>职位名称：</td>
+							<td>
+								<input type="text" name="job[position_name]" class="apply-posi-name" data-valid-rule="notNull">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="提交" class="submit-info">
+							</td>
+							<td>
+								<button type="button" class="cancel-submit apply-cancel">取消</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</li>
+			<li class="attachment-detail">
+				<h1>附件/作品<a href="javascript:;" class="add-info J_add_attach">添加</a></h1>
+				<p class="no-info none no-attachment-info">附件/作品</p>
+				<{if $file}>
+				<table class="added-attachment">
+					<thead>
+						<tr>
+							<td>文件名称</td>
+							<td>文件大小</td>
+						</tr>
+					</thead>
+					<tbody>
+					<{foreach from=$file item=filename}>
+						<tr id="<{$filename.id}>">
+							<td><a href="<{$filename.url}>" class="attachment-name"><{$filename.name}></a></td>
+							<td><{$filename.size}>kB</td>
+							<td><a href="javascript:;" class="del-attachment">删除</a></td>
+						</tr>
+					 <{/foreach}>						 
+					</tbody>
+				</table>
+				<{else}>
+				       <p class="no-info">附件/作品</p>
+				<{/if}>
+				<form class="to-upload none" id="attachment-file" action="<{$website}>job/resume/dealFile" method="post" enctype="multipart/form-data">
+					<p>请使用易识别的附件名称，如“英文简历”，便于企业直观了解。</p>
+					<input type="file" class="file-upload" id="upload-attachment-file" name="file">
+					<span class="upload-tip"></span>
+					<div>
+						<input type="submit" value="提交" class="submit-info file-submit">
+						<button type="reset" class="cancel-submit cancel-pass">重置</button>
+						<button type="button" class="cancel-submit upload-cancel">取消</button>
+					</div>
+				</form>
+			</li>
+		</ul>
+		<div class="pop-wrap none"></div>
+	</div>
+	<div class="it-pop none">
+		<h1>添加精通的技能<a href="javascript:;" class="close-skills">X</a></h1>
+		<div>
+			<h2>已选择：</h2>
+			<p class="choosed">
+			</p>
+			<table class="all-skills">
+				<tr>
+					<td><input type="checkbox" name="Word">Word</td>
+					<td><input type="checkbox" name="Excel">Excel</td>
+					<td><input type="checkbox" name="PPt">PPt</td>
+					<td><input type="checkbox" name="Visio">Visio</td>
+					<td><input type="checkbox" name="ASP">ASP</td>
+				</tr>
+				<tr>					 
+					<td><input type="checkbox" name="JSP" >JSP</td>
+					<td><input type="checkbox" name="Java" >Java</td>
+					<td><input type="checkbox" name="AJAX">AJAX</td>
+					<td><input type="checkbox" name="spring">spring</td>
+					 <td><input type="checkbox" name="PLC">PLC</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="Protel">Protel</td>					
+					<td><input type="checkbox" name="delphi">delphi</td>					 
+					<td><input type="checkbox" name="PHP">PHP</td>
+					<td><input type="checkbox" name="Matlab">Matlab</td>
+					<td><input type="checkbox" name="C">C</td>
+				</tr>
+				<tr>					
+					<td><input type="checkbox" name="VB">VB</td>
+					<td><input type="checkbox" name="python">python</td>
+					<td><input type="checkbox" name="C++">C++</td>
+					<td><input type="checkbox" name="VC++">VC++</td>
+					<td><input type="checkbox" name="perl">perl</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="SQLServer">SQL Server</td>
+					<td><input type="checkbox" name="Access">Access</td>
+					<td><input type="checkbox" name="MySQL">MySQL</td>
+					<td><input type="checkbox" name="Oracle">Oracle</td>
+					<td><input type="checkbox" name="CSS">CSS</td>				 
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="VBScript">VBScript</td>
+					<td><input type="checkbox" name="XML">XML</td>
+					<td><input type="checkbox" name="VHDL">VHDL</td>	 
+					<td><input type="checkbox" name="HTML">HTML</td>
+					<td><input type="checkbox" name="JavaScript">JavaScript</td>					
+				</tr>
+				<tr>
+				   <td><input type="checkbox" name="OracleERP" >Oracle ERP</td>
+					<td><input type="checkbox" name="Linux">Linux</td>
+					<td><input type="checkbox" name="Unix">Unix</td>
+					<td><input type="checkbox" name="InDesign">InDesign</td>
+					<td><input type="checkbox" name="Pagemaker" >Pagemaker</td>						 
+				</tr>				
+				<tr>
+				   <td><input type="checkbox" name="WINDOWS" >WINDOWS</td>
+					<td><input type="checkbox" name="SAS">SAS</td> 	
+					<td><input type="checkbox" name="SAP">SAP</td>
+					<td><input type="checkbox" name="3DMAX">3DMAX</td>
+					<td><input type="checkbox" name="Authorware" >Authorware</td>			 		
+				</tr>
+				<tr>					
+					<td><input type="checkbox" name="Flash">Flash</td>
+					<td><input type="checkbox" name="MAYA">MAYA</td>
+					<td><input type="checkbox" name="Painter">Painter</td>
+				    <td><input type="checkbox" name="Premiere">Premiere</td>
+				    <td><input type="checkbox" name="Photoshop">Photoshop</td>
+				</tr>
+				<tr>
+				   <td><input type="checkbox" name="AutoCAD">AutoCAD</td>
+					<td><input type="checkbox" name="Catia" >Catia</td>
+					<td><input type="checkbox" name="CorelDraw" >CorelDraw</td>
+					<td><input type="checkbox" name="Illustrator">Illustrator</td>
+					<td><input type="checkbox" name="FPGA">FPGA</td>	
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="LabVIEW">LabVIEW</td>
+					<td><input type="checkbox" name="Pro/E">Pro/E</td>		
+					<td><input type="checkbox" name="SolidWorks">SolidWorks</td>
+					
+				</tr>				 
+			</table>
+		</div>
+		<h2>详细信息：</h2>
+		<textarea></textarea>
+		<p class="sure-cancel">
+			<a href="javascript:;" class="submit-info submit-skills">确定</a>
+			<a href="javascript:;" class="cancel-submit cancel-skills">取消</a>
+		</p>
+	</div>
+	 <{include file="../../common/footer.html"}>
+	<script type="text/javascript">
+		KISSY.use('page/job_apply/editResume',function(S){
+			S.ready(function(){
+				PW.page.job_apply.editResume();
+			})
+		})
+	</script>
+</body>
+</html>

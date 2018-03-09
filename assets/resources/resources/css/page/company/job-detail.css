@@ -1,0 +1,332 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: post.css
+@Description: 在招职位css定义
+@Version: 1.0.0(2015-05-19)YYYY-MM-DD
+@author: zhaokaikang
+2015-05-19:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+.main {
+	width: 965px;
+	margin: 28px auto;
+}
+
+/*招聘职位start*/
+.job {
+	position: relative;
+	float: left;
+	width: 664px;
+	padding: 25px 0 30px 31px;
+	border: 1px solid #e8e8e8;
+}
+
+.job-name {
+	float: left;
+	height:30px;
+	line-height:30px;
+	font-size: 24px;
+	color: #3f3f3f;
+}
+
+/*该工作被浏览次数，更新时间，投递简历人数模块css*/
+.number-details {
+	width: 500px;
+	height: 20px;
+	margin-top: 10px;
+	font-size: 12px;
+	color: #919191;
+}
+
+.number-details li {
+	float: left;
+	position: relative;
+	width: 120px;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 20px;	
+}
+
+.number-details li i{
+	position: absolute;
+	left: -2px;
+    top: -3px;	
+	display: inline-block;
+	width: 20px;
+	height:20px;
+	background-image: url("../../../img/company/icon-list.png");
+	background-repeat: no-repeat;
+}
+
+.update-date i{
+	background-position: -226px -2px;
+   }
+
+.looked-number i{
+	background-position: -195px -2px;  
+}
+
+.delivery-resume i{
+	background-position: -165px -2px;
+}
+
+.bright-spot h1 , .requirements h1 , .describe h1 {
+	width: 100px;
+    margin-top: 25px;
+	border-bottom: 2px solid #4193e4;
+	text-align: center;
+	font-size: 16px;
+	color: #4193e4;
+}
+
+.bright-spot h1 span , .requirements h1 span , .describe h1 span {
+	font-size: 24px;
+	color:#fb8302;
+}
+
+.bright-spot h2, .requirements h2 , .describe h2 {
+	width: 80px;
+	font-size: 12px;
+	color: #919191;
+}
+
+.bright-spot ul {
+	/*width: 380px;*/
+	height: 40px;
+	margin-top: 30px;
+}
+
+.bright-spot li {
+	float: left;
+	width: 96px;
+	height: 40px;
+	margin-right: 20px;
+	background-color: #f69935;
+	border-radius: 3px;
+	font-size:16px; 
+	line-height: 40px;
+    text-align: center;
+}
+
+.bright-spot li em {
+	text-decoration: none;
+	color: white;
+}
+
+.job-requirements {
+	width: 490px;
+	height: 140px;
+}
+
+.job-requirements li {
+	float: left;
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	text-align: left;
+	font-size: 14px;
+	color: #3f3f3f;
+}
+
+.describe p {
+	text-indent: 26px;
+	color: #000;
+	font-size:14px; 
+	margin-top: 20px;
+    line-height: 35px;
+    padding: 0 34px 0 20px;
+}
+
+.describe p a{
+	color: #000;
+}
+
+.describe table p{
+	margin-top: 0;
+	padding:0;
+	text-indent:0;
+}
+
+.summary {
+	margin-top: 24px;
+	margin-bottom: 36px;
+	text-indent: 0px;
+}
+
+.job-apply {
+	height: 35px;
+	margin-top: 35px;
+	text-align: center;
+}
+
+.apply-button {
+	float: left;
+	display: inline-block;
+	width: 164px;
+	margin-left: 230px;
+	line-height: 35px;
+	background-color: #40a7ef;
+	box-shadow: 3px 1px #cccbcb;
+	font-size: 19px;
+	color: white;
+}
+
+.collection {
+	float: left;
+	display: inline-block;
+	width: 80px;
+	margin-left: 10px;
+	background: url("../../../img/company/icon-list.png") no-repeat -288px 1px;
+	color: #fb8302;
+	line-height: 35px;
+	font-size: 14px;
+	
+}
+
+.uncollection {
+	float: left;
+	display: inline-block;
+	width: 80px;
+	margin-left: 10px;
+	/*background: url("../../../img/company/icon-list.png") no-repeat -288px 1px;*/
+	color: #fb8302;
+	line-height: 35px;
+	font-size: 14px;
+	
+}
+
+.right-containers {
+	float: right;
+	width: 250px;
+	margin-left: 15px;
+}
+
+.company-business-card {
+	width: 250px;
+	border-top: 1px solid #53c5e2;
+	border-bottom: 1px solid #ededed;
+	border-right: 1px solid #ededed;
+	border-left: 1px solid #ededed;
+}
+
+.company-business-card div {
+	height: 45px;
+	width: 210px;
+	margin-left: 24px;
+	border-bottom: 1px dashed #cecccc;
+}
+
+.company-business-card h1 {
+	width: 77px;
+	height: 45px;
+	border-bottom:1px solid #53c5e2;
+	line-height: 45px;
+	font-size: 18px;
+}
+/*单位名片 联系人 模块ul 与 li的样式*/
+.list-content {
+	width: 216px;
+	margin-left: 24px;
+	margin-top: 20px;
+}
+
+.list-content li{
+	padding: 5px 0;
+	font-size: 12px;
+}
+
+.contacts {
+	width: 250px;
+	height: 170px;
+	background-color: #fafafa;
+	margin-top: 25px;
+}  
+
+.contacts h1 {
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+    padding-left: 24px;
+	font-size: 14px;
+	text-indent: 28px;
+}
+
+.contacts h1 i{
+	position: absolute;
+    bottom: 4px;
+    left: 21px;
+    height: 30px;
+    width: 24px;
+    background: url("../../../img/company/icon-list.png") no-repeat -256px 1px;;
+
+}
+
+.baidu-map {
+	width: 270px;
+	height: 200px;
+	margin-top: 20px;
+}
+
+.baidu-map h1 {
+	position: relative;
+	padding-top: 5px;
+	text-indent: 26px;
+
+}
+
+.baidu-map h1 i {
+	position: absolute;
+    bottom: -7px;
+    left: -4px;
+    height: 30px;
+    width: 24px;
+    background: url("../../../img/company/icon-list.png") no-repeat -139px 1px;
+ }
+
+.map-content {
+	width: 245px;
+	height: 170px;
+	margin-top: 12px;
+	border:1px solid #e8e8e8;
+	font-size: 14px;
+}
+
+.official-website {
+	width: 200px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+.official-website a{
+	color: #000;
+}
+
+.none {
+	display: none;
+}
+    
+ 
+ .bshare-custom {
+	 position: absolute;
+     right: 56px;
+     top: 32px;
+}
+    
+.qrCode-Img{
+	position: absolute;
+	right: 0;
+	top:55px;
+	border: 1px solid #000;
+	width: 200px;
+	height: 200px;
+}
+
+.show-QRCode {
+	position: absolute;
+	right: 20px;
+	top: 34px;
+	width: 15px;
+	height: 15px;
+	background: url("../../../img/company/er-btn.png") no-repeat 0 0;
+}
+

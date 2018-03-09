@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8";>
+    <title>我要点评</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/i-comment.css">
+</head>
+
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../common/header.html"}>
+<div class="content">
+    <div class="content-box">
+        <h1 class="share-comment">
+            分享一条单位评价，为学弟学妹的职业规划提供帮助 </h1>
+        <h2 class="promise">
+            </h2>
+        <form class="share-form" id="J_form" action="<{$website}>company/companyComment/add" method="post">
+            <input type="hidden" name="companyId" value="<{$company.id}>">
+            <p class="choice">选择与被评价单位的关系</p>
+					<span class="worked">
+						<input class="staff" type="radio" name="is_employee" checked="checked" value="1" /> 在这所单位工作过
+						<input class="not-staff"  type="radio" name="is_employee" value="0" /> 非员工（和这所单位关联的外部人员）
+					</span>
+            <div class="work-experience" >
+                <p class="no-experience"> 您还没有在这所单位有过从业经历，添加一段新的工作经历
+                </p>
+                <div class="school-name">
+                    <span>单位名称：  </span><{$company.name}>
+                </div>
+                <div class="position">
+                    <span>职位名称：</span>
+                    <input type="text" name="position_name" class="position-name">
+                    <span class="position-tip none">职位名称不能为空</span>
+                </div>
+                <div class="status">
+                    <span>身份：</span>
+                    <select name="identity">
+                        <option value="1" selected="selected">在职员工</option>
+                        <option value="2">已退休</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="add-experience none" >
+                <div class="school-name2">
+                    <span>单位名称：  </span>
+                    <em><{$company.name}></em>
+                </div>
+                <div class="guanxi">
+                    <span>和该单位关系：</span>
+                    <select name="relationship">
+                        <option value="1" selected="selected">合作伙伴</option>
+                        <option value="2">学生</option>
+                        <option value="3">员工好友</option>
+                        <option value="4">关注者</option>
+                    </select>
+                </div>
+            </div>
+
+            <p class="whole-comment">我对<a href="javascript:;"><{$company.name}></a>的整体评价是：</p>
+            <div class="rate">
+                <a  href="javascript:;" value="1">非常不满意</a>
+                <a  href="javascript:;" value="2">不满意</a>
+                <a  href="javascript:;" value="3">一般</a>
+                <a  href="javascript:;" value="4">满意</a>
+                <a  href="javascript:;" value="5">非常满意</a>
+                <span class="satisfy-degree"></span>
+                <span class="rate-tip none">请评分</span>
+            </div>
+            <!-- name为score的input标签为提交用户对该单位的评分 -->
+            <input type="hidden" name="whole_comment" class="score"></input>
+            <p class="i-attitude">是否赞同领导带领这所单位的方式：</p>
+            <div class="attitude">
+                <input  type="radio" name="is_agree_leader" value="1" /> <span class="green-zan">赞同 </span>
+                <input  class="jianju" type="radio" name="is_agree_leader" value="2" /> <span class="no-zan">不赞同</span>
+                <input class="jianju"   type="radio" name="is_agree_leader" value="3" /> <span>不做表态</span>
+            </div>
+            <!--<p class="i-open">是否公开身份 <span>（以实名形式发表，评价可信度更高）</span>
+            </p>
+            <div class="open">
+                <input  type="radio" name="is_public" value="0" /> 匿名发表
+                <input  class="ture-name" type="radio" name="is_public" value="1" checked="true"/> 实名发表
+            </div>-->
+            <div class="tijiao" >
+                <input  type="submit" value="提交" class="submit-coment">
+            </div>
+        </form>
+    </div>
+</div>
+<{include file="../../common/footer.html"}>
+<script type="text/javascript">
+    KISSY.use('page/company/iComment',function(S){
+        S.ready(function(){
+            PW.page.company.iComment();
+        })
+    })
+</script>
+</body>

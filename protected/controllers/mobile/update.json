@@ -1,0 +1,16 @@
+{
+    "appid":"dsjyw_app",
+    "iOS":{
+    	"version":"1.0.3",
+    	"title":"更新",
+    	"note":"新增自动升级检测功能\n新增投递简历\n新增注册\n",
+    	// "url":"itms-apps://itunes.apple.com/cn/app/hello-h5+/id682211190?l=zh&mt=8"
+        "url":""
+    },
+    "Android":{
+    	"version":"1.0.3",
+    	"title":"更新",
+    	"note":"新增自动升级检测功能\n新增投递简历\n新增注册\n",
+    	"url":"http://www.dsjyw.net/mobile/HelloH5.apk"
+    }
+}

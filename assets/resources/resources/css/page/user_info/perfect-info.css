@@ -1,0 +1,159 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: perfect-info.css
+@Description: 完善信息css定义
+@Version: 1.0.0(2015-09-01)YYYY-MM-DD
+@author: zhaokaikang
+2015-09-01
+初始生成。
+--------------------------------------------------------------------------------------------*/
+.content{
+	padding: 70px 0;
+	background:url("../../../img/user_info/perfect-info-bg.gif") repeat-x 0 0;
+}
+
+.content h1 {
+	width: 798px;
+	height: 40px;
+	margin: 0 auto;
+	line-height: 40px;
+	text-indent: 63px;
+	background: url("../../../img/user_info/little-logo.png") no-repeat 0 0;
+	font-size: 16px;
+	font-weight: normal;
+	color: #fff;
+}
+
+.content h1 span , .content h1 a{
+	float:right;
+	font-size: 16px;
+	color: #fff;
+	text-indent: 10px;
+}
+
+.complete-form {
+	width: 798px;
+	margin: 0 auto;
+	border: 1px solid #bfbfbf;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.complete-form h2{
+	height: 120px;
+	line-height: 120px;
+	text-align: center;
+	font-size: 30px;
+	color: #bbb7b3;
+	font-weight: normal;
+}
+
+.complete-form div {
+	height: 38px;
+	width: 400px;
+	margin: 15px auto;
+	line-height: 38px;
+	border: 2px solid #dce0e7;
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+.complete-form div span{
+	margin-left:22px;
+	color: #c8cdda; 
+}
+
+.complete-form div input{
+	height: 38px;
+	line-height: 38px;
+	border: none;
+	width: 280px;
+}
+
+.complete-form div select{
+	height: 38px;
+	width: 298px;
+	border: 1px solid #dce0e7;
+}
+
+.complete-form .degree-type input{
+	height: 14px;
+	width: 15px;
+}
+
+.complete-form .degree-type em{
+	display: inline-block;
+	height: 38px;
+	line-height: 38px;
+	border-right: 1px solid #dce0e7;
+	text-indent: 6px;
+	width: 36px;
+}
+
+.complete-form .degree-type em:last-child{
+	border: none;
+}
+
+.complete-form .school-time select {
+	width: 136px;
+	margin-left: 8px;
+}
+
+.complete-form .school-time span {
+	display: inline-block;
+	margin-left: 0;
+}
+
+.complete-form .sex-type input{
+	height: 14px;
+	width: 50px;
+}
+
+.complete-form .sex-type em{
+	display: inline-block;
+	height: 38px;
+	line-height: 38px;
+	padding-right: 23px;
+	border-right: 1px solid #dce0e7;
+}
+
+.complete-form .sex-type em:last-child{
+	border: none;
+}
+
+.complete-form .location-div select {
+	width: 140px;
+	margin-left: 7px;
+}
+
+.submit-complete-form{
+	height: 44px;
+	width: 200px;
+	margin: 40px 200px;
+	border-radius: 5px;
+	background-color: #f36848;
+	font-size: 16px;
+	color: #FFf;
+	border: 1px solid #fff;
+	cursor: pointer;
+}
+
+.complete-form .main-major{
+	width: 140px;
+	margin-right: 14px;
+}
+
+.complete-form .sub-major{
+	width: 140px;
+}
+
+.none{
+	display: none;
+}
+
+.complete-form div .error-field{
+	border: 1px solid #d15b47;
+}
+
+.close-input{
+	color: #7f191e;
+}

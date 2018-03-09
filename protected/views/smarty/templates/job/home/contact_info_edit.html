@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>求职通</title>
+	    <meta charset="utf-8" />
+	    <{include file="../../common/link.html"}>
+		 <{include file="../../common/script.html"}>
+	   <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/mine.css">
+	</head>
+	<body>
+		<{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="mine">
+			<!-- 编辑联系方式模块 start-->
+			<div class="module">
+				<h3 class="module-title">
+					<span>编辑联系方式</span>
+					<a href="<{$website}>job/job/index">返回我的档案</a>
+				</h3>
+				<form method="post" action="<{$website}>job/job/contactInfoEdit/id/<{$ContactInfo.id}>" class="clearfix  info-form">
+					<div class="info-box">
+						<div class="info-item">
+							<span class="label">手机&nbsp;:</span>
+							<!-- <input type="text" class="control-area-short" placeholder="0086"/> -->
+							<input type="text" class="control-area-normal" placeholder="<{$ContactInfo.cellphone}>" data-valid-rule="isMobile" maxlength="50" name="ContactInfo[cellphone]" value="<{$ContactInfo.cellphone}>"/>
+						</div>
+						<p class="J_errorTip"></p>
+					</div>
+					<div class="visible-range">
+						<p name="is_visible[]">
+							
+							<i class="<{$data[0]}>"></i><{$chinese[0]}><span></span>
+							<input type="hidden" value="<{$array[0]}>" name="is_visible[]">
+						</p>
+						<ul class="none">
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div>
+					
+					<div class="info-box">
+						<div class="info-item">
+							<span class="label">电话&nbsp;:</span>
+							<input type="text" class="control-area-long"   placeholder="请输入座机号码，如XXXX-XXXXXXX"  maxlength="50" name="ContactInfo[phone]" value="<{$ContactInfo.phone}>" data-valid-rule="isNull | isTelephone"/>
+						</div>
+						<p class="J_errorTip"></p>
+					</div>
+					<div class="visible-range">
+						<p name="is_visible[]">
+							<i class="<{$data[1]}>"></i><{$chinese[1]}><span></span>
+							<input type="hidden" value="<{$array[1]}>" name="is_visible[]">
+						</p>
+						<ul class="none">
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div> 
+					
+					<div class="info-box">
+						<div class="info-item">
+							<span class="label">QQ&nbsp;:</span>
+							<input type="text" class="control-area-long" data-valid-tip="请输入qq号码|qq号码必须是小于12位的数字" data-valid-rule="isQQ | isNull" maxlength="50"  name="ContactInfo[qq]" value="<{$ContactInfo.qq}>"/>
+						</div>
+						<p class="J_errorTip"></p>
+					</div>
+					<div class="visible-range">
+						<p name="is_visible[]">
+							<i class="<{$data[2]}>"></i><{$chinese[2]}><span></span>
+							<input type="hidden" value="<{$array[2]}>" name="is_visible[]">
+						</p>
+						<ul class="none">
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div> 
+					
+					<div class="info-box">
+						<div class="info-item">
+							<span class="label">微信&nbsp;:</span>
+							<input type="text" class="control-area-long" maxlength="50" name="ContactInfo[wechat]"  value="<{$ContactInfo.wechat}>" data-valid-rule="isCommonUser | isNull"/>
+						</div>
+						<p class="J_errorTip"></p>
+					</div>
+					<div class="visible-range">
+						<p name="is_visible[]">
+							<i class="<{$data[3]}>"></i><{$chinese[3]}><span></span>
+							<input type="hidden" value="<{$array[3]}>" name="is_visible[]">
+						</p>
+						<ul class="none">
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div> 
+					
+					<div class="info-box">
+						<div class="info-item">
+							<span class="label">邮箱&nbsp;:</span>
+							<input type="text" class="control-area-long" data-valid-tip="请正确填写邮箱|邮箱填写不符合规则" data-valid-rule="isEmail" placeholder="如:(XX@XX.XX)" maxlength="50" name="ContactInfo[email]" value="<{$ContactInfo.email}>"/>
+						</div>
+						<p class="J_errorTip"></p>
+					</div>
+					<div class="visible-range">
+						<p name="is_visible[]">
+							<i class="<{$data[4]}>"></i><{$chinese[4]}><span></span>
+							<input type="hidden" value="<{$array[4]}>" name="is_visible[]">
+						</p>
+						<ul class="none">
+							<li><i class="all"></i>全部人可见</li>
+							<li><i class="schoolmate"></i>仅校友可见</li>
+							<li><i class="self"></i>仅自己可见</li>
+						</ul>
+					</div> 
+					
+					<div class="info-item center">
+						<button type="submit" class="save">保存</button>
+						<button type="reset" class="cancel">重置</button>
+					</div>
+				</form>
+			</div>
+			<!-- 编辑联系方式模块 end-->
+		</div>
+		<{include file="../../common/footer.html"}>
+		<script type="text/javascript">
+			KISSY.use('page/job_apply/contact',function(S){
+				S.ready(function(){
+					PW.page.job_apply.contact();
+				})
+			})
+		</script>
+	</body>
+</html>

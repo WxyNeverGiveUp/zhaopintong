@@ -1,0 +1,299 @@
+/*-----------------------------------------------------------------------------
+* @Description: detail样式 
+* @Version: 	V2.0.0
+* @author: 		xuyihong(597262617@qq.com)
+* @date			2015.08.02
+--------------------------------------------------------------------------------------------*/
+.block{
+	width: 705px;
+	margin: 0 auto;
+	margin-top: 48px;
+	display: block;
+	min-height: 360px;
+}
+.block-header{
+	position: relative;
+	width: 699px;
+	height: 24px;
+	line-height: 24px;
+	border-left: 6px solid #e17c22;
+	border-bottom: 2px solid #cecece;
+	padding-left: 5px;
+	color: #e17c22;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.block-content{
+	width: 534px;
+	margin: 0 auto;
+	margin-top: 43px;
+}
+.con-header{
+	width: 534px;
+	height: 16px;
+	line-height: 16px;
+	color: #6d6a6a;
+	font-size: 16px;
+	font-weight: bold;
+}
+.con-con{
+	width: 534px;
+	padding: 28px 0;
+}
+.cal{
+	float: left;
+	margin-right: 31px;
+	width: 82px;
+	height: 82px;
+	background: #208eed;
+	margin-bottom: 100px;
+}
+.cal-top{
+	float: left;
+	color: #fff;
+	height: 12px;
+	font-size: 12px;
+	padding-left: 7px;
+	margin-top: 6px;
+}
+.cal-day{
+	float: left;
+	color: #fff;
+	font-size: 48px;
+	padding-left: 13px;
+	height: 48px;
+}
+.det{
+	float: left;
+	width: 420px;
+	font-size: 14px;
+	color: #1e1e1e;
+	margin-bottom: 13px;
+}
+.det label{
+	color: #9e9b9b;
+}
+.det label,.det span{
+	height: 14px;
+}
+.entor , .unentor , .live-entrance{
+	float: left;
+	margin-left: 30px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 31px;
+	color: #fff;
+	background: #e17c22;
+	margin-top: 25px;
+	width: 73px;
+	height: 31px;
+	display: block;
+}
+
+.bor{
+	border-left: none;
+	color: #757474;
+	font-size: 14px;
+	font-weight: normal;
+	padding-left: 10px;
+	margin-bottom: 10px;
+}
+.bor span{
+	color: #000;
+}
+.pad{
+	padding-left: 20px;
+}
+.img{
+	float: left;
+	width: 50px;
+	height: 50px;
+	padding: 3px;
+	border: 1px solid #cecece;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	border-radius:50%; 
+}
+
+.distr{
+	float: left;
+	width: 352px;
+	min-height: 163px;
+}
+.fright{
+	float: right;
+}
+.fleft{
+	float: left;
+}
+.distr-head{
+	width: 352px;
+	height: 16px;
+	border-left: 5px solid #e17c22;
+	padding-left: 12px;
+	color: #555454;
+	font-size: 14px;
+	line-height: 16px;
+	margin-bottom: 19px;
+}
+.distr-con{
+	width: 352px;
+	display: block;
+	min-height: 32px;
+}
+.distr-con label{
+	float: left;
+	width: 130px;
+	text-align: right;
+	padding-right: 13px;
+	color: #555454;
+	font-size: 14px;
+	line-height: 16px;
+	display: block;
+}
+.distr-con span{
+	float: left;
+	display: block;
+	width: 150px;
+	font-size: 14px;
+	line-height: 16px;
+	background: #e5e5e5;
+}
+.distr-con i{
+	float: left;
+	display: block;
+	width: 50px;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: left;
+	padding-left: 5px;
+}
+
+.content{
+	width: 900px;
+	margin: 0 auto;
+	display: block;
+	min-height: 800px;
+}
+.mar{
+	margin-left: 0;
+	margin-right: 0;
+}
+.bar-right{
+	padding-left: 65px;
+	width: 105px;
+	display: inline-block;
+	min-height: 500px;
+	float: right;
+	padding-top: 76px;
+}
+.live{
+	width: 205px;
+	height: 136px;
+	padding-bottom: 30px;
+}
+.doc{
+	width: 203px;
+	min-height: 209px;
+	border: 1px solid #aaa6a6;
+}
+.doc .head{
+	margin: 12px 9px;
+	width: 185px;
+	height: 18px;
+	font-size: 14px;
+	border-bottom: 1px solid #cecece;
+	color:#e17c22;
+}
+.doc .docli{
+	float: left;
+	padding-left: 8px;
+	padding-bottom: 16px;
+	width: 194px;
+	height: 42px;
+	font-size: 12px;
+	display: block;
+}
+.doc .docli .cal{
+	margin-right: 15px;
+	width: 42px;
+	height: 42px;
+	background: #b6b5b5;
+	color: #fff;
+	text-align: center;
+}
+.doc .docli .cal .mon{
+	width: 42px;
+	height: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 12px;
+}
+.doc .docli .cal .day{
+	width: 42px;
+	height: 22px;
+	line-height: 22px;
+	display: block;
+	font-size: 20px;
+}
+.doc .docli .tit{
+	color: #000;
+	display: block;
+	width: 137px;
+	line-height: 37px;
+	overflow:hidden;
+	text-overflow:ellipsis; 
+}
+.doc .docli .atr{
+	color: #949292;
+	line-height: 21px;
+}
+.big{
+	width: 705px;
+	min-height: 800px;
+}
+.num{
+	display: block;
+	background: #73b7d7;
+	width: 0;
+	height: 16px;
+}
+.none{
+	display: none;
+}
+
+.bshare-custom{
+	position: absolute;
+	right: 42px;
+	top: 0;
+}
+
+.qrCode-Img{
+	position: absolute;
+	right: 0;
+	top: 100%;
+	border: 1px solid #000;
+	width: 200px;
+	height: 200px;
+}
+
+.show-QRCode {
+	position: absolute;
+	right: 5px;
+	top: 0;
+	width: 15px;
+	height: 15px;
+	background: url("../../../img/company/er-btn.png") no-repeat 0 0;
+}
+
+.return-remote-list{
+	float: right;
+	color: #e17c22;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.con-con .enroll-div {
+	float: right;
+}

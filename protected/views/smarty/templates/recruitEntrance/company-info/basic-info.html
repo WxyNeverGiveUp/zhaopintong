@@ -1,0 +1,80 @@
+<!-- ==================================================
+* @Description: 公司信息-基本资料
+* @Version: 1.0.0
+* @Author: wuxiaoyang(15290491277@163.com)
+* @Date: 2017.7.20
+* ==NOTES:=============================================
+* v1.0.0(2017.7.20):
+初始生成
+* ==================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>基本信息</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="<{$staticWebsite}>recruitment_resources/css/page/company-info/basic-info.css">
+	<{include file="../common/link.html"}>
+	<{include file="../common/script.html"}>
+	<{include file="../../common/script.html"}>
+</head>
+<body>
+	<div class="page">
+		<{include file="../common/header.html"}>
+		<div class="content">
+			<div class="sidebar">
+				<h2><i class="fa fa-user list-img"></i>公司信息</h2>
+				<ul class="tab_menu">
+					<li class="active"><a href="<{$website}>recruitEntrance/company/tCompany/getCompanyBaseManager">基本资料</a></li>
+					<li><a href="<{$website}>recruitEntrance/company/tCompany/getCompanyAuthenticationData">认证资料</a></li>
+					<li><a href="<{$website}>recruitEntrance/company/companyLoginUser/listAllUser">单位成员</a></li>
+				</ul>
+			</div>
+			<div class="main">
+				<form action="<{$website}>recruitEntrance/company/tCompany/updateCompanyBaseManager" method="post" enctype="multipart/form-data">
+					<div class="info-list">
+						<label>企业名称</label>
+						<input type="text" class="require-text" name="name" value="<{$name}>" disabled="disabled">
+					</div>
+					<div class="info-list">
+						<label>所在城市</label>
+						<input type="text" class="require-text" name="full_address"  value="<{$fullAddress}>" disabled="disabled">
+					</div>
+					<div class="info-list">
+						<label>单位网址</label>
+						<input type="text" name="website"  value="<{$website1}>">
+						<p class="none tip">请输入正确的网址</p>
+					</div>
+					<div class="info-list">
+						<label class="label-attr label-align">企业logo</label>
+						<div class="img-box">
+							<img id="portrait" src="../../../assets/uploadFile/recruitEntrance/company-logo/<{$logo}>" alt="请选择上传的图片">
+							<div class="operate">
+								<input type="file" class="file-pick" id="img-choose" accept="image/gif, image/jpeg,image/png,/image/JPG,/image/PNG" name="logo" value="请选择文件...">
+							</div>
+						</div>
+						<p class="tip none">没有上传照片,请上传</p>
+					</div>
+					<div class="info-list">
+						<label>企业视频</label>
+						<div class="img-preview">
+							<video src="../../../assets/uploadFile/recruitEntrance/company-video/<{$videoUrl}>" controls="controls">
+								您的浏览器不支持视频预览
+							</video>
+							<div>
+								<input type="file" name="video_url" id="video-choose">
+							</div>
+						</div>
+					</div>
+					<div class="info-list">
+						<label>企业亮点</label>
+						<input type="text" class="require-text" name="company_bright" value="<{$companyBright}>" placeholder="多个关键字用逗号“ ，”分隔">
+					</div>
+					<input type="submit" class="submit-btn" value="保存">
+				</form>
+			</div>
+		</div>
+		<{include file="../common/footer.html"}>
+	</div>
+	<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/company-info/basic-info.js"></script>
+</body>
+</html>

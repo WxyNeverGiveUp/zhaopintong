@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>修改远程面试</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.all.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <link rel="stylesheet" type="text/css" href="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/themes/default/css/ueditor.css" />
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<div class="continer">
+<{include file="../../common/sidebar.html"}>
+<div class="content">
+<{include file="../../common/crumbs.html"}>
+<form class="login-from block" action="<{$website}>admin/company/remoteInterview/edit/id/<{$remote.id}>" method="post">
+<div class = "block-header">
+    <h3>修改远程面试</h3>
+</div>
+<div class="block-content clearfix">
+<div class="control-area control-area-short">
+    <label>主题</label>
+    <input type="text" name="theme" value="<{$remote.theme}>"/>
+</div>
+<div class="control-area control-area-short">
+    <label>地点</label>
+    <input type="text" name="place" value="<{$remote.place}>"/>
+</div>
+    <div class="control-area control-area-short">
+        <label>远程面试链接地址</label>
+        <input type="text" name="url"  value="<{$remote.url}>"/>
+    </div>
+<div class="control-area control-area-long">
+<label>开始日期</label>
+<input type="text" name="day" class="textTheme J_time" data-type="date"  style="width:10%" data="0" value="<{$remote.day}>">
+<span>开始时间:</span>
+<select class="textTheme" style="width:5%" name="startHour">
+    <{if $startHour == '0'}>
+    <option selected="selected">0</option>
+    <{else}>
+    <option>0</option>
+    <{/if}>
+    <{if $startHour == '1'}>
+    <option selected="selected">1</option>
+    <{else}>
+    <option>1</option>
+    <{/if}>
+    <{if $startHour == '2'}>
+    <option selected="selected">2</option>
+    <{else}>
+    <option>2</option>
+    <{/if}>
+    <{if $startHour == '3'}>
+    <option selected="selected">3</option>
+    <{else}>
+    <option>3</option>
+    <{/if}>
+    <{if $startHour == '4'}>
+    <option selected="selected">4</option>
+    <{else}>
+    <option>4</option>
+    <{/if}>
+    <{if $startHour == '5'}>
+    <option selected="selected">5</option>
+    <{else}>
+    <option>5</option>
+    <{/if}>
+    <{if $startHour == '6'}>
+    <option selected="selected">6</option>
+    <{else}>
+    <option>6</option>
+    <{/if}>
+    <{if $startHour == '7'}>
+    <option selected="selected">7</option>
+    <{else}>
+    <option>7</option>
+    <{/if}>
+    <{if $startHour == '8'}>
+    <option selected="selected">8</option>
+    <{else}>
+    <option>8</option>
+    <{/if}>
+    <{if $startHour == '9'}>
+    <option selected="selected">9</option>
+    <{else}>
+    <option>9</option>
+    <{/if}>
+    <{if $startHour == '10'}>
+    <option selected="selected">10</option>
+    <{else}>
+    <option>10</option>
+    <{/if}>
+    <{if $startHour == '11'}>
+    <option selected="selected">11</option>
+    <{else}>
+    <option>11</option>
+    <{/if}>
+    <{if $startHour == '12'}>
+    <option selected="selected">12</option>
+    <{else}>
+    <option>12</option>
+    <{/if}>
+    <{if $startHour == '13'}>
+    <option selected="selected">13</option>
+    <{else}>
+    <option>13</option>
+    <{/if}>
+    <{if $startHour == '14'}>
+    <option selected="selected">14</option>
+    <{else}>
+    <option>14</option>
+    <{/if}>
+    <{if $startHour == '15'}>
+    <option selected="selected">15</option>
+    <{else}>
+    <option>15</option>
+    <{/if}>
+    <{if $startHour == '16'}>
+    <option selected="selected">16</option>
+    <{else}>
+    <option>16</option>
+    <{/if}>
+    <{if $startHour == '17'}>
+    <option selected="selected">17</option>
+    <{else}>
+    <option>17</option>
+    <{/if}>
+    <{if $startHour == '18'}>
+    <option selected="selected">18</option>
+    <{else}>
+    <option>18</option>
+    <{/if}>
+    <{if $startHour == '19'}>
+    <option selected="selected">19</option>
+    <{else}>
+    <option>19</option>
+    <{/if}>
+    <{if $startHour == '20'}>
+    <option selected="selected">20</option>
+    <{else}>
+    <option>20</option>
+    <{/if}>
+    <{if $startHour == '21'}>
+    <option selected="selected">21</option>
+    <{else}>
+    <option>21</option>
+    <{/if}>
+    <{if $startHour == '22'}>
+    <option selected="selected">22</option>
+    <{else}>
+    <option>22</option>
+    <{/if}>
+    <{if $startHour == '23'}>
+    <option selected="selected">23</option>
+    <{else}>
+    <option>23</option>
+    <{/if}>
+</select>
+时
+<select class="textTheme" style="width:5%" name="startMinute">
+<{if $startMinute == '00'}>
+<option selected="selected">00</option>
+<{else}>
+<option>00</option>
+<{/if}>
+<{if $startMinute == '01'}>
+<option selected="selected">01</option>
+<{else}>
+<option>01</option>
+<{/if}>
+<{if $startMinute == '02'}>
+<option selected="selected">02</option>
+<{else}>
+<option>02</option>
+<{/if}>
+<{if $startMinute == '03'}>
+<option selected="selected">03</option>
+<{else}>
+<option>03</option>
+<{/if}>
+<{if $startMinute == '04'}>
+<option selected="selected">04</option>
+<{else}>
+<option>04</option>
+<{/if}>
+<{if $startMinute == '05'}>
+<option selected="selected">05</option>
+<{else}>
+<option>05</option>
+<{/if}>
+<{if $startMinute == '06'}>
+<option selected="selected">06</option>
+<{else}>
+<option>06</option>
+<{/if}>
+<{if $startMinute == '07'}>
+<option selected="selected">07</option>
+<{else}>
+<option>07</option>
+<{/if}>
+<{if $startMinute == '08'}>
+<option selected="selected">08</option>
+<{else}>
+<option>08</option>
+<{/if}>
+<{if $startMinute == '09'}>
+<option selected="selected">09</option>
+<{else}>
+<option>09</option>
+<{/if}>
+<{if $startMinute == '10'}>
+<option selected="selected">10</option>
+<{else}>
+<option>10</option>
+<{/if}>
+<{if $startMinute == '11'}>
+<option selected="selected">11</option>
+<{else}>
+<option>11</option>
+<{/if}>
+<{if $startMinute == '12'}>
+<option selected="selected">12</option>
+<{else}>
+<option>12</option>
+<{/if}>
+<{if $startMinute == '13'}>
+<option selected="selected">13</option>
+<{else}>
+<option>13</option>
+<{/if}>
+<{if $startMinute == '14'}>
+<option selected="selected">14</option>
+<{else}>
+<option>14</option>
+<{/if}>
+<{if $startMinute == '15'}>
+<option selected="selected">15</option>
+<{else}>
+<option>15</option>
+<{/if}>
+<{if $startMinute == '16'}>
+<option selected="selected">16</option>
+<{else}>
+<option>16</option>
+<{/if}>
+<{if $startMinute == '17'}>
+<option selected="selected">17</option>
+<{else}>
+<option>17</option>
+<{/if}>
+<{if $startMinute == '18'}>
+<option selected="selected">18</option>
+<{else}>
+<option>18</option>
+<{/if}>
+<{if $startMinute == '19'}>
+<option selected="selected">19</option>
+<{else}>
+<option>19</option>
+<{/if}>
+<{if $startMinute == '20'}>
+<option selected="selected">20</option>
+<{else}>
+<option>20</option>
+<{/if}>
+<{if $startMinute == '21'}>
+<option selected="selected">21</option>
+<{else}>
+<option>21</option>
+<{/if}>
+<{if $startMinute == '22'}>
+<option selected="selected">22</option>
+<{else}>
+<option>22</option>
+<{/if}>
+<{if $startMinute == '23'}>
+<option selected="selected">23</option>
+<{else}>
+<option>23</option>
+<{/if}>
+<{if $startMinute == '24'}>
+<option selected="selected">24</option>
+<{else}>
+<option>24</option>
+<{/if}>
+<{if $startMinute == '25'}>
+<option selected="selected">25</option>
+<{else}>
+<option>25</option>
+<{/if}>
+<{if $startMinute == '26'}>
+<option selected="selected">26</option>
+<{else}>
+<option>26</option>
+<{/if}>
+<{if $startMinute == '27'}>
+<option selected="selected">27</option>
+<{else}>
+<option>27</option>
+<{/if}>
+<{if $startMinute == '28'}>
+<option selected="selected">28</option>
+<{else}>
+<option>28</option>
+<{/if}>
+<{if $startMinute == '29'}>
+<option selected="selected">29</option>
+<{else}>
+<option>29</option>
+<{/if}>
+<{if $startMinute == '30'}>
+<option selected="selected">30</option>
+<{else}>
+<option>30</option>
+<{/if}>
+<{if $startMinute == '31'}>
+<option selected="selected">31</option>
+<{else}>
+<option>31</option>
+<{/if}>
+<{if $startMinute == '32'}>
+<option selected="selected">32</option>
+<{else}>
+<option>32</option>
+<{/if}>
+<{if $startMinute == '33'}>
+<option selected="selected">33</option>
+<{else}>
+<option>33</option>
+<{/if}>
+<{if $startMinute == '34'}>
+<option selected="selected">34</option>
+<{else}>
+<option>34</option>
+<{/if}>
+<{if $startMinute == '35'}>
+<option selected="selected">35</option>
+<{else}>
+<option>35</option>
+<{/if}>
+<{if $startMinute == '36'}>
+<option selected="selected">36</option>
+<{else}>
+<option>36</option>
+<{/if}>
+<{if $startMinute == '37'}>
+<option selected="selected">37</option>
+<{else}>
+<option>37</option>
+<{/if}>
+<{if $startMinute == '38'}>
+<option selected="selected">38</option>
+<{else}>
+<option>38</option>
+<{/if}>
+<{if $startMinute == '39'}>
+<option selected="selected">39</option>
+<{else}>
+<option>39</option>
+<{/if}>
+<{if $startMinute == '40'}>
+<option selected="selected">40</option>
+<{else}>
+<option>40</option>
+<{/if}>
+<{if $startMinute == '41'}>
+<option selected="selected">41</option>
+<{else}>
+<option>41</option>
+<{/if}>
+<{if $startMinute == '42'}>
+<option selected="selected">42</option>
+<{else}>
+<option>42</option>
+<{/if}>
+<{if $startMinute == '43'}>
+<option selected="selected">43</option>
+<{else}>
+<option>43</option>
+<{/if}>
+<{if $startMinute == '44'}>
+<option selected="selected">44</option>
+<{else}>
+<option>44</option>
+<{/if}>
+<{if $startMinute == '45'}>
+<option selected="selected">45</option>
+<{else}>
+<option>45</option>
+<{/if}>
+<{if $startMinute == '46'}>
+<option selected="selected">46</option>
+<{else}>
+<option>46</option>
+<{/if}>
+<{if $startMinute == '47'}>
+<option selected="selected">47</option>
+<{else}>
+<option>47</option>
+<{/if}>
+<{if $startMinute == '48'}>
+<option selected="selected">48</option>
+<{else}>
+<option>48</option>
+<{/if}>
+<{if $startMinute == '49'}>
+<option selected="selected">49</option>
+<{else}>
+<option>49</option>
+<{/if}>
+<{if $startMinute == '50'}>
+<option selected="selected">50</option>
+<{else}>
+<option>50</option>
+<{/if}>
+<{if $startMinute == '51'}>
+<option selected="selected">51</option>
+<{else}>
+<option>51</option>
+<{/if}>
+<{if $startMinute == '52'}>
+<option selected="selected">52</option>
+<{else}>
+<option>52</option>
+<{/if}>
+<{if $startMinute == '53'}>
+<option selected="selected">53</option>
+<{else}>
+<option>53</option>
+<{/if}>
+<{if $startMinute == '54'}>
+<option selected="selected">54</option>
+<{else}>
+<option>54</option>
+<{/if}>
+<{if $startMinute == '55'}>
+<option selected="selected">55</option>
+<{else}>
+<option>55</option>
+<{/if}>
+<{if $startMinute == '56'}>
+<option selected="selected">56</option>
+<{else}>
+<option>56</option>
+<{/if}>
+<{if $startMinute == '57'}>
+<option selected="selected">57</option>
+<{else}>
+<option>57</option>
+<{/if}>
+<{if $startMinute == '58'}>
+<option selected="selected">58</option>
+<{else}>
+<option>58</option>
+<{/if}>
+<{if $startMinute == '59'}>
+<option selected="selected">59</option>
+<{else}>
+<option>59</option>
+<{/if}>
+</select>
+分
+<span>结束时间:</span>
+<select class="textTheme" style="width:5%" name="endHour">
+    <{if $endHour == '0'}>
+    <option selected="selected">0</option>
+    <{else}>
+    <option>0</option>
+    <{/if}>
+    <{if $endHour == '1'}>
+    <option selected="selected">1</option>
+    <{else}>
+    <option>1</option>
+    <{/if}>
+    <{if $endHour == '2'}>
+    <option selected="selected">2</option>
+    <{else}>
+    <option>2</option>
+    <{/if}>
+    <{if $endHour == '3'}>
+    <option selected="selected">3</option>
+    <{else}>
+    <option>3</option>
+    <{/if}>
+    <{if $endHour == '4'}>
+    <option selected="selected">4</option>
+    <{else}>
+    <option>4</option>
+    <{/if}>
+    <{if $endHour == '5'}>
+    <option selected="selected">5</option>
+    <{else}>
+    <option>5</option>
+    <{/if}>
+    <{if $endHour == '6'}>
+    <option selected="selected">6</option>
+    <{else}>
+    <option>6</option>
+    <{/if}>
+    <{if $endHour == '7'}>
+    <option selected="selected">7</option>
+    <{else}>
+    <option>7</option>
+    <{/if}>
+    <{if $endHour == '8'}>
+    <option selected="selected">8</option>
+    <{else}>
+    <option>8</option>
+    <{/if}>
+    <{if $endHour == '9'}>
+    <option selected="selected">9</option>
+    <{else}>
+    <option>9</option>
+    <{/if}>
+    <{if $endHour == '10'}>
+    <option selected="selected">10</option>
+    <{else}>
+    <option>10</option>
+    <{/if}>
+    <{if $endHour == '11'}>
+    <option selected="selected">11</option>
+    <{else}>
+    <option>11</option>
+    <{/if}>
+    <{if $endHour == '12'}>
+    <option selected="selected">12</option>
+    <{else}>
+    <option>12</option>
+    <{/if}>
+    <{if $endHour == '13'}>
+    <option selected="selected">13</option>
+    <{else}>
+    <option>13</option>
+    <{/if}>
+    <{if $endHour == '14'}>
+    <option selected="selected">14</option>
+    <{else}>
+    <option>14</option>
+    <{/if}>
+    <{if $endHour == '15'}>
+    <option selected="selected">15</option>
+    <{else}>
+    <option>15</option>
+    <{/if}>
+    <{if $endHour == '16'}>
+    <option selected="selected">16</option>
+    <{else}>
+    <option>16</option>
+    <{/if}>
+    <{if $endHour == '17'}>
+    <option selected="selected">17</option>
+    <{else}>
+    <option>17</option>
+    <{/if}>
+    <{if $endHour == '18'}>
+    <option selected="selected">18</option>
+    <{else}>
+    <option>18</option>
+    <{/if}>
+    <{if $endHour == '19'}>
+    <option selected="selected">19</option>
+    <{else}>
+    <option>19</option>
+    <{/if}>
+    <{if $endHour == '20'}>
+    <option selected="selected">20</option>
+    <{else}>
+    <option>20</option>
+    <{/if}>
+    <{if $endHour == '21'}>
+    <option selected="selected">21</option>
+    <{else}>
+    <option>21</option>
+    <{/if}>
+    <{if $endHour == '22'}>
+    <option selected="selected">22</option>
+    <{else}>
+    <option>22</option>
+    <{/if}>
+    <{if $endHour == '23'}>
+    <option selected="selected">23</option>
+    <{else}>
+    <option>23</option>
+    <{/if}>
+</select>
+时
+<select class="textTheme" style="width:5%" name="endMinute">
+<{if $startMinute == '00'}>
+<option selected="selected">00</option>
+<{else}>
+<option>00</option>
+<{/if}>
+<{if $endMinute == '01'}>
+<option selected="selected">01</option>
+<{else}>
+<option>01</option>
+<{/if}>
+<{if $endMinute == '02'}>
+<option selected="selected">02</option>
+<{else}>
+<option>02</option>
+<{/if}>
+<{if $endMinute == '03'}>
+<option selected="selected">03</option>
+<{else}>
+<option>03</option>
+<{/if}>
+<{if $endMinute == '04'}>
+<option selected="selected">04</option>
+<{else}>
+<option>04</option>
+<{/if}>
+<{if $endMinute == '05'}>
+<option selected="selected">05</option>
+<{else}>
+<option>05</option>
+<{/if}>
+<{if $endMinute == '06'}>
+<option selected="selected">06</option>
+<{else}>
+<option>06</option>
+<{/if}>
+<{if $endMinute == '07'}>
+<option selected="selected">07</option>
+<{else}>
+<option>07</option>
+<{/if}>
+<{if $endMinute == '08'}>
+<option selected="selected">08</option>
+<{else}>
+<option>08</option>
+<{/if}>
+<{if $endMinute == '09'}>
+<option selected="selected">09</option>
+<{else}>
+<option>09</option>
+<{/if}>
+<{if $endMinute == '10'}>
+<option selected="selected">10</option>
+<{else}>
+<option>10</option>
+<{/if}>
+<{if $endMinute == '11'}>
+<option selected="selected">11</option>
+<{else}>
+<option>11</option>
+<{/if}>
+<{if $endMinute == '12'}>
+<option selected="selected">12</option>
+<{else}>
+<option>12</option>
+<{/if}>
+<{if $endMinute == '13'}>
+<option selected="selected">13</option>
+<{else}>
+<option>13</option>
+<{/if}>
+<{if $endMinute == '14'}>
+<option selected="selected">14</option>
+<{else}>
+<option>14</option>
+<{/if}>
+<{if $endMinute == '15'}>
+<option selected="selected">15</option>
+<{else}>
+<option>15</option>
+<{/if}>
+<{if $endMinute == '16'}>
+<option selected="selected">16</option>
+<{else}>
+<option>16</option>
+<{/if}>
+<{if $endMinute == '17'}>
+<option selected="selected">17</option>
+<{else}>
+<option>17</option>
+<{/if}>
+<{if $endMinute == '18'}>
+<option selected="selected">18</option>
+<{else}>
+<option>18</option>
+<{/if}>
+<{if $endMinute == '19'}>
+<option selected="selected">19</option>
+<{else}>
+<option>19</option>
+<{/if}>
+<{if $endMinute == '20'}>
+<option selected="selected">20</option>
+<{else}>
+<option>20</option>
+<{/if}>
+<{if $endMinute == '21'}>
+<option selected="selected">21</option>
+<{else}>
+<option>21</option>
+<{/if}>
+<{if $endMinute == '22'}>
+<option selected="selected">22</option>
+<{else}>
+<option>22</option>
+<{/if}>
+<{if $endMinute == '23'}>
+<option selected="selected">23</option>
+<{else}>
+<option>23</option>
+<{/if}>
+<{if $endMinute == '24'}>
+<option selected="selected">24</option>
+<{else}>
+<option>24</option>
+<{/if}>
+<{if $endMinute == '25'}>
+<option selected="selected">25</option>
+<{else}>
+<option>25</option>
+<{/if}>
+<{if $endMinute == '26'}>
+<option selected="selected">26</option>
+<{else}>
+<option>26</option>
+<{/if}>
+<{if $endMinute == '27'}>
+<option selected="selected">27</option>
+<{else}>
+<option>27</option>
+<{/if}>
+<{if $endMinute == '28'}>
+<option selected="selected">28</option>
+<{else}>
+<option>28</option>
+<{/if}>
+<{if $endMinute == '29'}>
+<option selected="selected">29</option>
+<{else}>
+<option>29</option>
+<{/if}>
+<{if $endMinute == '30'}>
+<option selected="selected">30</option>
+<{else}>
+<option>30</option>
+<{/if}>
+<{if $endMinute == '31'}>
+<option selected="selected">31</option>
+<{else}>
+<option>31</option>
+<{/if}>
+<{if $endMinute == '32'}>
+<option selected="selected">32</option>
+<{else}>
+<option>32</option>
+<{/if}>
+<{if $endMinute == '33'}>
+<option selected="selected">33</option>
+<{else}>
+<option>33</option>
+<{/if}>
+<{if $endMinute == '34'}>
+<option selected="selected">34</option>
+<{else}>
+<option>34</option>
+<{/if}>
+<{if $endMinute == '35'}>
+<option selected="selected">35</option>
+<{else}>
+<option>35</option>
+<{/if}>
+<{if $endMinute == '36'}>
+<option selected="selected">36</option>
+<{else}>
+<option>36</option>
+<{/if}>
+<{if $endMinute == '37'}>
+<option selected="selected">37</option>
+<{else}>
+<option>37</option>
+<{/if}>
+<{if $endMinute == '38'}>
+<option selected="selected">38</option>
+<{else}>
+<option>38</option>
+<{/if}>
+<{if $endMinute == '39'}>
+<option selected="selected">39</option>
+<{else}>
+<option>39</option>
+<{/if}>
+<{if $endMinute == '40'}>
+<option selected="selected">40</option>
+<{else}>
+<option>40</option>
+<{/if}>
+<{if $endMinute == '41'}>
+<option selected="selected">41</option>
+<{else}>
+<option>41</option>
+<{/if}>
+<{if $endMinute == '42'}>
+<option selected="selected">42</option>
+<{else}>
+<option>42</option>
+<{/if}>
+<{if $endMinute == '43'}>
+<option selected="selected">43</option>
+<{else}>
+<option>43</option>
+<{/if}>
+<{if $endMinute == '44'}>
+<option selected="selected">44</option>
+<{else}>
+<option>44</option>
+<{/if}>
+<{if $endMinute == '45'}>
+<option selected="selected">45</option>
+<{else}>
+<option>45</option>
+<{/if}>
+<{if $endMinute == '46'}>
+<option selected="selected">46</option>
+<{else}>
+<option>46</option>
+<{/if}>
+<{if $endMinute == '47'}>
+<option selected="selected">47</option>
+<{else}>
+<option>47</option>
+<{/if}>
+<{if $endMinute == '48'}>
+<option selected="selected">48</option>
+<{else}>
+<option>48</option>
+<{/if}>
+<{if $endMinute == '49'}>
+<option selected="selected">49</option>
+<{else}>
+<option>49</option>
+<{/if}>
+<{if $endMinute == '50'}>
+<option selected="selected">50</option>
+<{else}>
+<option>50</option>
+<{/if}>
+<{if $endMinute == '51'}>
+<option selected="selected">51</option>
+<{else}>
+<option>51</option>
+<{/if}>
+<{if $endMinute == '52'}>
+<option selected="selected">52</option>
+<{else}>
+<option>52</option>
+<{/if}>
+<{if $endMinute == '53'}>
+<option selected="selected">53</option>
+<{else}>
+<option>53</option>
+<{/if}>
+<{if $endMinute == '54'}>
+<option selected="selected">54</option>
+<{else}>
+<option>54</option>
+<{/if}>
+<{if $endMinute == '55'}>
+<option selected="selected">55</option>
+<{else}>
+<option>55</option>
+<{/if}>
+<{if $endMinute == '56'}>
+<option selected="selected">56</option>
+<{else}>
+<option>56</option>
+<{/if}>
+<{if $endMinute == '57'}>
+<option selected="selected">57</option>
+<{else}>
+<option>57</option>
+<{/if}>
+<{if $endMinute == '58'}>
+<option selected="selected">58</option>
+<{else}>
+<option>58</option>
+<{/if}>
+<{if $endMinute == '59'}>
+<option selected="selected">59</option>
+<{else}>
+<option>59</option>
+<{/if}>
+</select>
+分
+</div>
+<div class="control-area control-area-long">
+    <label>描述</label>
+    <script id="container" name="describe" type="text/plain"><{$remote.describe}></script>
+</div>
+</div>
+<div class="btn-center" style="margin-bottom:20px;">
+    <input type="submit" class="btn" value="提交" />
+    <input type="reset" class="btn" value="重置" />
+</div>
+</form>
+<script type="text/javascript">
+    var editor = UE.getEditor('container')
+</script>
+</div>
+</div>
+<script type="text/javascript">
+    KISSY.use("widget/calendar",function(){
+        showTime: false;
+    });
+</script>
+</body>
+</html>

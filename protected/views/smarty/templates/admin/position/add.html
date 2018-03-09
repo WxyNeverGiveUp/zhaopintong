@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>增加职位</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.all.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <link rel="stylesheet" type="text/css" href="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/themes/default/css/ueditor.css" />
+    <!-- 日期 -->
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/js/plugin/calendar/styles/calendar.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/admin/css/page/position/add.css">
+</head>
+<body>
+    <{include file="../common/header.html"}>
+    <div class="continer">
+        <{include file="../common/sidebar.html"}>
+        <div class="content">
+            <{include file="../common/crumbs.html"}>
+            <form class="block J_postionForm" action="<{$website}>admin/position/recruitment/add" method="post">
+                <div class="block-header">
+                    <h3><{$company.name}></h3>
+                </div>
+                <div class="block-content clearfix">
+                    <div class="control-area control-area-long">
+                        <label>是否属于教师</label>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isTeacher" value="1" checked="true" class="yes">
+                            是
+                            <input type="radio" name="isTeacher" value="0" class="no">
+                            否
+                        </div>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>职业名称</label>
+                        <input type="text" class="textTheme" name="positionName" data-valid-rule="notNull">
+                    </div>
+                    <div class="control-area control-area-short teacher-position">
+                        <label>职位类别</label>
+                        <select class="textTheme" name="positionType">
+                            <option selected="selected" value="-1">请选择</option>
+                                <{foreach from=$positionType1 item=p1}>
+                            <option value="<{$p1.id}>"><{$p1.name}></option>
+                                <{/foreach}>
+                        </select>
+                    </div>
+                    <div class="control-area control-area-short not-t-position none">
+                        <label>职位类别</label>
+                        <select class="textTheme" name="positionType">
+                            <option selected="selected" value="-1">请选择</option>
+                                <{foreach from=$positionType2 item=p2}>
+                            <option value="<{$p2.id}>"><{$p2.name}></option>
+                                <{/foreach}>
+                        </select>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>所属城市</label>
+                        <div class="J_addapp">
+                            <select class="textTheme" id="J_proviceList" name="provinceId" style="width:6%" data-valid-rule="scale(0,1000,0)">
+                                <option value="0">请选择</option>
+                                <{foreach from=$provinceList item=p}>
+                                <option value="<{$p.id}>"><{$p.name}></option>
+                                <{/foreach}>
+                            </select>
+                            <span>省</span>
+                            <select class="textTheme" name = "cityId" id="J_cityList" data-valid-rule="scale(0,1000,0)">
+                                <option value="0">请选择</option>
+                            </select>
+                            <span>市</span>
+                        </div>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>学历</label>
+                        <select class="textTheme" name="degreeId" data-valid-rule="scale(0,1000,0)">
+                            <option value="0">请选择</option>
+                            <{foreach from=$degreeList item=degree}>
+                            <option value="<{$degree.id}>"><{$degree.name}></option>
+                            <{/foreach}>
+                        </select>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>招聘人数</label>
+                        <input type="text" class="textTheme" name ="recruitmentNum" data-valid-rule="notNull"/>
+                    </div>
+                    <div class="control-area-long major-box">
+                        <label class="laber-attr">需求专业</label>
+                        <label>
+                            <input type="checkbox" name="unlimited-professional" class="nlimited-professional" value="0">不限专业
+                        </label>
+
+                        <div class="demand-specialty clearfix">
+                            <ul class="major-list">
+                                <li class="major-active">请选择</li>
+                                <{foreach from =$majorSpecialtyList item = majorSpecialty}>
+                                <li majorCode="<{$majorSpecialty.id}>"><{$majorSpecialty.name}></li>
+                                <{/foreach}>
+                            </ul>
+                            <div class="major-detail">
+                                请您选择:
+                            </div>
+                        </div>
+                        <p class="margin-left-150 select-result">
+                            您已选择：
+                        </p>
+                        <input type="text" class="major none" name="specialtyIds"/>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>岗位职责</label>
+                        <script id="responsibility-editor" name="positionDuty" type="text/plain"></script>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>岗位需求</label>
+                        <textarea id="requirement-editor" name="positionNeed"></textarea>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>其他描述</label>
+                        <textarea id="other-info" name="descrption"></textarea>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>职位来源</label>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="positionSource" value="1" checked="true"/>
+                            代表东北师大
+                            &nbsp;&nbsp;
+                            <input type="radio" name="positionSource" value="2" />
+                            代表6所部属
+                            &nbsp;&nbsp;
+                            <input type="radio" name="positionSource" value="3" />
+                            代表互联网
+                        </div>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label class="laber-attr">截止日期</label>
+                        <p class="select-date-box">
+                            <input type="text" name="deadTime" placeholder="请选择日期" class="J_selectDate select-date textTheme"/>
+                        </p>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>参加大招会</label>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinBigRecruitment" value="2">
+                            是
+                            <input type="radio" name="isJoinBigRecruitment" value="1" checked="true">
+                            否
+                        </div>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>参加招聘周</label>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinRecruitmentWeek" value="2">
+                            是
+                            <input type="radio" name="isJoinRecruitmentWeek" value="1" checked="true">
+                            否
+                        </div>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>亮点</label>
+                        <div class="info-list">
+                            <label class="laber-attr">亮点</label>
+                            <input type="text" name="bright" class="high-lights textTheme" placeholder="多个关键词用“，”分隔">
+                        </div>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>公司名称：</label>
+                        <input type="text" name="companyName" class="textTheme companyName">
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>信息发布人：</label>
+                        <select name="companyUserName" class="textTheme contactName">
+                            <option>请在输入公司名称后选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <input type="hidden" name="sCompanyName" value="<{$sCompanyName}>"/>
+                    <input type="hidden" name="sCityId" value="<{$sCityId}>"/>
+                    <input type="hidden" name="sPositionName" value="<{$sPositionName}>"/>
+                    <input type="hidden" name="sCompanyReleaseTime" value="<{$sCompanyReleaseTime}>"/>
+                    <input type="hidden" name="sCompanyUserName" value="<{$sCompanyUserName}>"/>
+                    <input type="hidden" name="isJoinBigRecruitment" value="<{$isJoinBigRecruitment}>"/>
+                    <input type="hidden" name="isJoinRecruitmentWeek" value="<{$isJoinRecruitmentWeek}>"/>
+                    <input type="hidden" name="isElite" value="<{$isElite}>"/>
+                </div>
+                <div class="btn-center" style="margin-bottom:20px;">
+                    <input type="submit" class="btn" value="提交" />
+                </div>
+            </form>
+            <script type="text/javascript">
+                var editor = UE.getEditor('responsibility-editor', {
+                    fileRealPath: "?path=../../uploadFile/recruitEntrance/position-duty/"
+                    //更多其他参数，请参考editor_config.js中的配置项
+                });
+                var editor = UE.getEditor('requirement-editor', {
+                        fileRealPath: "?path=../../uploadFile/recruitEntrance/position-need/"
+                        //更多其他参数，请参考editor_config.js中的配置项
+                    }),
+                    editor = UE.getEditor('other-info', {
+                        fileRealPath: "?path=../../uploadFile/recruitEntrance/position-describe/"
+                        //更多其他参数，请参考editor_config.js中的配置项
+                    });
+            </script>
+        </div>
+    </div>
+    <script type="text/javascript">
+        KISSY.use('page/employment/add-student',function(S){
+            S.ready(function(){
+                PW.page.addStudent();
+            });
+        });
+    </script>
+    <!-- 日期 -->
+    <script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/common/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/plugin/calendar/scripts/calendar.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+                var el = {
+                    J_require_text: '.require-text', // 必填文本
+                    J_require_option: '.require-option', // 必填下拉框
+                    J_submit: '.submit-btn', // 提交按钮
+                    J_position_name: '.position-name', // 职位名称
+                    J_people_num: '.people-num', // 招聘人数
+                    J_select_result: '.select-result', // query(relativeSelectors: DOMString)专业选择的结果
+                    J_major_result: '.major', // 专业选择的结果的隐藏的input
+                    J_province: '.province', // 省
+                    J_city: '.city', // 市
+                    J_position_type: 'input[type=radio]', // 教师类与非教师类
+                    J_nlimited_professional: '.nlimited-professional', // 不限制专业复选框
+                    J_company_name: '.companyName', // 公司名称
+                }
+                _majorChoose();
+                function _majorChoose() {
+                $('.major-list li').click(function() {
+                    $(this).addClass('major-active').siblings().removeClass('major-active');
+                    // 获取元素属性
+                    var code = $(this).attr('majorCode');
+                    // 先隐藏已有元素
+                    $('.major-detail label').hide();
+                    $('.major-detail label').each(function(index, el) {
+                        $("label[majorCode="+ code +"]").show();
+                    });
+                    var selectLength = $("label[majorCode="+ code +"]").length;
+                    // 不加载已经加载专业名称
+                    if (selectLength == 0) {
+                        $.ajax({
+                            url: '/recruitEntrance/recruitmentInfo/recruitment/MinorSpecialtyJson',
+                            type: 'get',
+                            dataType: 'json',
+                            data: {
+                                majorId: code
+                            },
+                            success: function (data){
+                                var majorOption = "<label class='selectAll-box' majorCode=" + code +"><input type='checkbox' class='selectAll'>全选</label>";
+                                $.each(data, function(i,o) {
+                                    majorOption += "<label majorCode=" + o.parent_id 
+                                    +"><input type='checkbox' majorName="+ o.name 
+                                    +" class='major-check'><span majorcode="+ o.parent_id 
+                                    +" class="+ o.name + " majorId="+ o.id +">"+ o.name 
+                                    +"</span></label>"
+                                });
+                                $('.major-detail').append(majorOption);
+                                // 若已经存在则自动勾选  未修改页提供的方法
+                                var arr = new Array;
+                                var majorId = "";
+                                $('.select-result span').each(function (index, object) {
+                                    majorId = $(object).attr('majorid');
+                                    arr.push(majorId);
+                                });
+                                if(arr.length > 0){
+                                    for (var i = 0; i < arr.length; i++) {
+                                        $('.major-check + span[majorid='+ arr[i] +']').prev().prop('checked','checked');
+                                    }
+                                }
+                            },
+                            error: function (data){
+                                console.log('error:JSON对象异常');
+                            }
+                        })
+                    };
+                });
+
+                // 显示已经选择
+                $('.demand-specialty').on('click','.major-check', function(){
+                    var that = $(this),
+                        majorName = that.attr('majorName'), // 获取input的majorCode 
+                        code = that.parent().attr('majorCode'), // 获取父元素的majorCode
+                        chooseDom = that.next(), // 获取到该元素
+                        checkResult = that.is(':checked'); // 选择状态
+                    var chooseText = that.next().prop('outerHTML'); // 获取该元素节点
+
+                    if (checkResult) {
+                        $(el.J_select_result).append(chooseText); 
+                    }else{
+                        $('.select-result .' + majorName).remove();
+                        $("label[majorCode=" + code +"] .selectAll").prop('checked',false); // 取消任意一个全选框为false
+                    }
+                });
+
+                // 全选功能
+                $('.demand-specialty').on('click','.selectAll', function(){
+                    var that = $(this),
+                        code = that.parent().attr('majorCode'), // 父元素的majorCode
+                        checkResult = that.is(':checked'), // 选择状态
+                        chooseText = "";
+                    if (checkResult) {
+                        $("label[majorCode=" + code +"] input").prop('checked',true); // 全选框为true
+                        $(".select-result span[majorCode=" + code +"]").remove(); // 先清除以前可能选择了的选项
+                        $(".major-detail span[majorCode=" + code +"]").each(function(index,object) {
+                            chooseText += $(object).prop('outerHTML'); // 循环出来需要的值
+                        });
+                        $(el.J_select_result).append(chooseText);
+                    }else{
+                        $("label[majorCode=" + code +"] input").prop('checked',false);
+                        $(".select-result span[majorCode=" + code +"]").remove();
+                    }
+                });
+
+                // 任意点击都会把值传到需要提交的input内
+                $('body').click(function() {
+                    var major_val = $('.major').val();
+                    var result = "";
+                    $('.select-result span').each(function(index,object) {
+                        result += $(object).attr('majorId') + ',';
+                    })
+                    $('.major').val(result);
+                });
+
+                // 教师与非教师职位类别
+                // 初始赋值 鉴定哪个被选中
+                var nowResult = $('input[name=isTeacher]').eq(0).prop('checked');
+                if (nowResult) {
+                    $('.teacher-position').show();
+                    $('.teacher-position').children('select').prop('name', 'positionType');
+                    $('.teacher-position').children('select').addClass('require-option');
+                    $('.not-t-position').hide();
+                    $('.not-t-position').children('select').prop('name','');
+                    $('.not-t-position').children('select').removeClass('require-option');
+                }else{
+                    $('.teacher-position').hide();
+                    $('.teacher-position').children('select').prop('name', '');
+                    $('.teacher-position').children('select').removeClass('require-option');
+                    $('.not-t-position').show();
+                    $('.not-t-position').children('select').prop('name','positionType');
+                    $('.not-t-position').children('select').addClass('require-option');
+
+                }
+                $('input[name=isTeacher]').change(function() {
+                    var result = $('input[name=isTeacher]').eq(0).prop('checked');
+                    if (result) {
+                        $('.teacher-position').show();
+                        $('.teacher-position').children('select').prop('name', 'positionType');
+                        $('.teacher-position').children('select').addClass('require-option');
+                        $('.not-t-position').hide()
+                        $('.not-t-position').children('select').prop('name','');
+                        $('.not-t-position').children('select').removeClass('require-option');
+                    }else{
+                        $('.teacher-position').hide();
+                        $('.teacher-position').children('select').prop('name', '');
+                        $('.teacher-position').children('select').removeClass('require-option');
+                        $('.not-t-position').show()
+                        $('.not-t-position').children('select').prop('name','positionType');
+                        $('.not-t-position').children('select').addClass('require-option');
+
+                    }
+                });
+
+                // 鉴定是否选择不限专业
+                $('.nlimited-professional').change(function() {
+                    var status = $(el.J_nlimited_professional).prop('checked');
+                    if (status) {
+                        $('.demand-specialty').addClass('none');
+                        $('.select-result').text('');
+                    }else{
+                        $('.demand-specialty').removeClass('none');
+                        $('.select-result').text('请您选择:');
+                    }
+                });
+
+                // 选择公司后显示出本公司的信息发布人
+                $(el.J_company_name).blur(function() {
+                    var company = $(el.J_company_name).val(), // 获取到要发送的值
+                        errMsg = {
+                            0: "本系统中无此单位，请重新输入",
+                            1: "此单位尚未添加信息发布人",
+                        }
+                    // 有输入的时候 才发生ajax
+                    if (company.length != 0) {
+                        $('.contactName').empty();
+                        $.ajax({
+                            url: '/admin/position/recruitment/publisherJson',
+                            type: 'get',
+                            dataType: 'json',
+                            data: {
+                                companyName: company,
+                            },
+                            success: function(data) {
+                                // 0为没这个公司，1为有公司但没发布人，2为有公司有发布人
+                                if (data.code == 2) {
+                                    var option = '';
+                                    console.log(data.publisher);
+                                    for (var i = 0; i < data.publisher.length; i++) {
+                                        option += '<option value='+ data.publisher[i].name +'>'+ data.publisher[i].name +'</option>'
+                                    }
+                                    $('.contactName').append(option);
+                                }
+                                else{
+                                    $('.contactName').append('<option value="-1">'+ errMsg[data.code] +'</option>')
+                                }
+                            }
+                        });
+                    }
+                });
+            };
+        });
+    </script>
+</body>
+</html>

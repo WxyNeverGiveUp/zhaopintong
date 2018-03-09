@@ -1,0 +1,145 @@
+<!-- ==================================================
+* @Description: 招聘信息
+* @Version: 1.0.0
+* @Author: anrui(2434078703@qq.com)
+* @Date: 2017.7.20
+* ==NOTES:=============================================
+* v1.0.0(2017.7.20):
+初始生成
+* ==================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>东北高师就业联盟网</title>
+    <link rel="stylesheet" type="text/css"
+          href="<{$staticWebsite}>recruitment_resources/css/page/recruitment-info/recruitment-detail.css">
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css"
+          href="<{$staticWebsite}>recruitment_resources/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div class="page">
+    <{include file="../common/header.html"}>
+    <div class="content">
+        <div class="sidebar">
+            <h2><i class="fa fa-list list-img"></i>招聘信息</h2>
+            <ul class="tab_menu">
+                <li class="active"><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/index">招聘发布管理</a>
+                </li>
+                <li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/other">单位其他招聘信息</a></li>
+                <li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/queryAll">最近投递</a></li>
+            </ul>
+        </div>
+        <div class="main clear">
+            <!-- 职位详情页面开始 -->
+            <div class="recruitment-detail">
+                <ul class="position-detail">
+                    <li>
+                        <p class="detail-require position"><{$position.name}></p>
+                        <p><{$position.recruitment_num}></p>
+                    </li>
+                    <li>
+                        <p class="detail-require">是否属于教师</p>
+                        <{if $position.is_teacher ==1}>
+                        <p>是</p>
+                        <{/if}>
+                        <{if $position.is_teacher ==0}>
+                        <p>否</p>
+                        <{/if}>
+                    </li>
+                    <li>
+                        <p class="detail-require">是否参加大招会</p>
+                        <{if $position.is_join_big_recruitment ==1}>
+                        <p>否</p>
+                        <{/if}>
+                        <{if $position.is_join_big_recruitment ==2}>
+                        <p>是</p>
+                        <{/if}>
+                    </li>
+                    <li>
+                        <p class="detail-require">是否参加招聘周</p>
+                        <{if $position.is_join_recruitment_week ==1}>
+                        <p>否</p>
+                        <{/if}>
+                        <{if $position.is_join_recruitment_week ==2}>
+                        <p>是</p>
+                        <{/if}>
+                    </li>
+                    <li>
+                        <p class="detail-require">工作城市</p>
+                        <p><{$place}></p>
+                    </li>
+                    <li>
+                        <p class="detail-require">职位类别</p>
+                        <p><{$positionType}></p>
+                    </li>
+                    <li>
+                        <p class="detail-require">学历要求</p>
+                        <p><{$degree}></p>
+                    </li>
+                    <li>
+                        <p class="detail-require">需求专业</p>
+                        <p>
+                            <{foreach from=$specialtyList item=specialty}>
+                            <{if $specialty=="0"}>
+                            不限专业
+                            <{else}>
+                            <{$specialty}>
+                            <{/if}>
+                            <{/foreach}>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="detail-require">截止时间</p>
+                        <p><{$dead_time}></p>
+                    </li>
+                    <li>
+                        <p class="detail-require">岗位职责</p>
+                        <p><{$position.position_duty}></p>
+                    </li>
+                    <li>
+                        <p class="detail-require">岗位需求</p>
+                        <p><{$position.position_need}></p>
+                    </li>
+                    <li>
+                        <p class="detail-require">亮点</p>
+                        <p><{foreach from=$brightsList item=brights}>
+                            <{$brights}>&nbsp;
+                            <{/foreach}>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="detail-require">其他描述</p>
+                        <p>
+                            <{$position.descrption}>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="detail-require">审核原因</p>
+                        <{if $positionCheck.check_reason==1}>
+                        <p>
+                            信息不完整
+                        </p>
+                        <{elseif $positionCheck.check_reason==2}>
+                        <p>
+                            信息有误
+                        </p>
+                        <{/if}>
+                    </li>
+                </ul>
+                <{if $position.company_user_name == $companyUserName}>
+                <a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/index?currentPage=<{$currentPage}>&keyword=<{$keyword}>" class="back-recruitment-list" onclick="ford()" id="back-recruitment-list">返回列表</a>
+                <{else}>
+                <a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/other?currentPage=<{$currentPage}>&keyword=<{$keyword}>" class="back-recruitment-list">返回列表</a>
+                <{/if}>
+            </div>
+            <!-- 职位详情页面结束 -->
+        </div>
+    </div>
+    <{include file="../common/footer.html"}>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>关于我们修改</title>
+    <meta charset="utf-8">
+    <{include file = "admin/common/link.html"}>
+    <{include file = "admin/common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.all.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <link rel="stylesheet" type="text/css" href="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/themes/default/css/ueditor.css" />
+    <style type="text/css">
+        form{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .info-item{
+            width:300px;
+            height: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <form action="<{$website}>admin/aboutUs/aboutUs/edit/id/<{$id}>>" method="post" >
+                    <div class="edit">
+                        <div class="info-item">
+                            <label>标题:</label><input type="text" name="title" value="<{$title}>"/>
+                        </div>
+                        <div >
+                            <tr>
+                                <td>内容</td>
+                                <td>
+                                    <script id="container" name="content" type="text/plain">
+                                        <{$content}>
+                                    </script>
+                                </td>
+                            </tr>
+                        </div>
+                    </div><br>
+                    <input type="submit" class="btn" value="修改">&nbsp&nbsp
+                    <a class="btn" href="<{$website}>admin/aboutUs/aboutUs/list">
+                        取消
+                    </a>
+                </form>
+                <script type="text/javascript">
+                    var editor = UE.getEditor('container')
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

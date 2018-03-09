@@ -1,0 +1,50 @@
+<!-- 
+* @Description: 招聘通-头部-公用
+* @Version: 1.0.0
+* @Author: shihui(2622119132@qq.com)
+* @Date: 2017.05.13
+* ==NOTES:=============================================
+* v1.0.0(2017.05.13):
+初始生成
+-->
+	<div class="header recruitment-header">
+		<div class="header-low-order">
+			<div class="nav-low-order">
+				<p class="nav-title">
+					<span class="nav-title-name">
+						<{$smarty.session.companyName}>
+					</span>
+					<span class="nav-title-star">
+						<{if $smarty.session.concern_num==null}>
+						0人已关注
+						<{else}>
+						<{$smarty.session.concern_num}>人已关注
+						<{/if}>
+					</span>
+				</p>
+				<ul class="nav">
+					<li>
+						<a href="<{$website}>recruitEntrance/RecruitIndex/index">首页</a>
+					</li>
+					<li>
+						<a href="<{$website}>recruitEntrance/company/tCompany/getCompanyBaseManager">公司信息</a>
+					</li>
+					<li>
+						<a href="<{$website}>recruitEntrance/talk/talk/list">宣讲会</a>
+					</li>
+					<li>
+						<a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment">招聘信息</a>
+					</li>
+					<li>
+						<a href="<{$website}>recruitEntrance/talentInvitation/discover">人才邀约</a>
+					</li>
+					<li>
+						<a href="javascript:;">在线考试</a>
+					</li>
+					<li>
+						<a href="javascript:;">远程面试</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>

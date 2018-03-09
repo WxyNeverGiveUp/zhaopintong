@@ -1,0 +1,154 @@
+<!-- 赵凯康 毕业生页面 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>毕业生</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/recruitment-information/recruitment-related.css">
+</head>
+<body>
+<{include file="../common/header.html"}>
+	<div class="search-field">
+		<!-- 该div用于设置居中，目的在于使“当前位置与left-nav下的h1的border-left对齐” -->
+		<div>
+			<span>当前位置：</span>
+			<a href="<{$site}>">首页></a>
+			<a href="<{$website}>graduate/graduate">毕业生</a>
+			<div class="search-box">
+			<!-- 当用户点击下拉列表时需用js来修改label的值，已使页面显示值与用户所选值一致-->
+				<label>毕业生</label>
+				<input type="text" class="J_input">
+				<a href="javascript:;" class="J_search">搜&nbsp;索</a>
+			</div>
+		</div>
+	</div>
+	<div class="content clearfix">
+		<div class="left-nav">
+			<ul class="J_school">
+				<h1>学校</h1>
+				<!-- 当链接被点击时，显示样式的类为after-click -->
+                <li schoolName="0"><a href="javascript:;">不限</a></li>
+                <li schoolName="东北师范大学"><a href="javascript:;">东北师范大学</a></li>
+                <li schoolName="辽宁师范大学"><a href="javascript:;">辽宁师范大学</a></li>
+                <li schoolName="哈尔滨师范大学"><a href="javascript:;">哈尔滨师范大学</a></li>
+                <li schoolName="内蒙古民族大学"><a href="javascript:;">内蒙古民族大学</a></li>
+                <li schoolName="长春师范大学"><a href="javascript:;">长春师范大学</a></li>
+                <li schoolName="齐齐哈尔大学"><a href="javascript:;">齐齐哈尔大学</a></li>
+				<li schoolId="Smore"><a href="javascript:;">更多...</a></li>
+			</ul>
+			<ul class="J_major">
+				<h1>所学专业</h1>
+                <li majorId="0"><a href="javascript:;">不限</a></li>
+                <{foreach name=infolist from=$majorList item=major}>
+				<{if $smarty.foreach.infolist.iteration <8}>
+                <li majorId="<{$major.id}>"><a href="javascript:;"><{$major.name}></a></li>
+                <{/if}>
+                <{/foreach}>
+				<li majorId="Mmore"><a href="javascript:;">更多...</a></li>
+			</ul>
+			<!--<ul class="J_industry">
+				<h1>所属行业</h1>
+				<li industryId="I1"><a href="javascript:;">行业不限
+				</a></li>
+				<li industryId="I2"><a href="javascript:;">销售</a></li>
+				<li industryId="I3"><a href="javascript:;">高中老师</a></li>
+				<li industryId="Imore"><a href="javascript:;">其他</a></li>
+			</ul>-->
+		</div>
+		<div class="graduate-list">
+			<div class="select-section">
+				<select class="J_degree">
+                    <option value="0">学历</option>
+                    <{foreach from=$degreeList item=degree}>
+                    <option value="<{$degree.id}>"><{$degree.name}></option>
+                    <{/foreach}>
+				</select>
+				<select class="J_year">
+                    <option>毕业年份</option>
+                    <option><{$currentYear+5}></option>
+                    <option><{$currentYear+4}></option>
+                    <option><{$currentYear+3}></option>
+                    <option><{$currentYear+2}></option>
+                    <option><{$currentYear+1}></option>
+                    <option><{$currentYear}></option>
+                    <option><{$currentYear-1}></option>
+                    <option><{$currentYear-2}></option>
+                    <option><{$currentYear-3}></option>
+                    <option><{$currentYear-4}></option>
+                    <option><{$currentYear-5}></option>
+                    <option><{$currentYear-6}></option>
+                    <option><{$currentYear-7}></option>
+                    <option><{$currentYear-8}></option>
+                    <option><{$currentYear-9}></option>
+				</select>
+				<select class="J_location">
+					<option value="0" selected="selected">生源地</option>
+                    <option value="Lmore">点击选择城市</option>
+				</select>
+
+			</div>
+			<ul id="J_template">
+			</ul>
+			<div id="J_pagination"></div>
+		</div>
+	</div>
+<{include file="../common/footer.html"}>
+	<div class="pop-layer">
+	</div>
+	<div class="show-layer">
+	    <h1>请选择<em class="J_select_what"></em></h1>
+	    <h2>已选择：<em class="J_selected_what"></em></h2>
+	    <div class="clearfix various-kind">
+	        <ul class="total"></ul>
+	        <ul class="branch"></ul>
+	    </div>
+	    <div class="clearfix button-style">
+	        <button class="cancel">取消</button>
+	        <button class="okay">确定</button>
+	    </div>
+	</div>
+	<div id="j_template"></div>
+	<div id="J_pagination"></div>
+	<script id="tpl" type="text/template">
+		{@each data as d}
+			{@if d.isFirst == 1}
+				<p class="matching-number-wrapper">共找到<em class="matching-number">&{d.searchNumber}</em>条符合条件的结果:</p>
+			{@/if}
+			<li>
+				<div class="graduate-info" id=${d.id}>
+						<img src="&{d.head_url}">
+						<span class="name">&{d.realname}</span>
+						<p class="major-school"><span>&{d.major_name}</span><span>&{d.school_name}</span></p>
+						<p class="some-info">生源地：<span>&{d.account_place}</span>
+							学历：<span>&{d.degree}</span>
+						</p>
+						<a href="<{$website}>job/job/viewIndex/user_id/&{d.user_id}" class="check" target="_blank">查看</a>
+				</div>
+			</li>
+		{@/each}
+	</script>
+	<script type="text/javascript">
+		KISSY.use('page/graduate/graduate',function(S){
+			var urls = PW.Env.url.graduate.graduate;
+			var url = urls.getGraduateList+'/page';
+			S.ready(function(){
+				PW.page.graduate.graduate({
+					renderTo: '#J_pagination',//分页显示指向
+					juicerRender: '#tpl',//模版渲染指向
+					dataRender: '#J_template',
+					pageSize: 10,//每页显示的记录数
+					url:url,//必选，必须指定ajax的url
+                    extraParam:{'searchWord':'<{$searchWord}>'},
+					configUrl:function(url,page,me,prevdata){
+						 return url + '/' + page;
+						//return url;
+					},
+					type:'get'
+				});
+			});
+		});
+	</script>
+</body>
+</html>

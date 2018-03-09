@@ -1,0 +1,71 @@
+<!-- 
+* @Description: 招聘通-宣讲会-宣讲会管理
+* @Version: 1.0.0
+* @Author: shihui(2622119132@qq.com)
+* @Date: 2017.05.13
+* ==NOTES:=============================================
+* v1.0.0(2017.05.13):
+初始生成
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head> 
+		<meta charset="UTF-8">
+		<title>求职通</title>
+		<!--#include file="/nenu_dsjyw_front/page/common/link.html" -->
+    	<!--#include file="/nenu_dsjyw_front/page/common/script.html" -->
+		<link rel="stylesheet" type="text/css" href="/nenu_dsjyw_front/resources/css/page/preach/preach-manage.css">
+	</head>
+	<body>
+		<div class="page">
+			<!--#include file="/nenu_dsjyw_front/page/common/header.html" -->
+			<div class="content clearfix">
+				<div class="sidebar">
+				    <h2><i class="fa fa-users list-img"></i>宣讲会</h2>
+					<ul class="tab_menu">
+						<li class="active"><a href="/nenu_dsjyw_front/page/preach/preach-manage.html">宣讲会管理</a></li>
+						<li><a href="/nenu_dsjyw_front/page/preach/preach-process.html">流程介绍</a></li>
+					</ul>
+				</div>
+				<div class="main">
+					<div class="operation">
+						<form class="preach-search">
+							<input type="text" name="preachName" class="preach-name" placeholder="宣讲会名称">
+							<i class="preach-find fa fa-search fa-2x"></i>
+						</form>
+						<span class="preach-apply">
+							<a href="/nenu_dsjyw_front/page/preach/apply-preach.html">申请宣讲会</a>
+						</span>
+					</div>
+					<table class="listPreach">
+						<tr>
+							<th>宣讲会名称</th>
+							<th class="preach-list-width">地点</th>
+							<th class="preach-list-width">时间</th>
+							<th>审核状态</th>
+							<th>操作</th>
+						</tr>
+						<tr>
+							<td>前途光明</td>
+							<td>本部-校史馆多功能厅-1</td>
+							<td>2017年3月28日8:30-9:30</td>
+							<td>已通过</td>
+							<td>
+								<span><a href="javascript:;">查看</a></span>
+								<span>修改</span>
+								<span>删除</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<!--#include file="/nenu_dsjyw_front/page/common/footer.html" -->
+		</div>
+		<script type="text/javascript">
+			$(".preach-find").click(function(){
+				$(".preach-search").submit();
+				return false;
+			})
+		</script>
+	</body>
+</html>

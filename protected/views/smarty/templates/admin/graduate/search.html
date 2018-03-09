@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户列表</title>
+    <meta charset="utf-8">
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+    <script type="text/javascript" src="<{$ueditorWebsite}>/resources/puiresources/js/base/lib/kissy/seed.js"></script>
+    <script type="text/javascript">
+        KISSY.use('mod/pagination,mod/moment', function(S) {
+            S.ready(function(){
+                PW.pagination({
+                    renderTo: '#J_pagination',//分页显示指向
+                    juicerRender: 'tpl',//模版渲染指向
+                    dataRender: '#J_template',
+                    pageSize: 10,//每页显示的记录数
+                    dataCount: '<{$recordCount}>',//总记录数
+                    url:'<{$website}>admin/graduate/graduate/searchJson',//必选，必须指定ajax的url
+                    type: 'get',//可选，默认情况下是get
+                    extraParam:{'keyword':'<{$keyword}>','isNenu':'<{$isNenu}>','status':'<{$status}>'},//获取分页数据列表的额外条件
+                    sendData: function(me,b){}, //回调函数 me指向当前的分页对象，b指向分页获取的json数据
+                    configUrl:function(url,page,me,prevdata){
+                        //url:配置的url,page1:当前的页面,me:指向当前分页,prevdata:上一次的分页数据
+                        var url = url+'/page/'+page;
+                        return url;
+                    },
+                    //初始化完成之后的回调函数
+                    initCompleted:function(me){
+                        S.log('初始化完成！');
+                    },
+                    //发送ajax之前
+                    beforeSendAJAX:function(me){
+                        S.log('发送ajax之前！');
+                    },
+                    //ajax发送失败后的回调函数
+                    errorFun:function(me){
+                        S.log('ajax发送失败！');
+                    },
+                    beforeDataLoad:function(me,data){
+                        var lt = data.list;
+                        S.each(lt,function(item){
+                            item.time = parseInt(item.time);
+                            item.time = PW.moment(item.time).format('YYYY-MM-DD');
+                            S.log(item.time);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+
+            <div class="查询条件">
+                <form action="<{$website}>admin/graduate/graduate/search" method="post">
+                    <table>
+                        <tr>
+                            <td >姓名:</td>
+                            <td><input type="text" name="keyword"></td>
+                        </tr>
+
+                        <tr>
+                            <td>用户类型</td>
+                            <td>
+                                <select name="isNenu">
+                                    <option value="-1">全部</option>
+                                    <option value="2">本校用户</option>
+                                    <option value="1">联盟高校用户</option>
+                                    <option value="0">其他用户</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>是否激活</td>
+                            <td>
+                                <select name="status">
+                                    <option value="-1">全部</option>
+                                    <option value="1">已激活</option>
+                                    <option value="0">未激活</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" class="btn" value="search"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="block-content clearfix">
+                <div class="title">
+                    <div class="title1">用户</div>
+                </div>
+                <table>
+                    <script id="tpl" type="text/template">
+                        {@each list as it}
+                        <tr>
+                            <td>&{it.username}</td>
+                            <td>&{it.realname}</td>
+                            <td>&{it.status}</td>
+                            <td>
+                                <a href="<{$website}>admin/graduate/graduate/detail/id/&{it.id}" target="_blank" class="btn">详情</a>
+                                <a href="<{$website}>admin/graduate/graduate/del/id/&{it.id}" class="btn">删除</a>
+                            </td>
+                        </tr>
+                        {@/each}
+                    </script>
+                    <thead>
+                    <tr>
+                        <th>用户名</th>
+                        <th>真实姓名</th>
+                        <th>是否激活</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+                <div id="J_pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+/*------------------------------------------------------------------------------------------
+@Filename:               preach.css
+@Description:            样式重置文档
+@Version:                1.0.0(2011-11-22)
+@author:                 huan-yi
+==STRUCTURE:=========================================
+*$__清除内外边距
+*$__设置默认字体
+*$__重置列表元素
+*$__重置文本格式元素
+*$__重置 HTML5元素 
+*$__clearfix
+==NOTES:=============================================
+2011-11-22:
+    __清除内外边距*/
+/*__设置列表的宽度，位置，字体样式*/
+/*__设置整个表单的位置 宽度 字体大小,样式*/
+body{
+	background-color:#f7f6f6;
+}
+
+.page{ 
+   margin: 0px auto;
+   width:1005px;
+   height:1416px;
+   border-bottom:1px solid #e6e6e6;
+   background-color:#fff;
+}
+
+.page-head{
+	margin-left:130px;
+	color:#020202;
+	font-weight:800;
+	font-size: 18px;
+	padding-top: 45px;
+}
+
+.follow-number{
+	font-weight:normal;
+	font-size:14px;
+	margin-bottom:16px;
+}
+
+.page-head p>span{
+	color:#e17c22;
+}
+/*__设置表单头部的竖条*/
+.page-head p:first-child{
+	display:block;
+	margin-bottom:21px;
+	border-left:6px solid;
+	border-left-color:#e17c22;
+	padding-left:14px;
+	width:88px;
+	height:22px;
+	line-height:22px;
+}
+
+/*__设置表单内容的位置 大小 样式*/
+.company{
+	margin-left:130px;
+	width:749px;
+	height:125px;
+	border-top:1px solid;
+    color:#9a9999;
+}
+
+.company div span{
+	color:#242424;
+}
+
+.company span:first-child{
+	display:inline-block;
+	width:7px;
+}
+
+.company span:nth-child(2){
+	display:inline-block;
+	width:7px;
+}
+
+.company li{
+    padding-top:25px;
+	float:left;
+}
+.company li:first-child{
+	width:212px;
+}
+
+.company li:first-child div:first-child{
+	margin-bottom:8px;
+	font-weight:800;
+	font-size: 14px;
+    color:#7c1d2e;
+}
+
+.company li:first-child div:nth-child(2){
+	margin-bottom:8px;
+}
+
+.company li:nth-child(2){
+	padding-top:53px;
+	width:352px;
+}
+
+.company li:nth-child(2) div:first-child{
+	margin-bottom:8px;
+}
+
+/*__取消按钮的位置 大小 样式*/
+.company li>a{
+	text-align: center;
+	display:inline-block;
+	line-height:23px;
+	margin-left:124px;
+	margin-top:28px;
+	background-image:url("../../../img/job_apply/cancelButton.png");
+	background-repeat:repeat-x;
+	height:26px;
+	width:58px;
+	color:#fff;
+	border:1px solid;
+	border-radius:3px;
+	font-size:18px;
+}

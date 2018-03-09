@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用户详情</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="continer">
+    <{include file="../common/sidebar.html"}>
+    <div class="content">
+        <{include file="../common/crumbs.html"}>
+        <div class="block">
+            <div class = "block-header">
+                用户名<h3>
+                <{if $user.password eq ''}>
+                <{$user.username}>
+                <{else}>
+                <{$user.email}>
+                <{/if}>
+            </h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="control-area control-area-short">
+                    <label>真实姓名</label>
+                    <span><{$user.userdetail.realname}></span>
+                    <!-- if($value->userdetail->gender==1)
+                $listJson[$key]['gender'] = '男';
+            else if($value->userdetail->gender!=null && $value->userdetail->gender==0)
+                {$listJson[$key]['gender'] = '女';} -->
+                </div>
+                <div class="control-area control-area-short">
+                    <label>性别</label>
+                    <span>
+                        <{if $user.userdetail.gender == 1}>
+                        <{'男'}>
+                        <{else if $user.userdetail.gender!=null && $user.userdetail.gender == 0}>
+                        <{'女'}>
+                        <{/if}>
+
+                    </span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>手机号</label>
+                    <span><{$user.cellphone}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>qq号</label>
+                    <span><{$user.qq}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>微信号</label>
+                    <span><{$user.wechat}></span>
+                </div>
+            </div>
+            <div class="module">
+
+                <h2 class="module-title">基本信息</h2>
+                <div class="sub-module clearfix">
+                    <div class="essential-info">
+                        <h2 class="name"><{$BasicInfo.realname}></h2>
+
+
+                        <span class="status">现有工作（教育阶段）：<{$name}></span>
+                        <ul class="detail">
+                            <li></li>
+                        </ul>
+
+                        <ul class="ever">
+
+                            <{if $StudyExperienceInfo }>
+                            <li>教育背景:&nbsp;
+                                <{foreach from=$StudyExperienceInfo item=study}>
+                                <{$study.school_name}>
+                                &nbsp;
+                                <{/foreach}>
+                                <{/if}>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 基本信息模块 end-->
+            <br/><br/><br/>
+            <!-- 档案资料模块 start-->
+            <div class="module">
+                <h2 class="module-title">档案资料</h2>
+                <!-- 工作经历模块 start-->
+                <{if $WorkExperienceInfo}>
+                <div class="sub-module clearfix">
+                    <h3>工作经历</h3>
+                    <!--<a href="<{$website}>job/job/WorkExperienceAdd&resume_id=<{$resume_id}>" class="add"><i></i>新增经历</a>-->
+                    <{foreach from=$WorkExperienceInfo item=infos}>
+                    <p class="time">
+                        <span><{$infos.start_time|date_format:"%Y"}></span>年<span><{$infos.start_time|date_format:"%m"}></span>月&nbsp;至&nbsp;<span><{$infos.end_time|date_format:"%Y"}></span>年<span><{$infos.end_time|date_format:"%m"}></span>月
+                    </p>
+                    <div class="experience">
+                        <h4><{$infos.position_name}></h4>
+                        <ul>
+                            <li><{$infos.company_name}></li>
+                            <li><{$infos.experience_describe}></li>
+                        </ul>
+                    </div>
+
+                    <{/foreach}>
+                </div>
+                <{/if}>
+                <!-- 工作经历模块 end-->
+
+                <!-- 教育经历模块 start-->
+                <{if $StudyExperienceInfo}>
+                <div class="sub-module clearfix">
+
+                    <h3>教育经历</h3>
+                    <br/>
+                    <{foreach from=$StudyExperienceInfo item=infos}>
+                    <p class="time">
+                        <span><{$infos.start_time|date_format:"%Y"}></span>年<span><{$infos.start_time|date_format:"%m"}></span>月&nbsp;至&nbsp;<span><{$infos.end_time|date_format:"%Y"}></span>年<span><{$infos.end_time|date_format:"%m"}></span>月
+                    </p>
+
+                    <div class="experience">
+                        <h4>【专业】<{$infos.major_name}></h4>
+                        <ul>
+                            <li><{$infos.school_name}>·<{$infos.deparment}></li>
+                            <li><{$infos.position_degree.name}></li>
+                        </ul>
+                        <br/>
+                    </div>
+                    <{/foreach}>
+                </div>
+                <{/if}>
+                <!-- 工作经历模块 end-->
+            </div>
+            <!-- 档案资料模块 end-->
+
+
+        </div>
+    </div>
+    <a class="btn" href="<{$website}>admin/graduate/graduate/list">返回</a>
+</div>
+</div>
+</body>
+</html>

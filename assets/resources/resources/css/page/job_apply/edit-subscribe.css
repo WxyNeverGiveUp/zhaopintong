@@ -1,0 +1,65 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: edit-subscribe.css
+@Description: 编辑职位订阅页面CSS定义
+@Version: 1.0.0(2015-07-31)YYYY-MM-DD
+@author: zhaokaikang
+2015-07-31
+初始生成。
+--------------------------------------------------------------------------------------------*/
+body {
+	background-color: #f7f6f6;
+}
+
+.content {
+	width: 766px;
+	background-color: #fff;
+	margin: 0 auto;
+	padding: 55px 120px;
+}
+
+.content h1 {
+	font-size: 18px;
+	margin-bottom: 27px;
+}
+
+.content h1 a{
+	float: right;
+	color: #fa761b;
+	font-size: 14px;
+}
+ 
+
+.subscribe-list li{
+	position: relative;
+	height: 88px;
+	border-left: 11px solid #fa761b;
+	border-right:87px solid #fa761b; 
+	background-color: #f0efee;
+	padding:1px 0 0 28px;
+	margin-bottom: 10px;
+}
+
+.subscribe-list h2 {
+	margin: 15px 0;
+	font-size: 16px;
+	color: #fa761b;
+}
+
+.subscribe-list span {
+	font-size: 14px;
+	margin-right: 36px;
+}
+
+.del-sub {
+	position: absolute;
+	right: -54px;
+	top:38px;
+	background-color: #a84805;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	font-size: 16px;
+	text-align: center;
+	line-height: 18px;
+	color: #fff;
+}

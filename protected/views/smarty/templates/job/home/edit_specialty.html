@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>求职通</title>
+	    <meta charset="utf-8" />
+	   <{include file="../../common/link.html"}>
+		 <{include file="../../common/script.html"}>
+	   <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/mine.css">
+	</head>
+	<body>
+		<{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="mine">
+			<!-- 编辑我的特长模块 start-->
+			<div class="module">
+				<h3 class="module-title">
+					<span>编辑我的特长</span>
+					<a href="<{$website}>job/job/index">返回我的档案</a>
+				</h3>
+				<form method="post" action="" class="clearfix  info-form">
+					<div class="intro">添加描述能力特长的标签，不错过任何职业发展机会。</div>
+					<h3 class="added">已添加：</h3>
+					<ul class="added-item" id="addedItem">
+						
+						 <{foreach from=$SpecialPerformance item=infos}>
+						 <li>
+						      <span>
+						      		<b id = "<{$infos.id}>" title="<{$infos.special_performance}>"><{$infos.special_performance}></b>
+						      		<a href="javascript:;"></a>
+						      </span>
+					      </li>
+						<{/foreach}>
+					</ul>
+					<div class="input-specialty clearfix">
+						<input text="text">
+						<button type="button" class="save">保存</button>
+						<span class="error-tip none">请输入专长标签！</span>
+					</div>
+					<div class="quickly-add">
+						<h3>快速添加符合自己的技能标签：</h3>
+						<div class="add-box">
+							<div class="box-content">
+								<ul>
+									<li class="add-item">
+									    <span><a href="javascript:;"></a><b title="精通互联网">精通互联网</b></span>
+									    <span><a href="javascript:;"></a><b title="人际关系维护">人际关系维护</b></span>
+									    <span><a href="javascript:;"></a><b title="压力管理">压力管理</b></span>
+									     <span><a href="javascript:;"></a><b title="执行力">执行力</b></span>
+									     <span><a href="javascript:;"></a><b title="表达能力">表达能力</b></span>
+									     <span><a href="javascript:;"></a><b title="时间管理">时间管理</b></span>
+									    <span><a href="javascript:;"></a><b title="团队合作">团队合作</b></span>
+									    <span><a href="javascript:;"></a><b title="学习能力">学习能力</b></span>
+									     <span><a href="javascript:;"></a><b title="文件管理">文件管理</b></span>
+									     <span><a href="javascript:;"></a><b title="领导力">领导力</b></span>
+									     <span><a href="javascript:;"></a><b title="性格好">性格好</b></span>
+									    <span><a href="javascript:;"></a><b title="办事能力">办事能力</b></span>
+									     <span><a href="javascript:;"></a><b title="口才能力">口才能力</b></span>
+									     <span><a href="javascript:;"></a><b title="理解能力">理解能力</b></span>
+									</li>
+									<li class="add-item">
+										<span><a href="javascript:;"></a><b title="PPT">PPT</b></span>
+										<span><a href="javascript:;"></a><b title="word">word</b></span>
+										<span><a href="javascript:;"></a><b title="acture">acture</b></span>
+										<span><a href="javascript:;"></a><b title="逻辑分析">逻辑分析</b></span>
+										<span><a href="javascript:;"></a><b title="创新能力">创新能力</b></span>
+										<span><a href="javascript:;"></a><b title="目标核心">目标管理</b></span>
+										<span><a href="javascript:;"></a><b title="工程预算">工程预算</b></span>
+										<span><a href="javascript:;"></a><b title="wps">wps</b></span>
+										<span><a href="javascript:;"></a><b title="flash">flash</b></span>
+										<span><a href="javascript:;"></a><b title="mindmap">mindmap</b></span>
+										<span><a href="javascript:;"></a><b title="dreamwaver">dreamwaver</b></span>
+										<span><a href="javascript:;"></a><b title="visio">visio</b></span>
+									</li>
+									<li class="add-item">
+										<span><a href="javascript:;"></a><b title="公文写作">公文写作</b></span>
+										<span><a href="javascript:;"></a><b title="办公自动化">办公自动化</b></span>
+										<span><a href="javascript:;"></a><b title="outlook">outlook</b></span>
+										<span><a href="javascript:;"></a><b title="商务谈判">商务谈判</b></span>
+										<span><a href="javascript:;"></a><b title="photoshop">photoshop</b></span>
+										<span><a href="javascript:;"></a><b title="市场拓展">市场拓展</b></span>
+									</li>
+								</ul>
+							</div>
+							<div class="direction">
+								<a href="javascript:;" class="left"></a>
+								<a href="javascript:;" class="right"></a>
+							</div>
+						</div>	
+					</div>
+				</form>
+			</div>
+			<!-- 编辑我的特长模块 end-->
+		</div>
+		<script type="text/javascript">
+			KISSY.use('page/job_apply/specialty',function(S){
+				S.ready(function(){
+					PW.page.job_apply.specialty();
+				})
+			})
+		</script>
+	</body>
+</html>

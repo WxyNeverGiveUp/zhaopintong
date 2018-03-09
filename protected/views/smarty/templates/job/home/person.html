@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>毕业生</title>
+	    <meta charset="utf-8" />
+	    <{include file="../../common/link.html"}>
+        <{include file="../../common/script.html"}>
+	   <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	   <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/mine.css">
+	</head>
+	<body>
+		 <{include file="../../common/header.html"}>
+		<div class="mine">
+			<!-- 基本信息模块 start-->
+			<div class="module">
+
+				<h2 class="module-title">基本信息</h2>
+				<div class="sub-module clearfix">
+					<div class="face">
+						<span>
+						    <!--<img src="<{$BasicInfo.head_url}>" alt="头像">-->
+						    <{if $BasicInfo.head_url}>
+						        <img src="<{$BasicInfo.head_url}>" width="195px" height="195px" alt="头像"> 
+						    <{else}>
+						         <img src="<{$staticWebsite}>resources/img/job_apply/del/face.jpg" width="195px" height="195px" alt="头像">
+						    <{/if}>
+							
+							<!--<a class="modify"><i></i>修改头像</a>-->
+						</span>
+					</div>
+					<div class="essential-info">
+						<h2 class="name"><{$BasicInfo.realname}></h2>
+						<{if $identify}>
+						<p>						
+						 <{foreach from=$identify item=id}>						 
+						<{$id.name}>&nbsp;&nbsp;<{$id.value}>
+						<{/foreach}>
+						</p> 
+						<{/if}>
+						<{if $name|| $live}>
+						<span class="status">现有工作（教育阶段）</span>
+						<ul class="detail">
+							<li><{$name}></li>
+						    <{if $live}>
+							<li>|</li>
+							<li><{$live}></li>
+							<{/if}>
+						</ul>
+					  <{/if}>
+						<ul class="ever">
+
+						<{if $WorkExperienceInfo}>
+						<li>曾经工作:&nbsp;
+						  <{foreach from=$WorkExperienceInfo item=work}>
+							<{$work.company_name}>
+						    &nbsp; 							
+						 <{/foreach}>
+						 </li>
+						 <{/if}>
+						 <{if $StudyExperienceInfo }>
+						 <li>教育背景:&nbsp;
+						  <{foreach from=$StudyExperienceInfo item=study}>
+							<{$study.school_name}>
+						    &nbsp; 							
+						 <{/foreach}>
+						  <{/if}>
+						 </li>
+						
+						</ul>
+					</div>
+                    <{if  $isLeague eq 1}>
+                    <{if $isActivated eq 0}>
+                    <a href="javascript:;" class="improve" title="该生信息未通过学校认证"></a>
+                    <{else}>
+                    <a href="javascript:;" class="improve light-up" title="该生信息已通过学校认证"></a>
+                    <{/if}>
+                    <{elseif $isLeague eq 2}>
+                    <a href="javascript:;" class="improve light-up" title="该生信息已通过学校认证"></a>
+                    <{else}>
+                    <a href="javascript:;" class="improve" title="该生信息未通过学校认证"></a>
+                    <{/if}>
+				</div>
+                <div class="edit-info">
+                    <{if  $isLeague eq 1 or $isLeague eq 2}>
+                    <{if $isActivated eq 1}>
+                    <a href="javascript:;" class="unclick-pointer">该生信息已通过学校认证</a>
+                    <{else}>
+                    <{/if}>
+                    <{else}>
+                    <{/if}>
+                </div>
+			</div>
+			<!-- 基本信息模块 end-->
+			<!-- 档案资料模块 start-->
+			<div class="module">
+				<h2 class="module-title">档案资料</h2>
+				<!-- 关于我模块 start-->
+				<{if $BasicInfo.about_me}>
+				<div class="sub-module clearfix">
+					<h3><i class="about-me"></i>关于我</h3>					
+					<p><{$BasicInfo.about_me}></p>
+					<!-- <a href="<{$website}>job/job/AboutMeEdit&user_id=<{$user_id}>"class="edit"><i></i>编辑</a>-->
+					 
+					</div>
+				<{/if}>
+				<!-- 关于我模块 end-->
+				<!-- 我的专长模块 start-->
+				<{if $special}>
+				<div class="sub-module clearfix">
+					<h3><i class="specialty"></i>我的专长</h3>
+					<div class="my-label added-item">						
+						<{foreach from=$special item=model}>
+                           <span><b title="<{$model.special_performance}>"><{$model.special_performance}></b></span>
+						<{/foreach}>
+					</div>
+					<!--<a href="<{$website}>job/job/SpecialEdit&user_id=<{$user_id}>" class="edit"><i></i>编辑</a>-->
+				</div>
+				<{/if}>
+				<!-- 我的专长模块 end-->
+				<!-- 工作经历模块 start-->
+				<{if $WorkExperienceInfo}>
+				<div class="sub-module clearfix">
+					<h3><i class="work"></i>工作经历</h3>
+					<!--<a href="<{$website}>job/job/WorkExperienceAdd&resume_id=<{$resume_id}>" class="add"><i></i>新增经历</a>-->					 
+			    <{foreach from=$WorkExperienceInfo item=infos}>
+			     <p class="time">
+			       <span><{$infos.start_time|date_format:"%Y"}></span>年<span><{$infos.start_time|date_format:"%m"}></span>月&nbsp;至&nbsp;<span><{$infos.end_time|date_format:"%Y"}></span>年<span><{$infos.end_time|date_format:"%m"}></span>月
+			    </p>
+			     <div class="experience">
+						<h4><{$infos.position_name}></h4>
+						<ul>
+							<li><{$infos.company_name}></li>
+							<li><{$infos.experience_describe}></li>
+						</ul>
+					</div>                  
+					 
+				    <{/foreach}>				  
+				</div>
+			    <{/if}>
+				<!-- 工作经历模块 end-->
+				<!-- 教育经历模块 start-->
+				<{if $StudyExperienceInfo}>
+				<div class="sub-module clearfix">
+				    
+					<h3><i class="education"></i>教育经历</h3>
+					 
+                 <{foreach from=$StudyExperienceInfo item=infos}>				 
+				 <p class="time">
+			       <span><{$infos.start_time|date_format:"%Y"}></span>年<span><{$infos.start_time|date_format:"%m"}></span>月&nbsp;至&nbsp;<span><{$infos.end_time|date_format:"%Y"}></span>年<span><{$infos.end_time|date_format:"%m"}></span>月
+			    </p>
+					<div class="experience">
+						<h4><{$infos.major_name}></h4>
+						<ul>
+							<li><{$infos.school_name}>·<{$infos.deparment}></li>
+							<li><{$infos.position_degree.name}></li>
+						</ul>
+					</div>					 
+			      <{/foreach}>			    
+				</div>
+				 <{/if}>
+				<!-- 工作经历模块 end-->
+			</div> 
+			<!-- 档案资料模块 end-->
+			<!-- 联系方式模块 start-->
+			<{if $ContactInfo neq ""}>
+			<div class="module contact">
+				<h2 class="module-title">联系方式</h2>
+				<div class="sub-module clearfix">
+                    <{if $BasicInfo.head_url}>
+                    <img src="<{$BasicInfo.head_url}>" class="face" width="50px" height="50px">
+                    <{else}>
+                    <img src="<{$staticWebsite}>resources/img/job_apply/del/person.jpg" class="face" width="50px" height="50px">
+                    <{/if}>
+
+					 <!--<img src="<{$BasicInfo.head_url}>" alt="头像">-->
+					<ul>
+					     <{if $ContactInfo.cellphone}>
+							<li><i class="mobile"></i>手机：<{$ContactInfo.cellphone}> </li>
+						<{/if}>
+						<{if $ContactInfo.phone}>
+							<li><i class="phone"></i>电话：<{$ContactInfo.phone}></li>
+						<{/if}>
+						<{if $ContactInfo.qq}>
+							<li><i class="qq"></i>&nbsp;QQ：<{$ContactInfo.qq}></li>
+						<{/if}>
+					</ul>
+					<ul class="another">
+					   <{if $ContactInfo.wechat}>
+							<li><i class="wechat"></i>&nbsp;微信：<{$ContactInfo.wechat}></li>
+						<{/if}>
+						 <{if $ContactInfo.email}>
+							<li><i class="email"></i>&nbsp;邮箱：<{$ContactInfo.email}></li>
+						<{/if}>						 
+					</ul>
+					 
+				</div>
+			</div>
+			<{/if}>
+			<!-- 联系方式模块 end-->
+
+		</div>
+		
+		 <{include file="../../common/footer.html"}>
+	</body>
+</html>

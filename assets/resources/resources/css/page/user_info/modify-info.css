@@ -1,0 +1,202 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: modify-info.css
+@Description: 修改信息css定义
+@Version: 1.0.0(2015-08-01)YYYY-MM-DD
+@author: zhaokaikang
+2015-08-01
+初始生成。
+--------------------------------------------------------------------------------------------*/
+body {
+	background-color: #dfdfdf;
+}
+
+.content {
+	width: 1000px;
+	height: 485px;
+	border:1px solid #b5b5b5;
+	margin: 50px auto;
+	background-color: #fff;
+}
+
+.content .modify-nav {
+	float: left;
+	width: 223px;
+	height: 100%;
+	background-color: #ebf4f8;
+}
+
+.content .modify-nav h1 {
+	height: 105px;
+	width: 223px;
+	background:url("../../../img/user_info/nav-bg.gif") no-repeat 0 0;
+	line-height: 105px;
+	text-align: center;
+	font-size: 20px;
+	font-weight: normal;
+	color: #565959; 
+}
+
+.content .modify-nav li {
+	margin-left:23px;
+	height: 41px;
+	text-align: center;
+	line-height: 41px;
+}
+
+.content .modify-nav li a {
+	color: #565959;
+}
+
+.selected {
+	background-color: #fff;
+	border-left: 9px solid #f2771c;
+	text-indent: -11px; 
+}
+
+.right-detail {
+	float: right;
+	padding: 0 31px;
+	width: 715px;
+	height: 100%; 
+}
+
+.upload-img h1 , .change-password h1 {
+	height: 50px;
+	line-height: 50px;
+	color: #565959;
+	font-size: 16px;
+	border-bottom: 2px solid #b5b5b5;
+}
+
+.img-up-zone {
+	position: relative;
+	float: left;
+	width: 360px;
+	height: 328px;
+	background-color: #dfebf1;
+	border:1px solid #b5b5b5;
+	margin-top: 44px;
+	margin-left: 50px;
+}
+
+.upload-file {
+	position: absolute;
+	top: 118px;
+	left: 90px;
+	z-index: 4;
+	opacity: 0; 
+	width: 180px;
+	height: 40px;
+	cursor: pointer;
+	}
+
+.mock-input {
+	position: absolute;
+	top:118px;
+	left: 90px;
+	width: 180px;
+	height: 40px;
+	background-color: #f2771c;
+	z-index: 2;
+	border: 1px solid #cb5a0b;
+	border-radius: 10px;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+.img-up-zone p {
+	margin-top: 117px;
+	font-size: 12px;
+	color: #a8acad;
+	text-align: center;
+}
+
+.current-img {
+	float: right;
+	margin-right: 108px;
+	margin-top: 30px;
+}
+
+.current-img h1 {
+	font-size:16px;
+	color: #9b9a9a; 
+}
+
+.current-img div{
+	border: 1px solid #d3d3d3;
+	height: 154px;
+	width: 154px;
+}
+
+.submit-info {
+	display: inline-block;
+	width: 78px;
+	height: 30px;
+	margin-top: 38px;
+	margin-left: 104px;
+	border: 1px solid #af8e4e;
+	background: url("../../../img/job_apply/submit-bg.gif") repeat 0 0;
+	text-align: center;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.cancel-submit {
+	display: inline-block;
+	width: 78px;
+	height: 32px;
+	border: 1px solid #bababa;
+	background: url("../../../img/job_apply/cancel-bg.gif") repeat 0 0;
+	text-align: center;
+	color: #000;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.upload-tip {
+	display: inline-block;
+	margin-top: 58px;
+	width: 214px;
+	margin-left: 76px;
+	color: #ae1515;
+	text-align: center;
+}
+
+.change-password form {
+	margin-top: 90px;
+	margin-left: 200px;
+}
+
+.change-password form div {
+	height: 50px;
+	line-height: 50px;
+	margin-bottom: 15px;
+}
+
+.new-password-input {
+	margin-left: 16px;
+	height: 35px;
+	border: 1px solid #929394;
+	width: 200px;
+}
+
+.old-password-input {
+	margin-top: 15px;
+	height: 35px;
+	border: 1px solid #929394;
+	width: 200px;
+}
+
+.check-password-input {
+	height: 35px;
+	border: 1px solid #929394;
+	width: 200px;
+}
+
+.modi-password-tip{
+	margin-left: 90px;
+	color: #ae1515;
+}

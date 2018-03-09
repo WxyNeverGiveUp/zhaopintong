@@ -1,0 +1,342 @@
+<!-- ==================================================
+* @Description: 宣讲会-申请宣讲会
+* @Version: 1.0.0
+* @Author: lijin(2030539391@qq.com)
+* @Date: 2017.6.10
+* ==NOTES:=============================================
+* v1.0.0(2017.6.10):
+初始生成
+* ==================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>申请宣讲会</title>
+	<!--#include file="/nenu_dsjyw_front/page/common/link.html" -->
+    <!--#include file="/nenu_dsjyw_front/page/common/script.html" -->
+    <!--#include file="/nenu_dsjyw_front/page/common/calendar.html" -->
+	<link rel="stylesheet" type="text/css" href="/nenu_dsjyw_front/resources/css/page/preach/apply-preach.css">
+</head>
+<body>
+<div class="page">
+<!--#include file="/nenu_dsjyw_front/page/common/header.html" -->
+	<div class="content">
+		<div class="sidebar">
+            <h2><i class="fa fa-users list-img"></i>宣讲会</h2>
+        	<ul class="tab_menu">
+        		<li class="active"><a href="/nenu_dsjyw_front/page/preach/preach-manage.html">宣讲会管理</a></li>
+        		<li><a href="/nenu_dsjyw_front/page/preach/preach-process.html">流程介绍</a></li>
+        	</ul>
+        </div>
+        <form action="apply-preach.html" method="" enctype="multipart/form-data" class="apply-preach main clearfix">
+			<p class="set-height"> &lt; 宣讲会</p>
+			<p class="basic-info">宣讲会基本信息</p>
+			<p>
+				<label for="">宣讲会名称</label>
+				<input type="text" name="" placeholder="必填" class="preach-name" autofocus="autofocus" required />
+			</p>
+			<p>
+				<label for="">宣讲地点</label>
+				<select class="J_preachLocation">
+					<option value="0">请选择</option>
+					<option value="1">本部校区</option>
+					<option value="2">净月校区</option>
+				</select>
+				<span class="suggest">建议：教育类选择“本部”，非教育类选择“净月”</span>
+			</p>
+			<div class="day-box">
+				<label>宣讲日期</label>
+				<p class="select-date-box">
+					<input type="text" name="date" placeholder="请选择日期" class="J_selectDate select-date" />
+				</p>
+			</div>
+			<div class="time-box">
+				<label>宣讲时间段</label>
+				<div class="preach-time">
+					<input type="checkbox" name="preach-date" id="preach-time1" /><label for="preach-time1">8:00-9:00</label>
+					<input type="checkbox" name="preach-date" id="preach-time2" /><label for="preach-time2">9:30-10:30</label>
+					<input type="checkbox" name="preach-date" id="preach-time3" /><label for="preach-time3">11:00-12:00</label>
+					<input type="checkbox" name="preach-date" id="preach-time4" /><label for="preach-time4">13:30-14:30</label>
+					<input type="checkbox" name="preach-date" id="preach-time5" /><label for="preach-time5">15:00-16:00</label>
+					<input type="checkbox" name="preach-date" id="preach-time6" /><label for="preach-time6">16:30-17:30</label>
+					<input type="checkbox" name="preach-date" id="preach-time7" /><label for="preach-time7">其他</label>
+				</div>
+			</div>
+			<table cellspacing="0" border="1" rules="rows"  class="job-info">
+				<tr>
+					<td class="basic-info">职位需求信息</td>
+					<td></td>
+					<td></td>
+					<td class="add-major"><a href="javascript:;" class="J_addMajor">添加需求专业</a></td>
+				</tr>
+				<tr class="line2">
+					<td colspan="2">
+						<label>需求岗位</label>
+						<input type="text" name="" required />
+					</td>
+					<td colspan="2">
+						<label>总人数</label>
+						<input type="number" name="" min="0" class="J_number" />
+					</td>
+				</tr>
+				<tr class="line3">
+					<td colspan="4">
+						<label>备注</label>
+						<textarea name="" id="" cols="69" rows="2" class=""></textarea>
+					</td>
+				</tr>
+			</table>
+			
+			<p class="description">
+				<label>宣讲会描述</label>
+				<textarea name="" id="" cols="66" rows="5"></textarea>
+			</p>
+			<!-- 上传图片 -->
+			<div class="imgbox">
+                           
+            </div>
+            <!-- <p class="tip none">没有上传照片,请上传</p> -->
+			<!-- 上传图片end -->
+
+			<p class="basic-info">面试、笔试场地</p>
+			<p class="color-red">*请您注明意向时间（精确至分）、所需大小、以便我方安排；因我方中心面试场地需要同其它部门协调，故提前两天方可确定具体教室。如有其他需求，请您在备注一栏注明。</p>
+			<p class="written-place">
+				<span>是否需要笔试场地</span>
+				<input type="radio" name="written-place" id="J_writtenYes" /><label for="J_writtenYes">是</label>
+				<input type="radio" name="written-place" checked="checked" id="J_writtenNo" /><label for="J_writtenNo">否</label>
+			</p>
+			<div class="written-box clearfix">
+				<div class="written-place-info">
+					<p>
+						<label>使用数量</label>
+						<input type="number" name="" min="0" class="J_number" /> 间
+					</p>
+					<div>
+						<label>使用时间</label>
+						<p class="select-date-box">
+							<input type="text" name="" class="J_selectDate select-date J_selectDateSmall" />
+						</p>
+						<span> 至 </span>
+						<p class="select-date-box">
+							<input type="text" name="" class="J_selectDate select-date J_selectDateBig" />
+						</p>
+					</div>
+					<p class="scale-of-use">
+						<span>使用规模</span>
+						<input type="radio" /><label>50人</label>
+						<input type="radio" /><label>100人</label>
+						<input type="radio" /><label>100人以上</label>
+					</p>
+				</div>
+				<a href="javascript:;" class="add-info J_addPlace">添加</a>
+			</div>
+			<p class="audition-place">
+				<span>是否需要面试场地</span>
+				<input type="radio" name="audition-place" id="J_auditionYes" /><label for="J_auditionYes">是</label>
+				<input type="radio" name="audition-place" id="J_auditionNo" checked="checked" /><label for="J_auditionNo">否</label>
+			</p>
+			<div class="audition-box clearfix">
+				<div class="written-place-info">
+					<p>
+						<label>使用数量</label>
+						<input type="number" name="" min="0" class="J_number" /> 间
+					</p>
+					<div>
+						<label>使用时间</label>
+						<p class="select-date-box">
+							<input type="text" name="date" class="J_selectDate select-date J_selectDateSmall" />
+						</p>
+						<span> 至 </span>
+						<p class="select-date-box">
+							<input type="text" name="date" class="J_selectDate select-date J_selectDateBig" />
+						</p>
+					</div>
+					<p class="scale-of-use">
+						<span>使用规模</span>
+						<input type="radio" /><label>50人</label>
+						<input type="radio" /><label>100人</label>
+						<input type="radio" /><label>100人以上</label>
+					</p>
+				</div>
+				<a href="javascript:;" class="add-info J_addPlace">添加</a>
+			</div>
+			<label for="" class="remark">备注</label>
+			<textarea name="" id="" cols="67" rows="5" class=""></textarea>
+			<p class="basic-info">来访信息</p>
+			<p>
+				<label>联系人信息</label>
+				<a href="javascript:;" class="button J_contacts">选择联系人</a>
+			</p>
+			<p>
+				<label></label>
+				<input type="text" name="" placeholder="姓名" />
+			</p>
+			<p class="set-height">	
+				<label></label>
+				<input type="text" name="" placeholder="手机号码" class="telephone" required />	
+			</p>
+			<p>
+				<label for="">领队人信息</label>
+				<a href="javascript:;" class="button J_leaders">选择领队人</a>
+			</p>
+			<p>
+				<label></label>
+				<input type="text" name="" placeholder="姓名" />
+			</p>
+			<p>
+				<label></label>
+				<input type="text" name="" placeholder="职务" />
+			</p>
+			<p>
+				<label></label>
+				<input type="text" name="" placeholder="手机号码" class="telephone" required />
+			</p>
+			<p class="set-height">
+				<label></label>
+				<input type="text" name="" placeholder="输入验证码" />
+				<a href="javascript:;" class="button">点击获取验证码</a>
+			</p>
+			<p class="set-height">
+				<label for="">来访人数</label>
+				<input type="number" name="" min="0" class="J_number" /> 人
+			</p>
+			<label for="">来访人信息</label>
+			<a href="javascript:;" class="button J_visits">添加来访人</a>
+			<p>
+				<label></label>
+				<input type="text" name="" placeholder="姓名" />
+			</p>
+			<p>
+				<label></label>
+				<input type="text" name="" placeholder="职务" />
+			</p>
+			<p>
+				<label></label>
+				<input type="text" name="" placeholder="手机号码" class="telephone" required />
+			</p>
+			<p class="set-height">
+				<label></label>
+				<input type="text" name="" placeholder="输入验证码" />
+				<a href="javascript:;" class="button">点击获取验证码</a>
+			</p>
+			<table class="visits-info">
+				<thead>
+					<td>姓名</td>
+					<td>职务</td>
+					<td>手机号码</td>
+					<td>操作</td>
+				</thead>
+			</table>
+			<p class="hotel set-height">
+				<label for="" class="reserve">是否需要预定宾馆</label>
+				<input type="radio" name="reserve-hotel" id="reserveYes" /><label for="reserveYes">是</label>
+				<input type="radio" name="reserve-hotel" id="reserveNo" /><label for="reserveNo">否</label>
+			</p>	
+			<p class="submit-box">
+				<input type="reset" value="取消申请" class="button" />
+				<input type="submit" value="提交申请" class="button submit" />
+			</p>
+		</form>
+		<!-- 添加需求信息提示框 -->
+		<div class="add-major-box">
+			<p class="add-major-title">添加需求信息</p>
+			<p class="add-major-info">
+				<label for="">需求专业</label>
+				<select class="add-major-detail">
+					<option value="0">请选择</option>
+					<option value="1">软件工程</option>
+					<option value="2">法学</option>
+					<option value="3">思教</option>
+					<option value="4">环境工程</option>
+					<option value="5">其他</option>
+				</select>
+				<label for="">学历</label>
+				<select class="education">
+					<option value="0">请选择</option>
+					<option value="1">中专及以下</option>
+					<option value="2">本科</option>
+					<option value="3">硕士</option>
+					<option value="4">博士及以上</option>
+					<option value="5">不限</option>
+				</select>
+				<label for="">人数</label>
+				<input type="number" name="" min="0" class="J_number add-major-number" />
+			</p>
+			<p class="add-major-submit">
+				<a href="javascript:;" class="button J_confirm">确定</a>
+				<a href="javascript:;" class="button J_cancel">取消</a>
+			</p>
+		</div>
+		<!-- 选择联系人提示框 -->
+		<div class="contacts-box J_contactsBox">
+			<p class="add-major-title">选择联系人<i class='icon J_close'>&#xea0f;</i></p>
+			<div>
+				<input type="text" name="" placeholder="输入姓名" />
+				<table>
+					<thead>
+						<td>姓名</td>
+						<td>职务</td>
+						<td>手机号码</td>
+						<td>操作</td>
+					</thead>
+					<tr>
+						<td>陈玉婷</td>
+						<td>招聘会来访人</td>
+						<td>18543131024</td>
+						<td class="contacts-selected">选择</td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+		<!-- 选择领队人提示框 -->
+		<div class="contacts-box J_leadersBox">
+			<p class="add-major-title">选择领队人<i class='icon J_close'>&#xea0f;</i></p>
+			<div>
+				<input type="text" name="" placeholder="输入姓名" />
+				<table>
+					<thead>
+						<td>姓名</td>
+						<td>职务</td>
+						<td>手机号码</td>
+						<td>操作</td>
+					</thead>
+					<tr>
+						<td>陈玉婷</td>
+						<td>招聘会来访人</td>
+						<td>18543131024</td>
+						<td class="contacts-selected">选择</td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+		<!-- 添加来访人信息框 -->
+		<div class="visits-box">
+			<p class="add-major-title">添加来访人信息</p>
+			<p class="add-major-info">
+				<label for="">来访人姓名</label>
+				<input type="text" name="" class="visits-name" />
+				<label for="">来访人职务</label>
+				<input type="text" name="" class="visits-job" />
+				<label for="">来访人电话</label>
+				<input type="text" name="" class="J_number visits-phone" />
+			</p>
+			<p class="add-major-submit">
+				<a href="javascript:;" class="button J_confirm">确定</a>
+				<a href="javascript:;" class="button J_cancel">取消</a>
+			</p>
+		</div>
+		<!--提示框外的灰色区域 -->
+		<div class="cover">
+			
+		</div>
+		
+	</div>
+	<!--#include file="/nenu_dsjyw_front/page/common/footer.html" -->
+</div>
+	<script type="text/javascript" src="/nenu_dsjyw_front/resources/js/page/preach/selectivizr.js"></script>
+	<script type="text/javascript" src="../../resources/js/page/common/uploadimg.js"></script>
+	<script type="text/javascript" src="/nenu_dsjyw_front/resources/js/page/preach/apply-preach.js"></script>
+</body>
+</html>

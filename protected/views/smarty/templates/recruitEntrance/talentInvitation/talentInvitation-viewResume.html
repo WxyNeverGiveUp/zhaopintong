@@ -1,0 +1,341 @@
+<!-- 
+* @Description: 人才邀约--查看简历
+* @Version: 1.0.0
+* @Author: liqi
+* @Date: 2017.05.13
+* ==NOTES:=============================================
+* v1.0.0(2017.05.13):
+初始生成
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>简历详情</title>
+	<link href="<{$staticWebsite}>recruitment_resources/css/page/talentInvitation/talentInvitation-viewResume.css" rel="stylesheet" type="text/css"/>
+
+	<{include file="../common/link.html" }>
+
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="content">
+	<div class="sidebar">
+		<h2><i class="fa fa-thumbs-up list-img"></i>人才邀约</h2>
+		<ul class="tab_menu">
+			<li><a href="<{$website}>api/nenu/getNenuInfo">师大人才</a></li>
+			<li class="active"><a href="<{$website}>recruitEntrance/talentInvitation/discover">发现人才</a></li>
+			<li><a href="<{$website}>recruitEntrance/talentInvitation/record">邀约记录</a></li>
+		</ul>
+	</div>
+	<div class="main">
+		<a href="<{$website}>recruitEntrance/talentInvitation/discover" class="return">返回</a>
+
+		<div class="resume box">
+
+			<span class="title">基本信息</span>
+			<{if $BasicInfo.head_url}>
+			<img src="<{$BasicInfo.head_url}>" width="195px" height="195px" alt="头像">
+			<{else}>
+			<img src="<{$staticWebsite}>recruitment_resources/img/talent/p1.jpg"/></td>
+			<{/if}>
+
+			<ul>
+				<li>姓名： <{$BasicInfo.realname}></li>
+				<{if $live}>
+				<li>现居地： <{$live}></li>
+				<{/if}>
+				<li>生源地： <{$BasicInfo.account_place}></li>
+				<li>生日： <{$BasicInfo.birthday}></li>
+				<{if $BasicInfo.work_experience}>
+				<li>有工作经验</li>
+				<{else}>
+				<li>无工作经验</li>
+				<{/if}>
+			</ul>
+		</div>
+
+		<{if $ContactInfo}>
+		<div class="box">
+			<!--<input type="button" value="编辑" />-->
+			<span class="title">联系方式</span>
+			<ul>
+				<{if $ContactInfo.cellphone}>
+				<li> 手机号：<{$ContactInfo.cellphone}> </li>
+				<{/if}>
+				<{if $ContactInfo.phone}>
+				<li> 电话:<{$ContactInfo.phone}> </li>
+				<{/if}>
+				<{if $ContactInfo.email}>
+				<li> 邮箱：<{$ContactInfo.email}> </li>
+				<{/if}>
+				<{if $ContactInfo.qq}>
+				<li> QQ:<{$ContactInfo.qq}> </li>
+				<{/if}>
+				<{if $ContactInfo.wechat}>
+				<li> 微信：<{$ContactInfo.wechat}></li>
+				<{/if}>
+			</ul>
+		</div>
+		<{/if}>
+
+		<{if $StudyExperienceInfo}>
+		<div class="education-experience box">
+			<!--<input type="button" value="编辑" />-->
+
+			<span class="title">教育经历</span>
+			<table>
+				<tr>
+					<td>毕业院校</td>
+					<td>就读时间</td>
+					<td>学历</td>
+					<td>专业</td>
+				</tr>
+				<{foreach from=$StudyExperienceInfo item=infos}>
+				<tr>
+					<td><{$infos.school_name}></td>
+					<td>
+					<span><{$infos.start_time|date_format:"%Y"}></span>年<span><{$infos.start_time|date_format:"%m"}></span>月&nbsp;至&nbsp;<span><{$infos.end_time|date_format:"%Y"}></span>年<span><{$infos.end_time|date_format:"%m"}></span>月
+					</td>
+					<td><{$infos.position_degree.name}></td>
+					<td><{$infos.major_name}></td>
+				</tr>
+				<{/foreach}>
+			</table>
+
+		</div>
+		<{/if}>
+
+		<{if $schoolAwardsInfo}>
+		<div class="box">
+			<!--<input type="button" value="添加" />-->
+
+			<span class="title">证书或荣誉</span>
+			<table>
+				<tr>
+					<td>获取时间</td>
+					<td>荣誉</td>
+				</tr>
+
+			<{foreach from=$schoolAwardsInfo item=infos}>
+				<tr>
+					<td><span><{$infos.award_time|date_format:"%Y"}></span>年<span><{$infos.award_time|date_format:"%m"}></span>月</td>
+					<td><{$infos.award_name}></td>
+				</tr>
+			<{/foreach}>
+			</table>
+		</div>
+		<{/if}>
+
+		<{if $schoolDutyInfo}>
+		<div class="box">
+			<!--<input type="button" value="添加" />-->
+
+			<span class="title">校内职务</span>
+			<table>
+				<tr>
+					<td>时间</td>
+					<td>职务</td>
+				</tr>
+				<{foreach from=$schoolDutyInfo item=infos}>
+				<tr>
+					<td>
+						<span><{$infos.start_time|date_format:"%Y"}></span>年<span><{$infos.start_time|date_format:"%m"}></span>月&nbsp;至&nbsp;<span><{$infos.end_time|date_format:"%Y"}></span>年<span><{$infos.end_time|date_format:"%m"}></span>月
+					</td>
+					<td><{$infos.duty_name}></td>
+				</tr>
+				<{/foreach}>
+			</table>
+		</div>
+		<{/if}>
+
+		<{if $languagesAbilityInfo}>
+		<div class="box">
+			<!--<input type="button" value="添加" />-->
+
+			<span class="title">语言能力	</span>
+			<table>
+				<tr>
+					<td>语言种类</td>
+					<td>分数</td>
+					<td>听说能力</td>
+					<td>读写能力</td>
+				</tr>
+				<{foreach from=$languagesAbilityInfo item=infos}>
+				<tr>
+					<td><{$infos.language_type.name}></td>
+					<td><{$infos.point}></td>
+					<{if $infos.les_say == 1}>
+					<td>一般</td>
+					<{else if $infos.les_say == 2}>
+					<td>良好</td>
+					<{else if $infos.les_say == 3}>
+					<td>精通</td>
+					<{/if}>
+					<{if $infos.rea_wri == 1}>
+					<td>一般</td>
+					<{else if $infos.rea_wri == 2}>
+					<td>良好</td>
+					<{else if $infos.rea_wri == 3}>
+					<td>精通</td>
+					<{/if}>
+				</tr>
+				<{/foreach}>
+			</table>
+		</div>
+		<{/if}>
+
+		<{if $WorkExperienceInfo}>
+		<div class="work-experience box">
+			<!--<input type="button" value="添加" />-->
+			<span class="title">工作/实习经历</span>
+			<table>
+				<tr>
+					<td>时间</td>
+					<td>公司</td>
+					<td>职位</td>
+					<td>经历描述</td>
+					<td>种类</td>
+				</tr>
+				<{foreach from=$WorkExperienceInfo item=infos}>
+				<tr>
+					<td>
+						<span><{$infos.start_time|date_format:"%Y"}></span>年<span><{$infos.start_time|date_format:"%m"}></span>月&nbsp;至&nbsp;<span><{$infos.end_time|date_format:"%Y"}></span>年<span><{$infos.end_time|date_format:"%m"}></span>月
+					</td>
+					<td><{$infos.company_name}></td>
+					<td><{$infos.position_name}></td>
+					<td><{$infos.experience_describe}></td>
+					<{if $infos.work_type == 1}>
+					<td>实习</td>
+					<{else}>
+					<td>工作</td>
+					<{/if}>
+				</tr>
+				<{/foreach}>
+			</table>
+		</div>
+		<{/if}>
+
+		<{if $projectExperienceInfo}>
+		<div class="project-experience box">
+			<!--<input type="button" value="添加" />-->
+
+			<span class="title">项目经历</span>
+			<table>
+				<tr>
+					<td>时间</td>
+					<td>项目名称</td>
+					<td>担任角色</td>
+				</tr>
+				<{foreach from=$projectExperienceInfo item=infos}>
+				<tr>
+					<td>
+						<span><{$infos.start_time|date_format:"%Y"}></span>年<span><{$infos.start_time|date_format:"%m"}></span>月&nbsp;至&nbsp;<span><{$infos.end_time|date_format:"%Y"}></span>年<span><{$infos.end_time|date_format:"%m"}></span>月
+					</td>
+					<td><{$infos.project_name}></td>
+					<td><{$infos.project_role}></td>
+				</tr>
+				<{/foreach}>
+			</table>
+		</div>
+		<{/if}>
+
+		<{if $itSkillInfo}>
+		<div class="box">
+			<!--<input type="button" value="编辑" />-->
+
+			<span class="title">IT技能</span>
+			<ul>
+				<{foreach from=$itSkillInfo item=infos}>
+
+				<li>掌握<{$infos.name}></li>
+				<{/foreach}>
+			</ul>
+		</div>
+		<{/if}>
+
+		<{if $trainingExperienceInfo}>
+		<div class="box">
+			<!--<input type="button" value="添加" />-->
+
+			<span class="title">培训经历	</span>
+			<table>
+				<tr>
+					<td>时间</td>
+					<td>培训名称</td>
+					<td>培训机构</td>
+					<td>培训内容</td>
+				</tr>
+				<{foreach from=$trainingExperienceInfo item=infos}>
+				<tr>
+					<td>
+						<span><{$infos.start_time|date_format:"%Y"}></span>年<span><{$infos.start_time|date_format:"%m"}></span>月&nbsp;至&nbsp;<span><{$infos.end_time|date_format:"%Y"}></span>年<span><{$infos.end_time|date_format:"%m"}></span>月
+					</td>
+					<td><{$infos.training_name}></td>
+					<td><{$infos.training_organization}></td>
+					<td><{$infos.training_content}></td>
+				</tr>
+				<{/foreach}>
+			</table>
+		</div>
+		<{/if}>
+
+		<{if $jobExperienceInfo}>
+		<div class="box">
+			<!--<input type="button" value="添加" />-->
+
+			<span class="title">求职经历	</span>
+			<table>
+				<tr>
+					<td>时间</td>
+					<td>公司名称</td>
+					<td>职位名称</td>
+					<td>求职结果</td>
+				</tr>
+				<{foreach from=$jobExperienceInfo item=infos}>
+				<tr>
+					<td><span><{$infos.time|date_format:"%Y"}></span>年<span><{$infos.time|date_format:"%m"}></span>月</td>
+					<td><{$infos.company_name}></td>
+					<td><{$infos.position_name}></td>
+					<{if $infos.type == 0}>
+					<td>参加笔试</td>
+					<{else if $infos.type == 1}>
+					<td>参加面试</td>
+					<{else if $infos.type == 2}>
+					<td>拿到Offer</td>
+					<{/if}>
+				</tr>
+				<{/foreach}>
+			</table>
+		</div>
+		<{/if}>
+
+		<{if $attachmentInfo}>
+		<div class="box">
+			<!--<input type="button" value="添加" />-->
+
+			<span class="title">附件/作品</span>
+			<{foreach from=$attachmentInfo item=infos}>
+			<div><img src="<{$infos.url}>" /><{$infos.name}></div>
+			<{/foreach}>
+		</div>
+		<{/if}>
+
+		<{if $BasicInfo.about_me}>
+		<div class="box">
+			<!--<input type="button" value="添加" />-->
+
+			<span class="title">自我介绍</span>
+			<p><{$BasicInfo.about_me}></p>
+		</div>
+		<{/if}>
+
+	</div>
+</div>
+<{include file="../common/footer.html"}>
+	<{include file="../common/script.html" }>
+
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head lang="en">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <title>修改前台录入单位</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <script type="text/javascript" src="<{$staticWebsite}>js/jquery.min.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>SWFUpload/swfupload.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>SWFUpload/plugins/swfupload.queue.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>SWFUpload/plugins/handler.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.all.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <link rel="stylesheet" type="text/css" href="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/themes/default/css/ueditor.css" />
+</head>
+<body>
+<div>
+    <{include file="../common/header.html"}>
+    <div class="continer">
+        <{include file="../common/sidebar.html"}>
+        <div class="content">
+            <{include file="../common/crumbs.html"}>
+            <form class="block J_searchForm" action="<{$website}>admin/company/company/editFront/id/<{$company.id}>" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+                <input id="vid" name="vid" type="hidden"/>
+                <div class="block-header">
+                    <h3>修改单位信息</h3>
+                </div>
+                <div class="block-content clearfix">
+                    <div class="control-area control-area-short">
+                        <label>单位名称</label>
+                        <input type="text" name="name" class="textTheme"  value="<{$company.name}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>所属行业</label>
+                        <select class="textTheme" name = "tradeId">
+                            <{foreach from=$tradeList item=trade}>
+                            <{if $trade.id == $company.trade_id}>
+                            <option value="<{$trade.id}>" selected="selected"><{$trade.name}></option>
+                            <{else}>
+                            <option value="<{$trade.id}>"><{$trade.name}></option>
+                            <{/if}>
+                            <{/foreach}>
+                        </select>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>所属城市</label>
+                        <div class="J_addapp">
+                            <select class="textTheme" id="J_proviceList" style="width:6%">
+                                <option value="0">请选择</option>
+                                <{foreach from=$provinceList item=p}>
+                                <{if $provinceId == $p.id}>
+                                <option value="<{$p.id}>" selected="selected"><{$p.name}></option>
+                                <{else}>
+                                <option value="<{$p.id}>"><{$p.name}></option>
+                                <{/if}>
+                                <{/foreach}>
+                            </select>
+                            <span>省</span>
+                            <select class="textTheme" name = "cityId" id="J_cityList">
+                                <option value="0">请选择</option>
+                                <{foreach from=$city item=c}>
+                                <{if $c.id == $cityId}>
+                                <option value="<{$c.id}>" selected="selected"><{$c.name}></option>
+                                <{else}>
+                                <option value="<{$c.id}>"><{$c.name}></option>
+                                <{/if}>
+                                <{/foreach}>
+                            </select>
+                            <span>市</span>
+                        </div>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>详细地址</label>
+                        <input type="text" name = "fullAddress" class="textTheme"  value="<{$company.full_address}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>单位电话</label>
+                        <input type="text" name="phone" class="textTheme"  value="<{$company.phone}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>单位性质</label>
+                        <select class="textTheme" name = "propertyId">
+                            <option value="0">请选择单位性质</option>
+                            <{foreach from=$propertyList item=property}>
+                            <{if $property.id == $company.property_id}>
+                            <option value="<{$property.id}>" selected="selected"><{$property.name}></option>
+                            <{else}>
+                            <option value="<{$property.id}>"><{$property.name}></option>
+                            <{/if}>
+                            <{/foreach}>
+                        </select>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>邮政编码</label>
+                        <input type="text" name="postalCode" class="textTheme"   value="<{$company.postal_code}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>单位传真</label>
+                        <input type="text" name="fax" class="textTheme"   value="<{$company.fax}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>电子邮箱</label>
+                        <input type="text" name="email" class="textTheme" value="<{$company.email}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>修改组织机构代码</label>
+                        <input type="text" name="daima" class="textTheme" value=""/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>是否参加大招会</label>
+                        <{if $company.is_join_big_recruitment == "1"}>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinBigRecruitment" value="1" checked="true"/>
+                            是
+                        </div>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinBigRecruitment" value="0"/>
+                            否
+                        </div>
+                        <{else}>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinBigRecruitment" value="1"/>
+                            是
+                        </div>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinBigRecruitment" value="0" checked="true"/>
+                            否
+                        </div>
+                        <{/if}>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>是否参加网上招聘周</label>
+                        <{if $company.is_join_recruitment_week  == "1"}>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinRecruitmentWeek" value="1" checked="true"/>
+                            是
+                        </div>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinRecruitmentWeek" value="0"/>
+                            否
+                        </div>
+                        <{else}>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinRecruitmentWeek" value="1"/>
+                            是
+                        </div>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinRecruitmentWeek" value="0" checked="true"/>
+                            否
+                        </div>
+                        <{/if}>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>网站地址</label>
+                        <input type="text" name="website" class="textTheme" value="<{$company.website}>"/>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>单位介绍</label>
+                        <script id="container" name="introduction" type="text/plain"><{$company.introduction}></script>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>组织机构代码</label>
+                    <span>
+                        <img src="<{$tempWebsite}>/<{$company.daima}>" width="320" height="300" alt='暂无照片'/>
+                    </span>
+                        <label>修改组织机构代码</label>
+                        <input type="file" name="daima" id="daima" data-valid-rule="notNull">
+                        <span class="red daima-tip">格式：jpg/pdf</span>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>营业执照</label>
+                    <span>
+                        <img src="<{$tempWebsite}>/<{$company.zhizhao}>" width="320" height="300" alt='暂无照片'/>
+                    </span>
+                        <label>修改营业执照</label>
+                        <input type="file" name="zhizhao" id="zhizhao" data-valid-rule="notNull">
+                        <span class="red zhizhao-tip">格式：jpg/pdf</span>
+                    </div>
+                </div>
+                <div class="btn-center" style="margin-bottom:20px;">
+                    <input type="submit" name="button" id="button" class="btn" value="提交"/>
+                </div>
+            </form>
+            <script type="text/javascript">
+                var editor = UE.getEditor('container')
+            </script>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="<{$staticWebsite}>js/fixdiv.js"></script>
+<script type="text/javascript" src="<{$staticWebsite}>js/address.js"></script>
+<script type="text/javascript">
+    KISSY.use('page/employment/add-student',function(S){
+        S.ready(function(){
+            PW.page.addStudent();
+        });
+    });
+</script>
+</body>
+</html>

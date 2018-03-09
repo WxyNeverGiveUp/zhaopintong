@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>前台录入单位详情</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="continer">
+    <{include file="../common/sidebar.html"}>
+    <div class="content">
+        <{include file="../common/crumbs.html"}>
+        <div class="block">
+            <div class = "block-header">
+                <h3><{$company.name}></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="control-area control-area-short">
+                    <label>单位行业:</label>
+                    <span><{$trade}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>单位性质:</label>
+                    <span><{$property}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>联系电话:</label>
+                    <span><{$company.phone}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>邮箱:</label>
+                    <span><{$company.email}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>邮政编码:</label>
+                    <span><{$company.postal_code}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>单位传真:</label>
+                    <span><{$company.fax}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>网址:</label>
+                    <span><{$company.website}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>详细地址:</label>
+                    <span><{$company.full_address}></span>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>单位简介:</label>
+                    <span><{$company.introduction}></span>
+                </div>
+                <!-- <div class="control-area control-area-short">
+                    <label>组织机构代码:</label>
+                    <span>
+                        <{if $kind eq 'jpg'}>
+                        <img src="http://2017.dsjyw.net/<{$company.daima}>" width="520" height="300"/>
+                        <{else}>
+                        <embed src="http://2017.dsjyw.net/<{$company.daima}>" width="520" height="300"/>
+                        <{/if}>
+                        </span>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>营业执照:</label>
+                    <span><{if $kind2 eq 'jpg'}>
+                        <img src="http://2017.dsjyw.net/<{$company.zhizhao}>" width="520" height="300"/>
+                        <{else}>
+                        <embed src="http://2017.dsjyw.net/<{$company.zhizhao}>" width="520" height="300"/>
+                        <{/if}></span>
+                </div> -->
+            </div>
+            <{if $company.is_ok eq 1}>
+            已通过审核
+            <{else}>
+            <center><a href="<{$website}>admin/company/company/toEditFront/id/<{$company.id}>" class="btn">修改</a>
+            <a href="<{$website}>admin/company/company/check/id/<{$company.id}>" class="btn">审核通过</a></center>
+            <{/if}></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

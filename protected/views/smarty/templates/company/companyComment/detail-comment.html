@@ -1,0 +1,107 @@
+<!-- 赵凯康 detail-comment -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>具体评论</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/detail-comment.css">
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../common/header.html"}>
+		<div class="content">
+			<h1>
+				分享一条单位评价,为学弟学妹的职业规划提供帮助
+			</h1>
+			<h2>
+			</h2>
+			<form id="J_form" action="<{$website}>company/companyComment/addMore" method="post">
+                <input type="hidden" name="commentId" value="<{$commentId}>">
+				<h3>
+				你对<{$company.name}>的印象是：
+				</h3>
+				<table>
+					<tr>
+						<th>技能成长：</th>
+						<td>
+							<input type="hidden" class="first-input none" name="skill_grow">
+							<span class="rate clearfix">
+								<a  href="javascript:;" value="1">少的可怜</a>
+								<a  href="javascript:;" value="2">有一点</a>
+								<a  href="javascript:;" value="3">一般</a>
+								<a  href="javascript:;" value="4">帮助大</a>
+								<a  href="javascript:;" value="5">很快</a>
+							</span>
+							<span class="satisfy-degree"></span>
+							<span class="click-satisfy-degree"></span>
+							<span class="rate-tip none">请评分</span>
+						</td>
+					</tr>
+					<tr>
+						<th>工作氛围：</th>
+						<td>
+							<input type="hidden" class="second-input none" name="work_condition">
+							<span class="rate">
+								<a href="javascript:;" value="1">不好</a>
+								<a href="javascript:;" value="2">沉闷</a>
+								<a href="javascript:;" value="3">过得去</a>
+								<a href="javascript:;" value="4">好</a>
+								<a href="javascript:;" value="5">很好</a>
+							</span>
+							<span class="satisfy-degree"></span>
+							<span class="click-satisfy-degree"></span>
+							<span class="rate-tip none">请评分</span>
+						</td>
+					</tr>
+					<tr>
+						<th>工作压力：</th>
+						<td>
+							<input type="hidden" class="third-input none" name="work_pressure">
+							<span class="rate">
+								<a href="javascript:;" value="1">轻松</a>
+								<a href="javascript:;" value="2">不大</a>
+								<a href="javascript:;" value="3">一般</a>
+								<a href="javascript:;" value="4">较高</a>
+								<a href="javascript:;" value="5">很高</a>
+							</span>
+							<span class="satisfy-degree"></span>
+							<span class="click-satisfy-degree"></span>
+							<span class="rate-tip none">请评分</span>
+						</td>
+					</tr>
+					<tr>
+						<th>单位前景：</th>
+						<td>
+							<input type="hidden" class="fourth-input" name="company_future">
+							<span class="rate">
+								<a href="javascript:;" value="1">不妙</a>
+								<a href="javascript:;" value="2">凑合过</a>
+								<a href="javascript:;" value="3">一般般</a>
+								<a href="javascript:;" value="4">良好</a>
+								<a href="javascript:;" value="5">非常好</a>
+							</span>
+							<span class="satisfy-degree"></span>
+							<span class="click-satisfy-degree"></span>
+							<span class="rate-tip none">请评分</span>
+						</td>
+					</tr>
+				</table>
+				<h4>单位的优缺点评价：</h4>
+				<textarea class="advise" name="content"  placeholder="单位的优缺点，哪些方面给你印象深刻；以及给公司的建议等，请输入至少10个字符"></textarea>
+				<span class="advise-tip none">请输入至少10个字符</span>
+				<input type="submit" value="提交" class="sub">
+			</form>
+		</div>
+<{include file="../../common/footer.html"}>
+	<script type="text/javascript">
+		KISSY.use('page/company/detailComment',function(S){
+			S.ready(function(){
+				PW.page.company.detailComment();
+			})
+		})
+	</script>
+</body>
+</html>

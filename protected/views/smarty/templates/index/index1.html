@@ -1,0 +1,357 @@
+﻿<!-- 首页 赵凯康 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>东北高师就业联盟网</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/index/index.css">
+    <meta property="qc:admins" content="17437740266432176654" />
+    <meta property="wb:webmaster" content="1066200a2a2487ca" />
+</head>
+<body>
+<{include file="../common/head.html"}>
+<div class="right-bar none">
+    <a href="javascript:;" class="qq" >qq服务</a>
+    <a href="javascript:;" class="phone" >电话</a>
+    <a href="http://weibo.com/u/3763576325" class="app-download" target="_blank"></a>
+    <span>微博</span>
+    <a href="javascript:;" class="public-number">公众号</a>
+</div>
+<span class="enlarge" href="javascript:;">+</span>
+<ul class="qq-service none">
+    <li>
+        <span>单位服务：</span>
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=87614827&site=qq&menu=yes">
+            <img border="0" title="点击咨询" alt="点击咨询" src="<{$staticWebsite}>resources/img/common/pa.jpg">
+        </a>
+    </li>
+    <li>
+        <span>学生服务：</span>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=554291070&site=qq&menu=yes" target="_blank">
+            <img border="0" title="点击咨询" alt="点击咨询" src="<{$staticWebsite}>resources/img/common/pa.jpg">
+        </a>
+    </li>
+    <li>
+        <span>网站服务：</span>
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=634014766&site=qq&menu=yes" target="_blank">
+            <img border="0" title="点击咨询" alt="点击咨询" src="<{$staticWebsite}>resources/img/common/pa.jpg">
+        </a>
+    </li>
+</ul>
+<div class="phone-service none">
+    <h1>0431-85098857</h1>
+    <h2>服务时间：8:30-11:30 13:30-17:00</h2>
+</div>
+<ul class="app-service none clearfix">
+    <li>
+        <img src="<{$staticWebsite}>resources/img/index/be-delete/app-qrCode.gif">
+        <p>下载Android版</p>
+    </li>
+    <li>
+        <img src="<{$staticWebsite}>resources/img/index/be-delete/app-qrCode.gif">
+        <p>下载iPhone版</p>
+    </li>
+</ul>
+<div class="public-num-service none">
+    <img src="<{$staticWebsite}>resources/img/index/be-delete/erwei.jpg">
+    <p>关注东师微就业</p>
+</div>
+<div class="carousel">
+    <a href="javascript:;" class="left none">向左</a>
+    <a href="javascript:;" class="right none">向右</a>
+    <div id="J_Slide">  <!-- 容器元素 -->
+        <ul class="ks-switchable-nav clearfix">  <!-- 触发器列表 -->
+            <{$count = 1}>
+            <{foreach from=$images item=it}>
+            <{if $count == 1  }>
+            <li class="ks-active "> <{$count++}> </li>
+            <{else}>
+            <li > <{$count++}> </li>
+            <{/if}>
+            <{/foreach}>
+        </ul>
+        <ul class="ks-switchable-content">  <!-- 面板列表 -->
+            <{foreach from=$images item=it}>
+            <li>
+                <a href="<{$it.url}>" target="_blank" title="">
+                    <img src="<{$staticWebsite}>../../<{$it.path}>"/>
+                </a>
+            </li>
+            <{/foreach}>
+        </ul>
+    </div>
+</div>
+<div class="content">
+    <div class="notice-preach clearfix">
+        <div class="newest-notice clearfix">
+                <span class="chin-name">最新公告
+                    <span class="eng-name">/THE&nbsp;LATEST&nbsp;NEWS</span>
+                </span>
+            <a class="more" href="<{$website}>announcement/announcement/toSearch" target="_blank">MORE></a>
+            <ul>
+                <{foreach from=$newestAnnouncements item=announcement}>
+                <li class="clearfix">
+                    <a href="<{$website}>announcement/announcement/detail/id/<{$announcement.id}>" target="_blank"><{$announcement.title}></a>
+                    <span><{$announcement.add_time|date_format:"%Y-%m-%d"}></span>
+                </li>
+                <{/foreach}>
+            </ul>
+        </div>
+        <div class="preach clearfix">
+            <div>
+                    <span class="chin-name">宣讲会
+                        <span class="eng-name">/THE&nbsp;CAREER&nbsp;TALK</span>
+                    </span>
+            </div>
+            <div class="calendar" id="preach-calendar"></div>
+            <div class="preach-live clearfix">
+                <ul class="none preach-live-list">
+                    <h1>宣讲会直播<a class="more" href="<{$website}>careerTalk/careerTalk/list/type/1" target="_blank">MORE></a></h1>
+                    <{foreach name=infolist from=$indexLiveCT item=ct}>
+                    <{if $smarty.foreach.infolist.iteration <8}>
+                    <li class="clearfix">
+                        <a href="<{$website}>careerTalk/careerTalk/detail/id/<{$ct.id}>" target="_blank" title="<{$ct.name}>"><{$ct.name}></a>
+                        <span><{$ct.time|date_format:'%Y-%m-%d'}></span>
+                    </li>
+                    <{/if}>
+                    <{/foreach}>
+                </ul>
+                <img  class="preach-live-img" src="<{$staticWebsite}>resources/img/index/be-delete/preach-live.gif">
+            </div>
+            <div class="preach-vedio clearfix">
+                <ul class="none preach-video-list">
+                    <h1>宣讲会点播<a class="more" href="javascript:;"></a></h1>
+                    <{foreach name=infolist from=$indexPreach item=pr}>
+                    <{if $smarty.foreach.infolist.iteration <8}>
+                    <li class="clearfix">
+                        <a href="<{$website}>company/company/preachVideoByCompany/id/<{$pr.cid}>" target="_blank" title="<{$pr.name}>"><{$pr.name}></a>
+                        <span><{$pr.time|date_format:'%Y-%m-%d'}></span>
+                    </li>
+                    <{/if}>
+                    <{/foreach}>
+                </ul>
+                <img  class="preach-video-img" src="<{$staticWebsite}>resources/img/index/be-delete/preach-video.gif">
+            </div>
+        </div>
+    </div>
+    <div class="recruitment-info">
+            <span class="chin-name">招聘信息
+                    <span class="eng-name">/RECRUITMENT</span>
+            </span>
+        <a class="educational" href="javascript:;">教育类</a>
+        <a class="non-educational" href="javascript:;">非教育类</a>
+        <a class="teacher-recruitment" href="javascript:;">教师招考</a>
+        <a class="more edu-more" href="<{$website}>position/position/list/kind/1" target="_blank">MORE></a>
+        <a class="more none-edu-more none" href="<{$website}>position/position/list/kind/0" target="_blank">MORE></a>
+        <a class="more teacher-more none" href="<{$website}>teacherRecruitment/teacherRecruitment/toSearch" target="_blank">MORE></a>
+        <div class="table-layer clearfix J_educational">
+            <table class="left-table">
+                <thead>
+                <tr>
+                    <td>职位名称</td>
+                    <td>地区</td>
+                    <td>发布时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <{foreach from=$indexTeacherPositionLeft item=p}>
+                <tr>
+                    <td class="left-td"><a href="<{$website}>position/position/detail/id/<{$p.id}>" target="_blank" title="<{$p.companyName}>"><{$p.name}></a></td>
+                    <td class="middle-td"><{$p.city_name}></td>
+                    <td class="right-td"><{$p.entering_time|date_format:'%Y-%m-%d'}></td>
+                </tr>
+                <{/foreach}>
+                </tbody>
+            </table>
+            <table class="right-table">
+                <thead>
+                <tr>
+                    <td>职位名称</td>
+                    <td>地区</td>
+                    <td>发布时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <{foreach from=$indexTeacherPositionRight item=p}>
+                <tr>
+                    <td class="left-td"><a href="<{$website}>position/position/detail/id/<{$p.id}>" target="_blank" title="<{$p.companyName}>"><{$p.name}></a></td>
+                    <td class="middle-td"><{$p.city_name}></td>
+                    <td class="right-td"><{$p.entering_time|date_format:'%Y-%m-%d'}></td>
+                </tr>
+                <{/foreach}>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-layer clearfix J_non_educational none">
+            <table class="left-table">
+                <thead>
+                <tr>
+                    <td>职位名称</td>
+                    <td>地区</td>
+                    <td>发布时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <{foreach from=$indexPositionLeft item=p}>
+                <tr>
+                    <td class="left-td"><a href="<{$website}>position/position/detail/id/<{$p.id}>" target="_blank" title="<{$p.companyName}>"><{$p.name}></a></td>
+                    <td class="middle-td"><{$p.city_name}></td>
+                    <td class="right-td"><{$p.entering_time|date_format:'%Y-%m-%d'}></td>
+                </tr>
+                <{/foreach}>
+                </tbody>
+            </table>
+            <table class="right-table">
+                <thead>
+                <tr>
+                    <td>职位名称</td>
+                    <td>地区</td>
+                    <td>发布时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <{foreach from=$indexPositionRight item=p}>
+                <tr>
+                    <td class="left-td"><a href="<{$website}>position/position/detail/id/<{$p.id}>" target="_blank" title="<{$p.companyName}>"><{$p.name}></a></td>
+                    <td class="middle-td"><{$p.city_name}></td>
+                    <td class="right-td"><{$p.entering_time|date_format:'%Y-%m-%d'}></td>
+                </tr>
+                <{/foreach}>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-layer clearfix J_teacher_recruitment none">
+            <table class="left-table">
+                <thead>
+                <tr>
+                    <td>招考主题</td>
+                    <td>地区</td>
+                    <td>发表时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <{foreach from=$indexTeacherRecruitLeft item=p}>
+                <tr>
+                    <td class="left-td"><a href="<{$website}>teacherRecruitment/teacherRecruitment/detail/id/<{$p.id}>" target="_blank" title="<{$p.title}>"><{$p.title}></a></td>
+                    <td class="middle-td"><{$p.city_name}></td>
+                    <td class="right-td"><{$p.add_time|date_format:'%Y-%m-%d'}></td>
+                </tr>
+                <{/foreach}>
+                </tbody>
+            </table>
+            <table class="right-table">
+                <thead>
+                <tr>
+                    <td>招考主题</td>
+                    <td>地区</td>
+                    <td>发表时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <{foreach from=$indexTeacherRecruitRight item=p}>
+                <tr>
+                    <td class="left-td"><a href="<{$website}>teacherRecruitment/teacherRecruitment/detail/id/<{$p.id}>" target="_blank" title="<{$p.title}>"><{$p.title}></a></td>
+                    <td class="middle-td"><{$p.city_name}></td>
+                    <td class="right-td"><{$p.add_time|date_format:'%Y-%m-%d'}></td>
+                </tr>
+                <{/foreach}>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="elite">
+            <span class="chin-name">名校名企
+                    <span class="eng-name">/THE&nbsp;ELITE&nbsp;SCHOOL&nbsp;AND&nbsp;FIRM</span>
+            </span>
+        <a class="more" href="<{$website}>company/company/list/isEliteFirm/1/isEliteSchool/1" target="_blank">MORE></a>
+        <ul class="clearfix">
+            <!-- 图片上的名校名企标签，通过js判断后台传来的值为其添加 ,添加的类为elite-school与elite-firm ,类添加在类名为img-layer的div-->
+            <{foreach from=$companyList item=company name=cList key=k}>
+            <{if $k eq 4}>
+            <li class="last">
+                <{if $company.is_famous==1}>
+                <div class="img-layer elite-school"></div>
+                <{else}>
+                <div class="img-layer elite-firm"></div>
+                <{/if}>
+                <div class="logo-layer">
+                    <img src="<{$site}>/<{$company.logo}>">
+                </div>
+                <a href="<{$website}>company/company/detail/id/<{$company.id}>" target="_blank"><{$company.name}></a>
+                <p><{$company.introduction}>
+                    <a href="<{$website}>company/company/detail/id/<{$company.id}>" target="_blank" class="more-intro">[更多介绍]</a>
+                </p>
+            </li>
+            <{else}>
+            <li >
+                <{if $company.is_famous==1}>
+                <div class="img-layer elite-school"></div>
+                <{else}>
+                <div class="img-layer elite-firm"></div>
+                <{/if}>
+                <div class="logo-layer">
+                    <img src="<{$site}>/<{$company.logo}>">
+                </div>
+                <a href="<{$website}>company/company/detail/id/<{$company.id}>" target="_blank"><{$company.name}></a>
+                <p><{$company.introduction}>
+                    <a href="<{$website}>company/company/detail/id/<{$company.id}>" target="_blank" class="more-intro">[更多介绍]</a>
+                </p>
+            </li>
+            <{/if}>
+            <{/foreach}>
+        </ul>
+    </div>
+    <div class="self-intro clearfix">
+        <div class="guide">
+            <h1>教育部全国大学生就业信息服务一体化平台嵌入区</h1>
+            <a href="http://nenu.ncss.org.cn/login" class="syestem-links" target="_blank">大学生就业一站式服务系统</a>
+            <p>
+                <a href="<{$ueditorWebsite}>uploadFile/file/大学生就业一站式服务系统用户手册（学生手册）.pdf" target="_blank" class="student-guide">学生使用指导手册</a>
+                <a href="<{$ueditorWebsite}>uploadFile/file/大学生就业一站式服务系统用户手册（用人单位）.pdf" target="_blank" class="company-guide">用人单位使用指导手册</a>
+            </p>
+        </div>
+        <ul>
+            <h2><a href="http://careers.nenu.edu.cn/" target="_blank">[东北师范大学学生就业指导服务中心]</a></h2>
+            <li>学校地址：吉林省长春市人民大街5268号</li>
+            <li>办公地址：东北师范大学就业中心</li>
+            <li>办公时间：周一至周五8:00-11:30 13:30-17:00</li>
+            <li>邮编：130024</li>
+            <li>招聘热线：0431-85098857</li>
+            <li>E-mail：zhaopin@dsjyw.net</li>
+        </ul>
+    </div>
+    <div class="footer">
+        <ul class="clearfix">
+            <li>版权所有：<a href="http://careers.nenu.edu.cn/" target="_blank">东北师范大学学生就业指导服务中心</a></li>
+            <li>网站设计与维护：<a href="http://www.myjoin.cn/" target="_blank">东北师范大学卓音工作室</a></li>
+            <li>Copyright&copy;The Career Center of NorthEast Normal University All Rights Reserved</li>
+        </ul>
+    </div>
+</div>
+<div class="today-data">
+    <div class="fold-line">
+        <p>今日数据</p>
+    </div>
+    <div class="data">
+        <span><em><{$number}></em>当前用户</span>
+        <span><em><{$companyCount}></em>用人单位</span>
+        <span><em><{$careerTalkCount}></em>宣讲会</span>
+        <span><em><{$positionCount}></em>招聘信息</span>
+        <span><em><{$graduateCount}></em>毕业生</span>
+    </div>
+</div>
+
+<script type="text/javascript">
+    KISSY.use('page/index/index',function(S){
+        S.ready(function(){
+            PW.page.index.index();
+        })
+    })
+</script>
+<div style="display:none">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256560358'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256560358%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+</body>
+</html>

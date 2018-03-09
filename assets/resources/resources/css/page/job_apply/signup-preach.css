@@ -1,0 +1,138 @@
+/*------------------------------------------------------------------------------------------
+@Filename:               报名宣讲会页面相关css
+@Description:            样式重置文档
+@Version:                1.0.0(2015-07-12)
+@author:                 daiqiaoling
+@email:					 1649500603@qq.com
+==NOTES:=============================================*/
+.page{
+	width: 1005px;
+	margin: 0 auto;
+}
+.list-head{
+	border-top:2px solid; 
+	border-bottom:2px solid; 
+	color:#bfbfbf;
+	height: 44px;
+	line-height:44px;
+	width:100%;
+}
+/*__重置头部的列表项*/
+.list-head li{
+	list-style:none;
+	font-size:16;
+	color:#333333;
+	float:left;
+    text-align:center;
+}
+.long{
+    width: 220px;
+}
+.normal{
+    width: 187px;
+}
+.short{
+    width: 170px;
+}
+.list-body {  
+	width:1000px;
+	color:#bfbfbf;
+	border-bottom:2px solid;
+	height: 98px;
+	margin: 16px auto;
+}
+.list-body li{
+	font-size:15px;
+	color:#4f4f4f;
+	float:left;
+	text-align:center;
+}
+.list-body .check{
+	position: relative;
+}
+.check-enroll{
+	padding-left: 10px;
+}
+.list-body ol{
+	position: absolute;
+    line-height: 20px;
+    left: 204px;
+    top: 0;
+    width: 255px;
+}
+.list-body ol li{
+	clear: both;
+}
+.v-align{
+	line-height: 98px;
+}
+.list-body .want-enroll , .list-body .cancel-enroll{
+	background-color:#e17c22;
+	width:83px;
+	line-height:35px;
+	font-size:16px;
+	color:#ffffff;
+	border:1px solid #e17c22;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	display:inline-block;	
+}
+/*__设置日期盒子元素*/
+.date-box{ 
+	padding-left:-10px;
+}
+.date-box-left{
+	margin-left:50px;
+	margin-top:11px;
+	background-color:#438bce; 
+	width:62px;
+	height:69px;
+	float:left;     
+}
+.mouth{
+	font-size: 20px;
+	color:#ffffff;
+	line-height:24px;
+}
+.day{   
+	font-size:38px;
+	color:#ffffff;
+	}
+.date-box-right{
+	padding-top:11px;
+    margin-top:11px;
+	width:60px;
+	float:left;
+}
+.week{
+	font-size:16px;
+	}
+.time{
+	font-size:20px;
+}
+a:hover{
+	text-decoration: none;
+}
+.list-body .none{
+	display: none;
+}
+
+.company-preach{
+	color: #438bce;
+	display: inline-block;
+	width: 206px;
+	line-height: 18px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	height: 18px;
+}
+
+.long a:hover{
+	text-decoration: underline;
+}
+
+.list-body .location {
+	padding-top: 38px;
+}

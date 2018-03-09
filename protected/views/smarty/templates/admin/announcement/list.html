@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>公告详情</title>
+    <meta charset="utf-8">
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+
+    <!--<script type="text/javascript" src="<{$ueditorWebsite}>resources/js/site-config2.js"></script>-->
+    <!--<script type="text/javascript" src="<{$ueditorWebsite}>/resources/puiresources/js/base/lib/kissy/seed.js"></script>-->
+
+    <script type="text/javascript">
+        KISSY.use('page/company/company-info',function(S){
+            S.ready(function(){
+                PW.page.companyInfo({
+                    renderTo: '#J_pagination',//分页显示指向
+                    juicerRender: '#tpl',//模版渲染指向
+                    dataRender: '#J_template',
+                    pageSize: 10,//每页显示的记录数
+                    url:'<{$website}>admin/announcement/announcement/json',//必选，必须指定ajax的url
+                    configUrl:function(url,page,me,prevdata){
+                        //url:配置的url,page1:当前的页面,me:指向当前分页,prevdata:上一次的分页数据
+                        var url = url+'/page/'+page;
+                        return url;
+                    },
+                    type:'get'
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="title">
+                    <div class="title1">公告类型</div>
+                </div>
+                <table>
+                    <script id="tpl" type="text/template">
+                        {@each list as it}
+                        <tr>
+                            <td>&{it.type}</td>
+                            <td>&{it.title}</td>
+                            <td>&{it.add_time}</td>
+                            <td>&{it.clicks}</td>
+                            <td>
+                                <a class="btn" href="<{$website}>admin/announcement/announcement/toEdit/id/&{it.id}">修改</a>
+                                <a class="btn" href="<{$website}>admin/announcement/announcement/detail/id/&{it.id}">详情</a>
+                                <a class="btn" href="<{$website}>admin/announcement/announcement/toDelete/id/&{it.id}">删除</a>
+                            </td>
+                        </tr>
+                        {@/each}
+                    </script>
+                    <thead>
+                    <tr>
+                        <th>公告类型</th>
+                        <th>公告名称</th>
+                        <th>时间</th>
+                        <th>点击次数</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+                <div id="J_pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

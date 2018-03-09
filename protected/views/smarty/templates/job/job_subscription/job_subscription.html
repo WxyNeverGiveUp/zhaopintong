@@ -1,0 +1,62 @@
+<!--内容: signup-preach.html
+    姓名：王沛琪
+    日期：2015/6/20
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>职位订阅</title>
+    <meta charset="utf-8"/>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/job_subscription.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../job_apply/jobapply-header.html"}>
+<div class="page clearfix">
+    <div class="mycontent">
+        <h3 class="title">我的职位订阅</h3>
+        <p>筛选下面的职位订阅条件，实现精准匹配的职位个性化定制，我们帮你挑工作!</p>
+        <form method="post" action="<{$website}>job/order/addOrder" class="order-form">
+            <div  class="moudle">
+                <i class="ico area"></i>
+                <h3 class="moudle-title">接收邮箱&emsp;发送周期(必填)</h3>
+                <input id="email" class="input" placeholder="请填写邮箱" data-valid-rule="isEmail" name="email">
+                <div class="how-long">
+                     <input type="radio" id="three" class="regular-checkbox" name="circle" checked="checked"  value="3" />
+                     <label for="three" class="test" >3天</label>
+                     <input type="radio" id="seven" class="regular-checkbox" name="circle"  value="7" />
+                     <label for="seven" class="test">7天</label>
+                </div>
+            </div>
+            <div id="jobnamewarp" class="moudle zindex">
+                <i class="ico area"></i>
+                <h3 class="moudle-title">职位名称(必填)</h3>
+                <input id="jn"  class="input" value="请选择职位名称" readonly="readonly" data-valid-rule="notNull" name="position">
+                <i id="jobname" class="ico2 pos"></i>
+            </div>
+            <div id="jobplacewarp" class="moudle">
+                <i class="ico area"></i>
+                <h3 class="moudle-title">工作地点(必填)</h3>
+                <input id="jp"  class="input" value="请选择工作地点" data-valid-rule="notNull" name="place">
+                <i id="jobplace" class="ico2 pos"></i>
+            </div>
+            <input type="submit" class="btn" value="保存">
+            <input id="cencle" type="reset" class="btn btnbg" value="重置">
+        </form>
+    </div>
+</div>
+<{include file="../../common/footer.html"}>
+<script type="text/javascript">
+    KISSY.use('page/job_apply/job_subscription' , function(S){
+        var urls = PW.Env.url.job_apply.jobSubscription;
+        S.ready(function(){
+            PW.page.job_apply.jobSubscription("");
+        });
+    })
+</script>
+</body>
+</html>
+

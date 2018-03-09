@@ -1,0 +1,113 @@
+<!--
+* @Description: 招聘通-宣讲会-宣讲会管理
+* @Version: 1.0.0
+* @Author: shihui(2622119132@qq.com)
+* @Date: 2017.05.13
+* ==NOTES:=============================================
+* v1.0.0(2017.05.13):
+初始生成
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宣讲会管理</title>
+    <{include file="../common/link.html" }>
+    <{include file="../common/script.html" }>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/css/page/preach/preach-manage.css">
+</head>
+<body>
+<div class="page">
+    <{include file="../common/header.html" }>
+    <div class="content clearfix">
+        <div class="sidebar">
+            <h2><i class="fa fa-users list-img"></i>宣讲会</h2>
+            <ul class="tab_menu">
+                <li class="active"><a href="/recruitEntrance/talk/talk/list">宣讲会管理</a></li>
+                <li><a href="/recruitEntrance/talk/talk/toFlow">流程介绍</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="operation">
+                <form class="preach-search">
+                    <input type="text" name="preachName" class="preach-name" placeholder="宣讲会名称">
+                    <i class="preach-find fa fa-search fa-2x"></i>
+                </form>
+                <span class="preach-apply">
+							<a href="/recruitEntrance/talk/talk/toadd">申请宣讲会</a>
+						</span>
+            </div>
+            <table class="listPreach">
+
+                <tr>
+                    <th>宣讲会名称</th>
+                    <th class="preach-list-width">地点</th>
+                    <th class="preach-list-width">时间</th>
+                    <th>审核状态</th>
+                    <th>操作</th>
+                </tr>
+                <{foreach from=$talkList item=talk}>
+                <tr data-id="<{$talk.id}>">
+                    <td><{$talk.name}></td>
+                    <td><{$talk.place}></td>
+                    <td><{$talk.time}></td>
+                    <{if $talk.is_ok == "1"}>
+                    <td>已通过</td>
+                    <{elseif $talk.is_ok == "0"}>
+                    <td>待审核</td>
+                    <{else}>
+                    <td>未通过</td>
+                    <{/if}>
+                    <td>
+                        <span>
+                            <a href="/recruitEntrance/talk/talk/todetail?id=<{$talk.id}>" target="_blank">查看</a>
+                        </span>
+                        <span class="edit">
+                            <a href="/recruitEntrance/talk/talk/toedit?id=<{$talk.id}>">修改</a>
+                        </span>
+                        <span class="del">删除</span>
+                    </td>
+                </tr>
+                <{/foreach}>
+
+            </table>
+        </div>
+    </div>
+    <input type="hidden" id="baseUrl" value="<{$baseUrl}>">
+    <{include file="../common/footer.html" }>
+</div>
+<script type="text/javascript">
+    $(".preach-find").click(function(){
+        $(".preach-search").submit();
+        return false;
+    })
+$(function(){
+    $('.del').on('click',function(event){
+        var del = confirm("您确定要删除吗？");
+        if(del){
+            var $tr = $(this).parents('tr');
+            var talk_id = $tr.attr('data-id');
+            $.ajax({
+                url: $('#baseUrl').val() + '/recruitEntrance/talk/talk/del',
+                type: 'POST',
+                data: {id: talk_id},
+                dataType: 'json',
+                success: function(data){
+                    if(data.code == 0){
+                        alert('删除成功');
+                        $tr.remove();
+                    }
+
+                },
+                error: function(xhr){
+                    console.log(xhr);
+                }
+            });
+        }
+        
+
+    });
+});
+</script>
+</body>
+</html>

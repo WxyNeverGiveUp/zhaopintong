@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	<title>报名宣讲会</title>
+	<meta charset="utf-8"/>
+	<{include file="../../common/link.html"}>
+	  <{include file="../../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/signup-preach.css">
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	</head>
+	
+	<body>
+      <{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="page">
+			<ul class="list-head">
+		  	   	<li class="long">举办时间</li>
+		  	   	<li class="long">宣讲单位</li>
+		  	   	<li class="long">宣讲类型</li>
+		  	   	<li class="short">举办地点</li>
+		  	</ul>
+		  	<div id="tpl-template"></div>
+	    	<div id="J_pagination"></div>
+		</div>
+		 <{include file="../../common/footer.html"}>
+		<script type="text/template" id="tpl">
+			{@each data as d}
+				<ul class="list-body" id=&{d.id}> 
+					<li class="date-box long">
+						<div class="date-box-left">
+							<span class="mouth">&{d.month}月</span>
+							<span class="day">&{d.date}</span>
+						</div>
+						<div class="date-box-right">
+							<span class="week">&{d.week}</span>
+							<span class="time">&{d.time}</span>
+						</div>
+					</li>
+					<li class="long v-align"><a href="<{$website}>careerTalk/careerTalk/detail/id/&{d.id}" target="_blank" class="company-preach" title="&{d.company}">&{d.company}</a></li>
+		           	<li class="normal v-align">&{d.preachType}</li>
+		           	<li class="normal location">&{d.location}</li>
+		           	{@if d.isOverdue == 1}
+						<li class="short v-align signup">已过期</li>
+					{@/if}
+					{@if d.isOverdue == 0}
+						{@if d.isEnroll == 0}
+							<li class="short v-align">
+								<a href="javascript:;" class="want-enroll">我要报名</a>
+								<a href="javascript:;" class="cancel-enroll none">取消报名</a>
+							</li>
+						{@/if}
+						{@if d.isEnroll== 1}
+							<li class="short v-align">
+								<a href="javascript:;" class="want-enroll none">我要报名</a>
+								<a href="javascript:;" class="cancel-enroll">取消报名</a>
+							</li>
+						{@/if}
+					{@/if}
+		        </ul>
+			{@/each}
+		</script>
+		<script type="text/javascript">
+			KISSY.use('page/job_apply/signup',function(S){
+				// var para = "preachList"
+				var urls = PW.Env.url.job_apply.signup;
+				var url = urls.preachList+'/userId/'+<{$userId}>+'/page';
+
+				S.ready(function(){
+					PW.page.job_apply.signup({
+						renderTo:'#J_pagination',
+						juicerRender:'#tpl',
+						dataRender:'#tpl-template',
+						pageSize:5,
+						url:url,
+						configUrl:function(url,page,me,prevdata){
+							 return url + '/'+page ;
+							// return url;
+						},
+						type:'get'
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>前台录入单位详情</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="continer">
+    <{include file="../common/sidebar.html"}>
+    <div class="content">
+        <{include file="../common/crumbs.html"}>
+        <div class="block">
+            <div class = "block-header">
+                <h3><{$company.name}></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="control-area control-area-long">
+                    <label>单位视频:</label>
+                    <{if $videoUrl!=null}>
+                    <video src="<{$website}>assets/uploadFile/recruitEntrance/company-video/<{$videoUrl}>" controls="controls">
+                        您的浏览器不支持 video 标签。
+                    </video>
+                    <{else}>
+                    <br>视频未上传或出错
+                    <{/if}>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>单位行业:</label>
+                    <span><{$trade}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>所在城市:</label>
+                    <span><{$city}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>单位类型:</label>
+
+                    <span>
+                        <{if $type_id eq 1}>
+                        教育行业
+                        <{else if $type_id eq 2}>
+                        非教育行业
+                        <{else}>
+                        数据库未填入数据
+                        <{/if}>
+                  </span>
+
+                </div>
+                <div class="control-area control-area-short">
+                    <label>经济类型:</label>
+                    <span><{$economic_type}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>单位规模:</label>
+                    <span><{$unit_size}></span>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>企业亮点:</label>
+                    <span><{$company.company_bright}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>单位性质:</label>
+                    <span><{$property}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>联系电话:</label>
+                    <span><{$company.phone}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>招聘邮箱:</label>
+                    <span><{$company.email}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>邮政编码:</label>
+                    <span><{$company.postal_code}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>单位传真:</label>
+                    <span><{$company.fax}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>网址:</label>
+                    <span><{$company.website}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>详细地址:</label>
+                    <span><{$company.full_address}></span>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>企业介绍:</label>
+                    <span><{$company.introduction}></span>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>组织机构代码:</label>
+                    <span>
+                        <{$organization_code}>
+                    </span>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>企业logo:</label>
+                    <span>
+                         <img src="<{$website}>assets/uploadFile/recruitEntrance/company-logo/<{$logoUrl}>" width="520" height="300" alt="未找到图片"/>
+                    </span>
+                </div>
+
+                <div class="control-area control-area-long">
+                    <label>营业执照:</label>
+                    <span>
+                        <{if $zhizhaoUrl!=null}>
+                            <{foreach from=$zhizhaoUrl item=url}>
+                               <img src="<{$website}>assets/uploadFile/recruitEntrance/company-zhizhao/<{$url.url}>" width="520" height="300" alt="未找到图片"/>
+                            <{/foreach}>
+                        <{else}>
+                        <!--<embed src="<{$website}><{$company.zhizhao}>" width="520" height="300"/>-->
+                        未上传照片
+                        <{/if}>
+                    </span>
+                </div>
+                <div class="control-area control-area-long">
+                    <label>联系人信息：</label>
+                    <span>姓名：<{$companyContactName}></span>
+                    <span>职务：<{$companyContactDuty}></span><br/>
+                    <span>联系方式：<{$companyContactTel}></span>
+                    <span>邮箱：<{$companyContact.email}></span>
+                    <span>是否为校友：<{$companyContact.is_schoolfellow}></span>
+                </div>
+            </div>
+            <{if $company.is_ok eq 1}>
+            已通过审核
+            <{else}>
+            <div class="btn-center" style="margin-bottom: 20px;">
+                <a href="<{$website}>admin/company/company/toEditFront/id/<{$company.id}>" class="btn">修改</a>
+                <a href="<{$website}>admin/company/company/checkFail/id/<{$company.id}>" class="btn">审核不通过</a>
+                <a href="<{$website}>admin/company/company/check/id/<{$company.id}>" class="btn">审核通过</a>
+            </div>
+            <{/if}>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

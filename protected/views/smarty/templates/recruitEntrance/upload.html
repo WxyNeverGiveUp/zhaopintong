@@ -1,0 +1,62 @@
+<!-- 赵凯康 招聘信息-教育类页面 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>宣讲会信息</title>
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/entrance/entrance.css">
+</head>
+<body>
+<{include file= "../common/header.html"}>
+	<div class="block">
+		<div class="block-header">
+			<h3>上传信息</h3>
+		</div>
+		<form class="block-content J_uploadForm" action="<{$website}>recruitEntrance/recruitEntrance/addCareerTalk" method="post">
+            <input type="hidden" name="companyId" value="<{$id}>">
+			<div class="control-area control-area-short">
+				<label>宣讲会名称</label>
+                <input type="text" class="textTheme" data-valid-rule="notNull" name="name">
+			</div>
+			<div class="control-area control-area-short">
+				<label>宣讲会时间</label>
+				<input type="text" class="textTheme"  data-type="date" data-valid-rule="notNull" name="time">
+			</div>
+			<div class="control-area control-area-short">
+				<label>宣讲会地点</label>
+				<input type="text" class="textTheme" data-valid-rule="notNull" name="place">
+			</div>
+			<div class="control-area control-area-short">
+                <label>宣讲会类型</label>
+                <select class="wid" autocomplete="off" data-valid-rule="scale(0,1000,0)" name="type">
+                    <option value="0">请选择</option>
+                    <option value="1">视频</option>
+                    <option value="2">实地</option>
+                    <option value="3">外地</option>
+                </select>
+			</div>
+			<div class="control-area control-area-short isLive">
+				<label>是否网上直播</label>
+					<span>是</span> 
+					<input type="radio" name="live">
+					<span>否</span> 
+					<input type="radio" name="live" checked>
+			</div>
+		</form>
+		<div class="btn-center">
+			<input type="button" value="提交" class="btn btn-margin-right J_submit">
+			<input type="reset" value="重置" class="btn btn-margin-right">
+			<a href="<{$site}>" class="a-btn">返回上页</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		KISSY.use('page/entrance/submit , widget/calendar',function(S){
+			S.ready(function(){
+				PW.page.submit();
+			});
+		});
+	</script>
+</body>
+</html>

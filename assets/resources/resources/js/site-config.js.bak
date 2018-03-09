@@ -1,0 +1,271 @@
+(function(){
+
+    var site ={
+        website:'http://yun.dsjyw.net/',//站点地址
+        staticWebsite: 'http://yun.dsjyw.net/assets/resources/', // 前端服务器地址
+        puiWebsite: 'http://yun.dsjyw.net/assets/resources/puiresources/' //pui地址
+    }
+
+    _pw_env = {
+        status: 0, //0-前端调试，1-后端调试, 2-后端部署
+        website: site.website,
+        staticWebsite: site.staticWebsite,
+        puiWebsite: site.puiWebsite,
+        tag: '',
+        pkgs:[
+            {
+                name: 'io',
+                path: site.staticWebsite + 'resources/js/'
+            },
+            {
+                name: 'widget',
+                path: site.staticWebsite + 'resources/js'
+
+            },
+            {
+                name: 'module',
+                path: site.staticWebsite + 'resources/js/'
+            },
+            {
+                name: 'page',
+                path: site.staticWebsite + 'resources/js/'
+            }
+        ],
+        preload: ['sizzle'],//预加载模块
+        //对pui各个组件的一个
+        modSettings:{
+            notifier: {
+                top: 100
+            },
+            dialog:{
+                // opacity: 0.1,
+                position: 'fixed',
+                theme: 'white',
+                title: '提示信息',
+                themeUrl: site.staticWebsite + 'resources/css/widget/core.css'
+            },
+            defender:{
+                themeUrl: site.staticWebsite + 'resources/css/widget/core.css'  
+            },
+            scroll:{
+                cursorborderradius: 0,
+                cursorcolor: '#3d3d3d'
+            },
+            tooltip:{
+                position: { 
+                    my: 'tc',
+                    at: 'bc' //options: tl,tc,tr, rt,rc,rb, bl,bc,br,lt,lc,lb 
+                },
+                styles:{
+                    uri: site.staticWebsite + 'resources/css/widget/core.css'
+                }
+            }
+        },
+        //统一错误信息入口
+        msg:{
+        },
+        //地址信息
+        url:{
+            module:{
+                linkage:{
+                    getProvice:site.website+'?r=user/cache/linkProvince',
+                    getCity:site.website+'?r=user/cache/linkCity'
+                }
+            },
+            /*公司*/
+            company:{
+                company:{
+                    //右侧单位列表发出的url
+                    getJoblist:site.website+'?r=company/company/searchJson' ,
+                    // 获取最新的关注数发出的url
+                    getFollowNumber:site.website+'?r=company/company/concern' ,
+                    //生成弹出层地点li发出的url
+                    createLocationLi:site.website+'?r=company/company/location' ,
+                    //生成弹出层行业li发出的url
+                    createIndustryLi:site.website+'?r=company/company/industry'
+                },
+                jobDetail:{
+                     // 获取最新的关注数发出的url
+                    getFollowNumber:site.website+'?r=company/company/concern' ,
+                    isCollect:site.website+'?r=position/position/concern'
+                },
+                post:{
+                    //获取同一个单位发表的招聘职位
+                    getJoblist:site.website+'?r=company/company/positionJsonByCompany'
+                },
+                companyPreach:{
+                    getPreachList:site.website+'?r=company/company/cTJson',
+                    isEnroll:site.website+'?r=company/company/enrollCT'
+                },
+                remoteInterview:{
+                    getRemoteInterviewList:site.website+'?r=company/remoteInterview/json',
+                    isEnroll:site.website+'?r=company/remoteInterview/enroll'
+                },
+                experience:{
+                    getExperienceList:site.website+'?r=company/interviewExperience/json',
+                    getPraiseNum:site.website+'?r=company/interviewExperience/praise'
+                },
+                comment:{
+                    getCommentList:site.website+'?r=company/companyComment/json',
+                    getPraiseNum:site.website+'?r=company/companyComment/praise'
+                }
+            },
+            /*招聘*/
+            recruitment:{
+                education:{
+                    //获取右侧单位列表发出的url
+                    getJoblist:site.website+'?r=position/position/searchJson' ,
+                    //生成弹出层职位类型li发出的url
+                    createPositionTypeLi:site.website+'?r=position/position/positionType',
+                    //生成弹出层专业li发出的url
+                    createMajorLi:site.website+'?r=position/position/positionSpecialty',
+                    //生成弹出层单位性质li发出的url
+                    createPropertyLi:site.website+'?r=position/position/property',
+                    //生成弹出层地点li发出的url
+                    createLocationLi:site.website+'?r=position/position/location',
+                    //当职位被收藏或取消收藏时发出的url
+                    isCollect:site.website+'?r=position/position/concern'
+                }
+            },   
+            job_apply:{
+                jobSubscription:{
+                    createSelect:site.staticWebsite+'js/prov-and-city.json',
+                    createLi:site.website+'?r=job/order/position'
+                },
+                myHome:{
+                    addSpecialty:site.website+'?r=job/job/addspecialperformance',
+                    delSpecialty:site.website+'?r=job/job/deletespecialperformance',
+                    getCity:site.website+'?r=job/job/provincecity',
+                    isEdited:site.website+'?r=job/job/printbasic',
+                    isEduEdited:site.website+'?r=job/job/printspecialty',
+                    getMajor:site.website+'?r=job/job/studyspecialty'
+                },
+                collect:{
+                    postInfo:site.website+'?r=job/position/json',
+                    collect:site.website+'mock/collect.json',
+                    getCompanylist:site.website+'?r=job/company/json',
+                    isCollect:site.website+'?r=job/company/concern'
+                },
+                signup:{
+                    preachList:site.website+'?r=careerTalk/careerTalk/searchJson',
+                    signup:site.website+'?r=job/study/del'
+                },
+                editSubscribe:{
+                    delSub:site.website+'?r=job/order/del'
+                },
+                phone:{
+                    delPhone:site.website+'?r=job/study/delPhone'
+                },
+                editResume:{
+                    getBasicInfo:site.website+'?r=job/resume/basicinfo',
+                    getYear:site.website+'?r=job/resume/year',
+                    getDay:site.website+'?r=job/resume/day',
+                    hasBasicInfo:site.staticWebsite+'mock/hasBasicInfo.json',
+
+                    hasContactInfo:site.staticWebsite+'mock/hasContactInfo.json',
+                    getContactInfo:site.website+'?r=job/resume/phoneemail',
+
+                    getMajorClassify:site.website+'?r=job/resume/companytradess',
+                    delEduExperience:site.website+'?r=job/resume/deleteeducation',
+                    getEduInfo:site.website+'?r=job/resume/education',
+
+                    getCerti:site.website+'?r=job/resume/certificate',
+                    delCerti:site.website+'?r=job/resume/deletecertificate',
+
+                    getPosiInfo:site.website+'?r=job/resume/schoolduty',
+                    getSchool:site.website+'?r=job/resume/school',
+                    delSchoolPosi:site.website+'?r=job/resume/deleteschoolduty',
+
+                    getAwardInfo:site.website+'?r=job/resume/award',
+                    delSchoolAward:site.website+'?r=job/resume/deleteaward',
+
+                    getLanguages:site.website+'?r=job/resume/language',
+                    getExams:site.website+'?r=job/resume/exam',
+                    getLanguageInfo:site.website+'?r=job/resume/languages',
+                    delLanguage:site.website+'?r=job/resume/deletelanguage',
+                    delExam:site.website+'?r=job/resume/deallanguageshan',
+
+                    delIntern:site.website+'?r=job/resume/deletetraining',
+                    getInternInfo:site.website+'?r=job/resume/training',
+                    getCity:site.website+'?r=job/resume/provincecity',
+                    //getIndustry:site.website+'?r=job/resume/studyspecialty',
+                    getIndustry:site.website+'?r=job/resume/companytrade',
+                    getPosiType:site.website+'?r=job/resume/position',
+
+                    getWorkInfo:site.website+'?r=job/resume/workexperience',
+                    delWork:site.website+'?r=job/resume/deleteworkexperience',
+
+                    getProjectInfo:site.website+'?r=job/resume/projectexperience',
+                    delProject:site.website+'?r=job/resume/deleteprojectexperience',
+
+                    getTrainInfo:site.website+'?r=job/resume/trainingexperience',
+                    delTrain:site.website+'?r=job/resume/deletetrainingexperience',
+
+                    getApplyInfo:site.website+'?r=job/resume/job',
+                    delApply:site.website+'?r=job/resume/deletejob',
+
+                    delAttachment:site.website+'?r=job/resume/deletefile',
+
+                    getEditedArray:site.website+'?r=job/resume/finishtime',
+
+                    delSkill:site.website+'?r=job/resume/deleteskill',
+                    getSelectedSkill:site.website+'?r=job/resume/selectskill',
+                    putSkills:site.website+'?r=job/resume/putskill',
+                    getDetail:site.website+'?r=job/resume/detailskill'
+                }
+            },
+            // 宣讲会
+            preach:{
+                preach:{
+                    //生成弹出层行业li发出的url
+                    createIndustryLi:site.website+'?r=user/cache/trade',
+                    enroll:site.website+'?r=careerTalk/careerTalk/enroll2',
+                    getPreachList:site.website+'?r=careerTalk/careerTalk/searchJson'
+                },
+                preachCalendar:{
+                    getPreachList:site.website+'?r=careerTalk/careerTalk/calSearchJson',
+                    getPreachDay:site.website+'?r=careerTalk/careerTalk/calJson' 
+                }
+            },
+            //毕业生
+            graduate:{
+                graduate:{
+                    createSchoolLi:site.website+'?r=graduate/graduate/school',
+                    getGraduateList:site.website+'?r=graduate/graduate/listJson',
+                    //createIndustryLi:site.website+'mock/industryLi.json',
+                    //生成弹出层专业li发出的url
+                    createMajorLi:site.website+'?r=graduate/graduate/major',
+                    //生成弹出层地点li发出的url
+                    createLocationLi:site.website+'?r=graduate/graduate/location'
+                }
+            },
+            //首页
+            index:{
+                index:{
+                    getPreachDay:site.website+'?r=careerTalk/careerTalk/indexCalJson'
+                },
+                notice:{
+                    getNoticeList:site.website+'?r=announcement/announcement/searchJson'
+                }
+            },
+            //用户登录，注册
+            user:{
+                user:{
+                    //isNameRegistered:site.website+'?r=user/user/UserReg',
+                    isEmailRegistered:site.website+'?r=user/user/email',
+                    isLogin:site.website+'?r=user/user/login',
+                    isRegister:site.website+'?r=user/user/reg',
+                    putEmail:site.website+'?r=user/forgetpass/toemail',
+                    getUserInfo:site.staticWebsite+'mock/userInfo.json',
+                    isModifySuc:site.staticWebsite+'mock/isModifySuc.json',
+                    enterJobApply:site.website+'?r=job/job'
+                }
+            },
+            entrance:{
+                phone:{
+                    del: site.website+'test/api-data/001.json'
+                }
+            }
+        }
+    }
+})()

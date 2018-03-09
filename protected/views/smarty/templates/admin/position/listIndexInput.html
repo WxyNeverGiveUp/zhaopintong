@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>首页录入职位列表</title>
+    <meta charset="utf-8">
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+    <script type="text/javascript">
+        KISSY.use('page/company/company-info',function(S){
+            S.ready(function(){
+                PW.page.companyInfo({
+                    renderTo: '#J_pagination',//分页显示指向
+                    juicerRender: '#tpl',//模版渲染指向
+                    dataRender: '#J_template',
+                    pageSize: 10,//每页显示的记录数
+                    url:'<{$website}>admin/position/position/indexInputJson/cid/<{$cid}>',//必选，必须指定ajax的url
+                    configUrl:function(url,page,me,prevdata){
+                        //url:配置的url,page1:当前的页面,me:指向当前分页,prevdata:上一次的分页数据
+                        var url = url+'/page/'+page;
+                        return url;
+                    },
+                    type:'get'
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<{include file= "../common/header.html"}>
+<div class="container">
+    <{include file="../common/sidebar.html"}>
+    <div class="content" >
+        <{include file="../common/crumbs.html"}>
+        <div class="block">
+            <div class="block-content clearfix">
+                <div class="title">
+                    <div class="title1">首页录入职位</div>
+                </div>
+                <table>
+                    <script id="tpl" type="text/template">
+                        {@each list as it}
+                        <tr>
+                            <td>&{it.name}</td>
+                            <td>
+                                {@if it.is_ok==1}
+                                已通过审核
+                                {@else}
+                                未审核
+                                {@/if}
+                                <a href="<{$website}>admin/position/position/detailIndexInput/id/&{it.id}" class="btn">职位详情</a>
+                                <a href="<{$website}>admin/position/position/delIndexInput/id/&{it.id}" class="btn">删除</a>
+                            </td>
+                        </tr>
+                        {@/each}
+                    </script>
+                    <thead>
+                    <tr>
+                        <th>职位名称</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+                <div id="J_pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

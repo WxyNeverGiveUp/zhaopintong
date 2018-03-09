@@ -1,0 +1,141 @@
+<!-- 赵凯康 单位页面 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单位</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/recruitment-information/recruitment-related.css">
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="search-field">
+    <!-- 该div用于设置居中，目的在于使“当前位置与left-nav下的h1的border-left对齐” -->
+    <div>
+        <span>当前位置：</span>
+        <a href="<{$site}>">首页></a>
+        <a href="<{$website}>company/company/list">用人单位</a>
+        <div class="search-box">
+            <span class="company-label">用人单位</span>
+            <input type="text" class="company-input">
+            <a href="javascript:;" class="J_search">搜&nbsp;索</a>
+        </div>
+    </div>
+</div>
+<div class="content clearfix">
+    <div class="left-nav">
+        <ul class="J_location">
+            <h1>公司所在地</h1>
+            <li locationid="0"><a href="javascript:;">全部</a></li>
+            <{foreach name=infolist from=$cityList item=city}>
+            <{if $smarty.foreach.infolist.iteration <5}>
+            <li locationid="<{$city.id}>"><a href="javascript:;"><{$city.name}></a></li>
+            <{/if}>
+            <{/foreach}>
+            <li locationid="Lmore"><a href="javascript:;">更多...</a>
+                <!-- 当链接被点击时，显示样式的类为after-click -->
+                <!-- 点击更多时是一个弹出层是还是什么？ -->
+        </ul>
+        <ul class="J_industry">
+            <h1>所属行业</h1>
+            <li industryid="0"><a href="javascript:;">全部</a></li>
+            <{foreach name=infolist from=$tradeList item=trade}>
+            <{if $smarty.foreach.infolist.iteration <9}>
+            <li industryid="<{$trade.id}>"><a href="javascript:;"><{$trade.name}></a></li>
+            <{/if}>
+            <{/foreach}>
+            <li industryid="Imore"><a href="javascript:;">更多...</a></li>
+            <!-- 点击更多时是一个弹出层是还是什么？ -->
+        </ul>
+    </div>
+    <div class="job-list">
+        <div class="select-section">
+            <select class="J_select">
+                <option value="0">单位性质</option>
+                <{foreach from=$propertyList item=property}>
+                <option value="<{$property.id}>"><{$property.name}></option>
+                <{/foreach}>
+            </select>
+            <{if $isEliteFirm neq null}>
+            <input type="checkbox" checked="true" class="famous-enterpirses J_Elite_Firm" ><label class="famous-enterpirses">名企</label>
+            <{else}>
+            <input type="checkbox" class="famous-enterpirses J_Elite_Firm" ><label class="famous-enterpirses">名企</label>
+            <{/if}>
+            <{if $isEliteSchool neq null}>
+            <input type="checkbox" checked="true" class="famous-school J_Elite_School"><label class="famous-school">名校</label>
+            <{else}>
+            <input type="checkbox" class="famous-school J_Elite_School"><label class="famous-school">名校</label>
+            <{/if}>
+
+
+            <a href="javascript:;" class="time current-sort-way">时间</a>
+            <a href="javascript:;" class="blue-arrow">热度</a>
+            <!-- 当点击此a标签时，箭头方向要换 -->
+        </div>
+        <ul id="JobInfo_template">
+        </ul>
+        <div id="J_pagination"></div>
+    </div>
+</div>
+    <div class="pop-layer">
+    </div>
+    <div class="show-layer">
+        <h1>请选择<em class="J_select_what"></em></h1>
+        <h2>已选择：<em class="J_selected_what"></em></h2>
+        <div class="clearfix various-kind">
+            <ul class="total"></ul>
+            <ul class="branch"></ul>
+        </div>
+        <div class="clearfix button-style">
+            <button class="cancel">取消</button>
+            <button class="okay">确定</button>
+        </div>
+    </div>
+<{include file="../common/footer.html"}>
+<script id="tp-jobInfo" type="text/template">
+    {@each data as d}
+    <li>
+        <div class="job-info" id=&{d.id}>
+            <p class="com_company-name">单位名称：<a href="<{$website}>company/company/detail/id/&{d.id}" target="_blank">&{d.name}</a></p>
+            <p class="com_other-info"><span>行业：&{d.trade_name}</span><span>城市：&{d.city}</span></p>
+            <p class="com_other-info"><span>性质：&{d.property_name}</span></p>
+            <p class="bright-spot"><span>&{d.brightspot1}</span><span>&{d.brightspot2}</span></p>
+            <a href="<{$website}>company/company/detail/id/&{d.id}" target="_blank" class="check">查看</a>
+            {@if d.isfollow == 1}
+            <a href="javascript:;" class="follow">关注</a>
+            <a href="javascript:;" class="unfollow none">取消关注</a>
+            {@/if}
+            {@if d.isfollow == 0}
+            <a href="javascript:;" class="follow none">关注</a>
+            <a href="javascript:;" class="unfollow">取消关注</a>
+            {@/if}
+            <span class="follow-number"><em>&{d.followNumber}</em>人关注</span>
+        </div>
+    </li>
+    {@/each}
+</script>
+<script type="text/javascript">
+    KISSY.use('page/company/company' , function(S){
+        var urls = PW.Env.url.company.company;
+        var joblist = 'joblist';
+        var url = urls.getJoblist+'/page';
+        S.ready(function(){
+            PW.page.company.company({
+                renderTo:'#J_pagination' ,//分页显示指向
+                juicerRender:'#tp-jobInfo' ,//模板渲染指向
+                dataRender:'#JobInfo_template',
+                pageSize:10,//每页显示的记录数
+                url:url,//必选，指向ajax的url
+                extraParam:{'searchWord':'<{$searchWord}>','isEliteFirm':'<{$isEliteFirm}>','isEliteSchool':'<{$isEliteSchool}>'},
+                configUrl:function(url,page,me,prevdata){
+                    return url + '/' + page ;
+                    // return url;
+                },
+                type:'get'
+            })
+        });
+    })
+</script>
+</body>
+</html>

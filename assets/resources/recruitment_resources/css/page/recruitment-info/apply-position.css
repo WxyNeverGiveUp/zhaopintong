@@ -1,0 +1,146 @@
+/*==================================================
+* @Description: 招聘信息-申请招聘职位
+* @Version: 1.0.0
+* @Author: wuxiaoyang(15290491277@163.com)
+* @Date: 2017.7.21
+* ==NOTES:==========================================
+* v1.0.0(2017.7.21):
+初始生成
+* ==================================================*/
+body, button, input, select{
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+li{
+	list-style-type:none;
+}
+.padding{
+	padding: 0px 18px;
+}
+.padding-36{
+	padding: 0px 36px;
+}
+.margin-left-20{
+	margin-left: 20px;
+}
+.margin-left-10{
+	margin-left: 10px;
+}
+.margin-left-150{
+	margin-left: 150px;
+}
+.info-list{
+	width: 80%;
+    margin: 20px auto;
+    font-size: 14px;
+}
+.laber-attr{
+    display: inline-block;
+    width: 15%;
+    margin-right: 5%;
+    text-align: center;
+    vertical-align: middle;
+}
+.info-list input[type="text"],
+.info-list input[type="password"]{
+    width: 50%;
+    height: 20px;
+    padding: 5px 0.75%;
+    border: 1px solid #ccc;
+}
+.info-select{
+    width: 52%;
+    padding: 6.5px 0.75%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.province{
+    width: 20%;
+    margin-right: 2%;
+    padding: 6.5px 0.75%;
+    border-radius: 5px;
+}
+.city{
+    width: 20%;
+    padding: 6.5px 0.75%;
+    border-radius: 5px;
+}
+.search-box{
+	float: right;
+	position: relative;
+	width: 180px;
+}
+#search-position{
+	width: 180px;
+}
+.search-btn{
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	cursor: pointer;
+}
+.demand-specialty{
+	width: 70%;
+	margin: 20px 0 10px 20%;
+	margin-left: 20%;
+	border: 1px solid #ccc;
+}
+.major-list{
+	float: left;
+	width: 15%;
+	background-color: #EEEEEE;
+}
+.major-list li{
+	padding: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+.major-list li:hover{
+	background-color: #C5C5C5;
+}
+.major-active{
+	background-color: #C5C5C5;
+}
+.major-detail{
+	float: right;
+	width: 85%;
+}
+.major-detail label{
+	display: inline-block;
+	width: 40%;
+	margin: 10px;
+}
+.major-detail .selectAll-box{
+	display: block;
+}
+.select-date-box{
+	width: 50%;
+}
+.select-date-box .select-date{
+	width: 100%;
+}
+.select-result span{
+	display: inline-block;
+	margin: 0 10px;
+	color: #FA112D;
+}
+.none{
+	display: none;
+}
+.tip{
+    margin-top: 15px;
+    text-align: center; 
+    color: #E72F2F;
+}
+.simditor{
+	margin-top: 20px; 
+}
+.submit-btn{
+	display: block;
+	background: #2baf2b;
+	color: #fff;
+	border:none;
+	border-radius: 7px;
+	padding: 9px 66px;
+	margin: 20px auto;
+}

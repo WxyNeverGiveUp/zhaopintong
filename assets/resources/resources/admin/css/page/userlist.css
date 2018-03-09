@@ -1,0 +1,117 @@
+body{
+	padding: 30px;
+	width: 1200px;
+	margin:0px auto;
+}
+
+/*表的标题样式表*/
+.spanstyle{
+	font-size: 25px;
+    margin-left: 180px;
+    font-family: "微软雅黑"; 
+}
+
+/*整体表的样式表*/
+.table1{
+	width: 840px;
+	margin-top: 10px;
+	text-align: center;
+    margin-left: 180px;
+	border-collapse:collapse;
+}
+
+/*表的行列样式表*/
+.table1 td, .table1 th {
+	font-size:14px;
+    border:1px solid #272822;
+}
+
+.trstyle1{
+	height:30px;
+	background-color:#BDD0EE;
+}
+
+/*表列的样式表*/
+.trstyle2 td{
+	width:125px;
+	height:20px;
+}
+
+/*操作中的样式表*/
+#td1{
+	width:215px;
+	height:20px;
+}
+
+/*操作中超链接的样式表*/
+#td1 a{
+	color: blue;
+	text-decoration:none;
+}
+
+/*操作中加锁解锁删除的样式表*/
+#td1 span{
+	color:blue;
+}
+
+/*表格下放的横线*/
+.divstyle1{
+	padding:0px;
+	height: 1px;
+	width: 840px;
+	margin-top:10px;
+	margin-left: 180px;
+	background-color: #6B6B6B;
+}
+
+/*分页的样式表*/
+.divstyle2{
+	height:28px;
+	width: 840px;
+	margin-top: 15px;
+	margin-left: 180px;
+}
+
+.ulstyle1{
+	list-style: none;
+	margin-left: 200px;
+ }
+
+.ulstyle1 li{
+	width: 22px;
+	height: 22px;
+	float: left;
+	margin-left: 5px;
+}
+
+/*分页超链接的样式*/
+.ulstyle1 a{
+	width:20px; 
+	height:20px; 
+	color: black;
+	display:block;
+	text-align:center; 
+	border:1px solid #D6D6D6;
+	text-decoration: none;
+}
+
+#astyle1{
+	width:70px;
+	float: left;
+	margin-right: 5px;
+ }
+
+ #astyle2{
+ 	margin-left:50px;
+}
+
+#astyle3{
+	width:70px;
+    margin-left:50px;
+ }
+ 
+ #astyle4{
+    margin-left: 100px;
+ }
+
+

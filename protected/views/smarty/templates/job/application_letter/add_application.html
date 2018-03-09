@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>添加求职信</title>
+		<{include file="../../common/link.html"}>
+		<{include file="../../common/script.html"}>
+		<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+		<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/application_letter.css">
+	</head>
+	<body>
+		 <{include file="../../common/header.html"}>
+	    <{include file="../job_apply/jobapply-header.html"}>
+		<div class="module">		 
+			<{if $app_letter}>
+			   <div class="submodule another_application">
+				<h3>求职信</h3>
+				<ul>
+				    <{foreach from=$app_letter item=letter}>				    
+				    <span>标题： <{$letter.title}> </span>
+					<li><span>内容：<{$letter.content}></span><em class="J_del"><a href="<{$website}>job/job/letterDelet/id/<{$letter.id}>">删除</a></em><em class="J_edit"><a href="<{$website}>job/job/toLetterEdit/id/<{$letter.id}>">编辑</a></em></li>
+					<{/foreach}>
+				</ul>
+                     <a href="<{$website}>job/job/addLetter" class="add_application">添加求职信</a>
+				</div>
+		    <{else}>
+		    <div class="submodule">
+				<h1>毛遂自荐，让招聘者了解你</h1>
+				<p>一封好的求职信可以拉近招聘者与你之间的距离，帮你获得更多的面试机会</p>
+				<a href="<{$website}>job/job/addLetter" class="add_application">添加求职信</a>
+			</div>
+			<{/if}>			 
+		</div>
+		 <{include file="../../common/footer.html"}>
+	</body>
+</html>

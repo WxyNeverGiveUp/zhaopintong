@@ -1,0 +1,272 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: company-search.css
+@Description: 单位搜索css定义
+@Version: 1.0.0(2015-05-19)YYYY-MM-DD
+@author: hujun
+2015-05-20:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+/*  common css begin  */
+*{
+	font-family: "微软雅黑";
+}
+h2{
+	border-bottom:dotted #e0e0e0 1px; 
+	height: 60px;
+	margin:auto; 
+}
+h2 span{
+	display: block;
+	border-bottom: 2px solid #78d2e8;
+    height: 35px;
+    padding-top: 25px;	
+}
+ul{
+	list-style-type: none;
+}
+.page{
+	/* width: 1190px; */
+	margin: 10px auto;
+}
+.grayColor{
+	color: #d2d2d2;
+}
+.font-size-14{
+	font-size: 14px;
+}
+/* common css end */
+
+.top-content{
+	height: 100px;
+	width: 979px;
+	margin: 0 auto;
+}
+.top-content span{
+	color: #bebebe;
+    display: block;
+    float: left;
+    font-size: 12px;
+    height: 25px;
+    margin-left: 43px;
+    margin-top: 48px;
+    width: 157px;
+}
+/* 搜索栏starting */
+.search-field{
+	border: 2px solid #791c2e;
+    float: left;
+    height: 40px;
+    width: 540px;
+    margin-left: 36px;
+    margin-top: 30px;
+}
+/* 选项 */
+.option{
+	float: left;
+    width: 72px;
+    text-align: center;
+    padding-top: 10px;
+	height: 30px;
+}
+/* 选项列表按钮 */
+.option-buttom{
+	float: left;
+	width: 19px;
+	height:37px;
+	border: none;
+	background-image:url("../../../img/company/option-buttom.gif");  
+}
+/* 输入框 */
+.text input{
+	float: left;
+    height: 40px;
+    width: 349px;
+    border: none;
+ 	border-left: 2px solid #791c2e;
+}
+/* 搜索按钮 */
+.search-buttom {
+ 	background: #791c2e;
+    border: 2px solid #791c2e;
+    color: white;
+    float: right;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    height: 40px;
+    text-align: center;
+    width: 92px;
+    cursor: pointer;
+}
+.main{
+	width: 979px;
+	margin: 0 auto;
+	height: 600px;  
+}
+/* 左侧导航样式starting*/
+/* 公用标题类型 */
+.title-style{
+	border-color: #791C2E;
+	border-left: 2px solid #791C2E; 
+	border-bottom: 2px solid #791C2E;
+	height: 28px; 
+	color: #A6A6A6;
+	text-indent:24px;
+	padding-bottom: 3px;
+	font-family:"微软雅黑";
+	font-size: 17px;
+}
+.location-nav{
+	height: 255px;
+}
+.vocation-nav{
+	height: 309px;
+}
+.left-nav{
+	float: left;
+	width: 175px;
+}
+.left-nav ul
+{
+	width: 118px;
+	font-size: 14px;
+	margin: 21px auto 55px;
+	text-align: center;
+	margin-top:21px; 
+}
+.left-nav ul li
+{
+	margin-bottom:10px;
+}
+.left-nav ul li a{
+	color: #797979;
+	text-decoration: none;
+	display: block;
+	width: 118px;
+	height:21px;
+}
+.left-nav ul li a:hover{
+	background:#E3E3E3;
+	color:#98606A;  
+}
+/* 左侧导航样式ending*/
+.search-company-info{
+    border: 1px solid #D2D2D2;
+    float: left;
+    margin-left: 30px;
+    width: 772px;
+}
+.base-info{
+	height: 46px;
+	border-bottom: 1px solid #D2D2D2;	
+}
+.base-info select{
+	width: 116px;
+	height: 27px;
+	margin-top: 11px;
+    width: 116px;
+    float: left;
+    margin-left: 22px;
+}
+.base-info input{
+	margin-left: 40px;
+} 
+/* 控制名校、名企两个复选框样式 */
+.checkbox-control{
+	float: left;
+	width: 484px;
+	margin-left: 40px;
+	margin-top: 16px;
+}
+/* 关注度 */
+.concern-degree{
+	float: left;
+	width: 79px;
+	height: 28px;
+    display: block;
+    margin-top: 16px;
+}
+/* 关注度箭头 */
+.concern-arrow{
+	float: left;
+	background-image: url("../../../img/company/concern.gif");
+    border:none;
+    height: 15px;
+    margin-left: -30px;
+    margin-top: 17px;
+    width: 16px;
+   /*  cursor: pointer; */
+}
+/* 单位信息展示 */
+.detail-info-layout{
+	width: 771px;
+	height: 148px;
+}
+.detail-info-layout:hover{
+	background-color:#F2F2F2;
+}
+.detail-info{
+	width: 733px;
+	height: 148px;
+	margin:0px 20px;
+	border-bottom: 1px solid #D2D2D2;
+}
+.detail-info-left{
+	float: left;
+	width: 633px;
+}
+.detail-info-left h4{
+	color: #791C2E;
+	margin-top:10px; 
+}
+.detai-intro{
+	float: left;
+	margin: 14px 0 20px;
+    width: 632px;
+}
+.detai-intro-left{
+	float: left;
+	width: 266px;
+}
+.detai-intro-right{
+	width: 366px;
+	float: left;	
+}
+.detai-intro-label{
+	float: left;
+}
+.detai-intro-label span{
+	border: 2px solid #d2d2d2;
+    border-radius: 4px;
+    color: #a3a3a3;
+    font-size: 13px;
+    margin-right: 18px; 
+    padding: 2px 7px;
+}
+.detail-info-right{
+	float: left;
+	width: 96px;
+	margin-top: 37px;
+}
+.detail-info-right button{
+	width: 60px;
+	height: 28px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	margin-left: 6px;	
+}
+.detail-info-right button:hover{
+	color: white;
+	background: #248EC2;
+	border:  #248EC2;   
+}
+/* 查看按钮 */
+.but-style-read{
+	background: #E8E8E8;
+	border: none;
+}
+/* 关注按钮 */
+.but-style-concern{
+	background: #FFFFFF;
+	border:2px solid #DEDEDE;
+	color: #62ABD0;
+}

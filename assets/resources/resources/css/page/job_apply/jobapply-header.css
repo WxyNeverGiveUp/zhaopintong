@@ -1,0 +1,51 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: jobapply-header.css
+@Description: 招聘信息（教育类与非教育类页面）及单位页面还有毕业生css定义
+@Version: 1.0.0(2015-06-15)YYYY-MM-DD
+@author: zhaokaikang
+2015-06-15:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+.jobapply-header {
+	width: 1440px;
+	height: 210px;
+	margin:0 auto; 
+	background: url("../../../img/job_apply/jobapply-header-bg.gif") no-repeat 0 0;
+}
+
+.jobapply-header ul {
+	width: 1005px;
+	margin: 0 auto;
+	padding: 1px;
+}
+
+.jobapply-header ul li {
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	width: 121px;
+	margin-left: 5px;
+	margin-top: 159px;
+	background-color: #dcdcdc;
+	font-size: 18px;
+	text-align: center;
+
+}
+
+.jobapply-header ul li:first-child {
+	margin-left: 0;
+	width: 123px;
+}
+
+.jobapply-header ul li a {
+	color: #393636;
+}
+
+.jobapply-header .current {
+	background-color: #e76e03;
+}
+
+.jobapply-header .current a{
+	color: #fff;
+}
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--hufei mianshijingyan-->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/experience.css">
+    <title>面试经验</title>
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../common/header.html"}>
+<div class="content clearfix">
+    <div class="content-header clearfix">
+        <h1 class="subject">面试经验</h1>
+
+        <select  class="restrain">
+            <option value="0">默认排序</option>
+            <option value="1">赞的数量多到少</option>
+        </select>
+            <{if $user==''}>
+            <a href="javascript:;" class="share-experience J_to_share">分享面试经验</a>
+            <{else}>
+            <a class="share-experience" href='<{$website}>company/interviewExperience/create/id/<{$companyId}>' >分享面试经验</a>
+            <{/if}>
+        
+        <p class="gather gray">共<{$count}>条面经</p>
+    </div>
+    <div id="J_template"></div>
+    <div id="J_pagination"></div>
+</div>
+<{include file="../../common/footer.html"}>
+<script type="text/template" id="tpl">
+    {@each data as d}
+    <div class="share-man-info clearfix" id="experience-info" experience-id=&{d.experienceId}>
+        <div class="share-portrait">
+            <img src=&{d.imgLinks}>
+        </div>
+        <div class="share-man gray">
+            <span>&{d.name}</span>
+            <span class="interval">地点:</span>
+            <span >&{d.location}</span>
+            <span class="interval">面试职位:</span>
+            <span>&{d.position}</span>
+            {@if d.isAccept == 2}
+            <span class="permission red">获得并接受</span>
+            <span class="background permission permission-location "></span>
+            {@/if}
+            {@if d.isAccept == 1}
+            <span class="permission red">获得未接受</span>
+            <span class="background permission permission-location "></span>
+            {@/if}
+            {@if d.isAccept == 0}
+            <span class="permission gray">未获得工作</span>
+            <span class="background permission permission-location-color "></span>
+            {@/if}
+            <p>
+                <span>面试时间：</span>
+                <span>&{d.interviewTime}</span>
+                <span class="interval">共&{d.interviewRounds}轮面试</span>
+            </p>
+        </div>
+        <div class="share-content">
+            <p class="experience">&{d.experience}</p>
+            <p class="whole-experience none">&{d.experience}</p>
+            <a class="look-all" href="javascript:;">查看全部</a>
+            <a class="retract-all none" href="javascript:;">收起全部</a>
+        </div>
+        <div class="share-foot">
+            {@if d.isPraise == 1}
+            <em class="cancel-praise">
+                <span class="background praise-image  praise-location"></span>
+                <a class="unpraise" href="javascript:;">取消赞<span class="J_praise_num gray">(&{d.praiseNum})</span></a>
+            </em>
+            <em class="want-praise none">
+                <span class="background praise-image praise-location-color"></span>
+                <a class="praise" href="javascript:;">赞<span class="J_praise-num gray">(&{d.praiseNum})</span></a>
+            </em>
+            {@/if}
+            {@if d.isPraise == 0}
+            <em class="cancel-praise none">
+                <span class="background praise-image  praise-location"></span>
+                <a class="unpraise" href="javascript:;">取消赞<span class="J_praise-num gray">(&{d.praiseNum})</span></a>
+            </em>
+            <em class="want-praise">
+                <span class="background praise-image praise-location-color"></span>
+                <a class="praise" href="javascript:;">赞<span class="J_praise-num gray">(&{d.praiseNum})</span></a>
+            </em>
+            {@/if}
+            <span class="permission gray">&{d.shareTime}</span>
+        </div>
+    </div>
+    {@/each}
+</script>
+<script type="text/javascript">
+    KISSY.use('page/company/experience' , function(S){
+        var urls = PW.Env.url.company.experience;
+        // var experiencelist = 'joblist';
+        var url = urls.getExperienceList+'/id/'+<{$companyId}>+'/page';
+        var jsonData;
+        S.ready(function(){
+            PW.page.company.experience({
+                renderTo:'#J_pagination' ,//分页显示指向
+                juicerRender:'#tpl' ,//模板渲染指向
+                dataRender:'#J_template',
+                pageSize:5,//每页显示的记录数
+                url:url,//必选，指向ajax的url
+                configUrl:function(url,page,me,prevdata){
+                     return url + '/' + page ;
+                    //return url;
+                },
+                type:'get'
+            })
+
+        });
+    })
+</script>
+</body>
+</html>

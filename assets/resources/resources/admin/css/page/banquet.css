@@ -1,0 +1,18 @@
+/*-----------------------------------------------------------------------------
+* @Description: 宴请管理样式 (banquet.css)
+* @Version: 	V1.0.0
+* @author: 		chenke(396985267@qq.com)
+* @date			2014.09.30
+* ==NOTES:=============================================
+* v1.0.0(2014.09.30):
+* 	初始生成 
+* ---------------------------------------------------------------------------*/
+.div-calendar.ks-select-calendar{
+	height: 190px;
+	width: 190px;
+	margin: 0 auto;
+	background: none;
+}
+.connect-control-area{
+    margin-left: 48px;
+}

@@ -1,0 +1,167 @@
+<!-- header部分start -->
+<div class="header">
+    <div class="container">
+        <div class="enter">
+            <form action="<{$website}>search" method="post">
+                <a class="show-options"></a>
+                <input type="text" placeholder="搜索宣讲会…" class="search-input" name="searchWord">
+                <input type="submit" class="search" value=" ">
+                <input type="hidden" name="preach" value="1">
+                <input type="hidden" name="recruit" value="0">
+                <input type="hidden" name="company" value="0">
+                <input type="hidden" name="graduate" value="0">
+            </form>
+            <dl class="search-options none">
+                <dt class="preach-search"><a href="javascript:;">宣讲会</a></dt>
+                <dt class="recruit-search"><a href="javascript:;">招聘信息</a></dt>
+                <dt class="company-search"><a href="javascript:;">用人单位</a></dt>
+                <dt class="graduate-search"><a href="javascript:;">毕业生</a></dt>
+            </dl>
+            <{if $user==''}>
+            <ul class="none">
+                <ul class="none">
+                <li>
+                    你好，<a href="javascript:;" class="nick-name" id="u1">君不器</a><span></span>
+                    <dl class="user-info none">
+                        <dt class="to-modify"><a href="<{$website}>job/modifyUserInfo">修改信息</a></dt>
+                        <dt class="to-modify"><a href="<{$website}>user/user/layout">退出登录</a></dt>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <div class="logo clearfix">
+            <a href="<{$website}>recruitEntrance/recruitEntrance/toRegister">用人单位入口</a>
+            <a href="javascript:;" class="stu-login">学生入口</a>
+        </div>
+        <{else}>
+        <ul>
+                <li>
+                    你好，<a href="javascript:;" class="nick-name" id="u1"><{$smarty.session.username}></a><span></span>
+                    <dl class="user-info none">
+                        <dt class="to-modify"><a href="<{$website}>job/modifyUserInfo">修改信息</a></dt>
+                        <dt class="to-modify"><a href="<{$website}>user/user/layout">退出登录</a></dt>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <div class="logo clearfix">
+            <a href="<{$website}>recruitEntrance/recruitEntrance/toRegister">用人单位入口</a>
+            <a href="javascript:;" class="none stu-login">学生入口</a>
+        </div>   
+        <{/if}>
+        <div class="nav">
+            <ul>
+                <li><a href="<{$site}>">首&nbsp;&nbsp;页</a></li>
+                <li><a href="<{$website}>careerTalk/careerTalk/list">宣讲会</a></li>
+                <li class="recruit-nav">
+                    <a href="#">招聘信息</a>
+                    <dl class="recruit-type none">
+                        <dt>
+                            <a href="<{$website}>position/position/list/kind/1">教育类</a>
+                        </dt>
+                        <dt>
+                            <a href="<{$website}>position/position/list/kind/0">非教育类</a>
+                        </dt>
+                    </dl>
+                </li>
+                <li><a href="<{$website}>company/company/list">用人单位</a></li>
+                <li><a href="<{$website}>graduate/graduate">毕业生</a></li>
+                <{if $user==''}>
+                    <li><a href="javascript:;" class="enter-job">求职通</a></li>
+                <{else}>
+                    <li><a href="<{$website}>job/job">求职通</a></li>
+                <{/if}>
+                <li><a href="<{$website}>aboutUs/aboutUs/aboutUs" class="noborder">关于我们</a></li>
+            </ul>   
+        </div>
+    </div>
+    <div class="pop">
+        <div class="pop-bg"></div>
+        <div class="login clearfix">
+            <form class="login-part" action="" method="post" id="L-form">
+                <h1>东北高师就业联盟网-毕业生登录</h1>
+                <ul class="user-type-ul clearfix">
+                    <li>
+                        <input type="radio" name="userType" class="nenu-user" checked="checked" value="1">
+                        <label class="nu-label">东北师范大学用户</label>
+                    </li>
+                    <li class="other-user-li">
+                        <input type="radio" name="userType" class="other-user"  value="2">
+                        <label class="ou-label">其他用户</label>
+                    </li>
+                </ul>
+                <div class="account">
+                    <em>学号</em>
+                    <input type="text" name="username">
+                    <span class="account-tip"></span>
+                </div>
+                <div class="password">
+                    密码
+                    <input type="password" name="password">
+                    <span class="password-tip"></span>
+                </div>
+                <input type="submit" value="立即登录" class="submit">
+                <div class="clearfix">
+                    <input type="checkbox" class="remember-me" />
+                    <label class="rm-label">记住密码</label>
+                    <a href="javascript:;" class="forget-password">忘记密码?</a>
+                </div>
+            </form>
+            <div class="register-part">
+                 <a href="javascript:;" class="close">X</a>
+                 <a href="javascript:;" class="to-register">免费注册</a>
+                 <p class="other-way"><span></span>你可以用以下方式登录<span></span></p>
+                <a href="https://graph.qq.com/oauth2.0/authorize?client_id=101244638&redirect_uri=http://www.dsjyw.net/site/qqlogin&response_type=code&state=dsjyw" class="login-qq"></a>
+                <a href="https://api.weibo.com/oauth2/authorize?client_id=1498790983&redirect_uri=http://www.dsjyw.net/site/wblogin&response_type=code&state=dsjyw" class="login-weibo"></a>
+            </div>
+        </div>
+        <form class="register none" action="" method="get" id="R-form">
+            <a href="javascript:;" class="close">X</a>
+            <h1>注册账号</h1>
+            <div class="user-name">
+                姓名
+                <input type="text" name="username">
+                <span class="name-tip"></span>
+            </div>
+            <div class="email">
+                邮箱
+                <input type="text" name="email" >
+                <span class="email-tip"></span>
+            </div>
+            <div class="current-status">
+                当前状态
+                <input type="radio" name="currentStatus" value="1"><label>我已工作</label>
+                <input type="radio" name="currentStatus" checked="checked" value="2"><label>我是学生</label>
+            </div>
+            <div class="first-password">
+                密码
+                <input type="password" name="password">
+                <span class="fir-pass-tip"></span>
+            </div>
+            <div class="check-password">
+                确认密码
+                <input type="password" name="checkPassword">
+                <span class="check-pass-tip"></span>
+            </div>
+            <input type="submit" name="register-submit" value="立即注册" class="register-submit">
+            <p>我已阅读并同意联盟网服务条款</p>
+        </form>
+        <div class="get-password none">
+            <em>请输入您的注册邮箱</em>
+            <input type="text" name="email">
+            <span></span>
+            <a href="javascript:;" class="sure-email">O</a>
+            <a href="javascript:;" class="cancel-email">X</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        KISSY.use('page/user/user',function(S){
+            S.ready(function(){
+                PW.page.user.user();
+            })
+        })
+    </script>
+
+</div>
+<!-- header部分end -->

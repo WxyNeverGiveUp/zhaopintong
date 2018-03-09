@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>简历预览</title>
+		<{include file="../../common/link.html"}>
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/my_resume.css">
+	</head>
+	<body>
+		<div class="page">
+			<div class="output">
+				<a href="javascript:;" class="print" onclick="btnPrintClick()">打印</a>
+				<a href="<{$website}>job/resume/exportToWord" class="export">导出</a>
+			</div>
+			<div class="my-resume">
+				<div class="my-resume-header"></div>
+				<div class="content">
+					<img src="<{$basicInfo.head_url}>" class="my-face"/>
+					<h1><{$basicInfo.realname}></h1>
+					<div class="detail"><{$gender}>&nbsp;&nbsp;&nbsp;<{$age}></div>
+					<ul class="details">
+						<li>
+						  <{if $identify}>
+							<span class="major"><i></i><{$identify.name}>-<{$identify.value}></span>&nbsp;&nbsp;&nbsp;
+							<{/if}>
+							<span class="education"><i></i>
+							  <{$name}>
+                                &nbsp;&nbsp;&nbsp;
+							 <{if $workEx}> 
+                                     <{$workEx}>年工作经验
+							 <{else}>
+                                     应届毕业生
+							 <{/if}>
+                                &nbsp;&nbsp;&nbsp;
+							<{$basicInfo.account_place}></span>
+							 
+						</li>
+						<li>
+							<span class="phone"><i></i><{$contact.phone}></span>
+							<span class="email"><i></i><{$contact.email}></span>
+						</li>
+					</ul>
+					<!-- 教育经历模块 start -->
+					<div class="module">
+						<h2 class="module-title"><span>教育经历</span></h2>
+						<table>
+							<thead>
+								<th>毕业院校</th>
+								<th>就读时间</th>
+								<th>学历</th>
+								<th>专业</th>
+							</thead>
+							<tbody>
+							<{foreach from=$StudyExperienceInfo item=study}>
+							<tr>
+								<td><{$study.school_name}></td>
+								<td class="long"><{$study.start_time|mb_substr:0:7:'UTF-8'}>至<{$study.end_time|mb_substr:0:7:'UTF-8'}></td> 
+								<td><{$study.position_degree.name}></td>
+								<td><{$study.major_name}></td>
+								</tr>
+							 <{/foreach}>
+							</tbody>
+						</table>
+					</div>
+					<!-- 教育经历模块 end -->
+					<!-- 证书模块 start -->
+					<div class="module">
+						<h2 class="module-title"><span>证&nbsp;&nbsp;&nbsp;书</span></h2>
+						<{foreach from=$model item=certificate}>
+						<p><{$certificate.name}></p>
+						<{/foreach}>
+					</div>
+					<!-- 证书模块 end -->
+					<!-- 校内职务模块 start -->
+					<{if $school}>
+					<div class="module">
+						<h2 class="module-title"><span>校内职务</span></h2>
+						<table>
+							<thead>
+								<th>职务名称</th>
+								<th>任职时间</th>
+								<th>学校</th>
+							</thead>
+							<tbody>
+							    <{foreach from=$school item=duty}>
+							    <tr>
+								<td><{$duty.duty_name}></td>
+								<td class="long"><{$duty.start_time|mb_substr:0:7:'UTF-8'}>至<{$duty.end_time|mb_substr:0:7:'UTF-8'}></td>
+								<td><{$duty.school}></td>
+								</tr>
+								<{/foreach}>	
+							</tbody>
+						</table>
+					</div>
+					<{/if}>
+					<!-- 校内职务模块 end -->
+					<!-- 校内奖励模块 start -->
+					<{if $award}>
+					<div class="module">
+						<h2 class="module-title"><span>校内奖励</span></h2>
+						<table>
+							<thead>
+								<th>获奖名称</th>
+								<th>获得时间</th>
+								<th>学校</th>
+							</thead>
+							<tbody>
+							<{foreach from=$award item=school}>
+							<tr>
+								<td><{$school.award_name}></td>
+								<td><{$school.award_time|mb_substr:0:7:'UTF-8'}></td>
+								<td><{$school.school}></td>
+							</tr>
+							<{/foreach}>	
+							</tbody>
+						</table>
+					</div>
+					<{/if}>
+					<!-- 校内奖励模块 end -->
+					<!-- 语言能力模块 start -->
+					<{if $languages}>
+					<div class="module">
+						<h2 class="module-title"><span>语言能力</span></h2>
+						<table>
+							<thead>
+								<th>语言</th>
+								<th>听说</th>
+								<th>读写</th>
+								<th>等级考试</th>
+							</thead>
+							<tbody>
+							<{foreach from=$languages item=lang}>
+							<tr>
+								<td><{$lang.name}></td>
+								<td><{$lang.les_say}></td>
+								<td><{$lang.rea_wri}></td>
+								<td class="longer"><{$lang.grade}></td>
+							</tr>
+							<{/foreach}>
+							</tbody>
+						</table>
+					</div>
+					<{/if}>
+					<!-- 语言能力模块 end -->
+					<!-- 实习经历模块 start -->
+					<{if $train}>	
+					<div class="module">
+						<h2 class="module-title"><span>实习经历</span></h2>
+						<table>
+							<thead>
+								<th>工作公司</th>
+								<th>在职时间</th>
+								<th>职位名称</th>
+							</thead>
+							<tbody>
+							 <{foreach from=$train item=training}>
+							 <tr>
+								<td class="longer"><{$training.company_name}></td>
+								<td class="long"><{$training.start_time|mb_substr:0:7:'UTF-8'}>至<{$training.end_time|mb_substr:0:7:'UTF-8'}></td>
+								<td><{$training.position_name}></td>
+								</tr>
+							<{/foreach}>	
+							</tbody>
+						</table>
+					</div>
+					<{/if}>
+					<!-- 实习经历模块 end -->
+					<!-- IT技能模块 start -->
+					<{if $ItSkill||$ItDetail}>
+					<div class="module">
+						<h2 class="module-title"><span>IT技能</span></h2>
+						<ul>
+						     
+							<li>精通的技能：
+									<span>
+									<{foreach from=$ItSkill item=skill}>
+									   <{$skill.name}>,
+									<{/foreach}>
+
+									</span>
+							</li>
+							 
+							<li>熟悉的技能：<span><{$ItDetail.detail}></span></li>
+						</ul>
+					</div>
+					<{/if}>
+					<!-- IT技能模块 end -->					
+					<!-- 项目经验模块 start -->
+					<{if $ProjectExperience}>	
+					<div class="module">
+						<h2 class="module-title"><span>项目经验</span></h2>
+						<table>
+							<thead>
+								<th>项目名称</th>
+								<th>参与时间</th>
+								<th>担任职务</th>
+							</thead>
+							<tbody>
+							<{foreach from=$ProjectExperience item=project}>
+							<tr>
+								<td class="longer"><{$project.project_name}></td>
+								<td class="long"><{$project.start_time|mb_substr:0:7:'UTF-8'}>至<{$project.end_time|mb_substr:0:7:'UTF-8'}></td>
+								<td><{$project.project_role}></td>
+						   </tr>
+							<{/foreach}>
+							</tbody>
+						</table>
+					</div>
+					<{/if}>
+					<!-- 项目经验模块 end -->					
+					<!-- 工作经历模块 start -->
+					<{if $WorkExperience}>	
+					<div class="module">
+						<h2 class="module-title"><span>工作经历</span></h2>
+						<table>
+							<thead>
+								<th>工作单位</th>
+								<th>在职时间</th>
+								<th>职位名称</th>
+							</thead>
+							<tbody>
+							<{foreach from=$WorkExperience item=work}>
+							<tr>
+								<td class="longer"><{$work.company_name}></td>
+								<td class="long"><{$work.start_time|mb_substr:0:7:'UTF-8'}>至<{$work.end_time|mb_substr:0:7:'UTF-8'}></td>
+								<td><{$work.position_name}></td>
+							</tr>
+							<{/foreach}>	
+							</tbody>
+						</table>
+					</div>
+				<{/if}>
+					<!-- 工作经历模块 end -->				
+					<!-- 培训经历模块 start -->
+					<{if $TrainingExperience}>	
+					<div class="module">
+						<h2 class="module-title"><span>培训经历</span></h2>
+						<table>
+							<thead>
+								<th>培训名称</th>
+								<th>培训时间</th>
+							</thead>
+							<tbody>
+							<{foreach from=$TrainingExperience item=train}>
+							<tr>
+								<td class="long"><{$train.training_name}></td>
+								<td class="long"><{$train.start_time|mb_substr:0:7:'UTF-8'}>至<{$train.end_time|mb_substr:0:7:'UTF-8'}></td>
+							</tr>
+							<{/foreach}>		
+							</tbody>
+						</table>
+					</div>
+					<{/if}>
+					<!-- 培训经历模块 end -->					
+					<!-- 求职经历模块 start -->
+				 <{if $JobExperience}>
+					<div class="module">
+						<h2 class="module-title"><span>求职经历</span></h2>
+						<table>
+							<thead>
+								<th>公司名称</th>
+								<th>职位名称</th>
+								<th>类型</th>
+								<th>时间</th>
+							</thead>
+							<tbody>
+							  <{foreach from=$JobExperience item=job}>
+							  <tr>
+								<td class="longer"><{$job.company_name}></td>
+								<td><{$job.position_name}></td>
+								<td><{$job.type}></td>
+								<td><{$job.time|mb_substr:0:7:'UTF-8'}></td>
+							 </tr>
+							 <{/foreach}> 
+							</tbody>
+						</table>
+					</div>
+					<{/if}>
+					<!-- 求职经历模块 end -->
+				</div>
+			</div>
+		</div>
+		 <{include file="../../common/footer.html"}>
+	</body>
+		<script>
+		    function btnPrintClick(){  
+	            window.print();  
+	        }  
+        </script>  
+</html>

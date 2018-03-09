@@ -1,0 +1,181 @@
+p {
+	margin: 0;
+	padding: 0;
+}
+
+.invitation-record {
+	margin-left:180px;
+	margin-top: 74px;
+	height: 74px;
+	width: 876px;
+} 
+.invitation-record input {
+	width: 209px;
+	height: 34px;
+	line-height: 34px;
+	background-color:#fcfafa ;
+	border: 1px solid #a0a0a0;
+	margin-left:30px;
+	color: #0b0b0b;
+	font-size: 18px;
+	border-radius: 10px;
+	padding-left: 10px;
+}
+.state {
+	display: inline-block;
+	height: 34px;
+	line-height: 34px;
+	float: left;
+	color: #0b0b0b;
+	font-size: 18px;
+	margin-left: 50px;
+}
+.invitation-record select {
+    margin-left: 30px;
+    border-radius: 10px;
+    border: 1px solid #a0a0a0;
+    background-color:#fcfafa ;
+    width: 125px;
+    height: 34px;
+    line-height: 34px;
+    text-indent: 10px;
+    vertical-align: center;
+    padding: 5px;
+    color: #656565;
+    font-size: 16px;
+}
+
+table {
+	margin:0 auto;
+	/*width: 878px;*/
+	width: 95%;
+	height: 468px;
+	border-collapse: collapse;
+	margin-bottom: 100px;
+	
+}
+table th {
+	font-weight: normal;
+	font-size: 18px;
+	color: #0b0b0b;
+	width: 166px;
+}
+table th.first {
+	width: 160px;
+}
+table th.second {
+	width:270px;
+	text-align: center;
+}
+table tr {
+	border: 1px solid #a1a1a1;
+	height: 140px;
+	background-color: #f5f9fb;
+	width: 878px;
+}
+table .blue {
+	width: 878px;
+	height: 47px;
+	background-color: #add9f0;
+	border: none;
+	border: 1px solid #a1a1a1;
+	
+}
+img {
+	margin-top: 5px;
+}
+.name {
+	color: #0b0b0b;
+	font-size: 16px;
+}
+.university {
+	/*color: #e71423;*/
+	font-size: 16px;
+}
+.place {
+	font-size: 16px;
+	color: #6d6869;
+}
+.specific {
+	color: #0b0b0b;
+	font-size: 16px;
+	text-indent: 20px;
+}
+.position {
+	text-align: center;
+	font-size: 16px;
+	color: #0b0b0b;
+}
+.date {
+	text-align: center;
+	font-size: 16px;
+	color: #0b0b0b;
+}
+table td p {
+	line-height: 2;
+}
+span {
+	display: inline-block;
+}
+.nbsp1 {
+	text-indent: 85px;
+}
+.nbsp2 {
+	text-indent: 20px;
+}
+.education {
+	font-size: 16px;
+	color: #6d6869;
+	text-indent: 40px;
+}
+.button {
+	border: 1px solid #a0a0a0;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 10px;
+	margin: 15px 0 20px 35px;
+	text-align: center;
+	color: #0b0b0b;
+	font-size: 16px;
+	background: transparent;
+	cursor: pointer;
+}
+.button a {
+	color: #0b0b0b;
+	font-size: 16px;
+	text-decoration: none;
+	display: block;
+}
+.search-text {
+	float: left;
+	font-size:16px;
+	margin-right:0;
+	letter-spacing: 20px;
+}
+
+.search-form {
+	text-align: left;
+	float: left;
+	
+	position: relative;
+}
+.search-btn {
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+	cursor: pointer;
+}
+.data-none {
+	display: none;
+}
+#paging {
+	width: 600px;
+	margin: 30px auto;
+}
+.query-tr img {
+	width: 100px;
+	height: 100px;
+	display: block;
+	margin: 0 auto;
+}

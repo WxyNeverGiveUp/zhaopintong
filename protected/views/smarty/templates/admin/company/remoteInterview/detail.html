@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>远程面试详情</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+</head>
+<body>
+    <{include file="../../common/header.html"}>
+    <div class="continer">
+        <{include file="../../common/sidebar.html"}>
+        <div class="content">
+            <{include file="../../common/crumbs.html"}>
+            <div class="block">
+                <div class="block-header">
+                    <h3>详细信息</h3>
+                </div>
+                <div class="block-content clearfix">
+                    <div class="control-area control-area-short">
+                        <label>主题</label>
+                        <span><{$remote.theme}></span>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>日期</label>
+                        <span><{$remote.day}></span>
+                    </div>
+
+                    <div class="control-area control-area-short">
+                        <label>时间</label>
+                        <span><{$remote.start_time}>-<{$remote.end_time}>
+                        </span>
+                        </span>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>地点</label>
+                        <span>
+                            <{$remote.place}>
+                        </span>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>描述</label>
+                        <span><{$remote.describe}></span>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>远程面试链接地址</label>
+                        <span><{$remote.url}></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

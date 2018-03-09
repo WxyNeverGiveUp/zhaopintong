@@ -1,0 +1,54 @@
+/*-----------------------------------------------------------------------------
+* @Description: employment样式 (common.css)
+* @Version: 	V2.0.0
+* @author: 		xuyihong(597262617@qq.com)
+* @date			2015.05.05
+* ==STRUCTURE:=========================================
+*$__升序降序
+*$__
+* ==NOTES:=============================================
+* v2.0.0(2015.05.05):
+* 	初始生成
+* ---------------------------------------------------------------------------
+*修改 liangmeng(1650984858@qq.com) 
+	  2015.05.11
+/*__升序降序
+--------------------------------------------------------------------------------------------*/
+.block-content .pad-left{
+	width: 50px;
+	margin: 0 auto;
+}
+.block-content .pad-left span{
+	float:left;
+}
+.block-content .pad-left span .a-top{
+	display: block;
+	cursor:pointer;
+	width: 11px;
+	height: 9px;
+	background: url(../../img/common/opr.png) no-repeat -74px -6px;
+}
+.block-content .pad-left span .a-bottom{
+	display: block;
+	cursor:pointer;
+	width: 11px;
+	height: 9px;
+	background: url(../../img/common/opr.png) no-repeat -88px -6px;
+}
+.block-content .pad-left span .a-common{
+	display: block;
+	cursor:pointer;
+	width: 11px;
+	height: 9px;
+	background:none;
+}
+
+.a-bgwhite-fontred{
+	background: none;
+	color: red;
+}
+/*--------------------------------------------------------------------------------------------*/
+.check-del{
+	color: #ffffff;
+	width:30px;
+}

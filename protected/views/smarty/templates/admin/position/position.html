@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>职位列表</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <script type="text/javascript" src="<{$ueditorWebsite}>resources/js/site-config.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/resources/puiresources/js/base/lib/kissy/seed.js"></script>
+    <style type="text/css">
+        .control-area input {
+            padding: 6px 3px;
+            margin-left: 12px;
+            font-family: inherit;
+            border: 1px solid #d5d5d5;
+            color: #858585;
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+<body>
+<{include file="../common/header.html"}>
+<div class="continer">
+    <{include file="../common/sidebar.html"}>
+    <div class="content">
+        <{include file="../common/crumbs.html"}>
+        <form class="block J_searchForm" action="<{$website}>admin/position/recruitment/search" method="post">
+            <div class="block-header">
+                <h3>职位查询</h3>
+            </div>
+            <div class="block-content clearfix">
+                <!-- <div class="control-area control-area-short">
+                    <label>关键字</label>
+                    <input type="text" class="textTheme" maxlength="50" name="keyword" />
+                </div> -->
+                <div class="company-name control-area control-area-short">
+                    <label>公司名称</label>
+                    <input type="text" name="sCompanyName" placeholder="请输入" value="<{$sCompanyName}>">
+                </div>
+                <div class="position-name control-area control-area-short">
+                    <label>职位名称</label>
+                    <input type="text" name="sPositionName" placeholder="请输入" value="<{$sPositionName}>">
+                </div>
+                <div class="person-name control-area control-area-short">
+                    <label>发布人</label>
+                    <input type="text" name="sCompanyUserName" placeholder="请输入" value="<{$sCompanyUserName}>">
+                </div>
+                <div class="date control-area control-area-short">
+                    <label>发布时间</label>
+                    <select class="textTheme" autocomplete="off" name = "sCompanyReleaseTime">
+                        <option value="0">请选择</option>
+                        <{foreach from=$companyReleaseTimeList item=c}>
+                        <{if $sCompanyReleaseTime == $c}>
+                        <option value="<{$c}>" selected="selected"><{$c}>小时前</option>
+                        <{else}>
+                        <option value="<{$c}>"><{$c}>小时前</option>
+                        <{/if}>
+                        <{/foreach}>
+                    </select>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>城市</label>
+                    <select class="textTheme" autocomplete="off" name = "sCityId">
+                        <option value="0">请选择</option>
+                        <{foreach from=$cityList item=city}>
+                        <{if $sCityId == $city.id}>
+                        <option value="<{$city.id}>" selected="selected"><{$city.name}></option>
+                        <{else}>
+                        <option value="<{$city.id}>"><{$city.name}></option>
+                        <{/if}>
+                        <{/foreach}>
+                    </select>
+                </div>
+                <div class="control-area control-area-short" style="clear: left;">
+                    <label>参加大招会</label>
+                    <div class="checkbox checkbox-long">
+                        <{if $isJoinBigRecruitment == 1}>
+                        <input type="radio" name="isJoinBigRecruitment" value="2" >是
+                        <input type="radio" name="isJoinBigRecruitment" value="1" checked="checked" >否
+                        <{/if}>
+                        <{if $isJoinBigRecruitment == 2}>
+                        <input type="radio" name="isJoinBigRecruitment" value="2" checked="checked">是
+                        <input type="radio" name="isJoinBigRecruitment" value="1" >否
+                        <{else}>
+                        <input type="radio" name="isJoinBigRecruitment" value="2" >是
+                        <input type="radio" name="isJoinBigRecruitment" value="1" >否
+                        <{/if}>
+                    </div>
+                </div>
+                <div class="control-area control-area-short">
+                    <label>参加招聘周</label>
+                    <div class="checkbox checkbox-long">
+                        <{if $isJoinRecruitmentWeek == 1}>
+                        <input type="radio" name="isJoinRecruitmentWeek" value="2" >是
+                        <input type="radio" name="isJoinRecruitmentWeek" value="1" checked="checked">否
+                        <{else if $isJoinRecruitmentWeek == 2}>
+                        <input type="radio" name="isJoinRecruitmentWeek" value="2" checked="checked">是
+                        <input type="radio" name="isJoinRecruitmentWeek" value="1" >否
+                        <{else}>
+                        <input type="radio" name="isJoinRecruitmentWeek" value="2" >是
+                        <input type="radio" name="isJoinRecruitmentWeek" value="1" >否
+                        <{/if}>
+                    </div>
+                </div>
+                <div class="control-area control-area-short">
+                    <div class="checkbox checkbox-long">
+                        <{if $isElite == 1}>
+                        <input type="radio" name="isElite" value="1" checked="checked">名校
+                        <input type="radio" name="isElite" value="2" >名企
+                        <{else if $isElite == 2}>
+                        <input type="radio" name="isElite" value="1" >名校
+                        <input type="radio" name="isElite" value="2" checked="checked">名企
+                        <{else}>
+                        <input type="radio" name="isElite" value="1" >名校
+                        <input type="radio" name="isElite" value="2" >名企
+                        <{/if}>
+                    </div>
+                </div>
+                <div class="btn-right">
+                    <input type="submit" class="btn" value="提交查询" />
+                </div>
+            </div>
+        </form>
+        <div class="block">
+            <div class="block-header">
+                <h3>职位列表</h3>
+            </div>
+            <div class="block-content clearfix">
+                <script id="tpl" type="text/template">
+                    {@each positionList as it,index}
+                    <tr>
+                        {@if it.companyName == null}
+                        <td></td>
+                        {@else}
+                        <td>&{it.companyName}</td>
+                        {@/if}
+                        {@if it.city == null}
+                        <td></td>
+                        {@else}
+                        <td>&{it.city}</td>
+                        {@/if}
+                        {@if it.name == null}
+                        <td></td>
+                        {@else}
+                        <td>&{it.name}</td>
+                        {@/if}
+                        {@if it.company_user_name == null}
+                        <td></td>
+                        {@else}
+                        <td>&{it.company_user_name}</td>
+                        {@/if}
+                        {@if it.entering_time == null}
+                        <td></td>
+                        {@else}
+                        <td>&{it.entering_time}</td>
+                        {@/if}
+                        {@if it.last_update == null}
+                        <td></td>
+                        {@else}
+                        <td>&{it.last_update}</td>
+                        {@/if}
+                        {@if it.is_ok == -1}
+                        <td>未审核</td>
+                        {@else if it.is_ok == 0}
+                        <td>审核未通过</td>
+                        {@else if it.is_ok == '1'}
+                        <td>审核通过</td>
+                         {@/if}
+                        <td>
+                            <a href="<{$website}>admin/position/recruitment/toEdit?id=&{it.id}&sCompanyName=<{$sCompanyName}>&sPositionName=<{$sPositionName}>&sCompanyUserName=
+                            <{$sCompanyUserName}>&sCompanyReleaseTime=<{$sCompanyReleaseTime}>&sCityId=<{$sCityId}>&isJoinBigRecruitment=
+                            <{$isJoinBigRecruitment}>&isJoinRecruitmentWeek=<{$isJoinRecruitmentWeek}>&isElite=<{$isElite}>" class="mod"><i></i></a>
+                            <a href="<{$website}>admin/position/recruitment/detail/?id=&{it.id}&sCompanyName=<{$sCompanyName}>&sPositionName=<{$sPositionName}>&sCompanyUserName=
+                            <{$sCompanyUserName}>&sCompanyReleaseTime=<{$sCompanyReleaseTime}>&sCityId=<{$sCityId}>&isJoinBigRecruitment=
+                            <{$isJoinBigRecruitment}>&isJoinRecruitmentWeek=<{$isJoinRecruitmentWeek}>&isElite=<{$isElite}>" class="check"><i></i></a>
+                            <a href="<{$website}>admin/position/recruitment/del/?id=&{it.id}&sCompanyName=<{$sCompanyName}>&sPositionName=<{$sPositionName}>&sCompanyUserName=
+                            <{$sCompanyUserName}>&sCompanyReleaseTime=<{$sCompanyReleaseTime}>&sCityId=<{$sCityId}>&isJoinBigRecruitment=
+                            <{$isJoinBigRecruitment}>&isJoinRecruitmentWeek=<{$isJoinRecruitmentWeek}>&isElite=<{$isElite}>" class="del"><i></i></a>
+                        </td>
+                    </tr>
+                    {@/each}
+                </script>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>公司名称</th>
+                        <th>城市</th>
+                        <th>职位名称</th>
+                        <th>发布人</th>
+                        <th>发布时间</th>
+                        <th>最近更新人</th>
+                        <th>审核状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+                <div id="J_pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    KISSY.use('mod/pagination,mod/moment', function(S) {
+        S.ready(function(){
+            PW.pagination({
+                renderTo: '#J_pagination',//分页显示指向
+                juicerRender: 'tpl',//模版渲染指向
+                dataRender: '#J_template',
+                pageSize: 10,//每页显示的记录数
+                dataCount: '<{$recordCount}>',//总记录数
+                //themePackageURL: PW.libUrl+'js/base/plugins/pagination/theme/theme.json',
+                //themeName: 'a',//主题名称,有default,a,b,c,d,e这几种，默认是default
+                url:'<{$website}>admin/position/recruitment/json',//必选，必须指定ajax的url
+                type: 'get',//可选，默认情况下是get
+                extraParam: {
+                    'sCompanyName':'<{$sCompanyName}>',
+                    'sCityId':'<{$sCityId}>',
+                    'sCompanyUserName':'<{$sCompanyUserName}>',
+                    'sPositionName':'<{$sPositionName}>',
+                    'sCompanyReleaseTime':'<{$sCompanyReleaseTime}>',
+                    'isJoinBigRecruitment':'<{$isJoinBigRecruitment}>',
+                    'isJoinRecruitmentWeek':'<{$isJoinRecruitmentWeek}>',
+                    'isElite':'<{$isElite}>',
+                },//获取分页数据列表的额外条件
+                sendData: function(me,b){}, //回调函数 me指向当前的分页对象，b指向分页获取的json数据
+                configUrl:function(url,page,me,prevdata){
+                    //url:配置的url,page1:当前的页面,me:指向当前分页,prevdata:上一次的分页数据
+                    var url = url+'/page1/'+page;
+                    return url;
+                },
+                //初始化完成之后的回调函数
+                initCompleted:function(me){
+                    S.log('初始化完成！');
+                },
+                //发送ajax之前
+                beforeSendAJAX:function(me){
+                    S.log('发送ajax之前！');
+                },
+                //ajax发送失败后的回调函数
+                errorFun:function(me){
+                    S.log('ajax发送失败！');
+                },
+                beforeDataLoad:function(me,data){
+                    var lt = data.list;
+                    S.each(lt,function(item){
+                        item.time = parseInt(item.time);
+                        item.time = PW.moment(item.time).format('YYYY-MM-DD');
+                        S.log(item.time);
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+body{
+	padding: 30px;
+	width: 1200px;
+	margin:0px auto;
+}
+
+/*表的标题样式*/
+.spanstyle{
+	font-size: 25px;
+    margin-left: 180px;
+    font-family: "微软雅黑"; 
+}
+
+/*整体表的样式*/
+.table1{
+	width: 840px;
+	margin-top: 10px;
+	text-align: center;
+    margin-left: 180px;
+	border-collapse:collapse;
+}
+
+/*表的行列样式*/
+.table1 td, .table1 th {
+	font-size:14px;
+    border:1px solid #272822;
+}
+
+.trstyle1{
+	height:30px;
+	background-color:#BDD0EE;
+}
+
+/*表列的样式*/
+.trstyle2 td{
+	height:20px;
+}
+
+#idstyle1{
+	width: 80px;
+}
+
+#idstyle2{
+	width: 340px;
+}
+
+/*确认、取消、重置按钮的样式*/
+.divstyle1{
+    width: 840px;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 180px;
+}
+
+.ulstyle1{
+   width:500px;
+   height: 35px; 
+   list-style: none;
+   margin-left: 200px;
+}
+
+.ulstyle1 li{
+	width:50px;
+	height:25px; 
+	float: left;
+	display: block;
+	margin-left: 50px;
+}
+
+
+

@@ -1,0 +1,43 @@
+<div class="company-header">
+    <{if $company.is_famous neq "0"}>
+    <img src="<{$tempWebsite}>/<{$company.logo}>" class="company-logo">
+    <{else}>
+    <img src="<{$staticWebsite}>resources/img/common/company_logo.png" class="company-logo">
+    <{/if}>
+	<h1 class="company-name" company-id="<{$company.id}>"><{$company.name}></h1>
+    <{if $company.is_famous eq "1"}>
+    <span class="elite">
+        名&nbsp;校
+    </span>
+    <{elseif $company.is_famous eq "2"}>
+    <span class="elite">
+        名&nbsp;企
+    </span>
+    <{else}>
+    <{/if}>
+	<ul>
+		<li class="<{$introduce}>"><a href="<{$website}>company/company/detail/id/<{$company.id}>">单位首页</a></li>
+		<li class="<{$preach}>"><a href="<{$website}>company/company/listCT/id/<{$company.id}>">宣讲会日程</a></li>
+		<li class="<{$po}>"><a href="<{$website}>company/company/ListPositionByCompany/id/<{$company.id}>">在招职位</a></li>
+		<li class="<{$comment}>"><a href="<{$website}>company/companyComment/list/id/<{$company.id}>">单位点评</a></li>
+		<li class="<{$interviewExperience}>"><a href="<{$website}>company/interviewExperience/list/id/<{$company.id}>">面试经验</a></li>
+        <{if $flagRe eq 1}>
+        <li class="<{$remote}>"><a href="<{$website}>company/remoteInterview/list/id/<{$company.id}>">远程面试</a></li>
+        <{else}>
+        <li class="no-click"><a href="javascript:;">远程面试</a></li>
+        <{/if}>
+        <{if $flag eq 1}>
+        <li class="<{$preachOnDemand}>"><a href="<{$website}>company/company/preachVideoByCompany/id/<{$company.id}>">宣讲点播</a></li>
+        <{else}>
+        <li class="no-click"><a href="javascript:;">宣讲点播</a></li>
+        <{/if}>
+	</ul>
+	<em><strong class="follow-number"><{$concernedNum}></strong>人已关注</em>
+    <{if $concerned eq 0}>
+    <a class="follow" href="javascript:;" style="">加关注</a>
+    <a class="unfollow" href="javascript:;" style="display: none;">取消关注</a>
+    <{else}>
+    <a class="follow" href="javascript:;" style="display: none;">加关注</a>
+    <a class="unfollow" href="javascript:;" style="display: inline;">取消关注</a>
+    <{/if}>
+</div>

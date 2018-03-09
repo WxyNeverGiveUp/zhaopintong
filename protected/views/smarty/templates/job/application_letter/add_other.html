@@ -1,0 +1,53 @@
+
+<!--姜雪 添加第二个求职信页面-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>添加第二个求职信</title>
+		 <{include file="../../common/link.html"}>
+		 <{include file="../../common/script.html"}>
+		<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+		<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/application_letter.css">
+		<!--这引用了预览简历的css-->
+		<style>
+           .none{
+           	display: none;
+           }
+		</style>
+	</head>
+	<body>
+		 <{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="module">
+			<div class="submodule another_application">
+				<h3>
+					求职信
+					<a href="<{$website}>job/job/letterIndex" class="return-letter-index">返回求职信首页</a>
+				</h3>			 
+				<form action="<{$website}>job/job/addletter" method="post" id="J_form">
+					<h2>注：标题不得为空，求职信不得少于十个字</h2>
+					<div>
+						<label>请输入标题&nbsp;:</label>						
+						<input type="text"  maxlength="50" name="title" class="letter-title" placeholder="不得为空"/>
+						<span class="title-tip none">标题名称不能为空</span>
+					</div>
+					<textarea name="content"  class="context" placeholder="不得少于10个字"></textarea>
+					<span class="context-tip none" >内容不能为空</span>
+					<div class="operation">
+						<button type="submit" class="save btn">保存</button>
+						<button type="reset" class="cancel btn">重置</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		 <script type="text/javascript">
+			KISSY.use('page/job_apply/addOther',function(S){
+				S.ready(function(){
+					PW.page.job_apply.addOther();
+				})
+			})
+        </script> 
+		 <{include file="../../common/footer.html"}>
+	</body>
+</html>

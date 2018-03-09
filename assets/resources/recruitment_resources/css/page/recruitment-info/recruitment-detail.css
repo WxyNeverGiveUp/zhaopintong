@@ -1,0 +1,75 @@
+/*==================================================
+* @Description: 招聘信息
+* @Version: 1.0.0
+* @Author: anrui(2434078703)
+* @Date: 2017.7.20
+* ==NOTES:==========================================
+* v1.0.0(2017.7.20):
+初始生成
+* ==================================================*/
+*{
+	font-size: 18px;
+	font-family:"Microsoft YaHei";
+}
+/*总体布局开始*/
+.content {
+    margin: 0 auto;
+    width: 80%;
+}
+/*div.main {
+    border: 1px solid #a1a1a1;
+    display: inline-block;
+    margin-left: 1%;
+    vertical-align: top;
+    width: 80%;
+}*/	
+/*总体布局结束*/
+/*查看职位详情页面css开始*/
+div.recruitment-detail {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    padding: 50px 25px;
+    vertical-align: top;
+    width: 100%;
+}
+div.main ul.position-detail{
+	margin-top:17px;
+}
+div.main ul.position-detail li{
+	margin-left:67px;
+	margin-bottom:55px;
+}
+div.main ul.position-detail li p{
+	display:inline-block;
+	font-size:16px;
+}
+div.main ul.position-detail li p.detail-require{
+	display:inline-block;
+	width:162px;
+	text-align:center;
+	margin-right:60px;
+	vertical-align:top;
+}
+div.main ul.position-detail li p.position{
+	color:#2b83de;
+	font-size:25px;
+	font-family:"SimHei";
+	font-weight:bold;
+}
+/*div.main ul.position-detail li p.detail-require+p{*/
+	/*width:616px;*/
+/*}*/
+div a.back-recruitment-list{
+ 	display:inline-block;
+ 	width:181px;
+ 	margin-left:355px;
+ 	height:38px;
+ 	line-height:38px;
+ 	text-align:center;
+ 	background-color:#199c19;
+ 	color:#fff;
+ 	border-radius:5px;
+ 	text-decoration:none;
+}
+/*查看职位详情页面css结束*/

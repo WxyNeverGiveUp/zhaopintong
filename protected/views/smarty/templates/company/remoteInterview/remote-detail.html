@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>远程面试详细</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/detail.css">
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../common/header.html"}>
+	<div class="page clearfix">
+		<div class="block">
+			<div class="block-header">
+				远程面试
+				<a href="<{$website}>company/remoteInterview/list/id/<{$company.id}>" class="return-remote-list">返回远程面试列表</a>
+			</div>
+			<div class="block-content">
+				<div class="con-header J_enter" enter-id="<{$remoteInterview.id}>">
+					<{$remoteInterview.theme}>
+				</div>
+				<div class="con-con">
+					<div class="cal">
+						<div class="cal-top">
+							<span><{$remoteInterview.day|date_format:"%Y"}></span>年<span><{$remoteInterview.day|date_format:"%m"}></span>月
+						</div>
+						<span class="cal-day"><{$remoteInterview.day|date_format:"%d"}></span>
+					</div>
+					<div class="det">
+						<label>时 间 ：</label>
+						<span><{$remoteInterview.start_time}>-<{$remoteInterview.end_time}></span>
+					</div>
+					<div class="det">
+						<label>地 点 ：</label>
+						<span><{$remoteInterview.place}></span>
+					</div>
+					<div class="det">
+						<label>描 述 ：</label>
+						<span><{$remoteInterview.describe}></span>
+					</div>
+					<div class="det">
+                        <{if $isOverdue eq 0}>
+                        <{if $concerned eq '1'}>
+                        <a href="javascript:;" class="entor" style="display:none;">抢先报名</a>
+                        <a href="javascript:;" class="unentor">取消报名</a>
+                        <{else}>
+                        <a href="javascript:;" class="entor">抢先报名</a>
+                        <a href="javascript:;" class="unentor" style="display:none;">取消报名</a>
+                        <{/if}>
+                        <{/if}>
+						<a href="javascript:;" class="live-entrance J_remote_entance" remoteId="<{$remoteInterview.id}>">快速入口</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block">
+			<div class="block-header bor">
+				<span class="J_searchCount"><{$number}></span>人已报名参加
+			</div>
+	        <script id="tpl" type="text/template">
+	            {@each data as d}
+	            	<a href="<{$website}>job/job/viewIndex/user_id/&{d.userId}" target="_blank">
+	            		<img src=&{d.head_url} class="img" weight="47px" height="47px">
+	            	</a>
+	            {@/each}
+	        </script>
+	        <div id="J_template" class="pad"></div>
+		</div>
+	</div>
+<{include file="../../common/footer.html"}>
+	<script type="text/javascript">
+		KISSY.use('page/company/detail',function(S){
+			S.ready(function(){
+				PW.page.company({
+					/*renderTo: '#J_pagination',*///分页显示指向
+					juicerRender: '#tpl',//模版渲染指向
+					dataRender: '#J_template',
+					pageSize: 50,//每页显示的记录数
+					url:'<{$website}>company/remoteInterview/jsonList/id/<{$remoteInterview.id}>',//必选，必须指定ajax的url
+					configUrl:function(url,page,me,prevdata){
+						return url;
+					},
+					type:'get'
+				})
+			});
+		})
+	</script>
+</body>
+
+</html>

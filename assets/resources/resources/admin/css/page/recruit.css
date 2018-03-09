@@ -1,0 +1,81 @@
+/*-----------------------------------------------------------------------------
+* @Description: 招聘信息管理样式 (recruit.css)
+* @Version: 	V1.0.0
+* @author: 		shenj(1073805310@qq.com)
+* @date			2014.08.12
+* ==STRUCTURE:=========================================
+*$__招聘信息列表样式
+* ==NOTES:=============================================
+* v1.0.0(2014.08.12):
+* 	初始生成 
+* ---------------------------------------------------------------------------*/
+.space-tip{
+	text-align: center;
+}
+.space-tip span{
+	display: inline-block;
+	height: 24px;
+	line-height: 22px;
+	*display: inline;
+	*zoom: 1;
+}
+.space-tip i{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #ddd;
+	margin-right: 10px;
+	*display: inline;
+	*zoom: 1;
+}
+.space-tip i.lecture{
+	background: #d15b47;
+}
+.space-tip i.interview{
+	background: #ffb752;
+}
+.space-tip i.written{
+	background: #87b87f;
+}
+tbody > tr:nth-child(2n+1)>td.lecture,td.lecture{
+	background: #d15b47;
+}
+tbody > tr:nth-child(2n+1)>td.interview,td.interview{
+	background: #ffb752;
+}
+tbody > tr:nth-child(2n+1)>td.written,td.written{
+	background: #87b87f;
+}
+table.space td,table.space th,table.lecture td,table.lecture th{
+	padding: 0;
+}
+.recruit-area{
+	width: 38%;
+	padding-left: 10%;
+}
+.recruit-area label{
+	width: 21%;
+}
+.recruit-area-short{
+	width: 13.5%;
+	padding-left: 10%;
+}
+.recruit-area-short label{
+	width: 40%;
+}
+.recruit-area input[type="text"]{
+	width: 93%;
+}
+tbody td a.message-list{
+	width:300px;
+	background:none;
+	overflow: hidden;
+	white-space:nowrap;
+    text-overflow:ellipsis;
+}
+tbody td a.visitor{
+	width: auto;
+	background: none;
+	color: #6fb3e0;
+	vertical-align: bottom;
+}

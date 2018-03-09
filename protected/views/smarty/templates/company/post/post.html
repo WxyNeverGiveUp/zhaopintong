@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- post bai xuexue -->
+	<title>在招职位</title>
+	<meta charset="utf-8">
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/post.css">
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../common/header.html"}>
+	<div class="page">
+		<h1 class="now-post"><span>正在招聘的职位</span></h1>
+		<div id="J_template">
+		</div>
+		<div id="J_pagination"></div>
+	</div>
+<{include file="../../common/footer.html"}>
+	<script type="text/template" id="tpl">
+		{@each data as d}
+			<div class="job">
+				<p>
+					<span class="name">职位名称：&{d.jobName}</span>
+					<span class="time">&{d.time}</span>
+				</p>
+				<p class=" information">
+					<span>职位类别：&{d.jobType}</span>
+					<span>
+					    信息来源：
+                        {@if d.messageSource === '1'}
+                           东北师大
+                         {@else if d.messageSource === '2'}
+                           六所部属
+                        {@else if d.messageSource === '3'}
+                           互联网
+                        {@/if}
+                        </span>
+					<span>学历：&{d.degreeRequire}</span>
+					<span>专业：&{d.major}</span>
+				</p>					
+				<a class="view" href="<{$website}>position/position/detail/id/&{d.id}" target="_blank">查看</a>
+			</div>
+		{@/each}
+	</script>
+	<script type="text/javascript">
+			KISSY.use('page/company/post' , function(S){
+				var urls = PW.Env.url.company.post;
+				var joblist = 'joblist';
+				var url = urls.getJoblist+'/id/'+<{$id}>+'/page';
+				S.ready(function(){
+					PW.page.company.post({
+						renderTo:'#J_pagination' ,//分页显示指向
+						juicerRender:'#tpl' ,//模板渲染指向
+						dataRender:'#J_template',
+						pageSize:10,//每页显示的记录数
+						url:url,//必选，指向ajax的url
+						configUrl:function(url,page,me,prevdata){
+							return url + '/' + page ;
+							// return url;
+						},
+						type:'get'
+					})
+				});
+			})
+	</script>
+</body>

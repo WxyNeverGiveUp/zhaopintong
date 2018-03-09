@@ -1,0 +1,195 @@
+<!-- ==================================================
+* @Description: 公司信息-单位成员
+* @Version: 1.0.0
+* @Author: wuxiaoyang(15290491277@163.com)
+* @Date: 2017.7.20
+* ==NOTES:=============================================
+* v1.0.0(2017.7.20):
+初始生成
+* ==================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>单位成员</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="<{$staticWebsite}>recruitment_resources/css/page/company-info/company-member.css">
+	<{include file="../common/link.html"}>
+	<{include file="../common/script.html"}>
+	<{include file="../../common/script.html"}>
+	<{include file="../common/simditor.html"}>
+</head>
+<body>
+	<div class="page">
+		<{include file="../common/header.html"}>
+		<div class="content">
+			<div class="sidebar">
+			    <h2><i class="fa fa-user list-img"></i>公司信息</h2>
+				<ul class="tab_menu">
+					<li><a href="<{$website}>recruitEntrance/company/tCompany/getCompanyBaseManager">基本资料</a></li>
+					<li><a href="<{$website}>recruitEntrance/company/tCompany/getCompanyAuthenticationData">认证资料</a></li>
+					<li class="active"><a href="<{$website}>recruitEntrance/company/companyLoginUser/listAllUser">单位成员</a></li>
+				</ul>
+			</div>
+			<div class="main"> 
+				<div class="category-selection">
+					<label class="label-attr">类别筛选</label>
+					<select name="userTypeId" id="query-type">
+						<option value="无">请选择</option>
+						<{foreach from=$companyLoginUserTypeList item=loginUserType}>
+						<option value="<{$loginUserType.name}>"><{$loginUserType.name}></option>
+						<{/foreach}>
+					</select>
+				</div>
+				<div class="search-box clearfix">
+					<form class="search-form" method="post" action="<{$website}>recruitEntrance/company/companyLoginUser/query">
+						<input type="text" placeholder="姓名或电话" class="search" name="keyword">
+						<i class="fa fa-search fa-2x search-btn"></i>
+					</form>
+					<button class="new-linkman">新建联系人</button>
+				</div>
+				<table class="manage" border="1px">
+					<thead>
+						<tr>
+							<th>姓名</th>
+							<th>职务</th>
+							<th>类别</th>
+							<th>联系方式</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<{foreach from=$companyUserList item=user}>
+					<tr>
+						<td><{$user.name}></td>
+						<td><{$user.duty}></td>
+						<td>
+							<{$user.type_id}>
+						</td>
+						<td><{$user.phone}></td>
+						<td>
+							<input type="hidden" name="id" value="<{$user.id}>">
+							<a href="javascript:;" class="update-info">修改</a>
+							<a href="javascript:;" class="delete">删除</a>
+						</td>
+					</tr>
+						<{/foreach}>
+					</tbody>
+				</table>
+                <p class="tip none">暂无数据</p>
+				<p class="table-title">单位其他联系人</p>
+				<table class="other" border="1px">
+					<thead>
+						<tr>
+							<th>姓名</th>
+							<th>职务</th>
+							<th>类别</th>
+							<th>联系方式</th>
+						</tr>
+					</thead>
+					<tbody>
+					<{foreach from=$companyUserList1 item=userList}>
+						<tr>
+							<td><{$userList.name}></td>
+							<td><{$userList.duty}></td>
+							<td><{$userList.type_id}></td>
+							<td><{$userList.phone}></td>
+						</tr>
+					<{/foreach}>
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+		<{include file="../common/footer.html"}>
+    	<div class="new-pop pop none">
+    		<form class="new-form" action="<{$website}>recruitEntrance/company/companyLoginUser/addCompanyUser" method="post">
+    			<h1>添加联系人</h1>
+    			<span>
+    				<label>姓名</label>
+    				<input type="text" name="name" placeholder="必填" class="require-text">
+    				<p class="tip none">请填写姓名</p>
+    			</span>
+    			<span>
+    				<label>职务</label>
+    				<input type="text" name="duty" placeholder="必填" class="require-text">
+    				<p class="tip none">请填写职务</p>
+    			</span>
+    			<span>
+    				<label>固定电话</label>
+    				<input type="text" name="telephone" class="telephone">
+    			</span>
+    			<span>
+    				<label>手机</label>
+    				<input type="text" name="phone" placeholder="必填" class="phone require-text">
+    				<p class="tip none">请填写正确的手机号码</p>
+    			</span>
+    			<span>
+    				<label>邮箱</label>
+    				<input type="text" name="email" placeholder="必填" class="email require-text">
+    				<p class="tip none">请填写正确的邮箱地址</p>
+    			</span>
+    			<span>
+    				<label>类别</label>
+					<{foreach from=$companyLoginUserTypeList item=loginUserType}>
+					<div class="checkbox">
+    					<input type="checkbox" name="userType[]" value="<{$loginUserType.name}>"><{$loginUserType.name}>
+    				</div>
+					<{/foreach}>
+    				<p class="tip none">请选择联系人类别</p>
+    			</span>
+                <input type="button" class="new-cancel cancel" value="取消"/>
+    			<input type="submit" name="" class="new-sub sub-btn">
+    		</form>
+    	</div>
+    	<div class="update-pop pop none">
+    		<form class="update-form" action="<{$website}>recruitEntrance/company/companyLoginUser/edit" method="post">
+    			<h1>修改联系人</h1>
+				<input type="hidden" name="uid" value="<{$user.id}>" class="user-id">
+    			<span>
+    				<label>姓名</label>
+    				<input type="text" name="name" placeholder="必填" class="require-text name" >
+    				<p class="tip none">请填写姓名</p>
+    			</span>
+    			<span>
+    				<label>手机</label>
+    				<input type="" name="phone" id="scms_gettel"  placeholder="必填" class="require-text change-phone">
+    				<p class="tip none">请填写正确的手机号码</p>
+    			</span>
+    			<span>
+    				<label>图形验证码</label>
+    				<input type="" name="" placeholder="必填" class="require-text img-code-input">
+    				<img src="http://www.dsjyw.net/util/captcha/getcode" alt="图形验证码" id="img-code">
+    				<p class="tip none"></p>
+    			</span>
+    			<span>
+    				<label>验证码</label>
+                    <input name="code" id="right_yzcode" type="hidden" value=""/>
+                    <input type="text" name="code" id="scms_yzcode" placeholder="必填" class="require-text">
+                    <input name="Submitbfs" type="button" value="获取验证码" id="Submitbfs"/>
+                    <div id="show_statu"></div>
+    			</span>
+    			<span>
+    				<label>类别</label>
+    				<{foreach from=$companyLoginUserTypeList item=loginUserType}>
+					<div class="checkbox">
+    					<input type="checkbox" name="userType[]" value="<{$loginUserType.name}>"><{$loginUserType.name}>
+    				</div>
+					<{/foreach}>
+    				<p class="tip none">请选择联系人类别</p>
+    			</span>
+                <input type="button" class="update-cancel cancel" value="取消"/>
+                <input type="submit" name="" class="update-sub sub-btn">
+    		</form>
+    	</div>
+	</div>
+	<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/company-info/company-member.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.search-btn').click(function() {
+				$('.search-form').submit();
+				return false;
+			});
+		});
+	</script>
+</body>
+</html>

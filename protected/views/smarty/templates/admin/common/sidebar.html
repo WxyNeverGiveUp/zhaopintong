@@ -1,0 +1,2575 @@
+<!--sidebar start-->
+<{if $current eq 'company'}>
+<div class="sidebar">
+<ul>
+    <li class="open">
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="<{$website}>admin/company/company/list">单位列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/company/company/create">新增单位</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>联系人管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+            </li>
+
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>名校名企管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位审核</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="company"></i>
+            <span>宣讲会管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>招聘信息管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/position/recruitment/toAdd">新增招聘信息</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>单位点评管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>面试经验管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>用户管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>公告管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>教师招考管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>关于我们管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>系统管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/list">管理员列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<{$website}>admin/login/login/logout">
+            <i class="logout"></i>
+            <span>安全退出</span>
+        </a>
+    </li>
+</ul>
+</div>
+<{elseif $current eq 'famous'}>
+<div class="sidebar">
+    <ul>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>单位管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/list">单位列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/company/company/create">新增单位</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>联系人管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">联系人列表</a>
+            </li>
+
+        </ul>
+    </li>
+        <li class="open">
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>名校名企管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>单位审核</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="company"></i>
+                <span>宣讲会管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="recruit"></i>
+                <span>招聘信息管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>单位点评管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>面试经验管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>用户管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>公告管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>教师招考管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>关于我们管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>系统管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/list">管理员列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="<{$website}>admin/login/login/logout">
+                <i class="logout"></i>
+                <span>安全退出</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<{elseif $current eq 'companyCheck'}>
+<div class="sidebar">
+    <ul>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>单位管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/list">单位列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/company/company/create">新增单位</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>联系人管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+            </li>
+
+        </ul>
+    </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>名校名企管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+                </li>
+            </ul>
+        </li>
+        <li class="open">
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>单位审核</span>
+                <b></b>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="company"></i>
+                <span>宣讲会管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="recruit"></i>
+                <span>招聘信息管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>单位点评管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>面试经验管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>用户管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>公告管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>教师招考管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>关于我们管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>系统管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/list">管理员列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="<{$website}>admin/login/login/logout">
+                <i class="logout"></i>
+                <span>安全退出</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<{elseif $current eq 'careertalk'}>
+<div class="sidebar">
+<ul>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/list">单位列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/company/company/create">新增单位</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>联系人管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+            </li>
+
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>名校名企管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位审核</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+            </li>
+        </ul>
+    </li>
+    <li class="open">
+        <a href="javaScript:;">
+            <i class="company"></i>
+            <span>宣讲会管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>招聘信息管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/position/recruitment/toAdd">新增招聘信息</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>单位点评管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>面试经验管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>用户管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>公告管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>教师招考管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>关于我们管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>系统管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/list">管理员列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<{$website}>admin/login/login/logout">
+            <i class="logout"></i>
+            <span>安全退出</span>
+        </a>
+    </li>
+</ul>
+</div>
+<{elseif $current eq 'position'}>
+<div class="sidebar">
+<ul>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/list">单位列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/company/company/create">新增单位</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>联系人管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+            </li>
+
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>名校名企管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位审核</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="company"></i>
+            <span>宣讲会管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+            </li>
+        </ul>
+    </li>
+    <li class="open">
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>招聘信息管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/position/recruitment/toAdd">新增招聘信息</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>单位点评管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>面试经验管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>用户管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>公告管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>教师招考管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>关于我们管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>系统管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/list">管理员列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<{$website}>admin/login/login/logout">
+            <i class="logout"></i>
+            <span>安全退出</span>
+        </a>
+    </li>
+</ul>
+</div>
+<{elseif $current eq 'companyComment'}>
+<div class="sidebar">
+    <ul>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>单位管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/list">单位列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/company/company/create">新增单位</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+	        <a href="javaScript:;">
+	            <i class="recruit"></i>
+	            <span>联系人管理</span>
+	            <b></b>
+	        </a>
+	        <ul class="submenu none">
+	            <li>
+	                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+	            </li>
+
+	        </ul>
+	    </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>名校名企管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>单位审核</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="company"></i>
+                <span>宣讲会管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="recruit"></i>
+                <span>招聘信息管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+                </li>
+            </ul>
+        </li>
+        <li class="open">
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>单位点评管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>面试经验管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>用户管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>公告管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>教师招考管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>关于我们管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>系统管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/list">管理员列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="<{$website}>admin/login/login/logout">
+                <i class="logout"></i>
+                <span>安全退出</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<{elseif $current eq 'interviewExperience'}>
+<div class="sidebar">
+    <ul>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>单位管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/list">单位列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/company/company/create">新增单位</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+	        <a href="javaScript:;">
+	            <i class="recruit"></i>
+	            <span>联系人管理</span>
+	            <b></b>
+	        </a>
+	        <ul class="submenu none">
+	            <li>
+	                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+	            </li>
+
+	        </ul>
+	    </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>名校名企管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="reception"></i>
+                <span>单位审核</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="company"></i>
+                <span>宣讲会管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="recruit"></i>
+                <span>招聘信息管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>单位点评管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+                </li>
+            </ul>
+        </li>
+        <li class="open">
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>面试经验管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="work"></i>
+                <span>用户管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>公告管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>教师招考管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>关于我们管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javaScript:;">
+                <i class="system"></i>
+                <span>系统管理</span>
+                <b></b>
+            </a>
+            <ul class="submenu none">
+                <li>
+                    <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/list">管理员列表</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+                </li>
+                <li>
+                    <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="<{$website}>admin/login/login/logout">
+                <i class="logout"></i>
+                <span>安全退出</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<{elseif $current eq 'graduate'}>
+<div class="sidebar">
+<ul>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/list">单位列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/company/company/create">新增单位</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+	        <a href="javaScript:;">
+	            <i class="recruit"></i>
+	            <span>联系人管理</span>
+	            <b></b>
+	        </a>
+	        <ul class="submenu none">
+	            <li>
+	                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+	            </li>
+
+	        </ul>
+	    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>名校名企管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位审核</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="company"></i>
+            <span>宣讲会管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>招聘信息管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/position/recruitment/toAdd">新增招聘信息</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>单位点评管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>面试经验管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+            </li>
+        </ul>
+    </li>
+    <li class="open">
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>用户管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>公告管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>教师招考管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>关于我们管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>系统管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/list">管理员列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<{$website}>admin/login/login/logout">
+            <i class="logout"></i>
+            <span>安全退出</span>
+        </a>
+    </li>
+</ul>
+</div>
+<{elseif $current eq 'announcement'}>
+<div class="sidebar">
+<ul>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/list">单位列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/company/company/create">新增单位</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+	        <a href="javaScript:;">
+	            <i class="recruit"></i>
+	            <span>联系人管理</span>
+	            <b></b>
+	        </a>
+	        <ul class="submenu none">
+	            <li>
+	                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+	            </li>
+
+	        </ul>
+	    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>名校名企管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位审核</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="company"></i>
+            <span>宣讲会管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>招聘信息管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/position/recruitment/toAdd">新增招聘信息</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>单位点评管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>面试经验管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>用户管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+            </li>
+        </ul>
+    </li>
+    <li class="open">
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>公告管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>教师招考管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>关于我们管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>系统管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/list">管理员列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<{$website}>admin/login/login/logout">
+            <i class="logout"></i>
+            <span>安全退出</span>
+        </a>
+    </li>
+</ul>
+</div>
+<{elseif $current eq 'teacherRe'}>
+<div class="sidebar">
+<ul>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/list">单位列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/company/company/create">新增单位</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+	        <a href="javaScript:;">
+	            <i class="recruit"></i>
+	            <span>联系人管理</span>
+	            <b></b>
+	        </a>
+	        <ul class="submenu none">
+	            <li>
+	                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+	            </li>
+
+	        </ul>
+	    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>名校名企管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位审核</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="company"></i>
+            <span>宣讲会管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>招聘信息管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/position/recruitment/toAdd">新增招聘信息</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>单位点评管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>面试经验管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>用户管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>公告管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+            </li>
+        </ul>
+    </li>
+    <li class="open">
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>教师招考管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>关于我们管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>系统管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/list">管理员列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<{$website}>admin/login/login/logout">
+            <i class="logout"></i>
+            <span>安全退出</span>
+        </a>
+    </li>
+</ul>
+</div>
+<{elseif $current eq 'aboutMe'}>
+<div class="sidebar">
+<ul>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/list">单位列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/company/company/create">新增单位</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+	        <a href="javaScript:;">
+	            <i class="recruit"></i>
+	            <span>联系人管理</span>
+	            <b></b>
+	        </a>
+	        <ul class="submenu none">
+	            <li>
+	                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+	            </li>
+
+	        </ul>
+	    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>名校名企管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位审核</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="company"></i>
+            <span>宣讲会管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>招聘信息管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/position/recruitment/toAdd">新增招聘信息</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>单位点评管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>面试经验管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>用户管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>公告管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>教师招考管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+            </li>
+        </ul>
+    </li>
+    <li class="open">
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>关于我们管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>系统管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/list">管理员列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<{$website}>admin/login/login/logout">
+            <i class="logout"></i>
+            <span>安全退出</span>
+        </a>
+    </li>
+</ul>
+</div>
+<{elseif $current eq 'system'}>
+<div class="sidebar">
+<ul>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/list">单位列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/company/company/create">新增单位</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+	        <a href="javaScript:;">
+	            <i class="recruit"></i>
+	            <span>联系人管理</span>
+	            <b></b>
+	        </a>
+	        <ul class="submenu none">
+	            <li>
+	                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+	            </li>
+
+	        </ul>
+	    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>名校名企管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位审核</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="company"></i>
+            <span>宣讲会管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>招聘信息管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/position/recruitment/toAdd">新增招聘信息</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>单位点评管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>面试经验管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>用户管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>公告管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>教师招考管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>关于我们管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+            </li>
+        </ul>
+    </li>
+    <li class="open">
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>系统管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/list">管理员列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<{$website}>admin/login/login/logout">
+            <i class="logout"></i>
+            <span>安全退出</span>
+        </a>
+    </li>
+</ul>
+</div>
+<!--新添加页面需要sidebar-->
+<{else}>
+<div class="sidebar">
+<ul>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/list">单位列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/company/company/create">新增单位</a>
+            </li>
+        </ul>
+    </li>
+    <li  class="open">
+	        <a href="javaScript:;">
+	            <i class="recruit"></i>
+	            <span>联系人管理</span>
+	            <b></b>
+	        </a>
+	        <ul class="submenu none">
+	            <li>
+	                <a href="<{$website}>admin/contact/contact/toList">联系人列表</a>
+	            </li>
+
+	        </ul>
+	    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>名校名企管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listFamous">名校名企列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="reception"></i>
+            <span>单位审核</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/company/listIndexInput">首页录入单位列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="company"></i>
+            <span>宣讲会管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/talk/talk/list">宣讲会列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="recruit"></i>
+            <span>招聘信息管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/position/recruitment/list">招聘信息列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/position/recruitment/toAdd">新增招聘信息</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>单位点评管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/companyComment/list">单位点评列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>面试经验管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/company/interviewExperience/list">面试经验列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="work"></i>
+            <span>用户管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/graduate/graduate/list">用户列表</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>公告管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/toSearch">公告列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/create">新增公告</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/listType">公告类型列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/announcement/announcement/createType">新增公告类型</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>教师招考管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch">教师招考列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/create">新增教师招考</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>关于我们管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu none">
+            <li>
+                <a href="<{$website}>admin/aboutUs/aboutUs/list">修改关于我们</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="javaScript:;">
+            <i class="system"></i>
+            <span>系统管理</span>
+            <b></b>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="<{$website}>admin/indexImg/indexImage/list">轮播图片管理</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/led/led/toEdit">Led公告修改</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/list">管理员列表</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toAddUser">新增管理员</a>
+            </li>
+            <li>
+                <a href="<{$website}>admin/user/user/toEdit">修改密码</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<{$website}>admin/login/login/logout">
+            <i class="logout"></i>
+            <span>安全退出</span>
+        </a>
+    </li>
+</ul>
+</div>
+<!--新添加页面需要sidebar结束-->
+<{/if}>
+<!--sidebar end-->
+<script type="text/javascript">
+	KISSY.use('module/sidebar',function(S){
+		S.ready(function(){
+			PW.module.Sidebar();
+		});
+	});
+</script>

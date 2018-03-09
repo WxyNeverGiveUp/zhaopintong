@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>删除教师招考</title>
+    <meta charset="utf-8">
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <div class="title">
+                    <div class="title1">教师招考删除</div>
+                </div>
+                <table>
+                    <tr>
+                        <td><{$announcement.title}></td>
+                        <td><{$announcement.city->name}></td>
+                        <td><{$announcement.add_time}></td>
+                        <td>
+                            <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/delete/id/<{$announcement.id}>" class="btn">删除</a>
+                            <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toSearch" class="btn">取消</a>
+                        </td>
+                    </tr>
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>地点</th>
+                        <th>公布时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!-- 
+* @Description: 招聘通-首页
+* @Version: 1.0.0
+* @Author: shihui(2622119132@qq.com)
+* @Date: 2017.05.13
+* ==NOTES:=============================================
+* v1.0.0(2017.05.13):
+初始生成
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求职通</title>
+	<{include file="./common/link.html"}>
+	<{include file="./common/script.html"}>
+
+	<{include file="../common/link.html"}>
+	<{include file="../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/css/page/index.css">
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/font-awesome/css/font-awesome.min.css"><!-- * -->
+
+</head>
+<body>
+<div class="page">
+	<!--<{if isset($username)}>-->
+	<!--<h3><{$username}></h3>-->
+	<!--<{/if}>-->
+	<{include file="../common/header.html"}>
+	<{include file="./common/header.html"}>
+	<a href="<{$website}>RecruitEntrance/RecruitEntrance/logout" class="log-off">退出登录</a>
+	<div class="content">
+
+		<div class="career">
+			<div class="title">
+				<h1>宣讲会</h1>
+				<p>Career Talk</p>
+			</div>
+			<ul class="career-details">
+				<li>
+							<span>
+								<i class="fa fa-user fa-3x"></i>
+							</span>
+					<!--<{if $require_num!=null}>-->
+					<!--<span><{$require_num}></span>-->
+					<!--<{else}>-->
+					<span>0</span>
+					<!--<{/if}>-->
+					<span>拟招聘人数</span>
+				</li>
+				<li>
+							<span>
+								<i class="fa fa-pencil-square fa-3x"></i>
+							</span>
+					<!--<span><{$sign_up_num}></span>-->
+					<span>报名人数</span>
+				</li>
+				<li>
+							<span>
+								<i class="fa fa-calendar-check-o fa-3x"></i>
+							</span>
+					<span>10</span>
+					<span>签到人数</span>
+				</li>
+				<li class="border-none">
+							<span>
+								<i class="fa fa-paint-brush fa-3x"></i>
+							</span>
+					<span>10</span>
+					<span>签约人数</span>
+				</li>
+			</ul>
+		</div>
+		<div class="recruitment">
+			<div class="title">
+				<h1>招聘</h1>
+				<p>Recruitment</p>
+			</div>
+			<ul class="recruitment-details">
+				<li>
+					<span>
+						<i class="fa fa-briefcase fa-3x"></i>
+					</span>
+					<span>
+						<!--<{if $jobs_require==null}>-->
+						0
+						<!--<{else}>-->
+						<!--<{$jobs_require}>-->
+						<!--<{/if}>-->
+					</span>
+					<span>招聘职位数</span>
+				</li>
+				<li>
+							<span>
+								<i class="fa fa-th-list fa-3x"></i>
+							</span>
+					<span>10</span>
+					<span>职位浏览数</span>
+				</li>
+				<li>
+							<span>
+								<i class="fa fa-address-book fa-3x"></i>
+							</span>
+					<span>10</span>
+					<span>接收简历数</span>
+				</li>
+				<li class="border-none">
+							<span>
+								<i class="fa fa-flag fa-3x"></i>
+							</span>
+					<span>10</span>
+					<span>已签约人数</span>
+				</li>
+			</ul>
+		</div>
+		<div class="download">
+			<h1>文档模板下载</h1>
+			<ul>
+				<li>
+					<a href="javascript:;">公函模板</a>
+				</li>
+				<li>
+					<a href="javascript:;">公函模板</a>
+				</li>
+				<li>
+					<a href="javascript:;">公函模板</a>
+				</li>
+				<li>
+					<a href="javascript:;">公函模板</a>
+				</li>
+				<li>
+					<a href="javascript:;">公函模板</a>
+				</li>
+				<li>
+					<a href="javascript:;">公函模板</a>
+				</li>
+				<li>
+					<a href="javascript:;">公函模板</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<{include file="./common/footer.html"}>
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>完善信息</title>
+	<{include file="../common/link.html"}>
+     <{include file="../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/user_info/perfect-info.css">
+</head>
+<body>
+	<div class="content">
+		<h1>
+			东北高师就业联盟网
+			<a href="<{$website}>user/user/layout">切换账号</a>
+			<span><{$realname}></span>
+		</h1>
+		<form class="complete-form" method="post" action="<{$website}>user/message/deelMessage" id="J_complete_form">
+			<h2>请完成以下信息，必填，不填不能注册成功</h2>
+			<div>
+				<span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+				<input name="realname" type="text" data-valid-rule="notNull" value="<{$realname}>" 
+				placeholder="注意！！姓名一旦注册成功即不可修改">
+			</div>
+			<div>
+				<span>就读学校：</span>
+                <{if $isLeague eq 2}>
+                <input type="text"  value="东北师范大学" data-valid-rule="notNull" name="school_name" readonly="readonly">
+                <{else}>
+                <select name="school_name" class="all-school" data-valid-rule="scale(0,300,0)">
+                    <option value="0">请选择就读学校</option>
+                    <option value="1">东北师范大学</option>
+                    <option value="2">吉林师范大学</option>
+                    <option value="3">辽宁师范大学</option>
+                    <option value="4">长春师范大学</option>
+                    <option value="5">哈尔滨师范大学</option>
+                    <option value="6">内蒙古民族大学</option>
+                    <option value="7">东北林业大学</option>
+                    <option value="8">佳木斯大学</option>
+                    <option value="9">齐齐哈尔大学</option>
+                    <option value="10">哈尔滨学院</option>
+                    <option value="11">鹤岗师范高等专科学校</option>
+                    <option value="12">牡丹江师范学院</option>
+                    <option value="13">大庆师范学院</option>
+                    <option value="14">哈尔滨体育学院</option>
+                    <option value="15">北华大学</option>
+                    <option value="16">吉林工程技术师范学院</option>
+                    <option value="17">通化师范学院</option>
+                    <option value="18">长春大学</option>
+                    <option value="19">白城师范学院</option>
+                    <option value="20">延边大学</option>
+                    <option value="21">吉林体育学院</option>
+                    <option value="22">沈阳师范大学</option>
+                    <option value="23">鞍山师范学院</option>
+                    <option value="24">渤海大学</option>
+                    <option value="25">沈阳大学</option>
+                    <option value="26">赤峰学院</option>
+                    <option value="27">绥化学院</option>
+                    <option value="28">呼伦贝尔学院</option>
+                    <option value="other">其它</option>
+                </select>
+				<input type="text" class="school-input none" value="请输入您的学校" data-valid-rule="notNull" name="school">
+				<a href="javascript:;" class="none close-input">X</a>
+                <{/if}>
+			</div>
+			<div>
+				<span>院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系：</span>
+                <{if $schoolInformation.department eq null}>
+                <input type="text" data-valid-rule="notNull" name="deparment">
+                <{else}>
+                <input type="text"  value="<{$schoolInformation.department}>" data-valid-rule="notNull" name="deparment" readonly="readonly">
+				<{/if}>
+			</div>
+			<div>
+				<span>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</span>
+                <{if $schoolInformation.major eq null}>
+                <input type="text" data-valid-rule="notNull" name="major_name">
+                <{else}>
+                <input type="text"  value="<{$schoolInformation.major}>" data-valid-rule="notNull" name="major_name" readonly="readonly">
+                <{/if}>
+			</div>
+			<div>
+				<span>专业类别：</span>
+				<select  data-valid-rule="scale(0,1000,0)" class="main-major" >
+					       <option value="0">请选择专业类别</option>					 
+					<{foreach from=$specialty item=ability}>
+					       <option value="<{$ability.id}>"><{$ability.name}></option>
+					<{/foreach}>
+				</select>
+				<select  data-valid-rule="scale(0,1000,0)" class="sub-major" name="study_specialty_id">
+				</select>
+			</div>
+			<div class="degree-type">
+				<span>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：</span>
+                <{if $schoolInformation.degree neq '01' and $schoolInformation.degree neq '02'}>
+                <input type="radio" name="degree" checked="checked" value="本科"><em>本科</em>
+                <{else}>
+                <input type="radio" name="degree" value="本科"><em>本科</em>
+                <{/if}>
+                <{if $schoolInformation.degree eq '01'}>
+                <input type="radio" name="degree" value="硕士" checked="checked"><em>硕士</em>
+                <{else}>
+				<input type="radio" name="degree" value="硕士"><em>硕士</em>
+                <{/if}>
+                <{if $schoolInformation.degree eq '02'}>
+                <input type="radio" name="degree" value="博士" checked="checked"><em>博士</em>
+                <{else}>
+                <input type="radio" name="degree" value="博士"><em>博士</em>
+                <{/if}>
+                <input type="radio" name="degree" value="专科"><em>专科</em>
+                <input type="radio" name="degree" value="其它"><em>其它</em>
+			</div>
+			<div class="school-time">
+				<span>在校时间：</span>
+				<select data-valid-rule="scale(1900,2500,0)" name="yearStart" class="start-year">	
+                           <option value="0">请选择开始年份</option>
+					<{foreach from=$atSchoolYear item=year}>
+					       <option value="<{$year}>"><{$year}></option>
+					<{/foreach}>
+				</select>
+				<span>>></span>
+				<select data-valid-rule="scale(1900,2500,0)" name="yearEnd" class="end-year">
+					       <option value="0">请选择结束年份</option>
+					<{foreach from=$atSchoolYear item=year}>
+					       <option value="<{$year}>"><{$year}></option>
+					<{/foreach}>
+				</select>
+			</div>
+			<div class="sex-type">
+				<span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+				<input type="radio" name="gender" checked="checked" value="男性"><em>男性</em>
+				<input type="radio" name="gender" value="女性"><em>女性</em>
+			</div>
+			<div class="location-div">
+                <span>生源地：</span>
+				<select data-valid-rule="scale(0,1000,0)" class="location-province">
+					<option value="0">请选择省份</option>
+					<{foreach from=$model item=mod}>
+					    <option value="<{$mod.id}>"><{$mod.name}></option>
+					<{/foreach}>
+				</select>
+				<select data-valid-rule="scale(0,1000,0)" class="location-city" name="city_id">			 
+				</select>
+			</div>
+			<input type="submit" value="完成，进入联盟网" class="submit-complete-form">
+		</form>
+	</div>
+	<{include file="../common/footer.html"}>
+	<script type="text/javascript">
+		KISSY.use('page/user_info/perfectInfo',function(S){
+			S.ready(function(){
+				PW.page.user_info.perfectInfo();
+			})
+		})
+	</script>
+</body>
+</html>

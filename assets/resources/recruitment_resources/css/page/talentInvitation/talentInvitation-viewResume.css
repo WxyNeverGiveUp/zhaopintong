@@ -1,0 +1,77 @@
+.viewResumeMainh2,ul,li,p,h3 {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+	color: #131313;
+	font-size: 18px;
+	line-height: 2;
+}
+p {
+	width: 700px;
+	color: #131313;
+	font-size: 18px;
+	line-height: 2;
+}
+.main .box {
+	width: 742px;
+	margin-left: 127px;
+	margin-bottom:20px ;
+}
+input {
+	float: right;
+	border-radius: 6px;
+	width: 100px;
+	height: 40px;
+	border: 1px solid gainsboro;
+	font-size: 18px;
+	color: #131313;
+	background-color: #fff;
+	cursor: pointer;
+}
+.main span.title {
+	padding-right:35px ;
+	padding-bottom:10px ;
+	display: inline-block;
+	margin-bottom: 25px;
+	font-size: 36px;
+	color: #371981;
+	border-bottom: 2px solid #656565;
+}
+
+.resume {
+	margin-top: 38px;
+}
+
+.resume img {
+	float: right;
+}
+
+.education-experience table {
+	width: 700px;
+	font-size: 18px;
+	line-height: 2;
+	text-align: center;
+}
+.work-experience h3 {
+	line-height: 2;
+	color: #131313;
+	font-size: 18px;
+	font-weight: normal;
+}
+.work-experience p {
+	text-indent: 40px;
+}
+
+.return{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	color: #000;
+	font-size: 18px;
+	text-align: center;
+	border: 1px solid #a0a0a0;
+	border-radius: 5px;
+}

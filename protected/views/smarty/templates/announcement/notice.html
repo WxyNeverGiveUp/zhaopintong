@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>公告</title>
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/index/notice-teacher.css">
+</head>
+<body>
+    <{include file= "../common/header.html"}>
+	<div class="search-field">
+		<!-- 该div用于设置居中，目的在于使“当前位置与left-nav下的h1的border-left对齐” -->
+		<div>
+			<span>当前位置：</span>
+			<a href="<{$site}>">首页></a>
+			<a href="<{$website}>announcement/announcement/toSearch">公告</a>
+			<div class="search-box">
+			<!-- 当用户点击下拉列表时需用js来修改label的值，已使页面显示值与用户所选值一致-->
+			<!--<select class="search-type">-->
+				<!--<option value="0" selected="selected">全部</option>-->
+				<!--<option value="1">类1</option>-->
+				<!--<option value="2">类1</option>-->
+			<!--</select>-->
+                <select class="search-type">
+                    <option value="0">全部</option>
+                    <{foreach from=$announcementTypeList item=trade}>
+                    <option value="<{$trade.id}>"><{$trade.name}></option>
+                    <{/foreach}>
+                </select>
+
+			<input type="text" class="notice-search">
+			<a href="javascript:;" class="serach-btn">搜&nbsp;索</a>
+			</div>
+		</div>
+	</div>
+	<div class="content clearfix">
+		<div class="left-list">
+			<ul>
+				<h1 class="elite-school">名校</h1>
+				<{foreach from=$famousSchool item=school}>
+                <li><a href="<{$website}>company/company/detail/id/<{$school.id}>" target="_blank" title="<{$school.name}>"><{$school.name}></a></li>
+                <{/foreach}>
+			</ul>
+			<ul>
+				<h1 class="elite-firm">名企</h1>
+                <{foreach from=$famousCompany item=company}>
+                <li><a href="<{$website}>company/company/detail/id/<{$company.id}>" target="_blank" title="<{$company.name}>"><{$company.name}></a></li>
+                <{/foreach}>
+			</ul>
+			<ul>
+				<h1 class="subject-website">专题网站</h1>
+				<li>
+					<a href="http://sfs.ncss.org.cn/" target="_blank">
+                        <img src="<{$staticWebsite}>resources/img/index/be-delete/QQ1.png">
+					</a>
+				</li>
+				<li>
+					<a href="http://2015.dsjyw.net/" target="_blank">
+                        <img src="<{$staticWebsite}>resources/img/index/be-delete/QQ2.png">
+					</a>
+				</li>
+				<li>
+					<a href="http://media.myjoin.cn/" target="_blank">
+                        <img src="<{$staticWebsite}>resources/img/index/be-delete/QQ3.png">
+					</a>
+				</li>
+			</ul> 
+		</div>
+		<div class="newest-notice">
+			<h1>最新公告</h1>
+			<ul id="J_template">
+			</ul>
+			<div id="J_pagination"></div>
+		</div>
+	</div>
+    <{include file= "../common/footer.html"}>
+	<script type="text/template" id="tpl">
+		{@each list as d}
+			<li>
+				<a href="<{$website}>announcement/announcement/detail/id/&{d.id}" target="_blank">[&{d.type_name}] &{d.title}</a>
+				<span>&{d.add_time}</span>
+			</li>
+		{@/each}
+	</script>
+	<script type="text/javascript">
+		KISSY.use('page/index/notice',function(S){
+			var urls = PW.Env.url.index.notice;
+			var url = urls.getNoticeList + '/page';
+			S.ready(function(){
+				PW.page.index.notice({
+					renderTo: '#J_pagination',//分页显示指向
+					juicerRender: '#tpl',//模版渲染指向
+					dataRender: '#J_template',
+					pageSize: 13,//每页显示的记录数
+					url:url,//必选，必须指定ajax的url
+					configUrl:function(url,page,me,prevdata){
+						return url + '/' + page;
+//						return url;
+					},
+					type:'get',
+                    extraParam:{'searchTypeId':'<{$searchTypeId}>','searchWord':'<{$searchWord}>'}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/*---------------------------------------------------------------------------------------------
+@Filename: teacher-examination.css
+@Description: 教师招考CSS定义
+@Version: 1.0.0(2015-06-18)YYYY-MM-DD
+@author: hujun
+2015-06-29:
+初始生成。
+--------------------------------------------------------------------------------------------*/
+.page-background{
+    background: #F7F6F6;
+ }
+.page{
+    margin: 0px auto;
+    width: 1005px;
+    padding-top: 20px;
+}
+.page-head{
+ 	background-image: url(../../../../resources/img/detail/head-background.png);
+ 	height: 25px;
+    margin-bottom: 15px;
+    padding: 8px 2px;
+}
+.page-head a{
+	margin: 0px 3px;
+	text-decoration: none;
+	color: #000052;
+}
+.page-head h1{
+ 	line-height: 37px;
+ 	border-left: 6px solid #781c2d;
+    padding-left: 10px;
+    font-size: 14px; 
+	height: 24px;
+	line-height: 25px;
+	font-weight: normal;
+	margin-left: 14px;
+}
+.content-title{
+	font-size: 30px;
+	text-align: center;
+	padding: 22px 0;
+	background-image: url(../../../../resources/img/detail/title-background.png);
+	font-weight: normal;
+
+}
+/* 发布时间、阅览次数等 */
+.relative-info{
+	position: relative;
+	color: #fbfbfb;
+	background-image: url(../../../../resources/img/detail/relative-info-background.png);
+	margin-top: -2px;
+    padding: 7px 0;
+    font-size: 14px;
+}
+.update-time{
+	margin-left: 261px;
+}
+.follow-time{
+	margin-left: 167px;
+}
+.share-link{
+	float: right;
+	margin-right: 20px;
+}
+.share-link li{
+	display: inline-block;
+	margin-right: -4px;
+}
+.content-background{
+	background: #ffffff;
+	margin-top: 23px;
+    padding-bottom: 70px;
+    padding-top: 42px;
+}
+.detail-content{
+	font-size: 14px;
+	margin: 0 62px;
+	font-weight: normal;
+}
+.detail-content p{
+	text-indent: 2em;
+	line-height: 25px;
+}
+.detail-content h4{
+	text-indent: 2em;
+}
+
+.qrCode-Img{
+	position: absolute;
+	right: 0;
+	top: 100%;
+	border: 1px solid #000;
+	width: 200px;
+	height: 200px;
+}
+
+.show-QRCode {
+	position: absolute;
+	right: 20px;
+	top: 9px;
+	width: 15px;
+	height: 15px;
+	background: url("../../../img/company/er-btn.png") no-repeat 0 0;
+}
+
+table td {
+	border: 1px solid #000;
+}
+
+.detail-content table td p{
+	text-align: left;
+	text-indent: 0;
+}
+
+table {
+	margin: 0 auto;
+}
+
+.bshare-custom {
+	 position: absolute;
+     right: 55px;
+     top: 9px;
+}

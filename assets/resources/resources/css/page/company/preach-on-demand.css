@@ -1,0 +1,146 @@
+﻿/*----------------------------------------------------
+@Filename: preach-on-demand.css
+@Description: 单位宣讲点播css定义
+@Version: 1.0.0(2015-05-18)
+@author: 田慧婷
+==NOTES:=============================================
+2015-05-18:
+初始生成。
+2015-05-20:
+重新做第一遍。
+2015-06-09；
+重新做第二遍。
+2013-06-11：
+重新写第三遍。
+------------------------------------------------------*/
+body{
+	background-color: #ededed;
+}
+.page{
+	width: 1193px;
+	margin: 0 auto;
+	font-family: "Microsoft YaHei";
+}
+.player{
+	background-color: #ffffff;
+	text-align: center;
+}
+.player img {
+	width: 770;
+	height: 384px;
+	margin-top: 13px;
+	margin-bottom: 3px;
+}
+.videos{
+	width: 1107px;
+	margin-top: 14px;
+	margin-left: 34px;
+}
+.videos h1 {
+	border-bottom: 1px solid #53c5e2;
+}
+.videos h1 span {
+	width: 57px;
+	height:33px;
+	display: inline-block;
+	background-color: #53c5e2;
+	font-size: 20px;
+	color: #ededed;
+	text-align: center;
+}
+.videos-content {
+	margin-top: 33px;
+}
+.videos-content h3 {
+	height: 40px;
+	border-bottom: 2px solid #bfbfbf;
+}
+.videos-header {
+	height: 40px;
+	width: 130px;
+	display: inline-block;
+	border-bottom: 2px solid #53c5e2;
+}
+.videos-title {
+	display: inline-block;
+	font-size: 18px;
+	padding-left: 8px;
+	color: #707070;
+	border-left: 10px solid #53c5e2;
+	line-height: 34px;
+}
+.videos-content ul {
+	width: 1156px;
+	/*height: 164px;*/
+	margin-top: 30px;
+	margin-bottom: 40px;
+	padding-left: 40px;
+	margin-left: 90px;
+}
+.videos-content li {
+	float: left;
+	height: 163px;
+	width: 196px;
+	font-size: 14px;
+	font-weight: bold;
+	position: relative;
+	margin-right: 41px;
+	margin-bottom: 40px;
+}
+.videos-content img {
+	width: 245px;
+	height: 163px;
+}
+/*.videos-content a {
+	text-decoration: none;
+	text-align: center;
+	width: 245px;
+	height: 45px;
+	background-color: #ffffff;
+	color: #464444;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	opacity: 0.8;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}*/
+
+/*.videos-content li:link {
+	border: none;
+}
+.videos-content li:hover {
+	border: 1px solid #53c5e2;
+}*/
+/*.videos-content a:link {
+	background-color: #ffffff;
+	color: #464444;
+}*/
+/*.videos-content a:hover {
+	background-color: #00b19f;
+	color: #ededed;
+}*/
+.videos-content i {
+	display: block;
+	font-style: normal;
+}
+
+.player .polyvFlashObject {
+	width: 770px;
+	height: 384px;
+}
+
+.preach-command-video .polyvFlashObject {
+	float: left;
+}
+
+.video-description {
+	position: absolute;
+	left: 0;
+	top: 165px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 14px;
+	color: #000;
+	font-size: 12px;
+}

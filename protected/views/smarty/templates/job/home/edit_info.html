@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>求职通</title>
+	    <meta charset="utf-8" />
+		  <{include file="../../common/link.html"}>
+		  <{include file="../../common/script.html"}>
+		<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/mine.css">
+	</head>
+	<body>
+		<{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="mine">
+			<!-- 编辑基本信息模块 start-->
+			<div class="module">
+				<h3 class="module-title">
+					<span>编辑基本信息</span>
+					<a href="<{$website}>job/job/index">返回我的档案</a>
+				</h3>
+				<form method="post" action="<{$website}>job/job/basicInfoEdit/user_id/<{$UserDetail.user_id}>" class="clearfix  info-form">
+					<div class="info-item">
+						<span class="label">真实姓名&nbsp;:</span>
+                        <{if  $user.is_league eq 1 or $user.is_league eq 2}>
+                        <{if $user.is_activated eq 1}>
+                        <input type="text" value="<{$UserDetail.realname}>" class="control-area-normal" data-valid-rule="notNull" maxlength="50" name="realname" readonly="readonly"/>
+                        <{else}>
+                        <input type="text" value="<{$UserDetail.realname}>" class="control-area-normal" data-valid-rule="notNull" maxlength="50" name="realname"/>
+                        <{/if}>
+                        <{else}>
+                        <input type="text" value="<{$UserDetail.realname}>" class="control-area-normal" data-valid-rule="notNull" maxlength="50" name="realname"/>
+                        <{/if}>
+					</div>
+					<div class="info-item">
+						<span class="label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;:</span>    
+					    <{if $UserDetail.gender=='1'}>
+						<input type="radio" name="gender" value='1' checked>
+						<label>男</label>
+						<input type="radio" name="gender" value='0'>
+						<label>女</label>
+						<{else if $UserDetail.gender=='0'}>
+						<input type="radio" name="gender" value='1' >
+						<label>男</label>
+						<input type="radio" name="gender" value='0' checked>
+						<label>女</label>
+						<{else}>
+						<input type="radio" name="gender" value='1' checked>
+						<label>男</label>
+						<input type="radio" name="gender" value='0'>
+						<label>女</label>
+                        <{/if}>
+                        
+					</div>
+					<div class="info-item">
+						<span class="label">生源地&nbsp;:</span>
+						<select class="control-area-normal J_proviceList" autocomplete="off" data-valid-rule="scale(0,1000,0)" name="">
+							<option value="0">请选择</option>
+						</select>
+						<select class="control-area-normal J_cityList" autocomplete="off" data-valid-rule="scale(0,1000,0)" name="city_id">
+							<option value="0">请选择</option>
+						</select>
+					</div>
+					
+					  <{if $WorkExperienceInfo || $StudyExperienceInfo}>
+					<div class="info-item status">
+						<span class="label">当前身份&nbsp;:</span>
+						<div class="edit-all">
+						<{foreach from=$StudyExperienceInfo item=study}>
+						<{if $study.sign=='1'}>
+						<input type="radio" class="edit-edu" name="sign" value="<{$study.id}>0" checked>				
+						<{else if $study.sign=='0'}>		
+						<input type="radio" class="edit-edu" name="sign" value="<{$study.id}>0">						
+						<{/if}>
+						<label><{$study.school_name}>|<{$study.major_name}></label>
+						<a href="<{$website}>job/job/studyExperienceEdit/id/<{$study.id}>">编辑</a><br/>
+						<{/foreach}>                      					    
+						 <{foreach from=$WorkExperienceInfo item=work}>
+						 <{if $work.sign=='1'}>
+						 <input type="radio" class="edit-work" name="sign" value="<{$work.id}>1" checked>	
+						<{else if $work.sign=='0'}>		
+						<input type="radio" class="edit-work" name="sign" value="<{$work.id}>1">		
+						<{/if}>						 
+						<label><{$work.company_name}>|<{$work.position_name}></label>
+						<a href="<{$website}>job/job/workExperienceEdit/id/<{$work.id}>">编辑</a>
+						<br/>
+						 <{/foreach}>
+						 </div>
+					</div>
+					  <{/if}> 
+					<div class="info-item">
+						<span class="label">&nbsp;</span>
+						<a href="<{$website}>job/job/workExperienceAdd/resume_id/<{$resume_id}>"><i></i>新增工作经历</a>
+						<a href="<{$website}>job/job/studyExperienceAdd/user_id/<{$user_id}>"><i></i>新增教育经历</a>
+					</div>
+					 <{if $WorkExperienceInfo}>
+					<div class="info-item show">
+						<span class="label">工作经验&nbsp;:</span>
+						<select id="J_proviceList" class="control-area-normal" autocomplete="off"  name="work_experience">						    
+							<{foreach from=$workCount item=count}>
+							    <{if $count==$workNum}>
+							        <{if $count==1}>
+                                     <option value="<{$count}>" selected="selected">刚刚工作</option>
+                                     <{else if $count==0}> 
+                                     <option value="<{$count}>" selected="selected">请选择</option>
+                                    <{else if $count>1}> 
+                                     <option value="<{$count}>" selected="selected">已工作<{$count-1}>年</option>
+                                     <{/if}>
+							    <{else}>
+							          <{if $count==1}>
+							           <option value="<{$count}>">刚刚工作</option>
+							           <{else if $count==9}>
+							             <option value="<{$count}>">已工作<{$count-1}>年以上</option>
+							             <{else if $count==0}>
+							              <option value="0">请选择</option>
+							            <{else $count>1}>
+							           <option value="<{$count}>">已工作<{$count-1}>年</option>
+							         <{/if}>
+							    <{/if}>
+							<{/foreach}>
+						</select>
+					</div>
+					 <{/if}> 
+					   
+					<!--<div class="info-item">
+						<span class="label">档案地址&nbsp;:</span>
+						<input type="text" value="" class="control-area-long" data-valid-rule="notNull" maxlength="50" name="files_url"/>
+					</div>-->
+					 
+					<div class="info-item center">
+						<button type="submit" class="save" name="sub">保存</button>
+						<button type="reset" class="cancel">重置</button>						 
+					</div>
+					<div class="face">
+						<span>							
+							<{if $UserDetail.head_url}>
+							<img src="<{$UserDetail.head_url}>"  width="130px" height="130px">
+							<{else}>
+							 <img src="<{$staticWebsite}>resources/img/job_apply/del/face_01.png">
+							<{/if}>
+							<a class="modify" href="<{$website}>job/modifyUserInfo/index"><i></i>修改头像</a>
+						</span>
+					</div>
+				</form>
+			</div>
+			<!-- 编辑基本信息模块 end-->
+		</div>
+		<{include file="../../common/footer.html"}>
+		<script type="text/javascript">
+			KISSY.use('page/job_apply/edit_info',function(S){
+				S.ready(function(){
+					PW.page.job_apply.editInfo();
+				});
+			});
+		</script>
+	</body>
+</html>

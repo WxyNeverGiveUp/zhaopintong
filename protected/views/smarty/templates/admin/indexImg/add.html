@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>增加首页图片</title>
+    <meta charset="utf-8">
+    <{include file = "admin/common/link.html"}>
+    <{include file = "admin/common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/ueditor.all.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <link rel="stylesheet" type="text/css" href="<{$ueditorWebsite}>/ueditor1_3_6-utf8-php/themes/default/css/ueditor.css" />
+</head>
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+            <div class="block-content clearfix">
+                <form class="login-from" action="<{$website}>admin/indexImg/indexImage/add" method="post" enctype="multipart/form-data">
+                    <table>
+                        <tr>
+                            <td>图片名称</td>
+                            <td><input type="text" name="name"/></td>
+                        </tr>
+                        <tr>
+                            <td>图片指向的URL</td>
+                            <td><input type="text" name="url"/></td>
+                        </tr>
+                        <tr>
+                            <td>顺序号</td>
+                            <td><input type="text" name="number"/></td>
+                        </tr>
+                        <tr>
+                            <td>选择图片</td>
+                            <td>
+                                <input type="file" name="file"/>
+                            </td>
+                        </tr>
+                        <tr><td></td><td><input type="submit" class="btn" value="提交"/></td></tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

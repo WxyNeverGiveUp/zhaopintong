@@ -1,0 +1,113 @@
+<!-- ==================================================
+* @Description: 招聘信息
+* @Version: 1.0.0
+* @Author: anrui(2434078703@qq.com)
+* @Date: 2017.7.20
+* ==NOTES:=============================================
+* v1.0.0(2017.7.20):
+初始生成
+* ==================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>东北高师就业联盟网</title>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/css/page/recruitment-info/recruitment-cancel.css">
+	<{include file="../common/link.html"}>
+	<{include file="../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/js/plugin/layui/css/layui.css">
+</head>
+<body>
+	<div class="page">
+		<{include file="../common/header.html"}>
+	    <div class="content">
+	        <div class="sidebar">
+	            <h2><i class="fa fa-list list-img"></i>招聘信息</h2>
+	        	<ul class="tab_menu">
+					<li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/index">招聘发布管理</a></li>
+					<li class="active"><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/other">单位其他招聘信息</a></li>
+					<li><a href="<{$website}>recruitEntrance/recruitmentInfo/recruitment/queryAll">最近投递</a></li>
+	        	</ul>
+	        </div>
+	    	<div class="main clear">
+	   			<!-- 其他招聘信息页面开始 -->
+		    	<div class="other-recruitment">
+					<form class="search-form" method="post" action="<{$website}>recruitEntrance/recruitmentInfo/recruitment/search">
+						<input type="text" placeholder="职位名称" name="keyword" id="job-name" value = "<{$keyword}>"/>
+						<input type="hidden" name="companyUserName" value="<{$companyUserName}>" id="companyUserName"/>
+						<i class="fa fa-search fa-lg search-btn"></i>
+					</form>
+					<input type="hidden" name="recordCount" value="<{$recordCount}>" id="recordCount"/>
+		    		<table>
+			    		<thead>
+			    			<tr>
+			    				<td>职位名称</td>
+			    				<td>职位类别</td>
+			    				<td>学历要求</td>
+			    				<td>招聘人数</td>
+								<td>发布人</td>
+			    				<td>发布状态</td>
+			    				<td>审核状态</td>
+			    				<td>操作</td>
+			    			</tr>
+			    		</thead>
+			    		<tbody id="tbody">
+
+			    		</tbody>
+		    		</table>
+                    <p class="data-none data">暂无数据！</p>
+					<div id="paging"></div>
+			    </div>
+			    <!-- 其他招聘页面结束 -->
+		    </div>
+	    </div>
+		<{include file="../common/footer.html"}>
+	</div>
+	<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/plugin/layui/layui.js"></script>
+	<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/recruitment-info/recruitment-otherInfo.js"></script>
+	<script>
+        $(function() {
+            var Request = new Object();//获取url中的参数
+            Request = GetRequest();
+            var currentPage = Request['currentPage'];//当前页
+            var companyUserName= Request['companyUserName'];
+//        var keyword=Request['keyword'];
+            function GetRequest() {
+                //url例子：XXX.aspx?ID=" + ID + "&Name=" + Name；
+                var url = location.search; //获取url中"?"符以及其后的字串
+                var theRequest = new Object();
+                if(url.indexOf("?") != -1)//url中存在问号，也就说有参数。
+                {
+                    var str = url.substr(1);
+                    strs = str.split("&");
+                    for(var i = 0; i < strs.length; i ++)
+                    {
+                        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                    }
+                }
+                return theRequest;
+            }
+            var nums = 10;
+            var recordCount=$("#recordCount").val();
+            var pageLength=Math.ceil(recordCount/nums);
+            // 分页开始
+            layui.use(['layer', 'laypage'], function () {
+                var layer = layui.layer,
+                    laypage = layui.laypage
+                //调用分页
+                laypage({
+                    cont: 'paging',     //分页的div的id
+                    pages:pageLength,//得到总页数
+                    skip: true ,
+					curr:currentPage,       //可以跳跃
+                    jump: function (obj) {  //当前的页数
+                        var curr = obj.curr;
+                        show(curr);
+                    }
+                });
+            });
+        });
+	</script>
+</body>
+</html>

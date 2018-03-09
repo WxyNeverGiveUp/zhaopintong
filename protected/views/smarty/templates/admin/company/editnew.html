@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head lang="en">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <title>东北师范大学就业联盟</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+
+    <script type="text/javascript" src="<{$staticWebsite}>js/jquery.min.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>SWFUpload/swfupload.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>SWFUpload/plugins/swfupload.queue.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>SWFUpload/plugins/handler.js"></script>
+
+</head>
+<body>
+<div>
+    <{include file="../common/header.html"}>
+    <div class="continer">
+        <{include file="../common/sidebar.html"}>
+        <div class="content">
+            <{include file="../common/crumbs.html"}>
+            <form class="block J_searchForm" action="<{$website}>admin/company/company/add" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+                <input id="vid" name="vid" type="hidden"/>
+                <div class="block-header">
+                    <h3>修改</h3>
+                </div>
+                <div class="block-content clearfix">
+                    <div class="control-area control-area-short">
+                        <label>单位名称</label>
+                        <input type="text" name="name" value="<{$company.name}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>所属行业</label>
+                        <select class="textTheme" name = "tradeId">
+                            <{foreach from=$tradeList item=trade}>
+                            <{if $trade.id == $company.trade_id}>
+                            <option value="<{$trade.id}>" selected="selected"><{$trade.name}></option>
+                            <{else}>
+                            <option value="<{$trade.id}>"><{$trade.name}></option>
+                            <{/if}>
+                            <{/foreach}>
+                        </select>
+                    </div>
+                    <div class="control-area control-area-short" name = "cityId">
+                        <label>所属城市</label>
+                        <select class="textTheme" name="cityId">
+                            <{foreach from=$cityList item=c}>
+                            <{if $c.id == $companyCity.city_id}>
+                            <option value="<{$c.id}>" selected="selected"><{$c.name}></option>
+                            <{else}>
+                            <option value="<{$c.id}>"><{$c.name}></option>
+                            <{/if}>
+                            <{/foreach}>
+                        </select>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>详细地址</label>
+                        <input type="text" name = "fullAddress"  value="<{$company.full_address}>" />
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>单位电话</label>
+                        <input type="text" name="phone" value="<{$company.phone}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>单位类型</label>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="typeId" value="1"  />
+                            教育行业
+                        </div>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="typeId" value="2">
+                            非教育行业
+                        </div>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>单位性质</label>
+                        <select class="textTheme" name = "propertyId">
+                            <option value="0">请选择单位性质</option>
+                            <{foreach from=$propertyList item=property}>
+                            <{if $property.id == $company.property_id}>
+                            <option value="<{$property.id}>" selected="selected"><{$property.name}></option>
+                            <{else}>
+                            <option value="<{$property.id}>"><{$property.name}></option>
+                            <{/if}>
+                            <{/foreach}>
+                        </select>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>邮政编码</label>
+                        <input type="text" name="postalCode"  value="<{$company.postal_code}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>电子邮箱</label>
+                        <input type="text" name="email" value="<{$company.email}>"/>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>是否名校名企</label>
+                        <select class="textTheme" name = "isFamous">
+                            <{if $company.is_famous == "0"}>
+                            <option value="0" selected="selected">是名校</option>
+                            <option value="1">是名企</option>
+                            <option value="2">都不是</option>
+                            <{elseif $company.is_famous == "1"}>
+                            <option value="0">是名校</option>
+                            <option value="1" selected="selected">是名企</option>
+                            <option value="2">都不是</option>
+                            <{elseif $company.is_famous== "2"}>
+                            <option value="0">是名校</option>
+                            <option value="1">是名企</option>
+                            <option value="2" selected="selected">都不是</option>
+                            <{/if}>
+                        </select>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>是否参加大招会</label>
+                        <{if $company.is_join_big_recruitment == "1"}>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinBigRecruitment" value="1" checked="true"/>
+                            是
+                        </div>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinBigRecruitment" value="0"/>
+                            否
+                        </div>
+                        <{elseif $company.is_join_big_recruitment == "0"}>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinBigRecruitment" value="1"/>
+                            是
+                        </div>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinBigRecruitment" value="0" checked="true"/>
+                            否
+                        </div>
+                        <{/if}>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>是否参加网上招聘周</label>
+                        <{if $company.is_join_recruitment_week  == "1"}>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinRecruitmentWeek" value="1" checked="true"/>
+                            是
+                        </div>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinRecruitmentWeek" value="0"/>
+                            否
+                        </div>
+                        <{elseif $company.is_join_recruitment_week == "0"}>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinRecruitmentWeek" value="1"/>
+                            是
+                        </div>
+                        <div class="checkbox checkbox-long">
+                            <input type="radio" name="isJoinRecruitmentWeek" value="0" checked="true"/>
+                            否
+                        </div>
+                        <{/if}>
+
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>网站地址</label>
+                        <input type="text" name="website" value="<{$company.website}>"/>
+                    </div>
+                    <div class="control-area control-area-long">
+                        <label>单位介绍</label>
+                        <textarea style="height: 350px;" name="introduction"><{$company.introduction}></textarea>
+                    </div>
+                    <div class="control-area control-area-short">
+                        <label>上传logo</label>
+                        <input type="file" name="logo" id="logo"/>
+                    </div>
+
+                    <span id="spanButtonPlaceHolder"></span>
+                    <div class="btn-right">
+                        <input type="button" class="btn" onclick="swfUploader.startUpload();" name="button" id="button" value="提交"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var swfUploader;// 定义上传对象
+    $(function () {
+        var settings = {
+            flash_url: "<{$ueditorWebsite}>SWFUpload/Flash/swfupload.swf",
+            upload_url: "http://v.polyv.net/uc/services/rest?method=uploadfile",
+            post_params: {
+                'writetoken' : 'bIvs0HNKLtykCAf-IjGcbjdqvfqG68ro',
+                'JSONRPC'     : '{"Filedata.filename": "这里是标题", "tag": "标签", "description": "视频文档描述"}'
+            },
+            file_size_limit: "5000 MB",
+            file_types: "*.mp4;*.avi",// 限制上传文件
+            file_types_description: "video Files",
+            file_upload_limit: 0,
+            file_queue_limit: 0,
+            debug: false,
+
+            // Button settings
+            button_image_url: "<{$ueditorWebsite}>SWFUpload/Images/TestImageNoText_65x80.png",
+            button_width: "100",
+            button_height: "29",
+            button_placeholder_id: "spanButtonPlaceHolder",
+            button_text: '<span class="theFont">上传video</span>',
+            button_text_style: ".theFont { font-size: 16; }",
+            button_text_left_padding: 12,
+            button_text_top_padding: 3,
+
+            custom_settings : {
+                progressTarget : "fsUploadProgress",
+                cancelButtonId : "btnCancel"
+            },
+
+
+            // The event handler functions are defined in handlers.js 这些方法都定义在hander.js 中
+            file_queue_error_handler: fileQueueError,
+            file_dialog_complete_handler: fileDialogComplete,
+            upload_progress_handler: uploadProgress,
+            upload_error_handler : function(){alert('上传出错了')},
+            upload_success_handler : function(file,serverData){
+                var data = eval("(" + serverData + ")");
+                data=data.data[0];
+                var input_swf_link=document.getElementById('vid');
+                input_swf_link.value=data.vid;
+                document.getElementById("form1").submit();
+
+            },
+            upload_complete_handler : uploadComplete
+            // Queue plugin event
+        }
+        swfUploader= new SWFUpload(settings);
+    });
+</script>
+</body>
+</html>

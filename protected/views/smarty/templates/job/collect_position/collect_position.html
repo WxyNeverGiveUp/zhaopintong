@@ -1,0 +1,100 @@
+<!-- 胡珺 收藏职位 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>收藏职位</title>
+	    <meta charset="utf-8" />
+	      <{include file="../../common/link.html"}>
+		 <{include file="../../common/script.html"}>
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/collect-position.css">
+	    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+	</head>
+	<body>
+		 <{include file="../../common/header.html"}>
+	     <{include file="../job_apply/jobapply-header.html"}>
+		<div class="page-background">
+			<div class="page">
+				<div class="page-content">
+					<div class="page-head clearfix">
+						<h1>收藏职位</h1>
+						<{if $concernNum!=0}>
+                      <div class="no-collect-position none">
+							暂时还没有收藏职位！
+						</div>
+						<p class="publish-position none">最新发布职位</p>
+						<p class="collect-number">共<span><{$concernNum}></span>条职位收藏</p>
+                       <{else}>
+                       <div class="no-collect-position">
+							暂时还没有收藏职位！
+						</div>
+						<p class="publish-position">最新发布职位</p>
+						<p class="collect-number none">共<span><{$concernNum}></span>条职位收藏</p>
+                       <{/if}>
+					</div>
+					<!-- 职位信息展示starting -->
+					<div class="clearfix" id="PostInfo_template">
+					</div>
+					<!-- 职位信息展示ending -->
+				</div>
+                <a href=""></a>
+				<div id="J_pagination"></div>
+			</div>
+		</div>
+		 <{include file="../../common/footer.html"}>
+		<script id="tp-postInfo" type="text/template">
+			{@each data as d}
+				<div class="position">
+					<div class="position-info" id=&{d.id}>
+						<h3>职位名称：<a href="<{$website}>position/position/detail/id/&{d.id}" target="_blank">&{d.name}</a></h3>
+						<p class="company-name">单位名称：<a href="<{$website}>company/company/detail/id/&{d.companyId}" target="_blank">&{d.companyName}</a></h5>
+						<p class="position-detail">
+							<span>&{d.position_source}</span>
+							<span>城市：&{d.city}</span>
+							<span>学历：&{d.degree}</span>
+							<span>专业：&{d.specialty}</span>
+						</p>
+						<p class="label">
+							<span>&{d.brightspot1}</span>
+							<span>&{d.brightspot2}</span>	
+						</p>			
+					</div>
+					 {@if d.isFocus == 1}
+	            		<a class="cancel-collect none" href="javascript:;">取消收藏</a>
+	            		<a class="collect" href="javascript:;">收藏</a>
+	            	{@/if}
+		            {@if d.isFocus == 0}
+			            <a class="cancel-collect" href="javascript:;">取消收藏</a>
+			            <a class="collect none" href="javascript:;">收藏</a>
+		            {@/if}
+		            {@if d.isActivated ==1}
+		            <a class="deliver-resume" href="<{$website}>position/position/toSendResume/id/&{d.id}" target="_blank">投递简历</a>
+		            {@/if}
+		            {@if d.isActivated ==0}
+		            <a class="activate-pop deliver-resume" href="javascript:;">投递简历</a>
+		            {@/if}
+				</div>
+			{@/each}
+		</script>
+		<script type="text/javascript">
+			KISSY.use('page/job_apply/collect',function(S){
+				S.ready(function(){
+					// var urls = PW.Env.url.job_apply.collect;
+					// var postlist = 'postlist';
+					 //var url = urls.postInfo+'/userId/'+<{$userId}>+'/page1';
+					PW.page.job_apply.collect({
+						renderTo:'#J_pagination' ,//分页显示指向
+						juicerRender:'#tp-postInfo' ,//模板渲染指向
+						dataRender:'#PostInfo_template',
+						pageSize:8,//每页显示的记录数
+						url:'<{$website}>job/position/json/page',//必选，指向ajax的url
+						configUrl:function(url,page,me,prevdata){
+							 return url + '/' + page ;
+							//return url;
+						},
+						type:'get'
+					});
+				});
+			})
+		</script>
+	</body>
+</html>

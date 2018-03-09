@@ -1,0 +1,244 @@
+<!-- ==================================================
+* @Description: 宣讲会-查看
+* @Version: 1.0.0
+* @Author: liqi(3214018710@qq.com)
+* @Date: 2017.10.24
+* ==NOTES:=============================================
+* v1.0.0(2017.10.24):
+初始生成
+* ==================================================-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>宣讲会查看</title>
+    <{include file="../common/link.html" }>
+    <{include file="../common/script.html" }>
+    <{include file="../common/calendar.html" }>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/css/page/preach/preach-view.css">
+</head>
+<body>
+<div class="page">
+    <{include file="../common/header.html" }>
+    <div class="content">
+        <div class="sidebar">
+            <h2><i class="fa fa-users list-img"></i>宣讲会</h2>
+            <ul class="tab_menu">
+                <li class="active"><a href="/recruitEntrance/talk/talk/list">宣讲会管理</a></li>
+                <li><a href="/recruitEntrance/talk/talk/toFlow">流程介绍</a></li>
+            </ul>
+        </div>
+        <form action="/recruitEntrance/talk/talk/add?XDEBUG_SESSION_START=10218" method="post" enctype="multipart/form-data" class="apply-preach main clearfix">
+           
+            
+            <table class="preach-info">
+                <tr>
+                    <td colspan="2" class="basic-info">宣讲会基本信息</td>
+                    
+                </tr>
+                <tr>
+                    <td>宣讲会名称</td>
+                    <td><{$talk.name}></td>
+                </tr>
+                <tr>
+                    <td>宣讲会地点</td>
+                    <td><{$talk.place}></td>
+                    
+                </tr>
+                <tr>
+                    <td>宣讲时间</td>
+                    <td><{$talk.date}>&nbsp;<{$talk.period}></td>
+                    
+                </tr>
+                
+            <table>
+            <table class="job-info">
+                <tr>
+                    <td colspan="3" class="basic-info">职位需求信息</td>
+                </tr>
+                <tr>
+                    <td colspan="2">需求岗位：<span><{$job.name}></span></td>
+                    <td>总人数：<span><{$job.num}></span></td>
+
+                </tr>
+                <{section name=sn loop=$majors}>
+                <tr>
+                    <td><span>需求专业：</span><span><{$majors[sn].name}></span></td>
+                    <td><span>学历：</span><span><{$majors[sn].degree}></span></td>
+                    <td><span>人数：</span><span><{$majors[sn].num}></span></td>
+                </tr>
+                <{/section}>
+                <tr>
+                    <td colspan="3">备注:<span><{$job.comment}></span></td>
+                </tr>
+            </table>
+
+            
+            <div class="preach-description">
+                <p class="descrip">
+                    <span class="basic-info">宣讲会描述</span>
+                    <p name="description" class="description" ><{$talk.description}></p>
+                </p>
+                <span>附件</span>
+                <div class="img-box">
+                    <{section name=sn loop=$attachments}>
+                    <p>
+                        <a href="/<{$attachments[sn].url}>"><{$attachments[sn].name}></a>
+                    </p>
+                    <{/section}>
+
+                </div>
+            </div>
+            
+            <!-- 上传图片end -->
+
+            <!-- <input type="file" name="talk_file" id="file" /> -->
+            <br />
+            <div class="place-place clearfix">
+                <span class="basic-info">笔试、面试场地</span>
+                <{if $talk.is_need_write_place == "yes"}>
+                <p class="written-place">
+                    <span>是否需要笔试场地：</span>
+                    <label for="J_writtenYes">是</label>
+                </p>
+                <div class="clearfix">
+
+                    <div class="written-place-info">
+                        <!--<i class='icon J_writtenClose'>&#xea0f;</i>--> <!-- 删除按钮 -->
+                        <div>
+                            <label>使用数量</label>
+                            <span name="written_room_num" class="J_number"><{$write_place.num_require}></span>
+                        </div>
+                        <div>
+                            <label>使用时间</label>
+                            <span class="J_selectDateSmall" ><{$write_place.start_time}></span>
+
+                            <span> 至 </span>
+                            <span class="J_selectDateBig"><{$write_place.end_time}></span>
+
+                        </div>
+                        <div>
+                            <label>使用规模</label>
+                            <span class="scale-number-number"><{$write_place.place_size}>人</span>
+                        </div>
+                    </div>
+
+                    <!--<a href="javascript:;" class="add-info J_addPlace">添加</a>-->
+                </div>
+                <{else}>
+                <p class="written-place">
+                    <span>是否需要笔试场地：</span>
+                    <label for="J_writtenYes">否</label>
+                </p>
+                <{/if}>
+
+                <{if $talk.is_need_face_place == "yes"}>
+                <p class="audition-place">
+                    <span>是否需要面试场地：</span>
+                    <label for="J_auditionYes">是</label>
+                </p>
+                <div class="clearfix">
+                    <div class="written-place-info">
+                        <!--<i class='icon J_writtenClose'>&#xea0f;</i>--> <!-- 删除按钮 -->
+                        <div>
+                            <label>使用数量</label>
+                            <span name="written_room_num" class="J_number"><{$face_place.num_require}></span>
+                        </div>
+                        <div>
+                            <label>使用时间</label>
+                            <span class="J_selectDateSmall" ><{$face_place.start_time}></span>
+
+                            <span> 至 </span>
+                            <span class="J_selectDateBig"><{$face_place.end_time}></span>
+
+                        </div>
+                        <div>
+
+                            <label>使用规模</label>
+                            <span class="scale-number-number"><{$face_place.place_size}>人</span>
+                        </div>
+                    </div>
+                    <!--<a href="javascript:;" class="add-info J_addPlace">添加</a>-->
+                </div>
+                <{else}>
+                <p class="written-place">
+                    <span>是否需要面试场地：</span>
+                    <label for="J_writtenYes">否</label>
+                </p>
+                <{/if}>
+                <span>备注</span> 
+                <p name="comment"  class="tip-tip"><{$talk.place_comment}></p>
+
+            </div>
+            <table class="come-visit">
+                <tr>
+                    <td class="basic-info" colspan="3">来访信息</td>
+                </tr>
+                <tr>
+                    <td colspan="3">联系人信息</td>
+                </tr>
+                <tr>
+                    <td>姓名：<span class="contact_name"><{$contact.name}></span></td>
+                    <td>职务：<span class="contact_job"><{$contact.duty}></span></td>
+                    <td>手机号码：<span class="contact_phone"><{$contact.phone}></span></td>
+                </tr>
+                <tr>
+                    <td colspan="3">领队人信息</td> 
+                </tr>
+                <tr>
+                    <td>姓名：<span class="contact_name"><{$leader.name}></span></td>
+                    <td>职务：<span class="contact_job"><{$leader.duty}></span></td>
+                    <td>手机号码：<span class="contact_phone"><{$leader.phone}></span></td>
+                </tr>
+                <tr>
+                    <td colspan="3">来访人信息</td> 
+                    
+                </tr>
+                <tr>
+                    <td colspan="3">来访人数：<span class="visitor_num"><{$talk.visitor_sum}></span> 人</td>
+                    
+                </tr>
+                <tr>
+                    <td>姓名</td>
+                    <td>职务</td>
+                    <td>手机号码</td>
+                </tr>
+                <{section name=sn loop=$visitors}>
+                <tr>
+                    <td><{$visitors[sn].name}></td>
+                    <td><{$visitors[sn].duty}></td>
+                    <td><{$visitors[sn].phone}></td>
+                </tr>
+                <{/section}>
+                <tr>
+                    <td colspan="3">是否需要预定宾馆：
+                    <{if $talk.is_need_hotel == "yes"}>
+                    <label for="reserveYes">是</label>
+                    <{else}>
+                    <label for="reserveYes">否</label>
+                    <{/if}>
+                    </td>
+                </tr>
+                
+            </table>
+
+            
+           
+           
+            <!-- <p class="set-height">
+                <label></label>
+                <input type="text" name="" placeholder="输入验证码" />
+                <a href="javascript:;" class="button">点击获取验证码</a>
+            </p> -->
+            
+        </form>
+
+
+
+    </div>
+    <{include file="../common/footer.html" }>
+</div>
+
+<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/preach/apply-preach.js"></script>
+</body>
+</html>

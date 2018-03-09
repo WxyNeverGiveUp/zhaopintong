@@ -1,0 +1,51 @@
+body{
+	padding: 30px;
+	width: 1200px;
+	margin:0px auto;
+}
+
+/*表的标题样式*/
+.spanstyle{
+	font-size: 25px;
+    margin-left: 180px;
+    font-family: "微软雅黑"; 
+}
+
+/*整体表的样式*/
+.table1{
+	width: 840px;
+	margin-top: 10px;
+	text-align: center;
+    margin-left: 180px;
+	border-collapse:collapse;
+}
+
+/*表的行列样式*/
+.table1 td, .table1 th {
+	font-size:14px;
+    border:1px solid #272822;
+}
+
+.trstyle1{
+	height:30px;
+	background-color:#BDD0EE;
+}
+
+/*表列的样式*/
+.trstyle2 td{
+	width:125px;
+	height:20px;
+}
+
+/*操作中的样式*/
+#td1{
+	width:215px;
+	height:20px;
+}
+
+/*操作中超链接的样式*/
+#td1 a{
+	color: blue;
+	text-decoration:none;
+}
+

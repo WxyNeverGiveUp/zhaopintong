@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>账号设置</title>
+	 <{include file="../common/link.html"}>
+     <{include file="../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/user_info/modify-info.css">
+</head>
+<body>
+	 <{include file="../common/header.html"}>
+	<div class="content clearfix">		 
+		<ul class="right-detail">			 
+		<li class="change-password ">
+		 <h1>重设登录密码</h1>
+		<form  action="<{$website}>user/forgetPass/setPass/email/<{$email}>" method="post">
+					<span class="modi-password-tip"></span>					 
+					<div>
+						<label>新密码：</label><input type="password" class="new-password-input"  name="password">
+					</div>
+					<div>
+						<label>确认密码：</label><input type="password" class="check-password-input" name="testpassword">
+					</div>
+					<div>
+						<input type="submit" value="提交" name="sub" class="submit-info submit-pass">
+						<button type="reset" class="cancel-submit cancel-pass">取消</button>
+					</div>
+				</form>
+			</li>
+		</ul>
+		
+	</div>
+	 <{include file="../common/footer.html"}>
+	<script type="text/javascript">
+		KISSY.use('page/user_info/modifyInfo',function(S){
+			S.ready(function(){
+				PW.page.user_info.modifyInfo();
+			})
+		})
+	</script>
+</body>
+</html>

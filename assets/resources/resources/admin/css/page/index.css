@@ -1,0 +1,136 @@
+/*-----------------------------------------------------------------------------
+* @Description: 公共样式 (index.css)
+* @Version: 	V1.0.0
+* @author: 		shenj(1073805310@qq.com)
+* @date			2014.08.11
+* ==NOTES:=============================================
+* v1.0.0(2014.08.11):
+* 	初始生成 
+* ---------------------------------------------------------------------------*/
+.page-box{
+	position: relative;
+	float: left;
+	width: 48%;
+	margin-top: 10px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.page-box h1{
+	position: relative;
+	min-height: 38px;
+	padding-left: 12px;
+	border-color: #ccc #ccc #ddd;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: content-box;
+    background: #f7f7f7;
+    color: #669fc7;   
+}
+.page-box .link{
+	color: #669fc7;
+	text-decoration: underline;
+}
+.page-box h1 a{
+	display: inline;
+    line-height: 36px;
+    color: #669fc7;
+}
+.page-box h1 a.more{
+	float: right;
+	margin-right: 12px;
+}
+.page-box ul li{
+	height: 25px;
+	line-height: 25px;
+}
+.page-box .message-list li span{
+	color: #669fc7;
+	margin-right: 10px;
+}
+.page-box .message-list li span.time{
+	float: right;
+	margin-right: 0;
+}
+.page-box .message-list li a{
+	display: inline-block;
+	width: 80%;
+	height: 25px;
+	overflow: hidden;
+	white-space:nowrap; 
+	text-overflow:ellipsis;
+}
+.page-box-body{
+	min-height: 227px;
+	padding: 12px;
+	background-color: #fff;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    border-color: #ccc;
+}
+.page-box-body h2{
+	color: #428bca;
+	padding-bottom: 5px;
+}
+.page-box-body a{
+	color: #393939;
+}
+.friend-link {
+	text-align: center;
+	color: #2679b5;
+}
+.friend-link span{
+	display: inline-block;
+	margin: 0 5px;
+}
+.friend-link a{
+	display: inline-block;
+	color: #2679b5;
+}
+.friend-link-header{
+	color: #669fc7;
+	font-size: 14px;
+	font-weight: bold;
+}
+.date-show.ks-select-calendar{
+	height: 215px;
+	width: 190px;
+	margin: 0 auto;
+}
+.high-light{
+	margin-left:5px;
+	margin-right: 5px;
+	color: #d15b47;
+}
+.calendar-holder{
+	width: 71%;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+}
+.calendar-holder .calendar-header{
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	background: #2679b5;
+	color: #fff;
+}
+.calendar-holder .calendar-body{
+	padding: 10px;
+}
+.calendar-body .calendar-wkd{
+	padding-bottom: 3px;
+	border-bottom: 1px dotted #ccc;
+}
+.calendar-body span,
+.calendar-body a{
+	display: block;
+	float: left;
+	width: 14%;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+}
+.calendar-body .line-height{
+	background: #d15b47;
+	color: #fff;
+}

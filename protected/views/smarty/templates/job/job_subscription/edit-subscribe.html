@@ -1,0 +1,36 @@
+<!-- 编辑职位订阅 zhaokaikang -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编辑职位订阅</title>
+    <{include file="../../common/link.html"}>
+    <{include file="../../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/edit-subscribe.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/job_apply/jobapply-header.css">
+</head>
+<body>
+<{include file="../../common/header.html"}>
+<{include file="../job_apply/jobapply-header.html"}>
+	<div class="content">
+		<h1>我的职位订阅<a href="<{$website}>job/order">新增职位订阅</a></h1>
+		<ul class="subscribe-list">
+            <{foreach from=$jobOrderList item=order}>
+            <li id="<{$order.id}>">
+                <h2>职位名称：<{$order.position_name}></h2>
+                <span>城市：<{$order.city.name}></span>
+                <a href="javascript:;" class="del-sub">x</a>
+            </li>
+            <{/foreach}>
+		</ul>
+	</div>
+<{include file="../../common/footer.html"}>
+	<script type="text/javascript">
+		KISSY.use('page/job_apply/editSubscribe',function(S){
+			S.ready(function(){
+				PW.page.job_apply.editSubscribe();
+			})
+		})
+	</script>
+</body>
+</html>

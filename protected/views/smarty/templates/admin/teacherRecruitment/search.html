@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>教师招考搜索</title>
+    <meta charset="utf-8">
+
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company.css">
+
+    <script type="text/javascript" src="<{$ueditorWebsite}>resources/js/site-config.js"></script>
+    <script type="text/javascript" src="<{$ueditorWebsite}>/resources/puiresources/js/base/lib/kissy/seed.js"></script>
+
+    <script type="text/javascript">
+        KISSY.use('mod/pagination,mod/moment', function(S) {
+            S.ready(function(){
+                PW.pagination({
+                    renderTo: '#J_pagination',//分页显示指向
+                    juicerRender: 'tpl',//模版渲染指向
+                    dataRender: '#J_template',
+                    pageSize: 10,//每页显示的记录数
+                    dataCount: '<{$recordCount}>',//总记录数
+                    url:'<{$website}>admin/teacherRecruitment/teacherRecruitment/searchJson',//必选，必须指定ajax的url
+                    type: 'get',//可选，默认情况下是get
+                    extraParam:{'keyword':'<{$keyword}>','city_id':'<{$city_id}>'},//获取分页数据列表的额外条件
+                    sendData: function(me,b){}, //回调函数 me指向当前的分页对象，b指向分页获取的json数据
+                    configUrl:function(url,page,me,prevdata){
+                        //url:配置的url,page1:当前的页面,me:指向当前分页,prevdata:上一次的分页数据
+                        var url = url+'/page/'+page;
+                        return url;
+                    },
+                    //初始化完成之后的回调函数
+                    initCompleted:function(me){
+                        S.log('初始化完成！');
+                    },
+                    //发送ajax之前
+                    beforeSendAJAX:function(me){
+                        S.log('发送ajax之前！');
+                    },
+                    //ajax发送失败后的回调函数
+                    errorFun:function(me){
+                        S.log('ajax发送失败！');
+                    },
+                    beforeDataLoad:function(me,data){
+                        var lt = data.list;
+                        S.each(lt,function(item){
+                            item.time = parseInt(item.time);
+                            item.time = PW.moment(item.time).format('YYYY-MM-DD');
+                            S.log(item.time);
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+
+
+<body>
+<{include file= "admin/common/header.html"}>
+<div class="container">
+    <{include file="admin/common/sidebar.html"}>
+    <div class="content" >
+        <{include file="admin/common/crumbs.html"}>
+        <div class="block">
+            <div class="block-header">
+                <h3></h3>
+            </div>
+
+            <div class="查询条件">
+                <form action="<{$website}>admin/teacherRecruitment/teacherRecruitment/search" method="post">
+                    <table>
+                        <tr>
+                            <td >关键字:</td>
+                            <td><input type="text" name="keyword"></td>
+                        </tr>
+
+                        <tr>
+                            <td>选择所在地:</td>
+                            <td>
+                                省份：
+                                <select class="province-select"> 
+                                    <option value="0">请选择</option>
+                                    <{foreach from= $provinceList item=province}>
+                                        <option value="<{$province.id}>"><{$province.name}></option>
+                                    <{/foreach}>
+                                </select>
+                                城市：
+                                <select name="city_id" class="city-select">
+                                    <option value="0">请选择</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" class="btn" value="搜索"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div class="block-content clearfix">
+                <div class="title">
+                    <div class="title1">教师招考</div>
+                </div>
+                <table>
+                    <script id="tpl" type="text/template">
+                        {@each list as it}
+                        <tr>
+                            <td>&{it.title}</td>
+                            <td>&{it.city_name}</td>
+                            <td>&{it.add_time}</td>
+                            <td>&{it.clicks}</td>
+                            <td>
+                                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toEdit/id/&{it.id}" class="btn">修改</a>
+                                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/detail/id/&{it.id}" class="btn">详情</a>
+                                <a href="<{$website}>admin/teacherRecruitment/teacherRecruitment/toDelete/id/&{it.id}" class="btn">删除</a>
+                            </td>
+                        </tr>
+                        {@/each}
+                    </script>
+                    <thead>
+                    <tr>
+                        <th>标题</th>
+                        <th>地点</th>
+                        <th>发布时间</th>
+                        <th>点击次数</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="J_template">
+                    </tbody>
+                </table>
+                <div id="J_pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

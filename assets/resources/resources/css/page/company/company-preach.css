@@ -1,0 +1,144 @@
+/*------------------------------------------------------------------------------------------
+@Filename:               company-preach.css
+@Description:            样式重置文档
+@Version:                1.0.0(2011-11-22)
+@author:                 huan-yi
+==STRUCTURE:=========================================
+*$__清除内外边距
+*$__设置默认字体
+*$__重置列表元素
+*$__重置文本格式元素
+*$__重置 HTML5元素 
+*$__clearfix
+==NOTES:=============================================
+2011-11-22:
+    __清除内外边距*/
+/*__设置列表的宽度，位置，字体样式*/
+.page{
+	width:1001px;
+	margin: 22px auto;
+}
+.page ul{
+	list-style:none;
+}
+
+/*__设置列表的头部的上下边框*/
+.list-head{
+	border-top:2px solid; 
+	color:#bfbfbf;
+	border-bottom:2px solid; 
+	line-height:44px;
+	float:left;
+	width:1001px;
+	text-align:center;
+}
+/*__重置头部的列表项*/
+.list-head li{
+	list-style:none;
+	font-size:16;
+	color:#333333;
+	float:left;
+    text-align:center;
+}
+/*__重置头部列表项元素的边距*/
+.list-head li:first-child{width:225px;}
+.list-head .preach-name{width:238px;}
+.list-head .preach-type{width:163px;}
+.list-head .preach-location{width:142px;}
+/*__设置列表的身体元素*/
+.list-body {  
+	width:974px;
+	float:left;
+	color:#bfbfbf;
+	border-bottom:2px solid;
+	text-align:center;
+}
+.list-body li{
+	font-size:14px;
+	color:#4f4f4f;
+	float:left;
+	text-align:center;
+}
+.list-body li:first-child { 
+	width:225px;
+}
+.list-body .preach-name{width:238px;height: 60px;padding-top: 38px;}
+.list-body .preach-type{width:163px;line-height: 98px;}
+.list-body .preach-location{width:142px;padding-top: 38px;height: 60px;}
+.list-body li:last-child{
+	font-size:16px;
+	color:#9d9c9c;
+    width:165px;
+    line-height:98px;
+}
+.list-body .want-enroll  , .list-body .cancel-enroll{
+	float: right;
+	background-color:#e17c22;
+	width:83px;
+	line-height:35px;
+	font-size:16px;
+	color:#ffffff;
+	border:0px;
+	border-radius:3px;
+	margin-left:41px;
+	margin-top:28px;
+	cursor: pointer;
+}
+
+.list-body .preach-links {
+	color: #438bce;
+	font-size: 14px;
+}
+
+.list-body em{
+	float: right;
+	width: 83px;
+}
+/*__设置日期盒子元素*/
+.date-box{ padding-left:-10px;}
+.date-box-left{
+	margin-left:50px;
+	margin-top:11px;
+	margin-bottom:12px;
+	background-color:#438bce; 
+	width:62px;
+	height:69px;
+	float:left;     
+}
+.month{
+	font-size: 20px;
+	color:#ffffff;
+	line-height:24px;
+}
+.day{   
+	font-size:38px;
+	color:#ffffff;
+	}
+.date-box-right{
+	padding-top:11px;
+    margin-top:11px;
+	width:60px;
+	height:69px;
+	float:left;
+	font-family:"新宋体";
+	/*字体在reset.css设*/
+}
+.week{
+	margin-left:8px;
+	font-size:16px;
+	}
+.time{
+	margin-left:5px;
+	font-size:20px;
+}
+/*__设置身体元素的最后一个下边框*/
+.page ul:last-child{
+	color:#bfbfbf;
+	border-bottom:2px solid;
+}
+
+.none {
+	display: none;
+}
+
+

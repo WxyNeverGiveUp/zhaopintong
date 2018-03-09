@@ -1,0 +1,51 @@
+/*---------------------------------------------------------------------------------------------
+@Description: 招聘通-宣讲会-宣讲会流程 CSS定义
+@Version: 1.0.0(2017-05)
+@author: shihui
+* ==NOTES:=============================================
+* v1.0.0(2017.05):
+初始生成
+--------------------------------------------------------------------------------------------*/
+/********************* 招聘通-宣讲会-宣讲会流程 Start ****************************/
+.page {
+	width:100%;
+	font-family:"微软雅黑";
+}
+.content {
+	width:80%;
+	margin:0 auto;
+	height:2140px;
+	
+}/*
+.sidebar {
+	float:left;
+	height:100%;
+	width:19.2%;
+}*/
+.main {
+	/*float:left;*/
+	/*display: inline-block;
+	margin-left:1%;
+	width:80%;*/
+	height:100%;
+	vertical-align: top;
+	/*border:1px solid #a1a1a1;*/
+}
+.main h1 {
+	margin-top:75px;
+	font-size:24px;
+	text-align: center;
+}
+.main p{
+	padding:40px 50px;
+	font-size:18px;
+	text-indent: 2em;
+	height:153px;
+}
+.main .preach-map {
+	
+}
+.main .preach-map img {
+	width:100%;
+}
+/********************* 招聘通-宣讲会-宣讲会流程 End ****************************/

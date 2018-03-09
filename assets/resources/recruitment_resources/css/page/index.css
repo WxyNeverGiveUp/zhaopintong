@@ -1,0 +1,101 @@
+/*---------------------------------------------------------------------------------------------
+@Description: 招聘通-首页 CSS定义
+@Version: 1.0.0(2017-05)
+@author: shihui
+* ==NOTES:=============================================
+* v1.0.0(2017.05):
+初始生成
+--------------------------------------------------------------------------------------------*/
+/********************* 招聘通-首页 Start ****************************/
+.page {
+	width:100%;
+	font-family:"微软雅黑";
+	color:#2D2C2C;
+}
+.content {
+	width:80%;
+	margin:0 auto;
+	height:1600px;
+	border:1px solid #a1a1a1;
+	padding:130px 200px 0;
+	box-sizing: border-box;
+}
+.content>div {
+	position: relative;
+	height:370px;
+	border-top:1px solid #383838;
+}
+.content .title {
+	position: absolute;
+	top:-25px;
+	left:42.6%;
+	width:15%;
+	background: #ffffff;
+	text-align: center;
+}
+.content .title h1 {
+	font-size:30px;
+}
+.content .title p {
+	font-size:12px;
+}
+.content div ul {
+	margin-top:85px;
+	text-align: center;
+}
+.content div ul li {
+	display: inline-block;
+	width:24.3%;
+	border-right:1px solid #090909;
+}
+.content .border-none {
+	border-right:none;
+}
+.content div ul li span {
+	display: block;
+	margin-top:10px;
+	font-size:22px;
+}
+.content div ul li span:hover {
+	color:#2c86e3;
+}
+.content .download {
+	border:none;
+	margin-left:10%;
+}
+.content .download h1 {
+	font-size:18px;
+}
+.content .download a {
+	display: inline-block;
+	margin-top:10px;
+	color:#000000;
+}
+.content .download a:hover {
+	color:#097AFC;
+}
+.content .download ul {
+	text-align: left!important;
+	margin-top:0!important;
+}
+.content .download ul li {
+	margin:20px 30px 0 0!important;
+	width:10%!important;
+	border-right:none !important;
+}
+a.log-off{
+	position:absolute;
+	margin-left:10px;
+	top:1%;
+	right:1%;
+	float:right;
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    background-color:#791C2E;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 5px;
+}
+/********************* 招聘通-首页 End ****************************/

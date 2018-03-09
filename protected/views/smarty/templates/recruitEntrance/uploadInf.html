@@ -1,0 +1,57 @@
+<!-- 赵凯康 招聘信息-教育类页面 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>招聘信息</title>
+    <{include file = "../common/link.html"}>
+    <{include file = "../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/entrance/entrance.css">
+</head>
+<body>
+<{include file= "../common/header.html"}>
+	<div class="block">
+		<div class="block-header">
+			<h3>上传信息</h3>
+		</div>
+		<form class="block-content J_uploadForm file-form" action="<{$website}>recruitEntrance/recruitEntrance/register" method="post" enctype="multipart/form-data">
+			<div class="clearfix file-input-div">
+				<div class="control-area control-area-short">
+					<label>上传组织机构代码</label>
+					<!--<select class="textTheme-high" autocomplete="off" data-valid-rule="scale(0,1000,0)" name="">
+						<option value="0">1111</option>
+						<option value="1">1111</option>
+						<option value="2">1111</option>
+						<option value="3">1111</option>
+					</select>-->
+	                <input type="file" name="daima" id="daima" data-valid-rule="notNull">
+					<span class="red daima-tip">格式：jpg/pdf</span>
+				</div>
+				<div class="control-area control-area-short">
+					<label>上传营业执照</label>
+					<!--<select class="textTheme-high" autocomplete="off" data-valid-rule="scale(0,1000,0)" name="">
+						<option value="0">1111</option>
+						<option value="1">1111</option>
+						<option value="2">1111</option>
+						<option value="3">1111</option>
+					</select>-->
+	                <input type="file" name="zhizhao" id="zhizhao" data-valid-rule="notNull">
+					<span class="red zhizhao-tip">格式：jpg/pdf</span>
+				</div>
+			</div>
+			<div class="btn-center">
+            	<input type="button" value="提交" class="btn btn-margin-right J_submit">
+				<input type="reset" value="重置" class="btn btn-margin-right">
+				<a href="<{$site}>" class="a-btn go-prev-page">返回上页</a>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+		KISSY.use('page/entrance/submit , widget/calendar',function(S){
+			S.ready(function(){
+				PW.page.submit();
+			});
+		});
+	</script>
+</body>
+</html>

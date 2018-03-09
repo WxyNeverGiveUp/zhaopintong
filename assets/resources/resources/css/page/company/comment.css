@@ -1,0 +1,329 @@
+/*----------------------------------------------------
+@Filename: comment.css
+@Description: 单位评价页面
+@Version: 1.0.0(2015-05-20)
+@author: yudan
+=======================================================
+2015-05-20:
+初始生成。
+
+------------------------------------------------------*/
+body .content-box a:hover{
+	text-decoration:none;
+}
+.content-box{
+	width: 1188px;
+	margin: 39px auto;
+	border: 1px solid #ededed;
+	font-family: "Microsoft YaHei";
+	background: #fbfbfb;
+}
+.content{
+	width: 1099px;
+	margin:36px 29px;
+}
+.school-comment{
+	height: 50px;
+	border-bottom:1px solid #d9d9d9;
+}
+.s-comment{
+	padding-left: 7px;
+	border-left:5px solid #18366c;
+	color: #313131;
+	font-size:20px;
+	font-weight: bold;
+}
+.i-comment{
+	float: right;
+	padding:6px 14px;
+	border: 1px solid #31bde1;
+	border-radius: 2px;
+	background: #31bde1;
+	color: #313131;
+	font-size:14px;
+	line-height: 14px;
+}
+.i-viewpoint{
+	float: right;
+	padding-right: 20px;
+	color: #7d7d7d;
+	line-height: 28px;
+	font-size:14px;
+}
+.school-score{
+	height: 106px;
+	margin-left: 13px;
+	margin-top: 28px;
+	color: #313131;
+}
+.score-box{
+	margin-bottom:27px;
+	position: relative;
+}
+.score{
+	margin-right: 14px;
+	font-size: 18px;
+	line-height: 18px;
+}
+.white-star{
+	position: absolute;
+	top: -1px;
+	width: 85px;
+	height: 19px;
+	margin-right: 21px;
+	background: url("../../../../resources/img/company/rate-star.png") no-repeat 0 -19px;
+}
+
+.green-star{
+	display: inline-block;
+	height: 19px;
+	background: url("../../../../resources/img/company/rate-star.png") no-repeat 0 0;
+	z-index: 2;
+}
+.people{
+	font-size: 16px;
+	line-height: 16px;
+	margin-left: 126px;
+}
+.school-score ul{
+	width: 700px;
+}
+
+
+.school-score ul li{
+	float: left;
+	margin-right: 13px;
+	margin-bottom: 23px;
+	color: #626262;
+	font-size: 18px;
+	line-height: 18px;
+}
+.white-bar{
+	position: relative;
+	display: inline-block;
+	margin-bottom: 2px;
+	width: 114px;
+	height: 8px;
+	margin-right: 130px;
+	background: url("../../../../resources/img/company/rate-bar.png") 0 -40px;
+}
+
+.yellow-bar {
+	position: absolute;
+	height: 8px;
+	background: url("../../../../resources/img/company/rate-bar.png") 0 0;	
+}
+
+.sub-content{
+	float: left;
+}
+.subnav {
+	width: 1097px;
+	height: 41px;
+	margin-top: 32px;
+	background:url("../../../../resources/img/company/comment-bg.png")  repeat-x;
+}
+.subnav li{
+	display: inline-block;
+	color: #262626;
+	font-size: 18px;
+	line-height: 18px;
+	padding-bottom: 21px;
+}
+.subnav li span{
+	color: #d9d9d9;
+	font-size: 16px;
+}
+.subnav li a{
+	display: block;
+	padding-left: 12px;
+	padding-right: 9px;
+	color: #262626;
+	height: 44px;
+}
+.subnav li a:hover{
+	background:url("../../../../resources/img/company/hover.png") no-repeat 0 31px;
+}
+.pitch{
+	background:url("../../../../resources/img/company/hover.png") no-repeat 0 31px;
+}
+ .subnav li select{
+	margin-left: 505px;
+	width: 123px;
+	padding-left: 6px;
+	border: 1px solid #b6b7bd;
+	color: #434343;
+	font-size: 14px;
+}
+.subnav li option{
+	font-size: 14px;
+	line-height: 21px;
+	padding-left: 6px;
+	border: 1px solid #b6b7bd;
+	color: #434343;
+}
+.comment-content{
+	width: 1075px;
+	margin-left: 13px;
+	margin-top: 35px;
+	border-bottom:1px solid #d9d9d9;
+}
+
+.user{
+	float: left;
+	width: 1075px;
+}
+
+.user img {
+	float: left;
+	width: 35px;
+	height: 35px;
+}
+
+.user-name{
+	float: left;
+	padding:11px 12px;
+	line-height: 14px;
+	color: #959595;
+	font-size: 14px;
+}
+
+.user-name em {
+	margin-left: 16px;
+}
+
+.grade{
+	float: right;
+	width: 69px;
+	margin-top: 11px;
+	font-size: 14px;
+	line-height: 14px;
+	color: #707070;
+}
+
+.student-score{
+	float: right;
+	width: 149px;
+	position: relative;
+	font-size: 14px;
+}
+
+.user-comment{
+	float: left;
+	width: 878px;
+	margin-left: 48px;
+}
+.part-comment{
+	color: #434343;
+	font-size: 14px;
+	line-height: 24px;
+	width: 100px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+.whole-comment{
+	color: #434343;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.comment-situation{
+	float: left;
+	width: 1027px;
+	height:14px;
+	margin-top: 20px;
+	margin-left: 32px;
+	line-height: 12px;
+	margin-bottom: 20px;
+}
+
+.liter-number{
+	padding-right: 16px;
+	color: #bec0bb;
+}
+
+.comment{
+	padding-left: 19px;
+	color: #82b3e3;
+	background:url("../../../../resources/img/company/comment.png") no-repeat 0px -15px;
+}
+
+.date{
+	float: right;
+	color: #bec0bc;
+}
+.pages{
+	width: 250px;
+	height: 25px;
+	margin: 50px auto;
+}
+.pages span{
+	display: inline-block;
+	width: 17px;
+	height: 25px;
+	margin-right: 6px;
+	padding-left:8px;
+	color: #6d6d6d;
+	font-size: 12px;
+	line-height: 23px;
+	border: 1px solid #dddddd;
+}
+ .pages .bg-blue{
+	background-color:#4b97dd;
+	color: #f9fef9;
+}
+
+.praise-image {
+    margin-left: 17px;
+    position: absolute;
+}
+.praise-location {
+    background-position: -28px 2px;
+}
+.background {
+    background-image: url("../../../img/company/experience-background.jpg");
+    background-repeat: no-repeat;
+    height: 17px;
+    width: 15px;
+}
+
+.unpraise {
+    color: #b2d1ec;
+    margin-left: 37px;
+    position: absolute;
+    text-decoration: none;
+    height: 17px;
+    line-height: 17px;
+}
+
+.praise-location-color {
+    background-position: -13px 2px;
+}
+
+
+.praise {
+    color: #b2d1ec;
+    margin-left: 37px;
+    position: absolute;
+    text-decoration: none;
+    height: 17px;
+    line-height: 17px;
+}
+
+.none {
+	display: none;
+}
+
+.look-all{
+	padding-top:22px;
+	color:#b2d1ec;
+	text-decoration:none; 
+}
+
+.retract-all {
+	padding-top:22px;
+	color:#b2d1ec;
+	text-decoration:none; 
+}

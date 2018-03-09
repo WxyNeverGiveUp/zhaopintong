@@ -1,0 +1,302 @@
+/*-------------------------------------------------
+* @Description: 公共样式 (system.css)
+* @Version: 	V1.0.0
+* @author: 		zhaoj(1353419676@qq.com)
+* @date			2014.09.26
+* ==NOTES:=============================================
+* v1.0.0(2014.09.24):
+* 	初始生成 
+* ---------------------------------------------------------*/
+
+
+/*---------------------公共部分的样式-------------------*/
+body{
+	padding: 0px;
+	margin: 0px;
+}
+/*内容部分公共样式*/
+.block{
+	position: relative;
+	margin: 20px;
+    border:1px solid #ccc;
+    border-top: none;
+     
+}
+/*标题样式*/
+.block-header{
+   position: relative;
+    min-height: 25px;
+    padding: 5px 3px;
+    border-top: 1px solid #ccc;
+    color: #669fc7; 
+}
+.block-header h3 {
+    color: #2679b5;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: 'Microsoft YaHei';
+    margin: 0 8px;
+    padding: 0;
+}
+.block-content{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid #ccc;
+}
+/*-----------------文本框公共样式---------------------*/
+.content-input{
+	width: 30%;
+	height: 30px;
+	margin-left:36%;
+	margin-top: 2%;
+}
+.content-input label{
+	display: block;
+	float: left;
+	width: 50px;
+	margin-top: 8px;
+	font-size: 12px;
+}
+.inputText{
+	width: 67%;
+	padding: 6px 3px;
+    margin-left: 12px;
+	font-family: inherit;
+    border: 1px solid #d5d5d5;
+    color: #858585;
+	background-color: #fff;
+}
+.inputText:focus{
+	border-color: #f59942;
+	color: #696969;
+	background-color: #fff;
+}
+.p-text{
+	width: 67%;
+	padding: 6px 3px;
+    margin-left: 80px;
+	font-family: inherit;
+    color: #858585;
+	background-color: #fff;
+}
+.selectText{
+	width: 70%;
+	padding: 6px 3px;
+    margin-left: 12px;
+	font-family: inherit;
+    border: 1px solid #d5d5d5;
+    color: #858585;
+	background-color: #fff;
+}
+/*-----------------公共按钮的样式----------*/
+.btn{
+	display: inline-block;
+	min-width: 60px;
+    border: 4px solid #6fb3e0;
+    font-size: 12px;
+    font-weight: normal;  
+    line-height: 1.42857;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #6fb3e0 !important;
+    white-space: nowrap;
+    cursor: pointer;
+    *zoom: 1;
+	*display:inline;
+	*width: 60px;
+}
+.btn:hover{
+    background-color: #4f99c6 !important;
+}
+.btn-margin-left{
+    margin-left: 30%;
+}
+.btn-margin-right{
+    margin-right: 10%;
+}
+/*操作中的图片样式*/
+.operation-link a{
+   display: inline-block;
+   margin-left: 7px;
+   width: 16px;
+   height: 16px;
+}
+.opration-a1{
+	background: url(../../img/common/suo.png);
+}
+.opration-a2{
+	background: url(../../img/common/jiesuo.png);
+}
+.opration-a3{
+	background: url(../../img/common/tianjia.png);
+}
+/*------------------------添加用户的样式------------*/
+.content-label{
+	margin-left: 20px;
+}
+
+/*角色选择的样式*/
+.content-checkbox{
+    float: left;
+	width: 15%;
+	height: 20px;
+	margin-left:10%;
+	margin-bottom: 7px;
+}
+.content-checkbox input,
+.content-checkbox label{
+	margin-right:5px;
+	vertical-align: middle;
+}
+.btn-div{
+	padding-left: 10px;
+}
+/*-------------------------用户列表的样式---------------*/
+/*全选删除样式表*/
+.allSelectDel{
+	height: 18px;
+	margin-left: 5%;
+	padding-right: 6px 3px;
+	padding-bottom: 3px;
+}
+.allSelect{
+	float: left;
+	margin-right: 0%;
+}
+.allSelect input{
+	float: left;
+	margin-top: 4px;
+	margin-right: 4px;
+}
+.del img{
+	float: left;
+	margin-top: 2px;
+	margin-right: 2px;
+}
+
+/*分页的样式表*/
+.paging{
+	height:28px;
+	width: 840px;
+	margin-top: 15px;
+	margin-left: 15%;
+}
+
+.paging-ul{
+	list-style: none;
+	margin-left: 20%;
+ }
+
+.paging-ul li{
+	width: 22px;
+	height: 22px;
+	float: left;
+	margin-left: 5px;
+}
+
+/*分页超链接的样式*/
+.paging-ul a{
+	width:20px; 
+	height:20px; 
+	color: black;
+	display:block;
+	text-align:center; 
+	border:1px solid #D6D6D6;
+	text-decoration: none;
+}
+.paging-li-a1 a{
+	width:70px;
+	float: left;
+	margin-right: 5px;
+}
+
+.paging-li-a2 a{
+	margin-left:50px;
+}
+.paging-li-a3 a{
+	width:70px;
+    margin-left:50px;
+}
+.paging-li-a4 a{
+	margin-left: 100px;
+}
+
+/*-------------------------友情链接的样式------------*/
+.content-textarea{
+	width: 30%;
+	min-height: 100px;
+	margin-top: 2%;
+	margin-left: 36%;
+}
+.content-textarea label{
+	display: block;
+	float: left;
+	width: 50px;
+	margin-top: 8px;
+}
+.input-textarea{
+	width: 67%;
+	padding: 6px 3px;
+    margin-left: 12px;
+	font-family: inherit;
+    border: 1px solid #d5d5d5;
+    color: #858585;
+	background-color: #fff;
+}
+.input-textarea:focus{
+	border-color: #f59942;
+	color: #696969;
+	background-color: #fff;
+}
+/*----------------------地点维护的样式--------------*/
+/*地点单选按钮的样式*/
+.content-radio{
+	width: 30%;
+	height: 30px;
+	margin-left:36%;
+	margin-top: 2%;
+}
+.content-radio input{
+	margin-left: 8%;
+}
+
+/*------------rolelist页 分配权限按钮 样式-------*/
+table .share-role{
+	display: inline-block;
+	width: 50px;
+	height: 18px;
+	margin-top: 5px;
+	padding:1px;
+	line-height: 22px;
+	background: #6fb3e0;
+	color: #ffffff;
+}
+.content-input-checkbox{
+	width: 30%;
+	margin-left:36%;
+	margin-top: 2%;
+}
+.checkbox-div{
+	float: left;
+	margin-right: 50px;
+	margin-top: 5px;
+}
+.btn-margin-bottom{
+	margin-bottom: 10px;
+}
+.red-warning{
+	padding-left: 70px;
+	color: #d15b47;
+}
+.content-warning{
+	height: 30px;
+    margin-left: 36%;
+    margin-top: 2%;
+}
+.message-content{
+	min-height: 300px;
+	*height: 300px;
+	padding: 20px;
+	text-indent: 2em;
+}

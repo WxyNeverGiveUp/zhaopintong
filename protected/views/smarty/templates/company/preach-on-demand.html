@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<!-- 田慧婷 宣讲点播 -->
+<head>
+	<meta charset="utf-8" />
+	<title>宣讲点播</title>
+    <{include file="../common/link.html"}>
+    <{include file="../common/script.html"}>
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/common.css">
+    <link rel="stylesheet" type="text/css" href="<{$staticWebsite}>resources/css/page/company/preach-on-demand.css">
+</head>
+<body>
+<{include file="../common/header.html"}>
+<{include file="../company/common/header.html"}>
+	<div class="page">
+		<div class="player">
+            
+             <script src='<{$staticWebsite}>js/polyvplayer_v2.0.min.js'></script>
+             <div id='plv_<{$newest.url}>' class="intro-video"></div>
+                    <script>
+                        var player = polyvObject('#plv_<{$newest.url}>').videoPlayer({
+                           'width':'187px',
+                             'height':'165px',
+                            'vid' : '<{$newest.url}>'
+                        });
+                     </script>
+		 </div>
+
+		<div class="videos">
+			<h1>
+				<span>全部</span>
+			</h1>
+
+			<div class="videos-content">
+                <{if $allPreach neq null}>
+				<h3>
+					<span class="videos-header">
+						<span class="videos-title">宣讲会点播</span>
+					</span>
+				</h3>
+				 <ul class="clearfix preach-command-video">
+                     <{foreach from=$allPreach item=pr}>
+                     <li>
+                         <div id='plv_<{$pr.url}>' class="intro-video"></div>
+                         <script>
+                             var player = polyvObject('#plv_<{$pr.url}>').videoPlayer({
+                                 'width':'187px',
+                                 'height':'165px',
+                                 'vid' : '<{$pr.url}>'
+                             });
+                         </script>
+                         <p class="video-description"><{$pr.name}></p>
+                     </li>
+                     <{/foreach}>
+                </ul>
+                <{/if}>
+                <h3>
+                    <span class="videos-header">
+                        <span class="videos-title">热门宣讲会</span>
+                    </span>
+                </h3>
+                 <ul class="clearfix preach-command-video">
+                     <{foreach name=infolist from=$hotPreach item=hot}>
+                     <li>
+                         <div id='plv_<{$hot.url}>' class="intro-video"></div>
+                         <script>
+                             var player = polyvObject('#plv_<{$hot.url}>').videoPlayer({
+                                 'width':'187px',
+                                 'height':'165px',
+                                 'vid' : '<{$hot.url}>'
+                             });
+                         </script>
+                        <p class="video-description"><{$hot.name}></p>
+                     </li>
+                     <{/foreach}>
+                </ul>
+
+                <h3>
+                    <span class="videos-header">
+                        <span class="videos-title">最新上线</span>
+                    </span>
+                </h3>
+                <ul class="clearfix preach-command-video" id="J_template"></ul>             
+        	    <div id="J_pagination"></div>
+			</div>
+		</div>
+	</div>
+    <script type="text/template" id="tpl">
+        {@each data as d}
+            <li>
+                <object id="&{d.url}" class="polyvFlashObject" width="187px" height="165px" type="application/x-shockwave-flash" data="http://player.polyv.net/videos/player.swf">
+                    <param name="allowScriptAccess" value="always">
+                    <param name="allowFullScreen" value="true">
+                    <param name="quality" value="high">
+                    <param name="bgcolor" value="#ffffff">
+                    <param name="wmode" value="transparent">
+                    <param name="flashvars" value="vid=&{d.url}&">
+                </object>
+                  <p class="video-description">&{d.name}</p>
+             </li>
+        {@/each}
+    </script>
+<{include file="../common/footer.html"}>
+<script type="text/javascript">
+        KISSY.use('page/company/jobDetail',function(S){ 
+            S.ready(function(){
+                PW.page.company.jobDetail();   
+            });
+        })
+</script>
+<script type="text/javascript">
+    KISSY.use('mod/pagination',function(S){
+        var 
+            urls = PW.Env.url.company.companyPreach,
+            url = urls.getDemandPreach;
+            PW.mod.Pagination.client({
+             renderTo:'#J_pagination' ,//分页显示指向
+            juicerRender:'#tpl' ,//模板渲染指向
+            dataRender:'#J_template',
+            pageSize:12,//每页显示的记录数
+            url:url,//必选，指向ajax的url
+            configUrl:function(url,page,me,prevdata){
+                return url + '/id/'+<{$id}>+'/page/' + page ;
+                //return url;
+            },
+            type:'get'
+        })
+    },{
+        requires:['mod/pagination']
+    })
+</script>
+</body>
+</html>

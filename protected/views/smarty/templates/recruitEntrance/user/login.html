@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<{include file="../common/link.html"}>
+	<{include file="../common/script.html"}>
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/css/page/user/login.css">
+	<link rel="stylesheet" type="text/css" href="<{$staticWebsite}>recruitment_resources/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="pop">
+	    <div class="pop-bg"></div>
+	    <div class="login clearfix">
+	        <form class="login-part" id="L-form"  action="<{$website}>recruitEntrance/recruitEntrance/login" method="post">
+	            <h1>东北高师就业联盟网-用人单位登录</h1>
+	            <div class="account form-control">
+	                <label>
+	                	<i class="fa fa-user"></i> 用户名
+	                </label>
+	                <input type="text" name="username" placeholder="请输入注册的手机号码" class="phone">
+	                <p class="tip none">用户名错误,请输入正确的的手机号码</p>
+	            </div>
+	            <div class="password form-control">
+	                <label for="">
+	                	<i class="fa fa-lock"></i> 密码
+	                </label>
+	                <input type="password" name="password">
+	                <p class="tip"><{$msg}></p>
+	            </div>
+	            <div class="form-control">
+	                <input type="checkbox" class="remember-me" id="rm-label"/>
+	                <label class="rm-label" for="rm-label">记住密码</label>
+	                <input type="submit" value="立即登录" class="submit login-btn">
+	            	<input type="button" class="login-btn register-btn" value="立即注册">
+	            </div>
+	            <div class="form-control">
+	                <a href="javascript:;" class="forget-password">忘记密码?</a>
+	            </div>
+	        </form>
+	    </div>
+	    <div class="register-choose login-part none">
+		    <h1>东北高师就业联盟网-注册类型选择<a href="<{$website}>recruitEntrance/recruitmentInfo/duanxin/toLogin" class="close">X</a></h1>
+		    <a class="enter" href="<{$website}>recruitEntrance/RecruitEntrance/CreateCompany">单位尚未入驻本系统</a>
+		    <a class="no-enter" href="<{$website}>recruitEntrance/RecruitEntrance/FillCompany">单位尚已入驻本系统</a>
+	    </div>
+	    <div class="register none">
+			<form class="login-part" action="<{$website}>recruitEntrance/recruitmentInfo/duanXin/verify" method="post" id="R-form">
+	    	    <h1>东北高师就业联盟网-找回密码</h1>
+	    	    <div class="account form-control">
+	    	        <label>
+	    	        	<i class="fa fa-user"></i> 用户名
+	    	        </label>
+					<input id="scms_gettel" type="text" name="username" placeholder="请填写注册时的手机号">
+	    	    </div>
+	    	    <div class="password form-control">
+	    	        <label for=""><i class="fa fa-lock"></i> 新密码
+	    	        </label>
+					<input type="password" name="password" placeholder="新密码" class="require-text psw">
+	    	        <p class="tip none">请输入6-16位密码</p>
+	    	    </div>
+	    	    <div class="password form-control">
+	    	        <label for=""><i class="fa fa-lock"></i> 确认密码
+	    	        </label>
+					<input type="password" name="passwordAgain" placeholder="重新输入新密码" class="require-text psw2">
+	    	        <p class="tip none">请确认是否与登录密码一致</p>
+	    	    </div>
+	    	    <div class="code-control">
+	    	        <label>图形验证码</label>
+	    	        <span class="code-box">
+	    	            <input type="text" name="" placeholder="必填" class="require-text" id="img-code-input">
+	    	            <img src="http://www.dsjyw.net/util/captcha/getcode" id="img-code" class="img-code">
+	    	        </span>
+	    	        <p class="tip none"></p>
+	    	    </div>
+				<div class="code-control">
+					<label>短信验证码</label>
+					<span class="code-box">
+						<input name="code" id="right_yzcode" type="hidden" value=""/>
+	    	            <input type="text" name="code" id="scms_yzcode" placeholder="必填" class="require-text">
+						<input name="Submitbfs" type="button" value="获取验证码" id="Submitbfs"/>
+						<div id="show_statu"></div>
+	    	        </span>
+	    	    </div>
+	    	    <div class="form-control clearfix">
+	    	        <input type="submit" value="提交" class="sub-btn login-btn">
+	    	        <span class="to-login">已有账号？<a href="">去登录</a></span>
+	    	    </div>
+	    	</form>
+	    </div>    
+	</div>
+	<script type="text/javascript" src="<{$staticWebsite}>recruitment_resources/js/page/user/register.js"></script>
+</body>
+</html>
